@@ -4,6 +4,8 @@ import {
 } from '../market-subscription';
 import {AlorOpenApiOptions, SubscriptionAction} from '../types';
 import { WebSocket } from 'ws';
+import {refreshTokenMiddleware} from "../utils";
+import {AxiosInstance} from "axios";
 // import { refreshTokenMiddleware } from './utils';
 
 export class BaseStream {
@@ -21,14 +23,14 @@ export class BaseStream {
 
     protected readonly refresh: any;
 
-    constructor(options: AlorOpenApiOptions) {
+    constructor(options: AlorOpenApiOptions, http: AxiosInstance) {
         this.options = { ...this.options, ...options };
 
-        // this.refresh = refreshTokenMiddleware(
-        //     axios,
-        //     this.options.token,
-        //     (token) => (this.accessToken = token),
-        // );
+        this.refresh = refreshTokenMiddleware(
+            http,
+            this.options.token,
+            (token) => (this.accessToken = token),
+        );
 
         this.wss = new WebSocket(options.wssEndpoint);
         this.wss.on('open', () => {

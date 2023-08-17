@@ -17,7 +17,7 @@ import AlorApi from "../api";
 export class MarketStream extends BaseStream {
 
 constructor(private api: AlorApi) {
-    super(api.options);
+    super(api.options, api.http);
 }
     /**
      * Подписка на информацию о заявках

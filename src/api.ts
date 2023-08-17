@@ -23,7 +23,7 @@ const defaults: Required<Pick<AlorOpenApiOptions, 'endpoint' | 'wssEndpoint'>> =
     wssEndpoint: WssEndpoint.PROD
 };
 export class AlorApi {
-    private readonly http: AxiosInstance;
+    public readonly http: AxiosInstance;
     private _accessToken: string;
     private _stream: MarketStream;
 
