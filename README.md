@@ -27,19 +27,15 @@ const api = new AlorApi({ token: '<your-token>', endpoint: Endpoint.PROD, wssEnd
 Как получить токен доступа описано [тут](https://alor.dev/open-api-tokens).
 
 ### API-запросы
+
 ```ts
-// получить список счетов
-const { accounts } = await api.users.getAccounts({});
+import {Exchange} from "./types";
 
-// получить портфель по id счета
-const portfolio = await api.operations.getPortfolio({ accountId: accounts[0].id });
+// Получение информации о портфеле
+const summary = await api.portfolio.getSummary({exchange: Exchange.MOEX, portfolio: '<your-portfolio>'});
 
-// получить 1-минутные свечи за последние 5 мин для акций Тинкофф Групп
-const { candles } = await api.marketdata.getCandles({
-  figi: 'BBG00QPYJ5H0',
-  interval: CandleInterval.CANDLE_INTERVAL_1_MIN,
-  ...api.helpers.fromTo('-5m'), // <- удобный хелпер для получения { from, to }
-});
+// Получение информации о позициях
+const positions = await api.portfolio.getPositions({exchange: Exchange.MOEX, portfolio: '<your-portfolio>'});
 ```
 
 ### Стримы
@@ -48,7 +44,7 @@ const { candles } = await api.marketdata.getCandles({
 // подписка на свечи
 const unsubscribe = await api.stream.candles({
     code: 'SBER',
-    exchange: 'MOEX',
+    exchange: Exchange.MOEX,
     from: startDateTime,
     tf: Timeframe.Min5,
     delayed: false,
