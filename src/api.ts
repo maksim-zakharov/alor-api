@@ -42,6 +42,15 @@ export class AlorApi {
         return this._stream;
     }
 
+    get orders() {
+        return {
+            sendOrder: this.sendOrder,
+            sendStopLimitOrder: this.sendStopLimitOrder,
+            getOrders: this.getOrders,
+            cancelStopOrder: (req) => this.cancelOrder({ ...req, stop: false }),
+        };
+    }
+
     get stoporders() {
         return {
             changeStopOrder: this.changeStopOrder,
@@ -49,6 +58,20 @@ export class AlorApi {
             getStopOrders: this.getStopOrders,
             cancelStopOrder: (req) => this.cancelOrder({ ...req, stop: true }),
         };
+    }
+
+    get securities(){
+        return {
+            getQuotes: this.getQuotes,
+            getSecurities: this.getSecurities
+        }
+    }
+
+    get portfolio(){
+        return {
+            getPositions: this.getPositions,
+            getSummary: this.getSummary
+        }
     }
 
     get stream() { return this.getOrCreateStream(); }
@@ -68,7 +91,7 @@ export class AlorApi {
         return result;
     }
 
-    async getPositions({
+    private async getPositions({
                            exchange,
                            portfolio,
                        }: {
@@ -94,7 +117,7 @@ export class AlorApi {
             .then((r) => r.data);
     }
 
-    async getOrders({
+    private async getOrders({
                         exchange,
                         portfolio,
                     }: {
@@ -106,7 +129,7 @@ export class AlorApi {
             .then((r) => r.data);
     }
 
-    async getSummary({
+    private async getSummary({
                          exchange,
                          portfolio,
                      }: {
@@ -118,7 +141,7 @@ export class AlorApi {
             .then((r) => r.data);
     }
 
-    async getSecurities({
+    private async getSecurities({
                             exchange,
                         }: {
         exchange: Exchange;
@@ -128,7 +151,7 @@ export class AlorApi {
             .then((r) => r.data);
     }
 
-    async getQuotes({
+    private async getQuotes({
                         exchange,
                         tickers,
                     }: {
@@ -146,7 +169,7 @@ export class AlorApi {
         return summary;
     }
 
-    async sendOrder(
+    private async sendOrder(
         body: SendOrderRequest,
     ): Promise<SendOrderResponse | ApiError> {
         const requestId = uuidv();
@@ -178,7 +201,7 @@ export class AlorApi {
         }
     }
 
-    async sendStopLimitOrder(
+    private async sendStopLimitOrder(
         body: SendStopLimitRequest,
     ): Promise<SendOrderResponse | ApiError> {
         const requestId = uuidv();
@@ -308,7 +331,7 @@ export class AlorApi {
         }
     }
 
-    async cancelOrder({
+    private async cancelOrder({
                           orderId,
                           portfolio,
                           exchange,
