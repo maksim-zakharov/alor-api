@@ -1,6 +1,6 @@
 {
   "name": "alor-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
