@@ -45,26 +45,26 @@ export class AlorApi {
 
     get orders() {
         return {
-            sendOrder: this.sendOrder,
-            sendStopLimitOrder: this.sendStopLimitOrder,
-            getOrders: this.getOrders,
+            sendOrder: req => this.sendOrder(req),
+            sendStopLimitOrder: req => this.sendStopLimitOrder(req),
+            getOrders: req => this.getOrders(req),
             cancelOrder: (req) => this.cancelOrder({ ...req, stop: false }),
         };
     }
 
     get stoporders() {
         return {
-            changeStopOrder: this.changeStopOrder,
-            sendStopOrder: this.sendStopOrder,
-            getStopOrders: this.getStopOrders,
+            changeStopOrder: (orderId, req) => this.changeStopOrder(orderId, req),
+            sendStopOrder: req => this.sendStopOrder(req),
+            getStopOrders: req => this.getStopOrders(req),
             cancelStopOrder: (req) => this.cancelOrder({ ...req, stop: true }),
         };
     }
 
     get securities(){
         return {
-            getQuotes: this.getQuotes,
-            getSecurities: this.getSecurities
+            getQuotes: req => this.getQuotes(req),
+            getSecurities: req => this.getSecurities(req)
         }
     }
 
