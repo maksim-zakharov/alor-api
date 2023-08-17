@@ -11,6 +11,21 @@
     "preversion": "tsc",
     "postversion": "npm publish"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksim-zakharov/alor-api.git"
+  },
+  "keywords": [
+    "alor",
+    "typescript",
+    "openapi"
+  ],
+  "author": "Maksim Zakharov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maksim-zakharov/alor-api/issues"
+  },
+  "homepage": "https://github.com/maksim-zakharov/alor-api#readme",
   "devDependencies": {
     "@types/uuid": "^9.0.2",
     "@types/ws": "^8.5.5",
