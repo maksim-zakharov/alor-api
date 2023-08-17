@@ -33,9 +33,8 @@ export const refreshTokenMiddleware = (
                 }
                 axios.defaults.headers.common['Authorization'] =
                     'Bearer ' + data.AccessToken;
-                if (originalRequest)
-                    originalRequest.headers['Authorization'] =
-                        'Bearer ' + data.AccessToken;
+                if (originalRequest && originalRequest.headers)
+                    originalRequest.headers['Authorization'] =                        'Bearer ' + data.AccessToken;
                 processQueue(null, data.AccessToken);
                 if (originalRequest && resolve) resolve(axios(originalRequest));
             })
@@ -63,7 +62,7 @@ export const refreshTokenMiddleware = (
                         failedQueue.push({ resolve, reject });
                     })
                         .then((token) => {
-                            originalRequest.headers['Authorization'] = 'Bearer ' + token;
+                            originalRequest.headers && (originalRequest.headers['Authorization'] = 'Bearer ' + token);
                             return axios(originalRequest);
                         })
                         .catch((err) => {
