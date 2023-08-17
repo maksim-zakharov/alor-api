@@ -70,8 +70,8 @@ export class AlorApi {
 
     get portfolio(){
         return {
-            getPositions: this.getPositions,
-            getSummary: this.getSummary
+            getPositions: req => this.getPositions(req),
+            getSummary: req => this.getSummary(req)
         }
     }
 
