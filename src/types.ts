@@ -17,11 +17,17 @@ export enum Endpoint {
   PROD = 'https://api.alor.ru',
 }
 
+export enum WssEndpoint {
+  PROD = 'wss://api.alor.ru/ws',
+}
+
 export interface AlorOpenApiOptions {
   /** Токен доступа */
   token: string;
   /** API endpoint */
-  endpoint?: Endpoint;
+  endpoint: Endpoint;
+  /** WSS endpoint */
+  wssEndpoint: WssEndpoint;
 }
 
 export interface Order {

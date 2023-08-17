@@ -12,14 +12,15 @@ import {
     SendStopLimitRequest,
     SendStopOrderRequest,
     StopOrder,
-    Summary,
+    Summary, WssEndpoint,
 } from './types';
 import axios, {AxiosInstance} from 'axios';
 import {v4 as uuidv} from 'uuid';
 import {MarketStream} from "./streams/market-stream";
 
-const defaults: Required<Pick<AlorOpenApiOptions, 'endpoint'>> = {
+const defaults: Required<Pick<AlorOpenApiOptions, 'endpoint' | 'wssEndpoint'>> = {
     endpoint: Endpoint.PROD,
+    wssEndpoint: WssEndpoint.PROD
 };
 export class AlorApi {
     private readonly http: AxiosInstance;
@@ -47,7 +48,7 @@ export class AlorApi {
             sendOrder: this.sendOrder,
             sendStopLimitOrder: this.sendStopLimitOrder,
             getOrders: this.getOrders,
-            cancelStopOrder: (req) => this.cancelOrder({ ...req, stop: false }),
+            cancelOrder: (req) => this.cancelOrder({ ...req, stop: false }),
         };
     }
 

@@ -30,7 +30,7 @@ export class BaseStream {
         //     (token) => (this.accessToken = token),
         // );
 
-        this.wss = new WebSocket(this.options.endpoint);
+        this.wss = new WebSocket(options.wssEndpoint);
         this.wss.on('open', () => {
             console.log(`[WSS] Подключение к ${this.wss.url} установлено.`);
         });
