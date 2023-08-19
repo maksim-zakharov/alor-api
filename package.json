@@ -29,7 +29,15 @@
   "devDependencies": {
     "@types/uuid": "^9.0.2",
     "@types/ws": "^8.5.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
+    "prettier": "^3.0.2",
     "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npx prettier --write"
+    ]
   },
   "dependencies": {
     "axios": "^1.4.0",

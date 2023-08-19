@@ -1,7 +1,7 @@
 import {
     AlorOpenApiOptions,
     ApiError, Endpoint,
-    Exchange,
+    Exchange, GetPositionRequest, GetPositionsRequest, GetStopOrderRequest, GetStopOrdersRequest,
     Order,
     Position,
     Quotes,
@@ -95,13 +95,24 @@ export class AlorApi {
     private async getPositions({
                            exchange,
                            portfolio,
-                       }: {
-        exchange: Exchange;
-        portfolio: string;
-    }): Promise<Position[]> {
+                                   withoutCurrency
+                       }: GetPositionsRequest): Promise<Position[]> {
         return this.http
             .get(
-                `/md/v2/Clients/${exchange}/${portfolio}/positions?format=Simple&withoutCurrency=true`,
+                `/md/v2/Clients/${exchange}/${portfolio}/positions?format=Simple&withoutCurrency=${withoutCurrency}`,
+            )
+            .then((r) => r.data);
+    }
+
+    private async getPositionBySymbol({
+        symbol,
+                                   exchange,
+                                   portfolio,
+                                          withoutCurrency
+                               }: GetPositionRequest): Promise<Position> {
+        return this.http
+            .get(
+                `/md/v2/Clients/${exchange}/${portfolio}/positions/${symbol}?format=Simple&withoutCurrency=${withoutCurrency}`,
             )
             .then((r) => r.data);
     }
@@ -109,12 +120,19 @@ export class AlorApi {
     private async getStopOrders({
                                     exchange,
                                     portfolio,
-                                }: {
-        exchange: Exchange;
-        portfolio: string;
-    }): Promise<StopOrder[]> {
+                                }: GetStopOrdersRequest): Promise<StopOrder[]> {
         return this.http
             .get(`/md/v2/clients/${exchange}/${portfolio}/stoporders?format=SIMPLE`)
+            .then((r) => r.data);
+    }
+
+    private async getStopOrderByOrderId({
+        orderId,
+                                    exchange,
+                                    portfolio,
+                                }: GetStopOrderRequest): Promise<StopOrder> {
+        return this.http
+            .get(`/md/v2/clients/${exchange}/${portfolio}/stoporders/${orderId}?format=SIMPLE`)
             .then((r) => r.data);
     }
 
@@ -127,6 +145,20 @@ export class AlorApi {
     }): Promise<Order[]> {
         return this.http
             .get<Order[]>(`/md/v2/clients/${exchange}/${portfolio}/orders`)
+            .then((r) => r.data);
+    }
+
+    private async getOrderById({
+        orderId,
+                                exchange,
+                                portfolio,
+                            }: {
+        orderId: string;
+        exchange: Exchange;
+        portfolio: string;
+    }): Promise<Order> {
+        return this.http
+            .get<Order>(`/md/v2/clients/${exchange}/${portfolio}/orders/${orderId}`)
             .then((r) => r.data);
     }
 

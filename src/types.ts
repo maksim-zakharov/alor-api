@@ -30,6 +30,27 @@ export interface AlorOpenApiOptions {
   wssEndpoint: WssEndpoint;
 }
 
+export interface GetStopOrdersRequest {
+  exchange: Exchange;
+portfolio: string;
+}
+
+export interface GetPositionsRequest {
+  exchange: Exchange;
+  portfolio: string;
+  withoutCurrency: boolean;
+}
+
+
+export interface GetPositionRequest extends GetPositionsRequest{
+  symbol: string;
+}
+
+
+export interface GetStopOrderRequest extends GetStopOrdersRequest{
+  orderId: string;
+}
+
 export interface Order {
   id: string;
   symbol: string;
