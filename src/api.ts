@@ -1,8 +1,11 @@
 import {
   AlorOpenApiOptions,
   ApiError,
+  CancelOrderRequest,
   Endpoint,
   Exchange,
+  GetOrderRequest,
+  GetOrdersRequest,
   GetPositionRequest,
   GetPositionsRequest,
   GetStopOrderRequest,
@@ -52,19 +55,26 @@ export class AlorApi {
 
   get orders() {
     return {
-      sendOrder: (req) => this.sendOrder(req),
-      sendStopLimitOrder: (req) => this.sendStopLimitOrder(req),
-      getOrders: (req) => this.getOrders(req),
-      cancelOrder: (req) => this.cancelOrder({ ...req, stop: false }),
+      sendOrder: (req: SendOrderRequest) => this.sendOrder(req),
+      sendStopLimitOrder: (req: SendStopLimitRequest) =>
+        this.sendStopLimitOrder(req),
+      getOrders: (req: GetOrdersRequest) => this.getOrders(req),
+      getOrderById: (req: GetOrderRequest) => this.getOrderById(req),
+      cancelOrder: (req: Omit<CancelOrderRequest, "stop">) =>
+        this.cancelOrder({ ...req, stop: false }),
     };
   }
 
   get stoporders() {
     return {
-      changeStopOrder: (orderId, req) => this.changeStopOrder(orderId, req),
-      sendStopOrder: (req) => this.sendStopOrder(req),
-      getStopOrders: (req) => this.getStopOrders(req),
-      cancelStopOrder: (req) => this.cancelOrder({ ...req, stop: true }),
+      changeStopOrder: (orderId: string, req: SendStopOrderRequest) =>
+        this.changeStopOrder(orderId, req),
+      sendStopOrder: (req: SendStopOrderRequest) => this.sendStopOrder(req),
+      getStopOrders: (req: GetStopOrdersRequest) => this.getStopOrders(req),
+      getStopOrderByOrderId: (req: GetStopOrderRequest) =>
+        this.getStopOrderByOrderId(req),
+      cancelStopOrder: (req: Omit<CancelOrderRequest, "stop">) =>
+        this.cancelOrder({ ...req, stop: true }),
     };
   }
 
@@ -77,7 +87,9 @@ export class AlorApi {
 
   get portfolio() {
     return {
-      getPositions: (req) => this.getPositions(req),
+      getPositions: (req: GetPositionsRequest) => this.getPositions(req),
+      getPositionBySymbol: (req: GetPositionRequest) =>
+        this.getPositionBySymbol(req),
       getSummary: (req) => this.getSummary(req),
     };
   }
@@ -150,10 +162,7 @@ export class AlorApi {
   private async getOrders({
     exchange,
     portfolio,
-  }: {
-    exchange: Exchange;
-    portfolio: string;
-  }): Promise<Order[]> {
+  }: GetOrdersRequest): Promise<Order[]> {
     return this.http
       .get<Order[]>(`/md/v2/clients/${exchange}/${portfolio}/orders`)
       .then((r) => r.data);
@@ -163,11 +172,7 @@ export class AlorApi {
     orderId,
     exchange,
     portfolio,
-  }: {
-    orderId: string;
-    exchange: Exchange;
-    portfolio: string;
-  }): Promise<Order> {
+  }: GetOrderRequest): Promise<Order> {
     return this.http
       .get<Order>(`/md/v2/clients/${exchange}/${portfolio}/orders/${orderId}`)
       .then((r) => r.data);
@@ -378,12 +383,7 @@ export class AlorApi {
     portfolio,
     exchange,
     stop,
-  }: {
-    orderId: number | string;
-    portfolio: string;
-    exchange: Exchange;
-    stop: boolean;
-  }): Promise<any> {
+  }: CancelOrderRequest): Promise<any> {
     try {
       const result = await this.http
         .delete(`/commandapi/warptrans/TRADE/v2/client/orders/${orderId}`, {

@@ -179,6 +179,22 @@ export enum OrderType {
   Market = "market",
 }
 
+export interface CancelOrderRequest {
+  orderId: number | string;
+  portfolio: string;
+  exchange: Exchange;
+  stop: boolean;
+}
+
+export interface GetOrderRequest extends GetOrdersRequest {
+  orderId: string;
+}
+
+export interface GetOrdersRequest {
+  exchange: Exchange;
+  portfolio: string;
+}
+
 export interface SendOrderRequest {
   side: OrderSide;
   type: OrderType;
