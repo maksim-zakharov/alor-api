@@ -90,6 +90,7 @@ export enum OrderStatus {
   Rejected = 'rejected',
 }
 
+
 export enum TimeInForce {
   /**
    * До конца дня
