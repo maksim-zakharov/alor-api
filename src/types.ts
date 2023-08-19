@@ -1,6 +1,6 @@
 export enum Exchange {
-  MOEX = 'MOEX',
-  SPBX = 'SPBX',
+  MOEX = "MOEX",
+  SPBX = "SPBX",
 }
 
 export interface Orderbook {
@@ -13,12 +13,12 @@ export interface Orderbook {
 }
 
 export enum Endpoint {
-  DEV = 'https://apidev.alor.ru',
-  PROD = 'https://api.alor.ru',
+  DEV = "https://apidev.alor.ru",
+  PROD = "https://api.alor.ru",
 }
 
 export enum WssEndpoint {
-  PROD = 'wss://api.alor.ru/ws',
+  PROD = "wss://api.alor.ru/ws",
 }
 
 export interface AlorOpenApiOptions {
@@ -32,7 +32,8 @@ export interface AlorOpenApiOptions {
 
 export interface GetStopOrdersRequest {
   exchange: Exchange;
-portfolio: string;
+
+      portfolio: string;
 }
 
 export interface GetPositionsRequest {
@@ -41,13 +42,11 @@ export interface GetPositionsRequest {
   withoutCurrency: boolean;
 }
 
-
-export interface GetPositionRequest extends GetPositionsRequest{
+export interface GetPositionRequest extends GetPositionsRequest {
   symbol: string;
 }
 
-
-export interface GetStopOrderRequest extends GetStopOrdersRequest{
+export interface GetStopOrderRequest extends GetStopOrdersRequest {
   orderId: string;
 }
 
@@ -75,39 +74,38 @@ export enum OrderStatus {
   /**
    * На исполнении
    */
-  Working = 'working',
+  Working = "working",
   /**
    * Исполнена
    */
-  Filled = 'filled',
+  Filled = "filled",
   /**
    * Отменена
    */
-  Canceled = 'canceled',
+  Canceled = "canceled",
   /**
    * Отклонена
    */
-  Rejected = 'rejected',
+  Rejected = "rejected",
 }
-
 
 export enum TimeInForce {
   /**
    * До конца дня
    */
-  OneDay = 'OneDay',
+  OneDay = "OneDay",
   /**
    * Снять остаток
    */
-  ImmediateOrCancel = 'ImmediateOrCancel',
+  ImmediateOrCancel = "ImmediateOrCancel",
   /**
    * Исполнить целиком или отклонить
    */
-  FillOrKill = 'FillOrKill',
+  FillOrKill = "FillOrKill",
   /**
    * Активна до отмены
    */
-  GoodTillCancelled = 'GoodTillCancelled',
+  GoodTillCancelled = "GoodTillCancelled",
 }
 
 export interface StopOrder {
@@ -172,13 +170,13 @@ export interface Position {
 }
 
 export enum OrderSide {
-  Buy = 'buy',
-  Sell = 'sell',
+  Buy = "buy",
+  Sell = "sell",
 }
 
 export enum OrderType {
-  Limit = 'limit',
-  Market = 'market',
+  Limit = "limit",
+  Market = "market",
 }
 
 export interface SendOrderRequest {
@@ -240,23 +238,23 @@ export enum TradingMode {
   /**
    * Режим основных торгов Т+ (Стакан Т+2)
    */
-  TQBR = 'TQBR',
+  TQBR = "TQBR",
   /**
    * РПС с ЦК, РПС
    */
-  PTEQ = 'PTEQ',
+  PTEQ = "PTEQ",
   /**
    * Режим торгов «Неполные лоты»
    */
-  SMAL = 'SMAL',
+  SMAL = "SMAL",
   /**
    * Сектор ПИР – Режим основных торгов
    */
-  TQPI = 'TQPI',
+  TQPI = "TQPI",
   /**
    * Сектор ПИР – РПС
    */
-  PSPI = 'PSPI',
+  PSPI = "PSPI",
 }
 
 export enum TradingStatus {
@@ -306,31 +304,31 @@ export enum ComplexProductCategory {
   /**
    * Инструменты, предназначенные для КИ
    */
-  DefaultQualInv = '0',
+  DefaultQualInv = "0",
   /**
    * Необеспеченные сделки
    */
-  Margin = '1',
+  Margin = "1",
   /**
    * Производные финансовые инструменты
    */
-  FeaturesAndOptions = '2',
+  FeaturesAndOptions = "2",
   /**
    *  Договоры репо, требующие тестирования
    */
-  Repo = '3',
+  Repo = "3",
   /**
    * Структурные облигации, не предназначенные для КИ
    */
-  StructureBonds = '4',
+  StructureBonds = "4",
   /**
    * ЗПИФ, не предназначенные для КИ
    */
-  ETF = '5',
+  ETF = "5",
   /**
    * Облигации российских эмитентов без рейтинга
    */
-  NonRatingRusBonds = '6',
+  NonRatingRusBonds = "6",
   // 7 - Облигации иностранных эмитентов, исполнение по которым обеспечивается за счет юридического лица РФ без рейтинга
   // 8 - Облигации со структурным доходом
   // 9 - Акции, не включенные в котировальные списки
@@ -349,10 +347,10 @@ export enum Timeframe {
   Min1 = 60,
   Min5 = 300,
   Hour1 = 3600,
-  Day = 'D',
-  Week = 'W',
-  Month = 'M',
-  Year = 'Y',
+  Day = "D",
+  Week = "W",
+  Month = "M",
+  Year = "Y",
 }
 
 export interface Candle {
@@ -365,15 +363,15 @@ export interface Candle {
 }
 
 export enum SubscriptionAction {
-  SUBSCRIPTION_ACTION_UNSUBSCRIBE = 'unsubscribe',
-  OrderBookGetAndSubscribe = 'OrderBookGetAndSubscribe',
-  BarsGetAndSubscribe = 'BarsGetAndSubscribe',
-  AllTradesGetAndSubscribe = 'AllTradesGetAndSubscribe',
-  QuotesSubscribe = 'QuotesSubscribe',
-  SummariesGetAndSubscribeV2 = 'SummariesGetAndSubscribeV2',
-  PositionsGetAndSubscribeV2 = 'PositionsGetAndSubscribeV2',
-  StopOrdersGetAndSubscribeV2 = 'StopOrdersGetAndSubscribeV2',
-  OrdersGetAndSubscribeV2 = 'OrdersGetAndSubscribeV2',
+  SUBSCRIPTION_ACTION_UNSUBSCRIBE = "unsubscribe",
+  OrderBookGetAndSubscribe = "OrderBookGetAndSubscribe",
+  BarsGetAndSubscribe = "BarsGetAndSubscribe",
+  AllTradesGetAndSubscribe = "AllTradesGetAndSubscribe",
+  QuotesSubscribe = "QuotesSubscribe",
+  SummariesGetAndSubscribeV2 = "SummariesGetAndSubscribeV2",
+  PositionsGetAndSubscribeV2 = "PositionsGetAndSubscribeV2",
+  StopOrdersGetAndSubscribeV2 = "StopOrdersGetAndSubscribeV2",
+  OrdersGetAndSubscribeV2 = "OrdersGetAndSubscribeV2",
 }
 
 export interface SendStopOrderRequest {
@@ -402,25 +400,25 @@ export interface ApiError {
 export interface OrdersSubscribeRequest extends BaseSubscribeRequest {
   portfolio: string;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
 }
 
 export interface StopOrdersSubscribeRequest extends BaseSubscribeRequest {
   portfolio: string;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
 }
 
 export interface PositionSubscribeRequest extends BaseSubscribeRequest {
   portfolio: string;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
 }
 
 export interface QuotesSubscribeRequest extends BaseSubscribeRequest {
   code: string;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
 }
 
 export interface CandlesSubscribeRequest extends BaseSubscribeRequest {
@@ -428,21 +426,21 @@ export interface CandlesSubscribeRequest extends BaseSubscribeRequest {
   tf: Timeframe;
   from: number;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
   delayed?: boolean;
 }
 
 export interface OrderbookSubscribeRequest extends BaseSubscribeRequest {
   code: string;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
   depth: number;
 }
 
 export interface AllTradesSubscribeRequest extends BaseSubscribeRequest {
   code: string;
   exchange: Exchange;
-  format: 'Simple';
+  format: "Simple";
   depth: number;
   includeVirtualTrades: boolean;
 }
@@ -454,19 +452,19 @@ export interface SummarySubscribeRequest extends BaseSubscribeRequest {
 
 export type WithoutOpcode<T extends BaseSubscribeRequest> = Omit<
   T,
-  'opcode' | 'token' | 'guid'
+  "opcode" | "token" | "guid"
 >;
 
 export interface SendOrderResponse {
-  message: 'success' | string;
+  message: "success" | string;
   orderNumber: number;
 }
 
 export enum StopOrderCondition {
   // Цена срабатывания меньше текущей цены
-  Less = 'less',
+  Less = "less",
   // Цена срабатывания больше текущей цены
-  More = 'more',
+  More = "more",
 }
 
 export interface Trade {
