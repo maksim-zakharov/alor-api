@@ -33,7 +33,7 @@ export interface AlorOpenApiOptions {
 export interface GetStopOrdersRequest {
   exchange: Exchange;
 
-      portfolio: string;
+  portfolio: string;
 }
 
 export interface GetPositionsRequest {
