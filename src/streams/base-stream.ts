@@ -54,7 +54,9 @@ export class BaseStream {
       //   (token) => (this.accessToken = token),
       // );
       const openWS = () => {
-        this.wss.emit("open");
+        if (this.wss.readyState !== WebSocket.OPEN) {
+          this.wss.emit("open");
+        }
         this.wss.on("open", () => {
           resolve(true);
         });
