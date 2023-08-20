@@ -28,13 +28,13 @@ export class BaseStream {
     this.refresh = refreshFn;
 
     this.wss = new WebSocket(options.wssEndpoint);
-    this.openWS();
+    // this.openWS();
   }
 
   private openWS = (resolve?: Function, reject?: Function) => {
-    if (this.wss.readyState !== WebSocket.OPEN) {
-      this.wss.emit("open");
-    }
+    // if (this.wss.readyState !== WebSocket.OPEN) {
+    //   this.wss.emit("open");
+    // }
     this.wss.setMaxListeners(100);
     this.wss.on("open", () => {
       console.log(`[WSS] Подключение к ${this.wss.url} установлено.`);
