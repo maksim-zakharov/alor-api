@@ -1,215 +1,223 @@
-import {BaseStream} from "./base-stream";
+import { BaseStream } from "./base-stream";
 import {
-    AllTradesSubscribeRequest,
-    Candle,
-    CandlesSubscribeRequest,
-    Order, Orderbook, OrderbookSubscribeRequest,
-    OrdersSubscribeRequest, Position, PositionSubscribeRequest, Quotes, QuotesSubscribeRequest,
-    StopOrder,
-    StopOrdersSubscribeRequest,
-    SubscriptionAction, Summary, SummarySubscribeRequest, Trade,
-    WithoutOpcode
+  AllTradesSubscribeRequest,
+  Candle,
+  CandlesSubscribeRequest,
+  Order,
+  Orderbook,
+  OrderbookSubscribeRequest,
+  OrdersSubscribeRequest,
+  Position,
+  PositionSubscribeRequest,
+  Quotes,
+  QuotesSubscribeRequest,
+  StopOrder,
+  StopOrdersSubscribeRequest,
+  SubscriptionAction,
+  Summary,
+  SummarySubscribeRequest,
+  Trade,
+  WithoutOpcode,
 } from "../types";
-import {MarketSubscription} from "../market-subscription";
-import { v4 as uuidv } from 'uuid';
+import { MarketSubscription } from "../market-subscription";
+import { v4 as uuidv } from "uuid";
 import AlorApi from "../api";
 
 export class MarketStream extends BaseStream {
-
-constructor(private api: AlorApi) {
-    super(api.options, api.http);
-}
-    /**
-     * Подписка на информацию о заявках
-     */
-    async orders(
+  constructor(private readonly api: AlorApi) {
+    super(api.options, api.refresh);
+  }
+  /**
+   * Подписка на информацию о заявках
+   */
+  async orders(
     req: WithoutOpcode<OrdersSubscribeRequest>,
     dataHandler: (order: Order) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<OrdersSubscribeRequest, Order>({
-        requestGuid: guid,
-        dataHandler,
-        buildRequest: (subscriptionAction?) => ({
-            ...req,
-            opcode:
-                subscriptionAction || SubscriptionAction.OrdersGetAndSubscribeV2,
-            token: this.accessToken,
-            guid,
-        }),
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction?) => ({
+        ...req,
+        opcode:
+          subscriptionAction || SubscriptionAction.OrdersGetAndSubscribeV2,
+        token: this.accessToken,
+        guid,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 
-/**
- * Подписка на информацию о стоп-заявках
- */
-async stoporders$(
+  /**
+   * Подписка на информацию о стоп-заявках
+   */
+  async stoporders(
     req: WithoutOpcode<StopOrdersSubscribeRequest>,
     dataHandler: (stoporder: StopOrder) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<
-        StopOrdersSubscribeRequest,
-        StopOrder
+      StopOrdersSubscribeRequest,
+      StopOrder
     >({
-        requestGuid: guid,
-        dataHandler,
-        buildRequest: (subscriptionAction?) => ({
-            ...req,
-            opcode:
-                subscriptionAction || SubscriptionAction.StopOrdersGetAndSubscribeV2,
-            token: this.accessToken,
-            guid,
-        }),
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction?) => ({
+        ...req,
+        opcode:
+          subscriptionAction || SubscriptionAction.StopOrdersGetAndSubscribeV2,
+        token: this.accessToken,
+        guid,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 
-/**
- * Подписка на информацию о текущих позициях по торговым инструментам и деньгам
- */
-async positions(
+  /**
+   * Подписка на информацию о текущих позициях по торговым инструментам и деньгам
+   */
+  async positions(
     req: WithoutOpcode<PositionSubscribeRequest>,
     dataHandler: (position: Position) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<
-        PositionSubscribeRequest,
-        Position
+      PositionSubscribeRequest,
+      Position
     >({
-        requestGuid: guid,
-        dataHandler,
-        buildRequest: (subscriptionAction?) => ({
-            ...req,
-            opcode:
-                subscriptionAction || SubscriptionAction.PositionsGetAndSubscribeV2,
-            token: this.accessToken,
-            guid,
-        }),
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction?) => ({
+        ...req,
+        opcode:
+          subscriptionAction || SubscriptionAction.PositionsGetAndSubscribeV2,
+        token: this.accessToken,
+        guid,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 
-/**
- * Подписка на сводную информацию по портфелю.
- */
-async summary(
+  /**
+   * Подписка на сводную информацию по портфелю.
+   */
+  async summary(
     req: WithoutOpcode<SummarySubscribeRequest>,
     dataHandler: (quotes: Summary) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<
-        SummarySubscribeRequest,
-        Summary
+      SummarySubscribeRequest,
+      Summary
     >({
-        requestGuid: guid,
-        dataHandler,
-        buildRequest: (subscriptionAction?) => ({
-            ...req,
-            opcode:
-                subscriptionAction || SubscriptionAction.SummariesGetAndSubscribeV2,
-            token: this.accessToken,
-            guid,
-        }),
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction?) => ({
+        ...req,
+        opcode:
+          subscriptionAction || SubscriptionAction.SummariesGetAndSubscribeV2,
+        token: this.accessToken,
+        guid,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 
-/**
- * Подписка на информацию о котировках.
- */
-async quotes(
+  /**
+   * Подписка на информацию о котировках.
+   */
+  async quotes(
     req: WithoutOpcode<QuotesSubscribeRequest>,
     dataHandler: (quotes: Quotes) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<QuotesSubscribeRequest, Quotes>(
-        {
-            requestGuid: guid,
-            dataHandler,
-            buildRequest: (subscriptionAction?) => ({
-                ...req,
-                opcode: subscriptionAction || SubscriptionAction.QuotesSubscribe,
-                token: this.accessToken,
-                guid,
-            }),
-        },
-    );
-    return this.watch(subscription);
-}
-
-/**
- * Подписка на стакан.
- */
-async orderBook(
-    req: WithoutOpcode<OrderbookSubscribeRequest>,
-    dataHandler: (orderbook: Orderbook) => unknown,
-) {
-    const guid = uuidv();
-    const subscription = new MarketSubscription<
-        OrderbookSubscribeRequest,
-        Orderbook
-    >({
+      {
         requestGuid: guid,
         dataHandler,
         buildRequest: (subscriptionAction?) => ({
-            ...req,
-            opcode:
-                subscriptionAction || SubscriptionAction.OrderBookGetAndSubscribe,
-            guid,
-            token: this.accessToken,
+          ...req,
+          opcode: subscriptionAction || SubscriptionAction.QuotesSubscribe,
+          token: this.accessToken,
+          guid,
         }),
+      },
+    );
+    return this.watch(subscription);
+  }
+
+  /**
+   * Подписка на стакан.
+   */
+  async orderBook(
+    req: WithoutOpcode<OrderbookSubscribeRequest>,
+    dataHandler: (orderbook: Orderbook) => unknown,
+  ) {
+    const guid = uuidv();
+    const subscription = new MarketSubscription<
+      OrderbookSubscribeRequest,
+      Orderbook
+    >({
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction?) => ({
+        ...req,
+        opcode:
+          subscriptionAction || SubscriptionAction.OrderBookGetAndSubscribe,
+        guid,
+        token: this.accessToken,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 
-/**
- * Подписка на свечи.
- */
-async candles(
+  /**
+   * Подписка на свечи.
+   */
+  async candles(
     req: WithoutOpcode<CandlesSubscribeRequest>,
     dataHandler: (candle: Candle) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<
-        CandlesSubscribeRequest,
-        Candle
+      CandlesSubscribeRequest,
+      Candle
     >({
-        requestGuid: guid,
-        dataHandler,
-        buildRequest: (subscriptionAction) => ({
-            ...req,
-            opcode: subscriptionAction || SubscriptionAction.BarsGetAndSubscribe,
-            token: this.accessToken,
-            guid,
-        }),
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction) => ({
+        ...req,
+        opcode: subscriptionAction || SubscriptionAction.BarsGetAndSubscribe,
+        token: this.accessToken,
+        guid,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 
-/**
- * Подписка на все сделки.
- */
-async alltrades(
+  /**
+   * Подписка на все сделки.
+   */
+  async alltrades(
     req: WithoutOpcode<AllTradesSubscribeRequest>,
     dataHandler: (trade: Trade) => unknown,
-) {
+  ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<
-        AllTradesSubscribeRequest,
-        Trade
+      AllTradesSubscribeRequest,
+      Trade
     >({
-        requestGuid: guid,
-        dataHandler,
-        buildRequest: (subscriptionAction) => ({
-            ...req,
-            opcode:
-                subscriptionAction || SubscriptionAction.AllTradesGetAndSubscribe,
-            token: this.accessToken,
-            guid,
-        }),
+      requestGuid: guid,
+      dataHandler,
+      buildRequest: (subscriptionAction) => ({
+        ...req,
+        opcode:
+          subscriptionAction || SubscriptionAction.AllTradesGetAndSubscribe,
+        token: this.accessToken,
+        guid,
+      }),
     });
     return this.watch(subscription);
-}
+  }
 }

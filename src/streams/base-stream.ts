@@ -21,51 +21,39 @@ export class BaseStream {
   protected autoReconnectDelay = 0;
   subscriptions = new Set<MarketSubscription<any, any>>();
 
-  protected readonly refresh: any;
+  private readonly refresh: any;
 
-  constructor(options: AlorOpenApiOptions, http: AxiosInstance) {
+  constructor(options: AlorOpenApiOptions, refreshFn: Function) {
     this.options = { ...this.options, ...options };
-
-    this.refresh = refreshTokenMiddleware(
-      http,
-      this.options.token,
-      (token) => (this.accessToken = token),
-    );
+    this.refresh = refreshFn;
 
     this.wss = new WebSocket(options.wssEndpoint);
+    this.openWS();
+  }
+
+  private openWS = (resolve?: Function, reject?: Function) => {
+    if (this.wss.readyState !== WebSocket.OPEN) {
+      this.wss.emit("open");
+    }
+    this.wss.setMaxListeners(100);
     this.wss.on("open", () => {
       console.log(`[WSS] Подключение к ${this.wss.url} установлено.`);
+      resolve?.(true);
     });
-    this.wss.setMaxListeners(100);
+
     this.wss.on("close", async (error) => {
       console.log(`[WSS] Подключение к ${this.wss.url} потеряно.`);
+      reject?.(false);
       // await this.onClose(error);
     });
     this.wss.on("error", (error) => {
       throw error;
     });
-  }
+  };
 
   protected async waitEvents() {
     return new Promise((resolve, reject) => {
-      // const refresh = refreshTokenMiddleware(
-      //   axios,
-      //   this.options.token,
-      //   (token) => (this.accessToken = token),
-      // );
-      const openWS = () => {
-        if (this.wss.readyState !== WebSocket.OPEN) {
-          this.wss.emit("open");
-        }
-        this.wss.on("open", () => {
-          resolve(true);
-        });
-
-        this.wss.onclose = () => {
-          reject(false);
-        };
-      };
-      openWS();
+      this.openWS(resolve, reject);
     });
   }
 

@@ -59,7 +59,7 @@ api.stream.on('close', error => console.log('stream closed, reason:', error));
 ```
 Стримы доступны по следующим сущностям:
 * `.orders(request, handler)`
-* `.stoporders$(request, handler)`
+* `.stoporders(request, handler)`
 * `.positions(request, handler)`
 * `.summary(request, handler)`
 * `.quotes(request, handler)`

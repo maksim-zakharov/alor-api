@@ -26,6 +26,7 @@ import {
 import axios, { AxiosInstance } from "axios";
 import { v4 as uuidv } from "uuid";
 import { MarketStream } from "./streams/market-stream";
+import { refreshTokenMiddleware } from "./utils";
 
 const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
   {
@@ -34,16 +35,24 @@ const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
   };
 export class AlorApi {
   public readonly http: AxiosInstance;
-  private _accessToken: string;
+  private accessToken: string;
   private _stream: MarketStream;
 
   public readonly options: AlorOpenApiOptions;
+
+  public readonly refresh: any;
 
   constructor(options: AlorOpenApiOptions) {
     this.http = axios;
     this.options = Object.assign({}, defaults, options);
 
     this.http.defaults.baseURL = this.options.endpoint;
+
+    this.refresh = refreshTokenMiddleware(
+      this.http,
+      this.options.token,
+      (token) => (this.accessToken = token),
+    );
   }
 
   private getOrCreateStream() {
@@ -104,10 +113,10 @@ export class AlorApi {
       .then((r) => r.data);
 
     if (result?.AccessToken) {
-      this._accessToken = result?.AccessToken;
+      this.accessToken = result?.AccessToken;
       this.http.defaults.headers[
         "Authorization"
-      ] = `Bearer ${this._accessToken}`;
+      ] = `Bearer ${this.accessToken}`;
     }
 
     return result;
