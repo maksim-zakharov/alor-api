@@ -11,13 +11,15 @@ import {
   GetStopOrderRequest,
   GetStopOrdersRequest,
   Order,
+  OrderType,
   Position,
   Quotes,
   RiskCollection,
   Security,
-  SendOrderRequest,
+  SendLimitOrderRequest,
+  SendMarketOrderRequest,
   SendOrderResponse,
-  SendStopLimitRequest,
+  SendStopLimitOrderRequest,
   SendStopOrderRequest,
   StopOrder,
   Summary,
@@ -33,9 +35,10 @@ const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
     endpoint: Endpoint.PROD,
     wssEndpoint: WssEndpoint.PROD,
   };
+
 export class AlorApi {
   public readonly http: AxiosInstance;
-  private accessToken: string;
+  public accessToken: string;
   private _stream: MarketStream;
 
   public readonly options: AlorOpenApiOptions;
@@ -51,8 +54,13 @@ export class AlorApi {
     this.refresh = refreshTokenMiddleware(
       this.http,
       this.options.token,
-      (token) => (this.accessToken = token),
+      (token) => {
+        this.accessToken = token;
+        console.log(`[AlorApi] Access Token получен`);
+      },
     );
+
+    // this.refresh();
   }
 
   private getOrCreateStream() {
@@ -64,8 +72,10 @@ export class AlorApi {
 
   get orders() {
     return {
-      sendOrder: (req: SendOrderRequest) => this.sendOrder(req),
-      sendStopLimitOrder: (req: SendStopLimitRequest) =>
+      sendMarketOrder: (req: SendMarketOrderRequest) =>
+        this.sendMarketOrder(req),
+      sendLimitOrder: (req: SendLimitOrderRequest) => this.sendLimitOrder(req),
+      sendStopLimitOrder: (req: SendStopLimitOrderRequest) =>
         this.sendStopLimitOrder(req),
       getOrders: (req: GetOrdersRequest) => this.getOrders(req),
       getOrderById: (req: GetOrderRequest) => this.getOrderById(req),
@@ -225,8 +235,40 @@ export class AlorApi {
     return summary;
   }
 
-  private async sendOrder(
-    body: SendOrderRequest,
+  private async sendMarketOrder(
+    body: SendMarketOrderRequest,
+  ): Promise<SendOrderResponse | ApiError> {
+    const requestId = uuidv();
+
+    try {
+      const result = await this.http
+        .post(
+          `/commandapi/warptrans/TRADE/v2/client/orders/actions/market`,
+          { ...body, type: OrderType.Market },
+          {
+            headers: {
+              "X-ALOR-REQID": requestId,
+            },
+          },
+        )
+        .then((r) => r.data);
+
+      return result;
+    } catch (e) {
+      const error: ApiError = {
+        requestId: requestId,
+        status: e.response?.status,
+        code: e.response?.data?.code,
+        description: e.response?.data?.message,
+      };
+      // this.log(error);
+
+      return error;
+    }
+  }
+
+  private async sendLimitOrder(
+    body: SendLimitOrderRequest,
   ): Promise<SendOrderResponse | ApiError> {
     const requestId = uuidv();
 
@@ -234,7 +276,7 @@ export class AlorApi {
       const result = await this.http
         .post(
           `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit`,
-          body,
+          { ...body, type: OrderType.Limit },
           {
             headers: {
               "X-ALOR-REQID": requestId,
@@ -258,7 +300,7 @@ export class AlorApi {
   }
 
   private async sendStopLimitOrder(
-    body: SendStopLimitRequest,
+    body: SendStopLimitOrderRequest,
   ): Promise<SendOrderResponse | ApiError> {
     const requestId = uuidv();
 
@@ -289,22 +331,17 @@ export class AlorApi {
     }
   }
 
-  async getRiskRates({
-    exchange,
-    ticker,
-  }: {
+  async getRiskRates(params: {
     exchange: Exchange;
-    ticker: string;
+    ticker?: string;
+    search?: string;
   }): Promise<RiskCollection | ApiError> {
     const requestId = uuidv();
 
     try {
       const result = await this.http
         .get(`/md/v2/risk/rates`, {
-          params: {
-            exchange,
-            ticker,
-          },
+          params,
         })
         .then((r) => r.data);
 

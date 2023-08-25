@@ -3,10 +3,15 @@ export enum Exchange {
   SPBX = "SPBX",
 }
 
+export interface OrderbookPrice {
+  price: number;
+  volume: number;
+}
+
 export interface Orderbook {
   snapshot: boolean;
-  bids: any[];
-  asks: any[];
+  bids: OrderbookPrice[];
+  asks: OrderbookPrice[];
   timestamp: number;
   ms_timestamp: number;
   existing: boolean;
@@ -18,6 +23,7 @@ export enum Endpoint {
 }
 
 export enum WssEndpoint {
+  DEV = "wss://apidev.alor.ru/ws",
   PROD = "wss://api.alor.ru/ws",
 }
 
@@ -195,7 +201,9 @@ export interface GetOrdersRequest {
   portfolio: string;
 }
 
-export interface SendOrderRequest {
+export type SendLimitOrderRequest = Omit<InternalSendLimitOrderRequest, "type">;
+
+export interface InternalSendLimitOrderRequest {
   side: OrderSide;
   type: OrderType;
   quantity: number;
@@ -205,6 +213,19 @@ export interface SendOrderRequest {
   timeInForce: TimeInForce;
   icebergFixed: number;
   icebergVariance: number;
+}
+
+export type SendMarketOrderRequest = Omit<
+  InternalSendMarketOrderRequest,
+  "type"
+>;
+
+export interface InternalSendMarketOrderRequest {
+  side: OrderSide;
+  type: OrderType;
+  quantity: number;
+  instrument: Instrument;
+  user: User;
 }
 
 export interface Instrument {
@@ -496,7 +517,7 @@ export interface Trade {
   existing: boolean;
 }
 
-export interface SendStopLimitRequest {
+export interface SendStopLimitOrderRequest {
   side: OrderSide;
   condition: StopOrderCondition;
   triggerPrice: number;
@@ -539,10 +560,8 @@ export interface Risk {
 
 export interface Quotes {
   symbol: string;
-  exchange: Exchange;
+  exchange: string;
   description: string;
-  ask: number;
-  bid: number;
   prev_close_price: number;
   last_price: number;
   last_price_timestamp: number;
@@ -550,14 +569,21 @@ export interface Quotes {
   change_percent: number;
   high_price: number;
   low_price: number;
-  accruedInt: number;
-  accrued_interest: number;
+  accruedInt: null;
+  accrued_interest: null;
   volume: number;
   open_interest: null;
+  ask: number;
+  bid: number;
+  ask_vol: number;
+  bid_vol: number;
+  ob_ms_timestamp: number;
   open_price: number;
   yield: null;
   lotsize: number;
   lotvalue: number;
   facevalue: number;
   type: string;
+  total_bid_vol: number;
+  total_ask_vol: number;
 }

@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "preversion": "tsc",
+    "build": "tsc",
     "postversion": "npm publish",
     "prepare": "husky install",
     "pre-commit": "lint-staged --diff=origin/master"

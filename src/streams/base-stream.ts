@@ -16,7 +16,6 @@ export class BaseStream {
     endpoint: "",
     token: "",
   };
-  protected accessToken: string;
   protected wss: WebSocket;
   protected autoReconnectDelay = 0;
   subscriptions = new Set<MarketSubscription<any, any>>();
@@ -28,32 +27,37 @@ export class BaseStream {
     this.refresh = refreshFn;
 
     this.wss = new WebSocket(options.wssEndpoint);
-    // this.openWS();
-  }
-
-  private openWS = (resolve?: Function, reject?: Function) => {
-    // if (this.wss.readyState !== WebSocket.OPEN) {
-    //   this.wss.emit("open");
-    // }
     this.wss.setMaxListeners(100);
-    this.wss.on("open", () => {
-      console.log(`[WSS] Подключение к ${this.wss.url} установлено.`);
-      resolve?.(true);
-    });
-
-    this.wss.on("close", async (error) => {
-      console.log(`[WSS] Подключение к ${this.wss.url} потеряно.`);
-      reject?.(false);
-      // await this.onClose(error);
-    });
     this.wss.on("error", (error) => {
       throw error;
     });
-  };
+    this.wss.on("open", () => {
+      console.log(`[AlorApi-WSS] Подключение к ${this.wss.url} установлено.`);
+    });
+
+    this.wss.on("close", async (error) => {
+      console.log(`[AlorApi-WSS] Подключение к ${this.wss.url} потеряно.`);
+      // await this.onClose(error);
+    });
+  }
 
   protected async waitEvents() {
     return new Promise((resolve, reject) => {
-      this.openWS(resolve, reject);
+      // if (this.wss.readyState !== WebSocket.OPEN) {
+      //   this.wss.emit("open");
+      // }
+      this.wss.on("open", () => {
+        if (resolve) {
+          resolve(true);
+        }
+      });
+
+      this.wss.on("close", async (error) => {
+        if (reject) {
+          reject(false);
+        }
+        // await this.onClose(error);
+      });
     });
   }
 
@@ -127,15 +131,17 @@ export class BaseStream {
     } catch (e) {
       if (e.httpCode === 401) {
         console.log(
-          `[WSS] RequestId: ${e.requestGuid} HttpCode: ${e.httpCode} Message: ${e.message}`,
+          `[AlorApi-WSS] RequestId: ${e.requestGuid} HttpCode: ${e.httpCode} Message: ${e.message}`,
         );
         await this.refresh().then(() =>
-          console.log("[WSS] Получен новый токен"),
+          console.log("[AlorApi-WSS] Получен новый токен"),
         );
         await this.onClose(e.httpCode);
       } else {
         this.wss.off("message", subscription.handler);
-        throw e;
+        console.log(
+          `[AlorApi-WSS] RequestId: ${e.requestGuid} HttpCode: ${e.httpCode} Message: ${e.message}`,
+        );
       }
     }
     this.subscriptions.add(subscription);

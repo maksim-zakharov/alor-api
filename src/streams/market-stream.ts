@@ -24,8 +24,11 @@ import { v4 as uuidv } from "uuid";
 import AlorApi from "../api";
 
 export class MarketStream extends BaseStream {
-  constructor(private readonly api: AlorApi) {
+  private readonly api: AlorApi;
+
+  constructor(api: AlorApi) {
     super(api.options, api.refresh);
+    this.api = api;
   }
   /**
    * Подписка на информацию о заявках
@@ -42,7 +45,7 @@ export class MarketStream extends BaseStream {
         ...req,
         opcode:
           subscriptionAction || SubscriptionAction.OrdersGetAndSubscribeV2,
-        token: this.accessToken,
+        token: this.api.accessToken,
         guid,
       }),
     });
@@ -67,7 +70,7 @@ export class MarketStream extends BaseStream {
         ...req,
         opcode:
           subscriptionAction || SubscriptionAction.StopOrdersGetAndSubscribeV2,
-        token: this.accessToken,
+        token: this.api.accessToken,
         guid,
       }),
     });
@@ -92,7 +95,7 @@ export class MarketStream extends BaseStream {
         ...req,
         opcode:
           subscriptionAction || SubscriptionAction.PositionsGetAndSubscribeV2,
-        token: this.accessToken,
+        token: this.api.accessToken,
         guid,
       }),
     });
@@ -117,7 +120,7 @@ export class MarketStream extends BaseStream {
         ...req,
         opcode:
           subscriptionAction || SubscriptionAction.SummariesGetAndSubscribeV2,
-        token: this.accessToken,
+        token: this.api.accessToken,
         guid,
       }),
     });
@@ -139,7 +142,7 @@ export class MarketStream extends BaseStream {
         buildRequest: (subscriptionAction?) => ({
           ...req,
           opcode: subscriptionAction || SubscriptionAction.QuotesSubscribe,
-          token: this.accessToken,
+          token: this.api.accessToken,
           guid,
         }),
       },
@@ -166,7 +169,7 @@ export class MarketStream extends BaseStream {
         opcode:
           subscriptionAction || SubscriptionAction.OrderBookGetAndSubscribe,
         guid,
-        token: this.accessToken,
+        token: this.api.accessToken,
       }),
     });
     return this.watch(subscription);
@@ -189,7 +192,7 @@ export class MarketStream extends BaseStream {
       buildRequest: (subscriptionAction) => ({
         ...req,
         opcode: subscriptionAction || SubscriptionAction.BarsGetAndSubscribe,
-        token: this.accessToken,
+        token: this.api.accessToken,
         guid,
       }),
     });
@@ -214,7 +217,7 @@ export class MarketStream extends BaseStream {
         ...req,
         opcode:
           subscriptionAction || SubscriptionAction.AllTradesGetAndSubscribe,
-        token: this.accessToken,
+        token: this.api.accessToken,
         guid,
       }),
     });
