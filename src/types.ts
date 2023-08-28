@@ -1,3 +1,7 @@
+import AlorApi from "./api";
+import { ClientInfoService } from "./services/ClientInfoService";
+import { AxiosInstance } from "axios";
+
 export enum Exchange {
   MOEX = "MOEX",
   SPBX = "SPBX",
@@ -28,8 +32,10 @@ export enum WssEndpoint {
 }
 
 export interface AlorOpenApiOptions {
-  /** Токен доступа */
+  /** Рефреш токен доступа */
   token: string;
+  /** Токен доступа */
+  accessToken: string;
   /** API endpoint */
   endpoint: Endpoint;
   /** WSS endpoint */
@@ -586,4 +592,49 @@ export interface Quotes {
   type: string;
   total_bid_vol: number;
   total_ask_vol: number;
+}
+
+export interface Trade {
+  id: number;
+  orderno: number;
+  symbol: string;
+  brokerSymbol: string;
+  exchange: Exchange;
+  date: Date;
+  board: string;
+  qtyUnits: number;
+  qtyBatch: number;
+  qty: number;
+  price: number;
+  side: OrderSide;
+  existing: boolean;
+  repoSpecificFields: RepoSpecificFields;
+}
+
+export interface RepoSpecificFields {
+  repoRate: number;
+  extRef: string;
+  repoTerm: number;
+  account: string;
+  tradeTypeInfo: string;
+  value: number;
+  yield: number;
+}
+
+export interface IService {}
+
+export interface Risk {
+  portfolio: string;
+  exchange: Exchange;
+  portfolioEvaluation: number;
+  portfolioLiquidationValue: number;
+  initialMargin: number;
+  minimalMargin: number;
+  correctedMargin: number;
+  riskCoverageRatioOne: number;
+  riskCoverageRatioTwo: number;
+  riskCategoryId: number;
+  clientType: string;
+  hasForbiddenPositions: boolean;
+  hasNegativeQuantity: boolean;
 }

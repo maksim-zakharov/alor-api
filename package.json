@@ -12,7 +12,8 @@
     "build": "tsc",
     "postversion": "npm publish",
     "prepare": "husky install",
-    "pre-commit": "lint-staged --diff=origin/master"
+    "pre-commit": "lint-staged --diff=origin/master",
+    "generate-models": "sta -p https://alor.dev/rawdocs2/WarpOpenAPIv2.yml -o ./src/models -n models.ts --no-client -r --extract-request-body --extract-request-params"
   },
   "repository": {
     "type": "git",
@@ -30,11 +31,16 @@
   },
   "homepage": "https://github.com/maksim-zakharov/alor-api#readme",
   "devDependencies": {
+    "@types/jest": "^29.5.4",
     "@types/uuid": "^9.0.2",
     "@types/ws": "^8.5.5",
+    "dotenv": "^16.3.1",
     "husky": "^8.0.3",
+    "jest": "^29.6.4",
     "lint-staged": "^14.0.0",
     "prettier": "^3.0.2",
+    "swagger-typescript-api": "^13.0.3",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
   },
   "lint-staged": {

@@ -23,12 +23,16 @@ import {
   SendStopOrderRequest,
   StopOrder,
   Summary,
+  Timeframe,
   WssEndpoint,
+  IService,
 } from "./types";
 import axios, { AxiosInstance } from "axios";
 import { v4 as uuidv } from "uuid";
 import { MarketStream } from "./streams/market-stream";
 import { refreshTokenMiddleware } from "./utils";
+import { ClientInfoService } from "./services/ClientInfoService";
+import { InstrumentsService } from "./services/InstrumentsService";
 
 const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
   {
@@ -45,9 +49,15 @@ export class AlorApi {
 
   public readonly refresh: any;
 
+  protected services: Map<IService, IService> = new Map();
+
   constructor(options: AlorOpenApiOptions) {
     this.http = axios;
     this.options = Object.assign({}, defaults, options);
+
+    if (options.accessToken) {
+      this.accessToken = options.accessToken;
+    }
 
     this.http.defaults.baseURL = this.options.endpoint;
 
@@ -59,8 +69,23 @@ export class AlorApi {
         console.log(`[AlorApi] Access Token получен`);
       },
     );
+  }
 
-    // this.refresh();
+  get clientInfo() {
+    return this.getOrCreateService(ClientInfoService);
+  }
+
+  get instruments() {
+    return this.getOrCreateService(InstrumentsService);
+  }
+
+  private getOrCreateService<S extends IService>(type: {
+    new (http: AxiosInstance): S;
+  }): S {
+    if (!this.services.get(type)) {
+      this.services.set(type, new type(this.http));
+    }
+    return this.services.get(type) as S;
   }
 
   private getOrCreateStream() {
@@ -68,49 +93,6 @@ export class AlorApi {
       this._stream = new MarketStream(this);
     }
     return this._stream;
-  }
-
-  get orders() {
-    return {
-      sendMarketOrder: (req: SendMarketOrderRequest) =>
-        this.sendMarketOrder(req),
-      sendLimitOrder: (req: SendLimitOrderRequest) => this.sendLimitOrder(req),
-      sendStopLimitOrder: (req: SendStopLimitOrderRequest) =>
-        this.sendStopLimitOrder(req),
-      getOrders: (req: GetOrdersRequest) => this.getOrders(req),
-      getOrderById: (req: GetOrderRequest) => this.getOrderById(req),
-      cancelOrder: (req: Omit<CancelOrderRequest, "stop">) =>
-        this.cancelOrder({ ...req, stop: false }),
-    };
-  }
-
-  get stoporders() {
-    return {
-      changeStopOrder: (orderId: string, req: SendStopOrderRequest) =>
-        this.changeStopOrder(orderId, req),
-      sendStopOrder: (req: SendStopOrderRequest) => this.sendStopOrder(req),
-      getStopOrders: (req: GetStopOrdersRequest) => this.getStopOrders(req),
-      getStopOrderByOrderId: (req: GetStopOrderRequest) =>
-        this.getStopOrderByOrderId(req),
-      cancelStopOrder: (req: Omit<CancelOrderRequest, "stop">) =>
-        this.cancelOrder({ ...req, stop: true }),
-    };
-  }
-
-  get securities() {
-    return {
-      getQuotes: (req) => this.getQuotes(req),
-      getSecurities: (req) => this.getSecurities(req),
-    };
-  }
-
-  get portfolio() {
-    return {
-      getPositions: (req: GetPositionsRequest) => this.getPositions(req),
-      getPositionBySymbol: (req: GetPositionRequest) =>
-        this.getPositionBySymbol(req),
-      getSummary: (req) => this.getSummary(req),
-    };
   }
 
   get stream() {
@@ -130,91 +112,6 @@ export class AlorApi {
     }
 
     return result;
-  }
-
-  private async getPositions({
-    exchange,
-    portfolio,
-    withoutCurrency,
-  }: GetPositionsRequest): Promise<Position[]> {
-    return this.http
-      .get(
-        `/md/v2/Clients/${exchange}/${portfolio}/positions?format=Simple&withoutCurrency=${withoutCurrency}`,
-      )
-      .then((r) => r.data);
-  }
-
-  private async getPositionBySymbol({
-    symbol,
-    exchange,
-    portfolio,
-    withoutCurrency,
-  }: GetPositionRequest): Promise<Position> {
-    return this.http
-      .get(
-        `/md/v2/Clients/${exchange}/${portfolio}/positions/${symbol}?format=Simple&withoutCurrency=${withoutCurrency}`,
-      )
-      .then((r) => r.data);
-  }
-
-  private async getStopOrders({
-    exchange,
-    portfolio,
-  }: GetStopOrdersRequest): Promise<StopOrder[]> {
-    return this.http
-      .get(`/md/v2/clients/${exchange}/${portfolio}/stoporders?format=SIMPLE`)
-      .then((r) => r.data);
-  }
-
-  private async getStopOrderByOrderId({
-    orderId,
-    exchange,
-    portfolio,
-  }: GetStopOrderRequest): Promise<StopOrder> {
-    return this.http
-      .get(
-        `/md/v2/clients/${exchange}/${portfolio}/stoporders/${orderId}?format=SIMPLE`,
-      )
-      .then((r) => r.data);
-  }
-
-  private async getOrders({
-    exchange,
-    portfolio,
-  }: GetOrdersRequest): Promise<Order[]> {
-    return this.http
-      .get<Order[]>(`/md/v2/clients/${exchange}/${portfolio}/orders`)
-      .then((r) => r.data);
-  }
-
-  private async getOrderById({
-    orderId,
-    exchange,
-    portfolio,
-  }: GetOrderRequest): Promise<Order> {
-    return this.http
-      .get<Order>(`/md/v2/clients/${exchange}/${portfolio}/orders/${orderId}`)
-      .then((r) => r.data);
-  }
-
-  private async getSummary({
-    exchange,
-    portfolio,
-  }: {
-    exchange: Exchange;
-    portfolio: string;
-  }): Promise<Summary> {
-    return this.http
-      .get(`/md/v2/clients/${exchange}/${portfolio}/summary`)
-      .then((r) => r.data);
-  }
-
-  private async getSecurities({
-    exchange,
-  }: {
-    exchange: Exchange;
-  }): Promise<Security[]> {
-    return this.http.get(`/md/v2/Securities/${exchange}`).then((r) => r.data);
   }
 
   private async getQuotes({
@@ -315,6 +212,34 @@ export class AlorApi {
             },
           },
         )
+        .then((r) => r.data);
+
+      return result;
+    } catch (e) {
+      const error: ApiError = {
+        requestId: requestId,
+        status: e.response?.status,
+        code: e.response?.data?.code,
+        description: e.response?.data?.message,
+      };
+      // this.log(error);
+
+      return error;
+    }
+  }
+
+  async getCandles(params: {
+    exchange: Exchange;
+    symbol: string;
+    tf: Timeframe;
+  }): Promise<RiskCollection | ApiError> {
+    const requestId = uuidv();
+
+    try {
+      const result = await this.http
+        .get(`/md/v2/history`, {
+          params,
+        })
         .then((r) => r.data);
 
       return result;
