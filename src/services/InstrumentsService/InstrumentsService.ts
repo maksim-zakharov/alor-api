@@ -20,7 +20,7 @@ import {
   Security,
   Symbol,
   SymbolFutures,
-} from "../models/models";
+} from "../../models/models";
 
 /**
  * Ценные бумаги / инструменты

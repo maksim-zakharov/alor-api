@@ -4,25 +4,31 @@ import {
   BodyrequestOrdersActionsLimitTVput,
   BodyrequestOrdersActionsMarketTV,
   BodyrequestOrdersActionsMarketTVput,
+  BodyrequestOrdersActionsStopLimitTVWarp,
+  BodyrequestOrdersActionsStopMarketTVWarp,
   CommandApiV2ClientOrdersDeleteParams,
+  CommandwsReqCreateStopLimitOrder,
+  CommandwsReqCreateStopOrder,
+  CommandwsReqUpdateStopLimitOrder,
+  CommandwsReqUpdateStopOrder,
   EstimateOrderViewModel,
   OrdersActionsLimitMarket,
-} from "../models/models";
+} from "../../models/models";
 import { v4 as uuidv } from "uuid";
 
-export class OrdersService {
+export class StopOrdersService {
   constructor(private readonly http: AxiosInstance) {}
 
   /**
    * Создание рыночной заявки
    */
-  async sendMarketOrder(
-    body: BodyrequestOrdersActionsMarketTV,
+  async sendStopOrder(
+    body: BodyrequestOrdersActionsStopMarketTVWarp,
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
     return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/market`,
+      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stop`,
       body,
       {
         headers: {
@@ -35,13 +41,13 @@ export class OrdersService {
   /**
    * Создание лимитной заявки
    */
-  async sendLimitOrder(
-    body: BodyrequestOrdersActionsLimitTV,
+  async sendStopLimitOrder(
+    body: BodyrequestOrdersActionsStopLimitTVWarp,
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
     return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit`,
+      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stopLimit`,
       body,
       {
         headers: {
@@ -52,15 +58,15 @@ export class OrdersService {
   }
 
   /**
-   * Изменение рыночной заявки
+   * Изменение стоп-заявки
    */
-  async updateMarketOrder(
-    body: BodyrequestOrdersActionsMarketTVput,
+  async updateStopOrder(
+    body: CommandwsReqUpdateStopOrder,
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
     return this.http.put(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/market/${body.id}`,
+      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stop/${body.orderId}`,
       body,
       {
         headers: {
@@ -71,15 +77,15 @@ export class OrdersService {
   }
 
   /**
-   * Изменение рыночной заявки
+   * Изменение стоп-лимитной заявки
    */
-  async updateLimitOrder(
-    body: BodyrequestOrdersActionsLimitTVput,
+  async updateStopLimitOrder(
+    body: CommandwsReqUpdateStopLimitOrder,
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
     return this.http.put(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit/${body.id}`,
+      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stoplimit/${body.orderId}`,
       body,
       {
         headers: {
@@ -98,26 +104,6 @@ export class OrdersService {
     return this.http.delete(
       `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
       { params },
-    );
-  }
-
-  /**
-   * Провести оценку одной заявки
-   */
-  async estimateOrder(params: EstimateOrderViewModel): Promise<string> {
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/estimate`,
-      params,
-    );
-  }
-
-  /**
-   * Провести оценку нескольких заявок
-   */
-  async estimateAllOrders(params: EstimateOrderViewModel[]): Promise<string> {
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/estimate/all`,
-      params,
     );
   }
 }

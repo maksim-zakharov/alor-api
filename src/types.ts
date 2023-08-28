@@ -1,5 +1,5 @@
 import AlorApi from "./api";
-import { ClientInfoService } from "./services/ClientInfoService";
+import { ClientInfoService } from "./services/ClientInfoService/ClientInfoService";
 import { AxiosInstance } from "axios";
 
 export enum Exchange {

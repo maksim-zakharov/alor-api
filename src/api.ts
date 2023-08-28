@@ -31,9 +31,10 @@ import axios, { AxiosInstance } from "axios";
 import { v4 as uuidv } from "uuid";
 import { MarketStream } from "./streams/market-stream";
 import { refreshTokenMiddleware } from "./utils";
-import { ClientInfoService } from "./services/ClientInfoService";
-import { InstrumentsService } from "./services/InstrumentsService";
-import { OrdersService } from "./services/OrdersService";
+import { ClientInfoService } from "./services/ClientInfoService/ClientInfoService";
+import { InstrumentsService } from "./services/InstrumentsService/InstrumentsService";
+import { OrdersService } from "./services/OrdersService/OrdersService";
+import { StopOrdersService } from "./services/StopOrdersService/StopOrdersService";
 
 const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
   {
@@ -74,6 +75,10 @@ export class AlorApi {
 
   get orders() {
     return this.getOrCreateService(OrdersService);
+  }
+
+  get stoporders() {
+    return this.getOrCreateService(StopOrdersService);
   }
 
   get clientInfo() {

@@ -22,7 +22,7 @@ import {
   Trade,
   TradeStatsBySymbolParams,
   TradeStatsParams,
-} from "../models/models";
+} from "../../models/models";
 
 /**
  * Информация о клиенте

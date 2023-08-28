@@ -1,4 +1,4 @@
-import { Side } from "../models/models";
+import { Side } from "../../models/models";
 
 describe("OrdersService", () => {
   it("sendLimitOrder", async () => {
