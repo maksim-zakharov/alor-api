@@ -33,6 +33,7 @@ import { MarketStream } from "./streams/market-stream";
 import { refreshTokenMiddleware } from "./utils";
 import { ClientInfoService } from "./services/ClientInfoService";
 import { InstrumentsService } from "./services/InstrumentsService";
+import { OrdersService } from "./services/OrdersService";
 
 const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
   {
@@ -69,6 +70,10 @@ export class AlorApi {
         console.log(`[AlorApi] Access Token получен`);
       },
     );
+  }
+
+  get orders() {
+    return this.getOrCreateService(OrdersService);
   }
 
   get clientInfo() {
