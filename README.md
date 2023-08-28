@@ -32,7 +32,10 @@ const api = new AlorApi({ token: '<your-token>', endpoint: Endpoint.PROD, wssEnd
 import {Exchange} from "./types";
 
 // Получение информации о портфеле
-const summary = await api.clientInfo.getSummary({ portfolio: '<your-portfolio>', exchange: Exchange.MOEX });;
+const summary = await api.clientInfo.getSummary({ 
+  portfolio: '<your-portfolio>', 
+  exchange: Exchange.MOEX 
+});
 
 // Получение информации о позициях
 const positions = await api.clientInfo.getPositions({
