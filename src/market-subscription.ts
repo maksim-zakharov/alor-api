@@ -12,22 +12,25 @@ import {
   WsResSpectraRisksGetAndSubscribe,
   Security,
   Alltrades,
+  CommandwsResHandledSuccessfully,
 } from "./models/models";
 
 export type ResponseData =
-  | Pick<WsResBarsGetAndSubscribe, "data">
-  | Pick<WsResOrderBookGetAndSubscribe, "data">
-  | Pick<WsResQuotesSubscribe, "data">
-  | Pick<WsResPositionsGetAndSubscribe, "data">
-  | Pick<WsResSummariesGetAndSubscribeV2, "data">
-  | Pick<WsResRisksGetAndSubscribe, "data">
-  | Pick<WsResOrdersGetAndSubscribe, "data">
-  | Pick<WsResStopOrdersGetAndSubscribe, "data">
-  | Pick<WsResSpectraRisksGetAndSubscribe, "data">
+  | WsResBarsGetAndSubscribe["data"]
+  | WsResOrderBookGetAndSubscribe["data"]
+  | WsResQuotesSubscribe["data"]
+  | WsResPositionsGetAndSubscribe["data"]
+  | WsResSummariesGetAndSubscribeV2["data"]
+  | WsResRisksGetAndSubscribe["data"]
+  | WsResOrdersGetAndSubscribe["data"]
+  | WsResStopOrdersGetAndSubscribe["data"]
+  | WsResSpectraRisksGetAndSubscribe["data"]
   | Security
-  | Alltrades;
+  | Alltrades
+  | CommandwsResHandledSuccessfully;
 
 type MarketSubscriptionOptions<R, D> = {
+  isBeta?: boolean;
   buildRequest: (subscriptionAction: SubscriptionAction | undefined) => any; // R;
   dataHandler: (data: D) => unknown;
   requestGuid: string;
@@ -44,10 +47,7 @@ export type UniversalMarketResponse<D> = {
   message?: string;
 };
 
-export class MarketSubscription<
-  R extends WsReqBaseObject,
-  D extends ResponseData,
-> {
+export class MarketSubscription<R, D extends ResponseData> {
   protected waitingStatusResolve?: () => unknown;
   protected waitingStatusReject?: (
     error: UniversalMarketResponse<D>,
@@ -64,7 +64,9 @@ export class MarketSubscription<
   handler(event) {
     const uniRes = JSON.parse(event as string) as UniversalMarketResponse<D>;
     this.statusHandler(uniRes);
-    this.dataHandler(uniRes);
+    this.options.isBeta
+      ? this.betaDataHandler(uniRes)
+      : this.dataHandler(uniRes);
   }
 
   async waitStatus() {
@@ -95,6 +97,12 @@ export class MarketSubscription<
       });
     } else {
       this.waitingStatusResolve();
+    }
+  }
+
+  protected betaDataHandler(response: UniversalMarketResponse<D>) {
+    if (this.options.requestGuid === response.requestGuid) {
+      this.options.dataHandler(response as any);
     }
   }
 

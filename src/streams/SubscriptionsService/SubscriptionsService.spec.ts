@@ -1,7 +1,7 @@
-import { Exchange } from "../models/models";
-import { fromTo } from "../helpers";
+import { Exchange } from "../../models/models";
+import { fromTo } from "../../helpers";
 
-describe("MarketStream", () => {
+describe("SubscriptionsService", () => {
   beforeEach(async () => {
     await testApi.refresh();
   });

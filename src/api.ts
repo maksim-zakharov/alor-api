@@ -1,28 +1,40 @@
-import { AlorOpenApiOptions, Endpoint, WssEndpoint, IService } from "./types";
+import {
+  AlorOpenApiOptions,
+  Endpoint,
+  WssEndpoint,
+  IService,
+  WssEndpointBeta,
+} from "./types";
 import axios, { AxiosInstance } from "axios";
-import { MarketStream } from "./streams/market-stream";
+import { SubscriptionsService } from "./streams/SubscriptionsService/SubscriptionsService";
 import { refreshTokenMiddleware } from "./utils";
 import { ClientInfoService } from "./services/ClientInfoService/ClientInfoService";
 import { InstrumentsService } from "./services/InstrumentsService/InstrumentsService";
 import { OrdersService } from "./services/OrdersService/OrdersService";
 import { StopOrdersService } from "./services/StopOrdersService/StopOrdersService";
+import { BaseStream } from "./streams/base-stream";
+import { WSSOrdersService } from "./streams/WSSOrdersService/WSSOrdersService";
 
-const defaults: Required<Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint">> =
-  {
-    endpoint: Endpoint.PROD,
-    wssEndpoint: WssEndpoint.PROD,
-  };
+const defaults: Required<
+  Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta">
+> = {
+  endpoint: Endpoint.PROD,
+  wssEndpoint: WssEndpoint.PROD,
+  wssEndpointBeta: WssEndpointBeta.PROD,
+};
 
 export class AlorApi {
   public readonly http: AxiosInstance;
   public accessToken: string;
-  private _stream: MarketStream;
+  private _stream: SubscriptionsService;
 
   public readonly options: AlorOpenApiOptions;
 
   public readonly refresh: any;
 
   protected services: Map<IService, IService> = new Map();
+
+  protected _subscriptions: Map<IService, IService> = new Map();
 
   constructor(options: AlorOpenApiOptions) {
     this.http = axios;
@@ -60,6 +72,14 @@ export class AlorApi {
     return this.getOrCreateService(InstrumentsService);
   }
 
+  get subscriptions() {
+    return this.getOrCreateStream(SubscriptionsService);
+  }
+
+  get ordersWss() {
+    return this.getOrCreateStream(WSSOrdersService);
+  }
+
   private getOrCreateService<S extends IService>(type: {
     new (http: AxiosInstance): S;
   }): S {
@@ -69,15 +89,13 @@ export class AlorApi {
     return this.services.get(type) as S;
   }
 
-  private getOrCreateStream() {
-    if (!this._stream) {
-      this._stream = new MarketStream(this);
+  private getOrCreateStream<S extends BaseStream>(type: {
+    new (api: AlorApi): S;
+  }): S {
+    if (!this._subscriptions.get(type)) {
+      this._subscriptions.set(type, new type(this));
     }
-    return this._stream;
-  }
-
-  get subscriptions() {
-    return this.getOrCreateStream();
+    return this._subscriptions.get(type) as S;
   }
 
   async refreshToken() {

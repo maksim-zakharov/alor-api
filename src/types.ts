@@ -10,15 +10,23 @@ export enum WssEndpoint {
   PROD = "wss://api.alor.ru/ws",
 }
 
+export enum WssEndpointBeta {
+  DEV = "wss://apidev.alor.ru/cws",
+  PROD = "wss://api.alor.ru/cws",
+}
+
 export interface AlorOpenApiOptions {
   /** Рефреш токен доступа */
   token: string;
   /** Токен доступа */
-  accessToken: string;
+  accessToken?: string;
   /** API endpoint */
   endpoint: Endpoint;
   /** WSS endpoint */
   wssEndpoint: WssEndpoint;
+
+  /** WSS Beta endpoint */
+  wssEndpointBeta: WssEndpointBeta.PROD;
 }
 
 /**
@@ -146,11 +154,21 @@ export enum SubscriptionAction {
   SpectraRisksGetAndSubscribe = "SpectraRisksGetAndSubscribe",
   TradesGetAndSubscribeV2 = "TradesGetAndSubscribeV2",
   InstrumentsGetAndSubscribeV2 = "InstrumentsGetAndSubscribeV2",
+  Authorize = "authorize",
+  CreateMarket = "create:market",
+  CreateLimit = "create:limit",
+  CreateStop = "create:stop",
+  CreateStopLimit = "create:stopLimit",
+  UpdateMarket = "update:market",
+  UpdateLimit = "update:limit",
+  UpdateStop = "update:stop",
+  UpdateStopLimit = "update:stopLimit",
+  DeleteMarket = "delete:market",
+  DeleteLimit = "delete:limit",
+  DeleteStop = "delete:stop",
+  DeleteStopLimit = "delete:stopLimit",
 }
 
-export type WithoutOpcode<T extends WsReqBaseObject> = Omit<
-  T,
-  "opcode" | "token" | "guid"
->;
+export type WithoutOpcode<T> = Omit<T, "opcode" | "token" | "guid">;
 
 export interface IService {}

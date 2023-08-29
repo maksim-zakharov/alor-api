@@ -22,11 +22,21 @@ export class BaseStream {
 
   private readonly refresh: any;
 
-  constructor(options: AlorOpenApiOptions, refreshFn: Function) {
+  private readonly isBeta: boolean = false;
+
+  constructor(
+    options: AlorOpenApiOptions,
+    refreshFn: Function,
+    beta: boolean = false,
+  ) {
     this.options = { ...this.options, ...options };
     this.refresh = refreshFn;
 
-    this.wss = new WebSocket(options.wssEndpoint);
+    this.isBeta = beta;
+
+    this.wss = new WebSocket(
+      beta ? options.wssEndpointBeta : options.wssEndpoint,
+    );
     this.wss.setMaxListeners(100);
     this.wss.on("error", (error) => {
       throw error;
@@ -153,12 +163,14 @@ export class BaseStream {
       throw new Error("Subscription not found");
     }
 
-    this.sendRequest(
-      subscription.getRequest(
-        SubscriptionAction.SUBSCRIPTION_ACTION_UNSUBSCRIBE,
-      ),
-    );
-    await subscription.waitStatus();
+    if (!this.isBeta) {
+      this.sendRequest(
+        subscription.getRequest(
+          SubscriptionAction.SUBSCRIPTION_ACTION_UNSUBSCRIBE,
+        ),
+      );
+      await subscription.waitStatus();
+    }
     this.wss.off("message", subscription.handler);
     this.subscriptions.delete(subscription);
   }

@@ -1,8 +1,8 @@
-import { BaseStream } from "./base-stream";
-import { SubscriptionAction, WithoutOpcode } from "../types";
-import { MarketSubscription, ResponseData } from "../market-subscription";
+import { BaseStream } from "../base-stream";
+import { SubscriptionAction, WithoutOpcode } from "../../types";
+import { MarketSubscription, ResponseData } from "../../market-subscription";
 import { v4 as uuidv } from "uuid";
-import AlorApi from "../api";
+import AlorApi from "../../api";
 import {
   WsReqBarsGetAndSubscribe,
   WsReqOrderBookGetAndSubscribe,
@@ -29,9 +29,9 @@ import {
   Security,
   Alltrades,
   WsReqAllTradesGetAndSubscribe,
-} from "../models/models";
+} from "../../models/models";
 
-export class MarketStream extends BaseStream {
+export class SubscriptionsService extends BaseStream {
   private readonly api: AlorApi;
 
   constructor(api: AlorApi) {
@@ -44,9 +44,7 @@ export class MarketStream extends BaseStream {
    */
   orderBook = (
     req: WithoutOpcode<WsReqOrderBookGetAndSubscribe>,
-    dataHandler: (
-      orderbook: Pick<WsResOrderBookGetAndSubscribe, "data">,
-    ) => unknown,
+    dataHandler: (orderbook: WsResOrderBookGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -59,7 +57,7 @@ export class MarketStream extends BaseStream {
    */
   candles = (
     req: WithoutOpcode<WsReqBarsGetAndSubscribe>,
-    dataHandler: (candle: Pick<WsResBarsGetAndSubscribe, "data">) => unknown,
+    dataHandler: (candle: WsResBarsGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -72,7 +70,7 @@ export class MarketStream extends BaseStream {
    */
   quotes = (
     req: WithoutOpcode<WsReqQuotesSubscribe>,
-    dataHandler: (quotes: Pick<WsResQuotesSubscribe, "data">) => unknown,
+    dataHandler: (quotes: WsResQuotesSubscribe["data"]) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.QuotesSubscribe);
 
   /**
@@ -93,9 +91,7 @@ export class MarketStream extends BaseStream {
    */
   positions = (
     req: WithoutOpcode<WsReqPositionsGetAndSubscribe>,
-    dataHandler: (
-      position: Pick<WsResPositionsGetAndSubscribe, "data">,
-    ) => unknown,
+    dataHandler: (position: WsResPositionsGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -108,9 +104,7 @@ export class MarketStream extends BaseStream {
    */
   summary = (
     req: WithoutOpcode<WsReqSummariesGetAndSubscribeV2>,
-    dataHandler: (
-      quotes: Pick<WsResSummariesGetAndSubscribeV2, "data">,
-    ) => unknown,
+    dataHandler: (quotes: WsResSummariesGetAndSubscribeV2["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -123,7 +117,7 @@ export class MarketStream extends BaseStream {
    */
   risks = (
     req: WithoutOpcode<WsReqRisksGetAndSubscribe>,
-    dataHandler: (quotes: Pick<WsResRisksGetAndSubscribe, "data">) => unknown,
+    dataHandler: (quotes: WsResRisksGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -136,9 +130,7 @@ export class MarketStream extends BaseStream {
    */
   spectraRisks = (
     req: WithoutOpcode<WsReqSpectraRisksGetAndSubscribe>,
-    dataHandler: (
-      quotes: Pick<WsResSpectraRisksGetAndSubscribe, "data">,
-    ) => unknown,
+    dataHandler: (quotes: WsResSpectraRisksGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -151,7 +143,7 @@ export class MarketStream extends BaseStream {
    */
   trades = (
     req: WithoutOpcode<WsReqTradesGetAndSubscribe>,
-    dataHandler: (order: Pick<WsResTradesGetAndSubscribe, "data">) => unknown,
+    dataHandler: (order: WsResTradesGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -164,7 +156,7 @@ export class MarketStream extends BaseStream {
    */
   orders = (
     req: WithoutOpcode<WsReqOrdersGetAndSubscribe>,
-    dataHandler: (order: Pick<WsResOrdersGetAndSubscribe, "data">) => unknown,
+    dataHandler: (order: WsResOrdersGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,
@@ -190,9 +182,7 @@ export class MarketStream extends BaseStream {
    */
   stoporders = (
     req: WithoutOpcode<WsReqStopOrdersGetAndSubscribeV2>,
-    dataHandler: (
-      stoporder: Pick<WsResStopOrdersGetAndSubscribe, "data">,
-    ) => unknown,
+    dataHandler: (stoporder: WsResStopOrdersGetAndSubscribe["data"]) => unknown,
   ) =>
     this.baseSubscribe(
       req,

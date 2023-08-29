@@ -1,6 +1,6 @@
 import "dotenv/config";
 import assert from "assert";
-import { Endpoint, WssEndpoint } from "./types";
+import { Endpoint, WssEndpoint, WssEndpointBeta } from "./types";
 import process from "process";
 import AlorApi from "./api";
 import { Exchange } from "./models/models";
@@ -13,6 +13,7 @@ const testApi = new AlorApi({
   token: process.env.ALOR_REFRESH_TOKEN!,
   accessToken: process.env.ALOR_ACCESS_TOKEN!,
   wssEndpoint: WssEndpoint.PROD,
+  wssEndpointBeta: WssEndpointBeta.PROD,
 });
 
 type Assert = typeof assert.strict;
