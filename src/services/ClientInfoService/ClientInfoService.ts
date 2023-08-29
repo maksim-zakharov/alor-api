@@ -8,7 +8,6 @@ import {
   DevGetOnePositionParams,
   DevGetOneStopOrderParams,
   DevGetTickerTradesParams,
-  Exchange,
   ExchangePortfolioSummaryParams,
   Fortsrisk,
   FortsriskParams,

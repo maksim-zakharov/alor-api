@@ -1,8 +1,9 @@
 import "dotenv/config";
 import assert from "assert";
-import { Endpoint, Exchange, WssEndpoint } from "./types";
+import { Endpoint, WssEndpoint } from "./types";
 import process from "process";
 import AlorApi from "./api";
+import { Exchange } from "./models/models";
 
 let portfolio = process.env.ALOR_PORTFOLIO as string;
 let exchange = Exchange.MOEX;

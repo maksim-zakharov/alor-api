@@ -1,48 +1,37 @@
+import { SubscriptionAction } from "./types";
 import {
-  AllTradesSubscribeRequest,
-  Candle,
-  CandlesSubscribeRequest,
-  Order,
-  Orderbook,
-  OrderbookSubscribeRequest,
-  OrdersSubscribeRequest,
-  Position,
-  PositionSubscribeRequest,
-  Quotes,
-  QuotesSubscribeRequest,
-  StopOrder,
-  StopOrdersSubscribeRequest,
-  SubscriptionAction,
-  Summary,
-  SummarySubscribeRequest,
-  Trade,
-} from './types';
+  WsReqBaseObject,
+  WsResBarsGetAndSubscribe,
+  WsResOrderBookGetAndSubscribe,
+  WsResQuotesSubscribe,
+  WsResPositionsGetAndSubscribe,
+  WsResSummariesGetAndSubscribeV2,
+  WsResRisksGetAndSubscribe,
+  WsResOrdersGetAndSubscribe,
+  WsResStopOrdersGetAndSubscribe,
+  WsResSpectraRisksGetAndSubscribe,
+  Security,
+  Alltrades,
+} from "./models/models";
 
-type ResponseData =
-  | Order
-  | StopOrder
-  | Orderbook
-  | Candle
-  | Trade
-  | Quotes
-  | Summary
-  | Position;
+export type ResponseData =
+  | Pick<WsResBarsGetAndSubscribe, "data">
+  | Pick<WsResOrderBookGetAndSubscribe, "data">
+  | Pick<WsResQuotesSubscribe, "data">
+  | Pick<WsResPositionsGetAndSubscribe, "data">
+  | Pick<WsResSummariesGetAndSubscribeV2, "data">
+  | Pick<WsResRisksGetAndSubscribe, "data">
+  | Pick<WsResOrdersGetAndSubscribe, "data">
+  | Pick<WsResStopOrdersGetAndSubscribe, "data">
+  | Pick<WsResSpectraRisksGetAndSubscribe, "data">
+  | Security
+  | Alltrades;
 
 type MarketSubscriptionOptions<R, D> = {
-  buildRequest: (subscriptionAction: SubscriptionAction | undefined) => R;
+  buildRequest: (subscriptionAction: SubscriptionAction | undefined) => any; // R;
   dataHandler: (data: D) => unknown;
   requestGuid: string;
 };
-
-type SubscribeRequest =
-  | AllTradesSubscribeRequest
-  | CandlesSubscribeRequest
-  | OrderbookSubscribeRequest
-  | QuotesSubscribeRequest
-  | SummarySubscribeRequest
-  | PositionSubscribeRequest
-  | OrdersSubscribeRequest
-  | StopOrdersSubscribeRequest;
 
 /**
  * Универсальный ответ (одинаковые поля для разных типов подписок)
@@ -56,7 +45,7 @@ export type UniversalMarketResponse<D> = {
 };
 
 export class MarketSubscription<
-  R extends SubscribeRequest,
+  R extends WsReqBaseObject,
   D extends ResponseData,
 > {
   protected waitingStatusResolve?: () => unknown;

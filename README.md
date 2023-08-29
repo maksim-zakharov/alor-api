@@ -46,10 +46,10 @@ const positions = await api.clientInfo.getPositions({
 ```
 
 ### Стримы
-Для работы со стримом сделана обертка `api.stream`:
+Для работы со подписками сделана обертка `api.subscriptions`:
 ```ts
 // подписка на свечи
-const unsubscribe = await api.stream.candles({
+const unsubscribe = await api.subscriptions.candles({
     code: 'SBER',
     exchange: Exchange.MOEX,
     from: startDateTime,
@@ -61,15 +61,19 @@ const unsubscribe = await api.stream.candles({
 await unsubscribe();
 
 // обработка дополнительных событий
-api.stream.on('error', error => console.log('stream error', error));
-api.stream.on('close', error => console.log('stream closed, reason:', error));
+api.subscriptions.on('error', error => console.log('stream error', error));
+api.subscriptions.on('close', error => console.log('stream closed, reason:', error));
 ```
 Стримы доступны по следующим сущностям:
-* `.orders(request, handler)`
-* `.stoporders(request, handler)`
+* `.orderBook(request, handler)`
+* `.candles(request, handler)`
+* `.quotes(request, handler)`
+* `.alltrades(request, handler)`
 * `.positions(request, handler)`
 * `.summary(request, handler)`
-* `.quotes(request, handler)`
-* `.candles(request, handler)`
-* `.orderBook(request, handler)`
-* `.alltrades(request, handler)`
+* `.risks(request, handler)`
+* `.spectraRisks(request, handler)`
+* `.trades(request, handler)`
+* `.orders(request, handler)`
+* `.instruments(request, handler)`
+* `.stoporders(request, handler)`
