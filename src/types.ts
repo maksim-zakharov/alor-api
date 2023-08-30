@@ -29,6 +29,17 @@ export interface AlorOpenApiOptions {
   wssEndpointBeta: WssEndpointBeta.PROD;
 }
 
+export enum Timeframe {
+  Sec15 = 15,
+  Min1 = 60,
+  Min5 = 300,
+  Hour1 = 3600,
+  Day = "D",
+  Week = "W",
+  Month = "M",
+  Year = "Y",
+}
+
 /**
  * https://fs.moex.com/files/21235
  */

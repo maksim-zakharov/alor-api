@@ -1,4 +1,4 @@
-import { Condition, Side } from "../../models/models";
+import { Condition, OrdersActionsLimitMarket, Side } from "../../models/models";
 
 describe("StopOrdersService", () => {
   it("sendStopOrder", async () => {
@@ -39,24 +39,26 @@ describe("StopOrdersService", () => {
     const symbol = "SBER";
     const triggerPrice = 235;
 
-    const res1 = await testApi.stoporders.sendStopOrder({
-      quantity,
-      triggerPrice,
-      condition: Condition.Less,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-    });
+    const res1: OrdersActionsLimitMarket =
+      await testApi.stoporders.sendStopOrder({
+        quantity,
+        triggerPrice,
+        condition: Condition.Less,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+      });
 
-    const res2 = await testApi.stoporders.updateStopOrder({
-      orderId: res1.orderNumber,
-      quantity: quantity2,
-      triggerPrice,
-      condition: Condition.Less,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-    });
+    const res2: OrdersActionsLimitMarket =
+      await testApi.stoporders.updateStopOrder({
+        orderId: res1.orderNumber,
+        quantity: quantity2,
+        triggerPrice,
+        condition: Condition.Less,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+      });
 
     const order = await testApi.clientInfo.getStopOrderByOrderId({
       orderId: res2.orderNumber!,
@@ -74,24 +76,26 @@ describe("StopOrdersService", () => {
     const symbol = "SBER";
     const triggerPrice = 280;
 
-    const res1 = await testApi.stoporders.sendStopLimitOrder({
-      quantity,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-      condition: Condition.More,
-      triggerPrice,
-    });
+    const res1: OrdersActionsLimitMarket =
+      await testApi.stoporders.sendStopLimitOrder({
+        quantity,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+        condition: Condition.More,
+        triggerPrice,
+      });
 
-    const res2 = await testApi.stoporders.updateStopOrder({
-      orderId: res1.orderNumber,
-      quantity: quantity2,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-      condition: Condition.More,
-      triggerPrice,
-    });
+    const res2: OrdersActionsLimitMarket =
+      await testApi.stoporders.updateStopOrder({
+        orderId: res1.orderNumber,
+        quantity: quantity2,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+        condition: Condition.More,
+        triggerPrice,
+      });
 
     const order = await testApi.clientInfo.getStopOrderByOrderId({
       orderId: res2.orderNumber!,
@@ -108,14 +112,15 @@ describe("StopOrdersService", () => {
     const triggerPrice = 235;
     const symbol = "SBER";
 
-    const res = await testApi.stoporders.sendStopOrder({
-      quantity,
-      triggerPrice,
-      condition: Condition.Less,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-    });
+    const res: OrdersActionsLimitMarket =
+      await testApi.stoporders.sendStopOrder({
+        quantity,
+        triggerPrice,
+        condition: Condition.Less,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+      });
 
     const order = await testApi.clientInfo.getStopOrderByOrderId({
       orderId: res.orderNumber!,

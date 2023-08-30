@@ -12,6 +12,7 @@ import {
   CommandwsReqUpdateStopLimitOrder,
   CommandwsReqUpdateStopOrder,
   EstimateOrderViewModel,
+  OrdersActions400CommandAPI,
   OrdersActionsLimitMarket,
 } from "../../models/models";
 import { v4 as uuidv } from "uuid";
@@ -24,7 +25,7 @@ export class StopOrdersService {
    */
   async sendStopOrder(
     body: BodyrequestOrdersActionsStopMarketTVWarp,
-  ): Promise<OrdersActionsLimitMarket> {
+  ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
     return this.http.post(
@@ -43,7 +44,7 @@ export class StopOrdersService {
    */
   async sendStopLimitOrder(
     body: BodyrequestOrdersActionsStopLimitTVWarp,
-  ): Promise<OrdersActionsLimitMarket> {
+  ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
     return this.http.post(
@@ -62,7 +63,7 @@ export class StopOrdersService {
    */
   async updateStopOrder(
     body: CommandwsReqUpdateStopOrder,
-  ): Promise<OrdersActionsLimitMarket> {
+  ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
     return this.http.put(
@@ -81,7 +82,7 @@ export class StopOrdersService {
    */
   async updateStopLimitOrder(
     body: CommandwsReqUpdateStopLimitOrder,
-  ): Promise<OrdersActionsLimitMarket> {
+  ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
     return this.http.put(

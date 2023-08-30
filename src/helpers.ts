@@ -10,6 +10,8 @@ export const fromTo = (offset: string | number, base = new Date()) => {
     typeof offset === "string" ? ms(offset as StringValue) : offset;
   const date = new Date(base.valueOf() + offsetMs).getTime() / 1000;
   const [from, to] =
-    offsetMs > 0 ? [base.getTime() / 1000, date] : [date, base];
-  return { from, to };
+    offsetMs > 0
+      ? [base.getTime() / 1000, date]
+      : [date, base.getTime() / 1000];
+  return { from: Math.floor(from), to: Math.floor(to) };
 };

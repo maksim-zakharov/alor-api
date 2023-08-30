@@ -1,4 +1,4 @@
-import { Side } from "../../models/models";
+import { OrdersActionsLimitMarket, Side } from "../../models/models";
 
 describe("OrdersService", () => {
   it("sendLimitOrder", async () => {
@@ -33,7 +33,7 @@ describe("OrdersService", () => {
     const symbol = "SBER";
     const price = 235;
 
-    const res1 = await testApi.orders.sendLimitOrder({
+    const res1: OrdersActionsLimitMarket = await testApi.orders.sendLimitOrder({
       quantity,
       icebergFixed: quantity,
       icebergVariance: quantity,
@@ -78,7 +78,7 @@ describe("OrdersService", () => {
     const price = 235;
     const symbol = "SBER";
 
-    const res = await testApi.orders.sendLimitOrder({
+    const res: OrdersActionsLimitMarket = await testApi.orders.sendLimitOrder({
       quantity,
       icebergFixed: quantity,
       icebergVariance: quantity,
