@@ -49,9 +49,9 @@ export class InstrumentsService {
   /**
    * Получение информации о выбранном финансовом инструменте
    */
-  async getSecuritiesByExchangeAndSymbol(
+  async getSecurityByExchangeAndSymbol(
     params: DevSecuritiesSearchExchangeCodeParams,
-  ): Promise<Security[]> {
+  ): Promise<Security> {
     return this.http.get(
       `/md/v2/Securities/${params.exchange}/${params.symbol}`,
       {

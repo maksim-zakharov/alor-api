@@ -12,7 +12,7 @@ describe("InstrumentsService", () => {
   });
 
   it("getSecuritiesByExchangeAndSymbol", async () => {
-    const res = await testApi.instruments.getSecuritiesByExchangeAndSymbol({
+    const res = await testApi.instruments.getSecurityByExchangeAndSymbol({
       symbol,
       exchange,
     });
