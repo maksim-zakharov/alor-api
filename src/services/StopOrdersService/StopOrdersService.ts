@@ -1,17 +1,10 @@
 import { AxiosInstance } from "axios";
 import {
-  BodyrequestOrdersActionsLimitTV,
-  BodyrequestOrdersActionsLimitTVput,
-  BodyrequestOrdersActionsMarketTV,
-  BodyrequestOrdersActionsMarketTVput,
   BodyrequestOrdersActionsStopLimitTVWarp,
   BodyrequestOrdersActionsStopMarketTVWarp,
   CommandApiV2ClientOrdersDeleteParams,
-  CommandwsReqCreateStopLimitOrder,
-  CommandwsReqCreateStopOrder,
   CommandwsReqUpdateStopLimitOrder,
   CommandwsReqUpdateStopOrder,
-  EstimateOrderViewModel,
   OrdersActions400CommandAPI,
   OrdersActionsLimitMarket,
 } from "../../models/models";
@@ -36,7 +29,7 @@ export class StopOrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -55,7 +48,7 @@ export class StopOrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -74,7 +67,7 @@ export class StopOrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -93,7 +86,7 @@ export class StopOrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -105,6 +98,6 @@ export class StopOrdersService {
     return this.http.delete(
       `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
       { params },
-    );
+    ).then(r => r.data);
   }
 }

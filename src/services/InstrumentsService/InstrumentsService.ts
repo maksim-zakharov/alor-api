@@ -32,7 +32,7 @@ export class InstrumentsService {
   async getSecurities(params: DevSecuritiesSearchParams): Promise<Security[]> {
     return this.http.get(`/md/v2/Securities`, {
       params,
-    });
+    }).then(r => r.data);
   }
 
   /**
@@ -43,7 +43,7 @@ export class InstrumentsService {
   ): Promise<Security[]> {
     return this.http.get(`/md/v2/Securities/${params.exchange}`, {
       params,
-    });
+    }).then(r => r.data);
   }
 
   /**
@@ -57,7 +57,7 @@ export class InstrumentsService {
       {
         params,
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -66,7 +66,7 @@ export class InstrumentsService {
   async getQuotes(params: DevQuotesParams): Promise<Symbol[]> {
     return this.http.get(`/md/v2/Securities/${params.symbols}/quotes`, {
       params,
-    });
+    }).then(r => r.data);
   }
 
   /**
@@ -80,7 +80,7 @@ export class InstrumentsService {
       {
         params,
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -94,7 +94,7 @@ export class InstrumentsService {
       {
         params,
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -108,7 +108,7 @@ export class InstrumentsService {
       {
         params,
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -120,20 +120,20 @@ export class InstrumentsService {
     return this.http.get(
       `/md/v2/Securities/${params.exchange}/${params.symbol}/actualFuturesQuote`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
    * Запрос ставок риска
    */
   async getRiskRates(params: RiskRatesParams): Promise<RiskRates> {
-    return this.http.get(`/md/v2/risk/rates`, { params });
+    return this.http.get(`/md/v2/risk/rates`, { params }).then(r => r.data);
   }
 
   /**
    * Запрос истории для выбранных биржи и инструмента
    */
   async getHistory(params: DevHistoryParams): Promise<History> {
-    return this.http.get(`/md/v2/history`, { params });
+    return this.http.get(`/md/v2/history`, { params }).then(r => r.data);
   }
 }

@@ -30,7 +30,7 @@ export class OrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -49,7 +49,7 @@ export class OrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -68,7 +68,7 @@ export class OrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -87,7 +87,7 @@ export class OrdersService {
           "X-ALOR-REQID": requestId,
         },
       },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -99,7 +99,7 @@ export class OrdersService {
     return this.http.delete(
       `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -109,7 +109,7 @@ export class OrdersService {
     return this.http.post(
       `/commandapi/warptrans/TRADE/v2/client/orders/estimate`,
       params,
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -119,6 +119,6 @@ export class OrdersService {
     return this.http.post(
       `/commandapi/warptrans/TRADE/v2/client/orders/estimate/all`,
       params,
-    );
+    ).then(r => r.data);
   }
 }

@@ -37,7 +37,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/clients/${params.exchange}/${params.portfolio}/orders`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -48,7 +48,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/clients/${exchange}/${portfolio}/orders/${params.orderId}`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -59,7 +59,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/clients/${params.exchange}/${params.portfolio}/summary`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -71,7 +71,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/Clients/${params.exchange}/${params.portfolio}/positions`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -84,7 +84,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/Clients/${params.exchange}/${params.portfolio}/positions/${params.symbol}`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -95,7 +95,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/Clients/${params.exchange}/${params.portfolio}/trades`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -106,7 +106,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/Clients/${params.exchange}/${params.portfolio}/${params.ticker}/trades`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -117,7 +117,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/Clients/${params.exchange}/${params.portfolio}/fortsrisk`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -128,7 +128,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/Clients/${params.exchange}/${params.portfolio}/risk`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -139,7 +139,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/stats/${params.exchange}/${params.portfolio}/history/trades`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -152,7 +152,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/stats/${params.exchange}/${params.portfolio}/history/trades/${params.symbol}`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -163,7 +163,7 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/clients/${params.exchange}/${params.portfolio}/stoporders`,
       { params },
-    );
+    ).then(r => r.data);
   }
 
   /**
@@ -176,6 +176,6 @@ export class ClientInfoService {
     return this.http.get(
       `/md/v2/clients/${params.exchange}/${params.portfolio}/stoporders/${params.orderId}`,
       { params },
-    );
+    ).then(r => r.data);
   }
 }

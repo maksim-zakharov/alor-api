@@ -50,14 +50,14 @@ export const refreshTokenMiddleware = (
 
   axios.interceptors.response.use(
     (response) => {
-      return response.data;
+      return response;
     },
     (err) => {
       const originalRequest = err.config as AxiosRequestConfig & {
         _retry: boolean;
       };
 
-      if (err.response.status === 401 && !originalRequest._retry) {
+      if (err.response && err.response.status === 401 && !originalRequest._retry) {
         if (isRefreshing) {
           return new Promise(function (resolve, reject) {
             failedQueue.push({ resolve, reject });
@@ -80,7 +80,7 @@ export const refreshTokenMiddleware = (
         });
       }
 
-      if (err.response.status > 401 || err.response.status === 400) {
+      if (err.response && (err.response.status > 401 || err.response.status === 400)) {
         return Promise.reject({
           status: err.response.status,
           message: err.response.data.message,
