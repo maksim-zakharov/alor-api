@@ -27,7 +27,7 @@ export const refreshTokenMiddleware = (
   ) =>
     axios
       .post(`https://oauth.alor.ru/refresh?token=${refreshToken}`)
-      .then((data: any) => {
+      .then(({ data }) => {
         if (callback) {
           callback(data.AccessToken);
         }
@@ -57,7 +57,11 @@ export const refreshTokenMiddleware = (
         _retry: boolean;
       };
 
-      if (err.response && err.response.status === 401 && !originalRequest._retry) {
+      if (
+        err.response &&
+        err.response.status === 401 &&
+        !originalRequest._retry
+      ) {
         if (isRefreshing) {
           return new Promise(function (resolve, reject) {
             failedQueue.push({ resolve, reject });
@@ -80,7 +84,10 @@ export const refreshTokenMiddleware = (
         });
       }
 
-      if (err.response && (err.response.status > 401 || err.response.status === 400)) {
+      if (
+        err.response &&
+        (err.response.status > 401 || err.response.status === 400)
+      ) {
         return Promise.reject({
           status: err.response.status,
           message: err.response.data.message,
