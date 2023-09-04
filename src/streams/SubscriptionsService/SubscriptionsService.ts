@@ -29,6 +29,7 @@ import {
   Security,
   Alltrades,
   WsReqAllTradesGetAndSubscribe,
+  Alltrade,
 } from "../../models/models";
 
 export class SubscriptionsService extends BaseStream {
@@ -78,7 +79,7 @@ export class SubscriptionsService extends BaseStream {
    */
   alltrades = (
     req: WithoutOpcode<WsReqAllTradesGetAndSubscribe>,
-    dataHandler: (quotes: Alltrades) => unknown,
+    dataHandler: (quotes: Alltrade) => unknown,
   ) =>
     this.baseSubscribe(
       req,
