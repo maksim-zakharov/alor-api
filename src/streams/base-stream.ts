@@ -70,7 +70,7 @@ export class BaseStream {
         if (reject) {
           reject(false);
         }
-        // await this.onClose(error);
+        await this.onClose(error);
       });
     });
   }
