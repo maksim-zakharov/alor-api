@@ -79,11 +79,11 @@ export class AlorApi {
     subscriptions,
     ordersWss,
   }: {
-    subscriptions: number;
-    ordersWss: number;
+    subscriptions?: number;
+    ordersWss?: number;
   }) => {
     if (subscriptions) this.subscriptions.setMaxListeners(subscriptions);
-    if (ordersWss) this.ordersWss.setMaxListeners(subscriptions);
+    if (ordersWss) this.ordersWss.setMaxListeners(ordersWss);
   };
 
   get ordersWss() {
