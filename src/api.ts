@@ -26,7 +26,6 @@ const defaults: Required<
 export class AlorApi {
   public readonly http: AxiosInstance;
   public accessToken: string;
-  private _stream: SubscriptionsService;
 
   public readonly options: AlorOpenApiOptions;
 
@@ -75,6 +74,17 @@ export class AlorApi {
   get subscriptions() {
     return this.getOrCreateStream(SubscriptionsService);
   }
+
+  setMaxListeners = ({
+    subscriptions,
+    ordersWss,
+  }: {
+    subscriptions: number;
+    ordersWss: number;
+  }) => {
+    if (subscriptions) this.subscriptions.setMaxListeners(subscriptions);
+    if (ordersWss) this.ordersWss.setMaxListeners(subscriptions);
+  };
 
   get ordersWss() {
     return this.getOrCreateStream(WSSOrdersService);

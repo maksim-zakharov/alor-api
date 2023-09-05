@@ -51,6 +51,10 @@ export class BaseStream {
     });
   }
 
+  setMaxListeners(listeners: number) {
+    this.wss.setMaxListeners(listeners);
+  }
+
   protected async waitEvents() {
     return new Promise((resolve, reject) => {
       // if (this.wss.readyState !== WebSocket.OPEN) {
