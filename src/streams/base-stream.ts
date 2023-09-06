@@ -48,7 +48,7 @@ export class BaseStream {
 
     this.wss.on("close", async (error) => {
       console.log(`[AlorApi-WSS] Подключение к ${this.wss.url} потеряно.`);
-      // await this.onClose(error);
+      await this.onClose(error);
     });
   }
 
