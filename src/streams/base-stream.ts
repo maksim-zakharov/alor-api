@@ -120,9 +120,9 @@ export class BaseStream {
 
   async reconnect() {
     console.log("[AlorApi-WSS] Try Reconnect");
-    if (this.wss.readyState !== WebSocket.OPEN) {
-      this.wss.emit("open");
-    }
+    // if (this.wss.readyState !== WebSocket.OPEN) {
+    this.wss.emit("open");
+    // }
     await this.connect();
     for (const subscription of this.subscriptions) {
       await this.watch(subscription, false);
