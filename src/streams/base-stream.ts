@@ -90,7 +90,8 @@ export class BaseStream {
       this.subscriptions.forEach((subscription) =>
         this.wss.off("message", subscription.handler),
       );
-      if (error && this.options.autoReconnect) {
+      // if (error && this.options.autoReconnect) {
+      if (this.options.autoReconnect) {
         console.log(`[AlorApi-WSS] onClose Error: ${error}`);
         setTimeout(
           () => this.reconnect().then(resolve).catch(reject),
