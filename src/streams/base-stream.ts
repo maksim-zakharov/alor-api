@@ -39,6 +39,7 @@ export class BaseStream {
     );
     this.wss.setMaxListeners(100);
     this.wss.on("error", (error) => {
+      console.log(`[AlorApi-WSS] Error: ${error}`);
       throw error;
     });
     this.wss.on("open", () => {
@@ -57,9 +58,6 @@ export class BaseStream {
 
   protected async waitEvents() {
     return new Promise((resolve, reject) => {
-      // if (this.wss.readyState !== WebSocket.OPEN) {
-      //   this.wss.emit("open");
-      // }
       this.wss.on("open", () => {
         if (resolve) {
           resolve(true);
@@ -91,6 +89,7 @@ export class BaseStream {
         this.wss.off("message", subscription.handler),
       );
       if (error && this.options.autoReconnect) {
+        console.log(`[AlorApi-WSS] Error: ${error}`);
         setTimeout(
           () => this.reconnect().then(resolve).catch(reject),
           this.autoReconnectDelay,
@@ -120,6 +119,10 @@ export class BaseStream {
   }
 
   async reconnect() {
+    console.log("[AlorApi-WSS] Try Reconnect");
+    if (this.wss.readyState !== WebSocket.OPEN) {
+      this.wss.emit("open");
+    }
     await this.connect();
     for (const subscription of this.subscriptions) {
       await this.watch(subscription, false);
