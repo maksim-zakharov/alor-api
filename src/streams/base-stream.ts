@@ -39,7 +39,7 @@ export class BaseStream {
     );
     this.wss.setMaxListeners(100);
     this.wss.on("error", (error) => {
-      console.log(`[AlorApi-WSS] Error: ${error}`);
+      console.log(`[AlorApi-WSS] onError: ${error}`);
       throw error;
     });
     this.wss.on("open", () => {
@@ -47,7 +47,9 @@ export class BaseStream {
     });
 
     this.wss.on("close", async (error) => {
-      console.log(`[AlorApi-WSS] Подключение к ${this.wss.url} потеряно.`);
+      console.log(
+        `[AlorApi-WSS] Подключение к ${this.wss.url} потеряно. ${error}`,
+      );
       await this.onClose(error);
     });
   }
@@ -89,7 +91,7 @@ export class BaseStream {
         this.wss.off("message", subscription.handler),
       );
       if (error && this.options.autoReconnect) {
-        console.log(`[AlorApi-WSS] Error: ${error}`);
+        console.log(`[AlorApi-WSS] onClose Error: ${error}`);
         setTimeout(
           () => this.reconnect().then(resolve).catch(reject),
           this.autoReconnectDelay,
@@ -119,7 +121,7 @@ export class BaseStream {
   }
 
   async reconnect() {
-    console.log("[AlorApi-WSS] Try Reconnect");
+    console.log("[AlorApi-WSS] Try reconnect");
     // if (this.wss.readyState !== WebSocket.OPEN) {
     this.wss.emit("open");
     // }
@@ -150,9 +152,13 @@ export class BaseStream {
         console.log(
           `[AlorApi-WSS] RequestId: ${e.requestGuid} HttpCode: ${e.httpCode} Message: ${e.message}`,
         );
-        await this.refresh().then(() =>
-          console.log("[AlorApi-WSS] Получен новый токен"),
-        );
+        await this.refresh()
+          .then(() => console.log("[AlorApi-WSS] Получен новый токен"))
+          .catch((e) =>
+            console.log(
+              `[AlorApi-WSS] Ошибка при рефреше токена: ${e.message || e}`,
+            ),
+          );
         await this.onClose(e.httpCode);
       } else {
         this.wss.off("message", subscription.handler);
