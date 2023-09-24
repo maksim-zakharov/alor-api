@@ -1,6 +1,5 @@
 import { SubscriptionAction } from "./types";
 import {
-  WsReqBaseObject,
   WsResBarsGetAndSubscribe,
   WsResOrderBookGetAndSubscribe,
   WsResQuotesSubscribe,
@@ -11,8 +10,9 @@ import {
   WsResStopOrdersGetAndSubscribe,
   WsResSpectraRisksGetAndSubscribe,
   Security,
-  Alltrades,
   CommandwsResHandledSuccessfully,
+  WsResTradesGetAndSubscribe,
+  Alltrade,
 } from "./models/models";
 
 export type ResponseData =
@@ -26,7 +26,8 @@ export type ResponseData =
   | WsResStopOrdersGetAndSubscribe["data"]
   | WsResSpectraRisksGetAndSubscribe["data"]
   | Security
-  | Alltrades
+  | Alltrade
+  | WsResTradesGetAndSubscribe["data"]
   | CommandwsResHandledSuccessfully;
 
 type MarketSubscriptionOptions<R, D> = {

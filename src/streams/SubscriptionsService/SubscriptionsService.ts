@@ -27,7 +27,6 @@ import {
   WsResTradesGetAndSubscribe,
   WsReqInstrumentsGetAndSubscribeV2,
   Security,
-  Alltrades,
   WsReqAllTradesGetAndSubscribe,
   Alltrade,
 } from "../../models/models";
