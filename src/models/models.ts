@@ -82,11 +82,15 @@ export enum OrderStatus {
  * Условие срабатывания стоп/стоп-лимитной заявки:
  *   * `More` - Цена срабатывания больше текущей цены
  *   * `Less` - Цена срабатывания меньше текущей цены
+ *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+ *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
  * @example "More"
  */
 export enum Condition {
   More = "More",
   Less = "Less",
+  MoreOrEqual = "MoreOrEqual",
+  LessOrEqual = "LessOrEqual",
 }
 
 /**
@@ -335,12 +339,6 @@ export interface BodyrequestOrdersActionsLimitTVput {
    */
   type?: string;
   /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  id?: number;
-  /**
    * Количество
    * @format int32
    * @example 2
@@ -365,6 +363,11 @@ export interface BodyrequestOrdersActionsLimitTVput {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -408,12 +411,6 @@ export interface BodyrequestOrdersActionsMarketTVput {
    */
   type?: string;
   /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  id?: number;
-  /**
    * Количество
    * @format int32
    * @example 2
@@ -432,6 +429,11 @@ export interface BodyrequestOrdersActionsMarketTVput {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -483,6 +485,11 @@ export interface BodyrequestOrdersActionsLimitTV {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -524,6 +531,8 @@ export interface BodyrequestOrdersActionsStopMarketTVWarp {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -562,6 +571,11 @@ export interface BodyrequestOrdersActionsStopMarketTVWarp {
      */
     instrumentGroup?: string;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -594,6 +608,8 @@ export interface BodyrequestOrdersActionsStopLimitTVWarp {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -638,6 +654,11 @@ export interface BodyrequestOrdersActionsStopLimitTVWarp {
      */
     instrumentGroup?: string;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -711,6 +732,11 @@ export interface BodyrequestOrdersActionsMarketTV {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -768,6 +794,11 @@ export interface BodyrequestOrdersActionsStopTV {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -848,6 +879,11 @@ export interface BodyrequestOrdersActionsStopLimitTV {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   user?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -948,6 +984,11 @@ export interface BodyrequestOrdersActionsLimit {
      */
     Exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   User?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -994,6 +1035,11 @@ export interface BodyrequestOrdersActionsMarket {
      */
     Exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   User?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -1047,6 +1093,11 @@ export interface BodyrequestOrdersActionsStop {
      */
     Exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Информация о пользователе */
   User?: {
     /**
@@ -1106,6 +1157,11 @@ export interface BodyrequestOrdersActionsStoplimit {
      */
     Exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   User?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -1636,6 +1692,11 @@ export interface Order {
    */
   exchange?: Exchange;
   /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
+  /**
    * Тип заявки:
    *   * `limit` - Лимитная заявка
    *   * `market` - Рыночная заявка
@@ -1833,6 +1894,11 @@ export interface StoporderWarp {
    */
   exchange?: Exchange;
   /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
+  /**
    * Тип заявки:
    *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
@@ -1849,6 +1915,8 @@ export interface StoporderWarp {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -3644,6 +3712,11 @@ export interface CommandwsReqCreateMarketOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -3654,7 +3727,7 @@ export interface CommandwsReqCreateMarketOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -3699,6 +3772,11 @@ export interface CommandwsReqCreateLimitOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -3730,7 +3808,7 @@ export interface CommandwsReqCreateLimitOrder {
    */
   icebergVariance?: number | null;
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -3760,6 +3838,8 @@ export interface CommandwsReqCreateStopOrder {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -3787,6 +3867,11 @@ export interface CommandwsReqCreateStopOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -3797,7 +3882,7 @@ export interface CommandwsReqCreateStopOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -3839,6 +3924,8 @@ export interface CommandwsReqCreateStopLimitOrder {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -3866,6 +3953,11 @@ export interface CommandwsReqCreateStopLimitOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -3897,7 +3989,7 @@ export interface CommandwsReqCreateStopLimitOrder {
    */
   icebergVariance?: number | null;
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -3948,6 +4040,11 @@ export interface CommandwsReqUpdateMarketOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -3958,7 +4055,7 @@ export interface CommandwsReqUpdateMarketOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4009,6 +4106,11 @@ export interface CommandwsReqUpdateLimitOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -4040,7 +4142,7 @@ export interface CommandwsReqUpdateLimitOrder {
    */
   icebergVariance?: number | null;
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4076,6 +4178,8 @@ export interface CommandwsReqUpdateStopOrder {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -4103,6 +4207,11 @@ export interface CommandwsReqUpdateStopOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -4113,7 +4222,7 @@ export interface CommandwsReqUpdateStopOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4161,6 +4270,8 @@ export interface CommandwsReqUpdateStopLimitOrder {
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
    *   * `Less` - Цена срабатывания меньше текущей цены
+   *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+   *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
   /**
@@ -4188,6 +4299,11 @@ export interface CommandwsReqUpdateStopLimitOrder {
      */
     exchange?: Exchange;
   };
+  /**
+   * Пользовательский комментарий к заявке.
+   * @example "первая заявка"
+   */
+  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -4219,7 +4335,7 @@ export interface CommandwsReqUpdateStopLimitOrder {
    */
   icebergVariance?: number | null;
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4259,7 +4375,7 @@ export interface CommandwsReqDeleteMarketOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4293,7 +4409,7 @@ export interface CommandwsReqDeleteLimitOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4327,7 +4443,7 @@ export interface CommandwsReqDeleteStopOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4361,7 +4477,7 @@ export interface CommandwsReqDeleteStopLimitOrder {
     portfolio?: string;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен.
+   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
    * @example true
    */
   checkDuplicates?: boolean;
@@ -4550,7 +4666,7 @@ export interface FortsriskParams {
    * Биржа:
    *   * `MOEX` - Московская биржа
    */
-  exchange: Exchange;
+  exchange: "MOEX";
   /**
    * Идентификатор клиентского портфеля
    * @example "D39004"
