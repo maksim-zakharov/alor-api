@@ -22,15 +22,17 @@ export class OrdersService {
   ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/market`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .post(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/market`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
@@ -41,53 +43,59 @@ export class OrdersService {
   ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .post(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
    * Изменение рыночной заявки
    */
   async updateMarketOrder(
-    body: BodyrequestOrdersActionsMarketTVput,
+    body: BodyrequestOrdersActionsMarketTVput & { id: number },
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
-    return this.http.put(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/market/${body.id}`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .put(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/market/${body.id}`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
    * Изменение рыночной заявки
    */
   async updateLimitOrder(
-    body: BodyrequestOrdersActionsLimitTVput,
+    body: BodyrequestOrdersActionsLimitTVput & { id: number },
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
-    return this.http.put(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit/${body.id}`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .put(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/limit/${body.id}`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
@@ -96,29 +104,29 @@ export class OrdersService {
   async cancelOrder(
     params: CommandApiV2ClientOrdersDeleteParams,
   ): Promise<string> {
-    return this.http.delete(
-      `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
-      { params },
-    ).then(r => r.data);
+    return this.http
+      .delete(
+        `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
+        { params },
+      )
+      .then((r) => r.data);
   }
 
   /**
    * Провести оценку одной заявки
    */
   async estimateOrder(params: EstimateOrderViewModel): Promise<string> {
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/estimate`,
-      params,
-    ).then(r => r.data);
+    return this.http
+      .post(`/commandapi/warptrans/TRADE/v2/client/orders/estimate`, params)
+      .then((r) => r.data);
   }
 
   /**
    * Провести оценку нескольких заявок
    */
   async estimateAllOrders(params: EstimateOrderViewModel[]): Promise<string> {
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/estimate/all`,
-      params,
-    ).then(r => r.data);
+    return this.http
+      .post(`/commandapi/warptrans/TRADE/v2/client/orders/estimate/all`, params)
+      .then((r) => r.data);
   }
 }
