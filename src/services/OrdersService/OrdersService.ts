@@ -11,6 +11,13 @@ import {
 } from "../../models/models";
 import { v4 as uuidv } from "uuid";
 
+interface IupdateLimitOrder extends BodyrequestOrdersActionsLimitTVput {
+  id?: number;
+}
+interface IupdateMarketOrder extends BodyrequestOrdersActionsMarketTVput {
+  id?: number;
+}
+
 export class OrdersService {
   constructor(private readonly http: AxiosInstance) {}
 
@@ -60,7 +67,7 @@ export class OrdersService {
    * Изменение рыночной заявки
    */
   async updateMarketOrder(
-    body: BodyrequestOrdersActionsMarketTVput & { id: number },
+    body: IupdateMarketOrder,
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
@@ -81,7 +88,7 @@ export class OrdersService {
    * Изменение рыночной заявки
    */
   async updateLimitOrder(
-    body: BodyrequestOrdersActionsLimitTVput & { id: number },
+    body: IupdateLimitOrder,
   ): Promise<OrdersActionsLimitMarket> {
     const requestId = uuidv();
 
