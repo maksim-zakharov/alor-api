@@ -51,9 +51,13 @@ export class AlorApi {
       (token) => {
         this.accessToken = token;
         console.log(`[AlorApi] Access Token получен`);
+
+        this.onAuthCallback(token);
       },
     );
   }
+
+  onAuthCallback(...args) {}
 
   get orders() {
     return this.getOrCreateService(OrdersService);
