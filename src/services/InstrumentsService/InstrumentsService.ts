@@ -1,7 +1,12 @@
 import { AxiosInstance } from "axios/index";
 import {
   Alltrade,
+  Alltrades,
+  AlltradesHeavy,
   Alltradeshistory,
+  AlltradeshistoryHeavy,
+  AlltradeshistorySlim,
+  AlltradesSlim,
   DevHistoryParams,
   DevOrderbookExchangSeccodeParams,
   DevQuotesParams,
@@ -12,12 +17,24 @@ import {
   DevSecuritiesSearchExchangeParams,
   DevSecuritiesSearchParams,
   History,
+  HistoryHeavy,
+  HistorySlim,
   Orderbook,
+  OrderbookHeavy,
+  OrderbookSlim,
   RiskRates,
   RiskRatesParams,
+  Securities,
+  SecuritiesHeavy,
+  SecuritiesSlim,
   Security,
+  SecurityHeavy,
+  SecuritySlim,
   Symbol,
   SymbolFutures,
+  Symbols,
+  SymbolsHeavy,
+  SymbolsSlim,
 } from "../../models/models";
 
 /**
@@ -29,10 +46,14 @@ export class InstrumentsService {
   /**
    * Получение информации о торговых инструментах
    */
-  async getSecurities(params: DevSecuritiesSearchParams): Promise<Security[]> {
-    return this.http.get(`/md/v2/Securities`, {
-      params,
-    }).then(r => r.data);
+  async getSecurities(
+    params: DevSecuritiesSearchParams,
+  ): Promise<Securities | SecuritiesSlim | SecuritiesHeavy> {
+    return this.http
+      .get(`/md/v2/Securities`, {
+        params,
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -40,10 +61,12 @@ export class InstrumentsService {
    */
   async getSecuritiesByExchange(
     params: DevSecuritiesSearchExchangeParams,
-  ): Promise<Security[]> {
-    return this.http.get(`/md/v2/Securities/${params.exchange}`, {
-      params,
-    }).then(r => r.data);
+  ): Promise<Securities | SecuritiesSlim | SecuritiesHeavy> {
+    return this.http
+      .get(`/md/v2/Securities/${params.exchange}`, {
+        params,
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -51,22 +74,25 @@ export class InstrumentsService {
    */
   async getSecurityByExchangeAndSymbol(
     params: DevSecuritiesSearchExchangeCodeParams,
-  ): Promise<Security> {
-    return this.http.get(
-      `/md/v2/Securities/${params.exchange}/${params.symbol}`,
-      {
+  ): Promise<Security | SecuritySlim | SecurityHeavy> {
+    return this.http
+      .get(`/md/v2/Securities/${params.exchange}/${params.symbol}`, {
         params,
-      },
-    ).then(r => r.data);
+      })
+      .then((r) => r.data);
   }
 
   /**
    * Получение информации о котировках для выбранных инструментов
    */
-  async getQuotes(params: DevQuotesParams): Promise<Symbol[]> {
-    return this.http.get(`/md/v2/Securities/${params.symbols}/quotes`, {
-      params,
-    }).then(r => r.data);
+  async getQuotes(
+    params: DevQuotesParams,
+  ): Promise<Symbols | SymbolsSlim | SymbolsHeavy> {
+    return this.http
+      .get(`/md/v2/Securities/${params.symbols}/quotes`, {
+        params,
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -74,13 +100,12 @@ export class InstrumentsService {
    */
   async getOrderbookBySeccode(
     params: DevOrderbookExchangSeccodeParams,
-  ): Promise<Orderbook> {
-    return this.http.get(
-      `/md/v2/orderbooks/${params.exchange}/${params.seccode}`,
-      {
+  ): Promise<Orderbook | OrderbookSlim | OrderbookHeavy> {
+    return this.http
+      .get(`/md/v2/orderbooks/${params.exchange}/${params.seccode}`, {
         params,
-      },
-    ).then(r => r.data);
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -88,13 +113,12 @@ export class InstrumentsService {
    */
   async getAlltrades(
     params: DevSecuritiesSearchAllTradesParams,
-  ): Promise<Alltrade[]> {
-    return this.http.get(
-      `/md/v2/Securities/${params.exchange}/${params.symbol}/alltrades`,
-      {
+  ): Promise<Alltrades | AlltradesSlim | AlltradesHeavy> {
+    return this.http
+      .get(`/md/v2/Securities/${params.exchange}/${params.symbol}/alltrades`, {
         params,
-      },
-    ).then(r => r.data);
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -102,13 +126,15 @@ export class InstrumentsService {
    */
   async getAlltradesHistory(
     params: DevSecuritiesSearchAllTradesHistoryParams,
-  ): Promise<Alltradeshistory> {
-    return this.http.get(
-      `/md/v2/Securities/${params.exchange}/${params.symbol}/alltrades/history`,
-      {
-        params,
-      },
-    ).then(r => r.data);
+  ): Promise<Alltradeshistory | AlltradeshistorySlim | AlltradeshistoryHeavy> {
+    return this.http
+      .get(
+        `/md/v2/Securities/${params.exchange}/${params.symbol}/alltrades/history`,
+        {
+          params,
+        },
+      )
+      .then((r) => r.data);
   }
 
   /**
@@ -117,23 +143,27 @@ export class InstrumentsService {
   async getActualFuturesQuote(
     params: DevSecuritiesFuturesParams,
   ): Promise<SymbolFutures> {
-    return this.http.get(
-      `/md/v2/Securities/${params.exchange}/${params.symbol}/actualFuturesQuote`,
-      { params },
-    ).then(r => r.data);
+    return this.http
+      .get(
+        `/md/v2/Securities/${params.exchange}/${params.symbol}/actualFuturesQuote`,
+        { params },
+      )
+      .then((r) => r.data);
   }
 
   /**
    * Запрос ставок риска
    */
   async getRiskRates(params: RiskRatesParams): Promise<RiskRates> {
-    return this.http.get(`/md/v2/risk/rates`, { params }).then(r => r.data);
+    return this.http.get(`/md/v2/risk/rates`, { params }).then((r) => r.data);
   }
 
   /**
    * Запрос истории для выбранных биржи и инструмента
    */
-  async getHistory(params: DevHistoryParams): Promise<History> {
-    return this.http.get(`/md/v2/history`, { params }).then(r => r.data);
+  async getHistory(
+    params: DevHistoryParams,
+  ): Promise<History | HistorySlim | HistoryHeavy> {
+    return this.http.get(`/md/v2/history`, { params }).then((r) => r.data);
   }
 }
