@@ -1,3 +1,5 @@
+import { Trades } from "../../models/models";
+
 describe("ClientInfoService", () => {
   it("getOrders", async () => {
     const res = await testApi.clientInfo.getOrders({ portfolio, exchange });
@@ -57,7 +59,7 @@ describe("ClientInfoService", () => {
   });
 
   it("getHistoryTradesBySymbol", async () => {
-    const trades = await testApi.clientInfo.getHistoryTrades({
+    const trades: Trades = await testApi.clientInfo.getHistoryTrades({
       portfolio,
       exchange,
     });
