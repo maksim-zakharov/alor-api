@@ -31,11 +31,11 @@ import {
   SecurityHeavy,
   SecuritySlim,
   Symbol,
-  SymbolFutures,
   Symbols,
   SymbolsHeavy,
   SymbolsSlim,
 } from "../../models/models";
+import { SymbolFutures } from "../../../dist/test-types";
 
 /**
  * Ценные бумаги / инструменты
