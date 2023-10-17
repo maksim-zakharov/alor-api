@@ -51,10 +51,10 @@ describe("InstrumentsService", () => {
   });
 
   it("getActualFuturesQuote", async () => {
-    const secs: Securities = await testApi.instruments.getSecurities({
+    const secs: Securities = (await testApi.instruments.getSecurities({
       sector: "FORTS",
       query: "LKOH",
-    });
+    })) as any;
     console.log(secs);
     const res = await testApi.instruments.getActualFuturesQuote({
       symbol: secs[0].symbol!,
