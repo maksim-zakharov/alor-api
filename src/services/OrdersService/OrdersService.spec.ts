@@ -1,4 +1,9 @@
-import { OrdersActionsLimitMarket, Side } from "../../models/models";
+import {
+  Order,
+  Orders,
+  OrdersActionsLimitMarket,
+  Side,
+} from "../../models/models";
 
 describe("OrdersService", () => {
   it("sendLimitOrder", async () => {
@@ -56,7 +61,7 @@ describe("OrdersService", () => {
       type: "limit",
     });
 
-    const order = await testApi.clientInfo.getOrderById({
+    const order: Order = await testApi.clientInfo.getOrderById({
       orderId: res2.orderNumber!,
       exchange,
       portfolio,
@@ -89,7 +94,10 @@ describe("OrdersService", () => {
       type: "limit",
     });
 
-    const orders = await testApi.clientInfo.getOrders({ exchange, portfolio });
+    const orders: Orders = await testApi.clientInfo.getOrders({
+      exchange,
+      portfolio,
+    });
 
     const order = orders.find((o) => o.id === res.orderNumber)!;
 
