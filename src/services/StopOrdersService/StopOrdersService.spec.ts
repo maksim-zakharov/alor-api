@@ -1,4 +1,9 @@
-import { Condition, OrdersActionsLimitMarket, Side } from "../../models/models";
+import {
+  Condition,
+  OrdersActionsLimitMarket,
+  Side,
+  Stoporder,
+} from "../../models/models";
 
 describe("StopOrdersService", () => {
   it("sendStopOrder", async () => {
@@ -60,7 +65,7 @@ describe("StopOrdersService", () => {
         instrument: { exchange, symbol },
       });
 
-    const order = await testApi.clientInfo.getStopOrderByOrderId({
+    const order: Stoporder = await testApi.clientInfo.getStopOrderByOrderId({
       orderId: res2.orderNumber!,
       exchange,
       portfolio,
@@ -97,7 +102,7 @@ describe("StopOrdersService", () => {
         triggerPrice,
       });
 
-    const order = await testApi.clientInfo.getStopOrderByOrderId({
+    const order: Stoporder = await testApi.clientInfo.getStopOrderByOrderId({
       orderId: res2.orderNumber!,
       exchange,
       portfolio,
