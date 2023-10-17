@@ -1,3 +1,5 @@
+import { Securities } from "../../models/models";
+
 describe("InstrumentsService", () => {
   let symbol = "SBER";
 
@@ -49,7 +51,7 @@ describe("InstrumentsService", () => {
   });
 
   it("getActualFuturesQuote", async () => {
-    const secs = await testApi.instruments.getSecurities({
+    const secs: Securities = await testApi.instruments.getSecurities({
       sector: "FORTS",
       query: "LKOH",
     });

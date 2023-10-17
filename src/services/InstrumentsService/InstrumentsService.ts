@@ -142,7 +142,7 @@ export class InstrumentsService {
    */
   async getActualFuturesQuote(
     params: DevSecuritiesFuturesParams,
-  ): Promise<SymbolFutures[]> {
+  ): Promise<SymbolFutures> {
     return this.http
       .get(
         `/md/v2/Securities/${params.exchange}/${params.symbol}/actualFuturesQuote`,
