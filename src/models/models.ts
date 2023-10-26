@@ -7046,6 +7046,20 @@ export interface DevSecuritiesSearchExchangeParams {
    */
   format?: "Simple" | "Slim" | "Heavy";
   /**
+   * Рынок:
+   *   * `FORTS` - Срочный рынок Московской биржи
+   *   * `FOND` - Фондовый рынок Московской биржи
+   *   * `CURR` - Валютный рынок Московской биржи
+   *   * `SPBX` - Рынок Санкт-Петербургской биржи
+   * @example "FOND"
+   */
+  market?: "FORTS" | "FOND" | "CURR" | "SPBX";
+  /**
+   * Флаг загрузки устаревших инструментов
+   * @example false
+   */
+  includeOld?: boolean;
+  /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
