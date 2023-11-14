@@ -7,6 +7,10 @@ import {
   DevGetOnePositionParams,
   DevGetOneStopOrderParams,
   DevGetTickerTradesParams,
+  DevHistoryParams,
+  DevSecuritiesSearchExchangeCodeParams,
+  DevSecuritiesSearchExchangeParams,
+  DevSecuritiesSearchParams,
   ExchangePortfolioSummaryParams,
   FortsriskParams,
   RiskParams,
@@ -27,6 +31,10 @@ type BaseParams =
   | TradeStatsParams
   | TradeStatsBySymbolParams
   | DevGetAllStopOrdersParams
+  | DevSecuritiesSearchParams
+  | DevSecuritiesSearchExchangeParams
+  | DevSecuritiesSearchExchangeCodeParams
+  | DevHistoryParams
   | DevGetOneStopOrderParams;
 
 export type ConditionalResult<

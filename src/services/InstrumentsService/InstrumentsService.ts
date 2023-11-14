@@ -7,6 +7,7 @@ import {
   AlltradeshistoryHeavy,
   AlltradeshistorySlim,
   AlltradesSlim,
+  DevGetOneStopOrderParams,
   DevHistoryParams,
   DevOrderbookExchangSeccodeParams,
   DevQuotesParams,
@@ -30,12 +31,16 @@ import {
   Security,
   SecurityHeavy,
   SecuritySlim,
+  Stoporder,
+  StoporderHeavy,
+  StoporderSlim,
   Symbol,
   Symbols,
   SymbolsHeavy,
   SymbolsSlim,
 } from "../../models/models";
 import { SymbolFutures } from "../../../dist/test-types";
+import { ConditionalResult } from "../../types";
 
 /**
  * Ценные бумаги / инструменты
@@ -46,9 +51,11 @@ export class InstrumentsService {
   /**
    * Получение информации о торговых инструментах
    */
-  async getSecurities(
-    params: DevSecuritiesSearchParams,
-  ): Promise<Securities | SecuritiesSlim | SecuritiesHeavy> {
+  async getSecurities<Params extends DevSecuritiesSearchParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, SecuritiesSlim, SecuritiesHeavy, Securities>
+  > {
     return this.http
       .get(`/md/v2/Securities`, {
         params,
@@ -59,9 +66,13 @@ export class InstrumentsService {
   /**
    * Получение информации о торговых инструментах на выбранной бирже
    */
-  async getSecuritiesByExchange(
-    params: DevSecuritiesSearchExchangeParams,
-  ): Promise<Securities | SecuritiesSlim | SecuritiesHeavy> {
+  async getSecuritiesByExchange<
+    Params extends DevSecuritiesSearchExchangeParams,
+  >(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, SecuritiesSlim, SecuritiesHeavy, Securities>
+  > {
     return this.http
       .get(`/md/v2/Securities/${params.exchange}`, {
         params,
@@ -72,9 +83,11 @@ export class InstrumentsService {
   /**
    * Получение информации о выбранном финансовом инструменте
    */
-  async getSecurityByExchangeAndSymbol(
-    params: DevSecuritiesSearchExchangeCodeParams,
-  ): Promise<Security | SecuritySlim | SecurityHeavy> {
+  async getSecurityByExchangeAndSymbol<
+    Params extends DevSecuritiesSearchExchangeCodeParams,
+  >(
+    params: Params,
+  ): Promise<ConditionalResult<Params, SecuritySlim, SecurityHeavy, Security>> {
     return this.http
       .get(`/md/v2/Securities/${params.exchange}/${params.symbol}`, {
         params,
@@ -161,9 +174,9 @@ export class InstrumentsService {
   /**
    * Запрос истории для выбранных биржи и инструмента
    */
-  async getHistory(
-    params: DevHistoryParams,
-  ): Promise<History | HistorySlim | HistoryHeavy> {
+  async getHistory<Params extends DevHistoryParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, HistorySlim, HistoryHeavy, History>> {
     return this.http.get(`/md/v2/history`, { params }).then((r) => r.data);
   }
 }
