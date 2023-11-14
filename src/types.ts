@@ -1,4 +1,44 @@
-import { WsReqBaseObject } from "./models/models";
+import {
+  DevGetAllOrdersParams,
+  DevGetAllPositionsParams,
+  DevGetAllStopOrdersParams,
+  DevGetAllTradesParams,
+  DevGetOneOrderParams,
+  DevGetOnePositionParams,
+  DevGetOneStopOrderParams,
+  DevGetTickerTradesParams,
+  ExchangePortfolioSummaryParams,
+  FortsriskParams,
+  RiskParams,
+  TradeStatsBySymbolParams,
+  TradeStatsParams,
+} from "./models/models";
+
+type BaseParams =
+  | ExchangePortfolioSummaryParams
+  | DevGetAllPositionsParams
+  | DevGetOnePositionParams
+  | DevGetAllTradesParams
+  | DevGetOneOrderParams
+  | DevGetAllOrdersParams
+  | DevGetTickerTradesParams
+  | FortsriskParams
+  | RiskParams
+  | TradeStatsParams
+  | TradeStatsBySymbolParams
+  | DevGetAllStopOrdersParams
+  | DevGetOneStopOrderParams;
+
+export type ConditionalResult<
+  Params extends BaseParams,
+  Slim,
+  Heavy,
+  Simple,
+> = Params["format"] extends "Slim"
+  ? Slim
+  : Params["format"] extends "Heavy"
+  ? Heavy
+  : Simple;
 
 export enum Endpoint {
   DEV = "https://apidev.alor.ru",

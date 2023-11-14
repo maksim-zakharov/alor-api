@@ -24,6 +24,7 @@ import {
   Positions,
   PositionsHeavy,
   PositionSlim,
+  PositionsSlim,
   Risk,
   RiskHeavy,
   RiskParams,
@@ -44,6 +45,7 @@ import {
   TradeStatsBySymbolParams,
   TradeStatsParams,
 } from "../../models/models";
+import { ConditionalResult } from "../../types";
 
 /**
  * Информация о клиенте
@@ -55,9 +57,9 @@ export class ClientInfoService {
    * Получение информации о всех заявках
    * @param params
    */
-  async getOrders(
-    params: DevGetAllOrdersParams,
-  ): Promise<Orders | OrdersSlim | OrdersHeavy> {
+  async getOrders<Params extends DevGetAllOrdersParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, OrdersSlim, OrdersHeavy, Orders>> {
     return this.http
       .get(`/md/v2/clients/${params.exchange}/${params.portfolio}/orders`, {
         params,
@@ -69,9 +71,9 @@ export class ClientInfoService {
    * Получение информации о выбранной заявке
    * @param params
    */
-  async getOrderById(
-    params: DevGetOneOrderParams,
-  ): Promise<Order | OrderSlim | OrderHeavy> {
+  async getOrderById<Params extends DevGetOneOrderParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, OrderSlim, OrderHeavy, Order>> {
     return this.http
       .get(`/md/v2/clients/${exchange}/${portfolio}/orders/${params.orderId}`, {
         params,
@@ -83,9 +85,9 @@ export class ClientInfoService {
    * Получение информации о портфеле
    * @param params
    */
-  async getSummary(
-    params: ExchangePortfolioSummaryParams,
-  ): Promise<Summary | SummarySlim | SummaryHeavy> {
+  async getSummary<Params extends ExchangePortfolioSummaryParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, SummarySlim, SummaryHeavy, Summary>> {
     return this.http
       .get(`/md/v2/clients/${params.exchange}/${params.portfolio}/summary`, {
         params,
@@ -98,9 +100,11 @@ export class ClientInfoService {
    * @param params
    */
 
-  async getPositions(
-    params: DevGetAllPositionsParams,
-  ): Promise<Positions | PositionSlim | PositionsHeavy> {
+  async getPositions<Params extends DevGetAllPositionsParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, PositionsSlim, PositionsHeavy, Positions>
+  > {
     return this.http
       .get(`/md/v2/Clients/${params.exchange}/${params.portfolio}/positions`, {
         params,
@@ -112,9 +116,9 @@ export class ClientInfoService {
    * Получение информации о позициях выбранного инструмента
    * @param params
    */
-  async getPositionBySymbol(
-    params: DevGetOnePositionParams,
-  ): Promise<Position | PositionSlim | PositionHeavy> {
+  async getPositionBySymbol<Params extends DevGetOnePositionParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, PositionSlim, PositionHeavy, Position>> {
     return this.http
       .get(
         `/md/v2/Clients/${params.exchange}/${params.portfolio}/positions/${params.symbol}`,
@@ -127,9 +131,9 @@ export class ClientInfoService {
    * Получение информации о сделках
    * @param params
    */
-  async getTrades(
-    params: DevGetAllTradesParams,
-  ): Promise<Trades | TradesSlim | TradesHeavy> {
+  async getTrades<Params extends DevGetAllTradesParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, TradesSlim, TradesHeavy, Trades>> {
     return this.http
       .get(`/md/v2/Clients/${params.exchange}/${params.portfolio}/trades`, {
         params,
@@ -141,9 +145,9 @@ export class ClientInfoService {
    * Получение информации о сделках по выбранному инструменту
    * @param params
    */
-  async getTradesBySymbol(
-    params: DevGetTickerTradesParams,
-  ): Promise<Trades | TradesSlim | TradesHeavy> {
+  async getTradesBySymbol<Params extends DevGetTickerTradesParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, TradesSlim, TradesHeavy, Trades>> {
     return this.http
       .get(
         `/md/v2/Clients/${params.exchange}/${params.portfolio}/${params.ticker}/trades`,
@@ -156,9 +160,11 @@ export class ClientInfoService {
    * Получение информации о рисках на срочном рынке
    * @param params
    */
-  async getFortsRisk(
-    params: FortsriskParams,
-  ): Promise<Fortsrisk | FortsriskSlim | FortsriskHeavy> {
+  async getFortsRisk<Params extends FortsriskParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, FortsriskSlim, FortsriskHeavy, Fortsrisk>
+  > {
     return this.http
       .get(`/md/v2/Clients/${params.exchange}/${params.portfolio}/fortsrisk`, {
         params,
@@ -170,7 +176,9 @@ export class ClientInfoService {
    * Получение информации о рисках
    * @param params
    */
-  async getRisk(params: RiskParams): Promise<Risk | RiskSlim | RiskHeavy> {
+  async getRisk<Params extends FortsriskParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, RiskSlim, RiskHeavy, Risk>> {
     return this.http
       .get(`/md/v2/Clients/${params.exchange}/${params.portfolio}/risk`, {
         params,
@@ -182,9 +190,9 @@ export class ClientInfoService {
    * Получение истории сделок
    * @param params
    */
-  async getHistoryTrades(
-    params: TradeStatsParams,
-  ): Promise<Trades | TradesSlim | TradesHeavy> {
+  async getHistoryTrades<Params extends TradeStatsParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, TradesSlim, TradesHeavy, Trades>> {
     return this.http
       .get(`/md/stats/${params.exchange}/${params.portfolio}/history/trades`, {
         params,
@@ -196,9 +204,9 @@ export class ClientInfoService {
    * Получение истории сделок (один тикер)
    * @param params
    */
-  async getHistoryTradesBySymbol(
-    params: TradeStatsBySymbolParams,
-  ): Promise<Trades | TradesSlim | TradesHeavy> {
+  async getHistoryTradesBySymbol<Params extends TradeStatsBySymbolParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, TradesSlim, TradesHeavy, Trades>> {
     return this.http
       .get(
         `/md/stats/${params.exchange}/${params.portfolio}/history/trades/${params.symbol}`,
@@ -211,9 +219,11 @@ export class ClientInfoService {
    * Получение информации о стоп-заявках
    * @param params
    */
-  async getStopOrders(
-    params: DevGetAllStopOrdersParams,
-  ): Promise<Stoporders | StopordersSlim | StopordersHeavy> {
+  async getStopOrders<Params extends DevGetAllStopOrdersParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, StopordersSlim, StopordersHeavy, Stoporders>
+  > {
     return this.http
       .get(`/md/v2/clients/${params.exchange}/${params.portfolio}/stoporders`, {
         params,
@@ -225,9 +235,11 @@ export class ClientInfoService {
    * Получение информации о выбранной стоп-заявке
    * @param params
    */
-  async getStopOrderByOrderId(
-    params: DevGetOneStopOrderParams,
-  ): Promise<Stoporder | StoporderSlim | StoporderHeavy> {
+  async getStopOrderByOrderId<Params extends DevGetOneStopOrderParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, StoporderSlim, StoporderHeavy, Stoporder>
+  > {
     return this.http
       .get(
         `/md/v2/clients/${params.exchange}/${params.portfolio}/stoporders/${params.orderId}`,

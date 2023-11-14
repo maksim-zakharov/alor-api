@@ -1229,6 +1229,17 @@ export interface BodyrequestModifyOrderGroup {
   ExecutionPolicy: ExecutionPolicy;
 }
 
+export interface BodyresponseOrderGroup {
+  /** @example "success" */
+  Message?: string;
+  /**
+   * Идентификатор только что созданной группы
+   * @format uuid
+   * @example "eafb19d6-c578-4afe-aa95-d528c4531031"
+   */
+  GroupId?: string;
+}
+
 export interface OrderGroupItem {
   Portfolio?: string;
   /**
@@ -2768,6 +2779,12 @@ export interface SecurityHeavy {
    * @example 0.01
    */
   minStep?: number;
+  /**
+   * Количество знаком после запятой в цене
+   * @format int32
+   * @example 2
+   */
+  roundTo?: number;
   /**
    * @format decimal
    * @example 195613886
