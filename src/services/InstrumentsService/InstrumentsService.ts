@@ -98,9 +98,9 @@ export class InstrumentsService {
   /**
    * Получение информации о котировках для выбранных инструментов
    */
-  async getQuotes(
-    params: DevQuotesParams,
-  ): Promise<Symbols | SymbolsSlim | SymbolsHeavy> {
+  async getQuotes<Params extends DevQuotesParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, SymbolsSlim, SymbolsHeavy, Symbols>> {
     return this.http
       .get(`/md/v2/Securities/${params.symbols}/quotes`, {
         params,
@@ -111,9 +111,11 @@ export class InstrumentsService {
   /**
    * Получение информации о биржевом стакане
    */
-  async getOrderbookBySeccode(
-    params: DevOrderbookExchangSeccodeParams,
-  ): Promise<Orderbook | OrderbookSlim | OrderbookHeavy> {
+  async getOrderbookBySeccode<Params extends DevOrderbookExchangSeccodeParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, OrderbookSlim, OrderbookHeavy, Orderbook>
+  > {
     return this.http
       .get(`/md/v2/orderbooks/${params.exchange}/${params.seccode}`, {
         params,
@@ -124,9 +126,11 @@ export class InstrumentsService {
   /**
    * Получение информации о всех сделках по ценным бумагам за сегодня
    */
-  async getAlltrades(
-    params: DevSecuritiesSearchAllTradesParams,
-  ): Promise<Alltrades | AlltradesSlim | AlltradesHeavy> {
+  async getAlltrades<Params extends DevSecuritiesSearchAllTradesParams>(
+    params: Params,
+  ): Promise<
+    ConditionalResult<Params, AlltradesSlim, AlltradesHeavy, Alltrades>
+  > {
     return this.http
       .get(`/md/v2/Securities/${params.exchange}/${params.symbol}/alltrades`, {
         params,
@@ -137,9 +141,18 @@ export class InstrumentsService {
   /**
    * Получение исторической информации о всех сделках по ценным бумагам
    */
-  async getAlltradesHistory(
-    params: DevSecuritiesSearchAllTradesHistoryParams,
-  ): Promise<Alltradeshistory | AlltradeshistorySlim | AlltradeshistoryHeavy> {
+  async getAlltradesHistory<
+    Params extends DevSecuritiesSearchAllTradesHistoryParams,
+  >(
+    params: Params,
+  ): Promise<
+    ConditionalResult<
+      Params,
+      AlltradeshistorySlim,
+      AlltradeshistoryHeavy,
+      Alltradeshistory
+    >
+  > {
     return this.http
       .get(
         `/md/v2/Securities/${params.exchange}/${params.symbol}/alltrades/history`,
