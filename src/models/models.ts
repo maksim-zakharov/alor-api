@@ -366,7 +366,7 @@ export interface BodyrequestOrdersActionsLimitTVput {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -432,7 +432,7 @@ export interface BodyrequestOrdersActionsMarketTVput {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -488,7 +488,7 @@ export interface BodyrequestOrdersActionsLimitTV {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -573,11 +573,6 @@ export interface BodyrequestOrdersActionsStopMarketTVWarp {
      */
     instrumentGroup?: string;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -656,11 +651,6 @@ export interface BodyrequestOrdersActionsStopLimitTVWarp {
      */
     instrumentGroup?: string;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   user?: {
     /**
      * Идентификатор клиентского портфеля
@@ -735,7 +725,7 @@ export interface BodyrequestOrdersActionsMarketTV {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -796,11 +786,6 @@ export interface BodyrequestOrdersActionsStopTV {
      */
     exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   user?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -881,11 +866,6 @@ export interface BodyrequestOrdersActionsStopLimitTV {
      */
     exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   user?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -987,7 +967,7 @@ export interface BodyrequestOrdersActionsLimit {
     Exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -1038,7 +1018,7 @@ export interface BodyrequestOrdersActionsMarket {
     Exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -1095,11 +1075,6 @@ export interface BodyrequestOrdersActionsStop {
      */
     Exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   /** Информация о пользователе */
   User?: {
     /**
@@ -1159,11 +1134,6 @@ export interface BodyrequestOrdersActionsStoplimit {
      */
     Exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   User?: {
     /**
      * Идентификатор аккаунта пользователя
@@ -3115,7 +3085,7 @@ export interface Order {
    */
   exchange?: Exchange;
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -3321,6 +3291,11 @@ export interface OrderHeavy {
    */
   exchange?: Exchange;
   /**
+   * Пользовательский комментарий к заявке
+   * @example "первая заявка"
+   */
+  comment?: string;
+  /**
    * Тип заявки:
    *   * `limit` - Лимитная заявка
    *   * `market` - Рыночная заявка
@@ -3366,12 +3341,6 @@ export interface OrderHeavy {
    */
   qtyBatch?: number;
   /**
-   * Количество (лоты)
-   * @format decimal
-   * @example 1
-   */
-  qty?: number;
-  /**
    * Количество исполненных (штуки)
    * @format decimal
    * @example 1
@@ -3383,12 +3352,6 @@ export interface OrderHeavy {
    * @example 1
    */
   filledQtyBatch?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  filled?: number;
   /**
    * Цена
    * @format decimal
@@ -3669,7 +3632,7 @@ export interface StoporderWarp {
    */
   brokerSymbol?: string;
   /**
-   * Пара Биржа:Тикер
+   * Идентификатор клиентского портфеля
    * @example "D39004"
    */
   portfolio?: string;
@@ -3679,11 +3642,6 @@ export interface StoporderWarp {
    *   * `SPBX` - СПБ Биржа
    */
   exchange?: Exchange;
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   /**
    * Тип заявки:
    *   * `stop` - Стоп-заявка
@@ -3739,10 +3697,30 @@ export interface StoporderWarp {
   qtyBatch?: number;
   /**
    * Количество (Лоты)
+   * @deprecated
    * @format decimal
    * @example 1
    */
   qty?: number;
+  /**
+   * Количество исполненных (штуки)
+   * @format decimal
+   * @example 10
+   */
+  filledQtyUnits?: number;
+  /**
+   * Количество исполненных (лоты)
+   * @format decimal
+   * @example 1
+   */
+  filledQtyBatch?: number;
+  /**
+   * Количество исполненных (штуки)
+   * @deprecated
+   * @format decimal
+   * @example 1
+   */
+  filled?: number;
   /**
    * Цена(Лимит)
    * @format decimal
@@ -3792,7 +3770,7 @@ export interface StoporderWarpSlim {
    */
   tic?: string;
   /**
-   * Пара Биржа:Тикер
+   * Идентификатор клиентского портфеля
    * @example "D39004"
    */
   p?: string;
@@ -3844,17 +3822,29 @@ export interface StoporderWarpSlim {
    */
   et?: string;
   /**
-   * Количество (Штуки)
-   * @format decimal
+   * Количество (штуки)
+   * @format int32
    * @example 10
    */
   q?: number;
   /**
-   * Количество (Лоты)
+   * Количество (лоты)
    * @format decimal
    * @example 1
    */
   qb?: number;
+  /**
+   * Количество исполненных (штуки)
+   * @format decimal
+   * @example 10
+   */
+  fq?: number;
+  /**
+   * Количество исполненных (лоты)
+   * @format decimal
+   * @example 1
+   */
+  fqb?: number;
   /**
    * Цена(Лимит)
    * @format decimal
@@ -3904,7 +3894,7 @@ export interface StoporderWarpHeavy {
    */
   brokerSymbol?: string;
   /**
-   * Пара Биржа:Тикер
+   * Идентификатор клиентского портфеля
    * @example "D39004"
    */
   portfolio?: string;
@@ -3968,11 +3958,17 @@ export interface StoporderWarpHeavy {
    */
   qtyBatch?: number;
   /**
-   * Количество (Лоты)
+   * Количество исполненных (штуки)
+   * @format decimal
+   * @example 10
+   */
+  filledQtyUnits?: number;
+  /**
+   * Количество исполненных (лоты)
    * @format decimal
    * @example 1
    */
-  qty?: number;
+  filledQtyBatch?: number;
   /**
    * Цена(Лимит)
    * @format decimal
@@ -4900,6 +4896,11 @@ export interface Trade {
    */
   exchange?: Exchange;
   /**
+   * Пользовательский комментарий к заявке
+   * @example "первая заявка"
+   */
+  comment?: string;
+  /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
@@ -5018,6 +5019,11 @@ export interface TradeSlim {
    */
   ex?: Exchange;
   /**
+   * Пользовательский комментарий к заявке
+   * @example "первая заявка"
+   */
+  cmt?: string;
+  /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
@@ -5135,6 +5141,11 @@ export interface TradeHeavy {
    *   * `SPBX` - СПБ Биржа
    */
   exchange?: Exchange;
+  /**
+   * Пользовательский комментарий к заявке
+   * @example "первая заявка"
+   */
+  comment?: string;
   /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
@@ -5941,7 +5952,7 @@ export interface CommandwsReqCreateMarketOrder {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -6001,7 +6012,7 @@ export interface CommandwsReqCreateLimitOrder {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -6095,11 +6106,6 @@ export interface CommandwsReqCreateStopOrder {
      */
     exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -6181,11 +6187,6 @@ export interface CommandwsReqCreateStopLimitOrder {
      */
     exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -6269,7 +6270,7 @@ export interface CommandwsReqUpdateMarketOrder {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -6335,7 +6336,7 @@ export interface CommandwsReqUpdateLimitOrder {
     exchange?: Exchange;
   };
   /**
-   * Пользовательский комментарий к заявке.
+   * Пользовательский комментарий к заявке
    * @example "первая заявка"
    */
   comment?: string;
@@ -6435,11 +6436,6 @@ export interface CommandwsReqUpdateStopOrder {
      */
     exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
@@ -6527,11 +6523,6 @@ export interface CommandwsReqUpdateStopLimitOrder {
      */
     exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке.
-   * @example "первая заявка"
-   */
-  comment?: string;
   /** Режим торгов (борд) */
   board?: string | null;
   user?: {
