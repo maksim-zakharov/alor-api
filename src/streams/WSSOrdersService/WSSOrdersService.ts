@@ -22,11 +22,8 @@ import {
 } from "../../models/models";
 
 export class WSSOrdersService extends BaseStream {
-  private readonly api: AlorApi;
-
   constructor(api: AlorApi) {
-    super(api.options, api.refresh, true);
-    this.api = api;
+    super(api);
   }
 
   /**
@@ -140,7 +137,6 @@ export class WSSOrdersService extends BaseStream {
   ) {
     const guid = uuidv();
     const subscription = new MarketSubscription<Req, Res>({
-      isBeta: true,
       requestGuid: guid,
       dataHandler,
       buildRequest: (subscriptionAction?) => ({

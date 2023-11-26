@@ -39,7 +39,6 @@ import {
   SymbolsHeavy,
   SymbolsSlim,
 } from "../../models/models";
-import { SymbolFutures } from "../../../dist/test-types";
 import { ConditionalResult } from "../../types";
 
 /**
@@ -166,9 +165,9 @@ export class InstrumentsService {
   /**
    * Получение котировки по ближайшему фьючерсу (код)
    */
-  async getActualFuturesQuote(
-    params: DevSecuritiesFuturesParams,
-  ): Promise<SymbolFutures> {
+  async getActualFuturesQuote<Params extends DevSecuritiesFuturesParams>(
+    params: Params,
+  ): Promise<ConditionalResult<Params, SymbolsSlim, SymbolsHeavy, Symbols>> {
     return this.http
       .get(
         `/md/v2/Securities/${params.exchange}/${params.symbol}/actualFuturesQuote`,

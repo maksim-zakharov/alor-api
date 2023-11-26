@@ -10,6 +10,7 @@ import {
   DevHistoryParams,
   DevOrderbookExchangSeccodeParams,
   DevQuotesParams,
+  DevSecuritiesFuturesParams,
   DevSecuritiesSearchAllTradesHistoryParams,
   DevSecuritiesSearchAllTradesParams,
   DevSecuritiesSearchExchangeCodeParams,
@@ -43,6 +44,7 @@ type BaseParams =
   | DevOrderbookExchangSeccodeParams
   | DevSecuritiesSearchAllTradesParams
   | DevSecuritiesSearchAllTradesHistoryParams
+  | DevSecuritiesFuturesParams
   | DevGetOneStopOrderParams;
 
 export type ConditionalResult<

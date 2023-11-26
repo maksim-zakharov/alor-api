@@ -50,7 +50,6 @@ export class AlorApi {
       this.options.token,
       (token) => {
         this.accessToken = token;
-        console.log(`[AlorApi] Access Token получен`);
 
         this.onAuthCallback(token);
       },

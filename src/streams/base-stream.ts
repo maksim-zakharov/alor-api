@@ -3,12 +3,14 @@ import {
   UniversalMarketResponse,
 } from "../market-subscription";
 import { AlorOpenApiOptions, SubscriptionAction } from "../types";
-import { WebSocket } from "ws";
+import { WebSocket, CloseEvent } from "ws";
 import { refreshTokenMiddleware } from "../utils";
 import { AxiosInstance } from "axios";
+import AlorApi from "../api";
 // import { refreshTokenMiddleware } from './utils';
 
 export class BaseStream {
+  connected = false;
   options = {
     autoReconnect: true,
     autoReconnectDelayMin: 100,
@@ -22,36 +24,22 @@ export class BaseStream {
 
   private readonly refresh: any;
 
-  private readonly isBeta: boolean = false;
+  constructor(protected readonly api: AlorApi) {
+    this.options = { ...this.options, ...this.api.options };
+    this.refresh = this.api.refresh;
 
-  constructor(
-    options: AlorOpenApiOptions,
-    refreshFn: Function,
-    beta: boolean = false,
-  ) {
-    this.options = { ...this.options, ...options };
-    this.refresh = refreshFn;
+    const recreateWS = () => {
+      this.wss = new WebSocket(this.api.options.wssEndpoint);
+      this.wss.setMaxListeners(100);
 
-    this.isBeta = beta;
+      this.wss.onclose = async (error) => {
+        this.connected = false;
+        console.log("wss.onclose", error);
+        await this.onClose(error, recreateWS);
+      };
+    };
 
-    this.wss = new WebSocket(
-      beta ? options.wssEndpointBeta : options.wssEndpoint,
-    );
-    this.wss.setMaxListeners(100);
-    this.wss.on("error", (error) => {
-      console.log(`[AlorApi-WSS] onError: ${error}`);
-      throw error;
-    });
-    this.wss.on("open", () => {
-      console.log(`[AlorApi-WSS] Подключение к ${this.wss.url} установлено.`);
-    });
-
-    this.wss.on("close", async (error) => {
-      console.log(
-        `[AlorApi-WSS] Подключение к ${this.wss.url} потеряно. ${error}`,
-      );
-      await this.onClose(error);
-    });
+    recreateWS();
   }
 
   setMaxListeners(listeners: number) {
@@ -59,20 +47,8 @@ export class BaseStream {
   }
 
   protected async waitEvents() {
-    return new Promise((resolve, reject) => {
-      this.wss.on("open", () => {
-        if (resolve) {
-          resolve(true);
-        }
-      });
-
-      this.wss.on("close", async (error) => {
-        if (reject) {
-          reject(false);
-        }
-        await this.onClose(error);
-      });
-    });
+    this.connected = true;
+    this.wss.emit("open");
   }
 
   protected calcAutoReconnectDelay() {
@@ -85,23 +61,30 @@ export class BaseStream {
           );
   }
 
-  protected async onClose(error?: number) {
-    return new Promise<void>((resolve, reject) => {
-      this.subscriptions.forEach((subscription) =>
-        this.wss.off("message", subscription.handler),
-      );
-      // if (error && this.options.autoReconnect) {
-      if (this.options.autoReconnect) {
-        console.log(`[AlorApi-WSS] onClose Error: ${error}`);
-        setTimeout(
-          () => this.reconnect().then(resolve).catch(reject),
-          this.autoReconnectDelay,
-        );
-        this.calcAutoReconnectDelay();
-      } else {
-        resolve();
+  protected async onClose(error?: CloseEvent, recreateWS?: any) {
+    this.subscriptions.forEach((subscription) =>
+      this.wss.off("message", subscription.handler),
+    );
+
+    if (!error) {
+      return;
+    }
+
+    /**
+     * Если соединение закрылось ошибочно
+     */
+    if (!error.wasClean) {
+      await this.refresh();
+    }
+
+    if (this.options.autoReconnect) {
+      if (recreateWS) {
+        recreateWS();
       }
-    });
+
+      setTimeout(() => this.reconnect(), this.autoReconnectDelay);
+      this.calcAutoReconnectDelay();
+    }
   }
 
   /**
@@ -112,20 +95,25 @@ export class BaseStream {
   }
 
   protected sendRequest(req) {
-    this.wss.send(JSON.stringify(req));
+    /**
+     * WebSocket is not open: readyState 0 (CONNECTING)
+     * На случай если пытаемся послать запрос а сокет еще не открыт
+     */
+    const interval = setInterval(() => {
+      if (this.wss.readyState === WebSocket.OPEN) {
+        this.wss.send(JSON.stringify(req));
+        clearInterval(interval);
+      }
+    }, 5);
   }
 
   protected async connect() {
-    if (this.wss.readyState !== WebSocket.OPEN) {
+    if (!this.connected) {
       await this.waitEvents();
     }
   }
 
   async reconnect() {
-    console.log("[AlorApi-WSS] Try reconnect");
-    // if (this.wss.readyState !== WebSocket.OPEN) {
-    this.wss.emit("open");
-    // }
     await this.connect();
     for (const subscription of this.subscriptions) {
       await this.watch(subscription, false);
@@ -142,31 +130,17 @@ export class BaseStream {
     }
 
     if (withAuth) await this.connect();
+
     this.sendRequest(subscription.getRequest());
+
     if (!this.hasListener("message", subscription.handler)) {
       this.wss.on("message", subscription.handler);
     }
     try {
       await subscription.waitStatus();
     } catch (e) {
-      if (e.httpCode === 401) {
-        console.log(
-          `[AlorApi-WSS] RequestId: ${e.requestGuid} HttpCode: ${e.httpCode} Message: ${e.message}`,
-        );
-        await this.refresh()
-          .then(() => console.log("[AlorApi-WSS] Получен новый токен"))
-          .catch((e) =>
-            console.log(
-              `[AlorApi-WSS] Ошибка при рефреше токена: ${e.message || e}`,
-            ),
-          );
-        await this.onClose(e.httpCode);
-      } else {
-        this.wss.off("message", subscription.handler);
-        console.log(
-          `[AlorApi-WSS] RequestId: ${e.requestGuid} HttpCode: ${e.httpCode} Message: ${e.message}`,
-        );
-      }
+      this.wss.off("message", subscription.handler);
+      throw e;
     }
     this.subscriptions.add(subscription);
     return () => this.unwatch(subscription);
@@ -177,15 +151,17 @@ export class BaseStream {
       throw new Error("Subscription not found");
     }
 
-    if (!this.isBeta) {
-      this.sendRequest(
-        subscription.getRequest(
-          SubscriptionAction.SUBSCRIPTION_ACTION_UNSUBSCRIBE,
-        ),
-      );
-      await subscription.waitStatus();
-    }
+    this.unsubscribe(subscription);
+    await subscription.waitStatus();
+
     this.wss.off("message", subscription.handler);
     this.subscriptions.delete(subscription);
   }
+
+  private unsubscribe = (subscription: MarketSubscription<any, any>) =>
+    this.sendRequest(
+      subscription.getRequest(
+        SubscriptionAction.SUBSCRIPTION_ACTION_UNSUBSCRIBE,
+      ),
+    );
 }

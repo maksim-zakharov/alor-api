@@ -32,11 +32,8 @@ import {
 } from "../../models/models";
 
 export class SubscriptionsService extends BaseStream {
-  private readonly api: AlorApi;
-
   constructor(api: AlorApi) {
-    super(api.options, api.refresh);
-    this.api = api;
+    super(api);
   }
 
   /**

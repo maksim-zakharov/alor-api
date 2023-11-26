@@ -31,7 +31,6 @@ export type ResponseData =
   | CommandwsResHandledSuccessfully;
 
 type MarketSubscriptionOptions<R, D> = {
-  isBeta?: boolean;
   buildRequest: (subscriptionAction: SubscriptionAction | undefined) => any; // R;
   dataHandler: (data: D) => unknown;
   requestGuid: string;
@@ -65,9 +64,7 @@ export class MarketSubscription<R, D extends ResponseData> {
   handler(event) {
     const uniRes = JSON.parse(event as string) as UniversalMarketResponse<D>;
     this.statusHandler(uniRes);
-    this.options.isBeta
-      ? this.betaDataHandler(uniRes)
-      : this.dataHandler(uniRes);
+    this.dataHandler(uniRes);
   }
 
   async waitStatus() {
@@ -98,12 +95,6 @@ export class MarketSubscription<R, D extends ResponseData> {
       });
     } else {
       this.waitingStatusResolve();
-    }
-  }
-
-  protected betaDataHandler(response: UniversalMarketResponse<D>) {
-    if (this.options.requestGuid === response.requestGuid) {
-      this.options.dataHandler(response as any);
     }
   }
 
