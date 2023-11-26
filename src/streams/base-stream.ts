@@ -133,8 +133,6 @@ export class BaseStream {
 
     this.sendRequest(subscription.getRequest());
 
-    this.subscriptions.add(subscription);
-
     if (!this.hasListener("message", subscription.handler)) {
       this.wss.on("message", subscription.handler);
     }
@@ -144,6 +142,7 @@ export class BaseStream {
       this.wss.off("message", subscription.handler);
       throw e;
     }
+    this.subscriptions.add(subscription);
     return () => this.unwatch(subscription);
   }
 
