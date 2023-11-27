@@ -34,7 +34,6 @@ export class BaseStream {
 
       this.wss.onclose = async (error) => {
         this.connected = false;
-        console.log("wss.onclose", error);
         await this.onClose(error, recreateWS);
       };
     };

@@ -21,6 +21,7 @@ import {
   RiskParams,
   TradeStatsBySymbolParams,
   TradeStatsParams,
+  WsReqStopOrdersGetAndSubscribeV2,
 } from "./models/models";
 
 type BaseParams =
@@ -45,6 +46,7 @@ type BaseParams =
   | DevSecuritiesSearchAllTradesParams
   | DevSecuritiesSearchAllTradesHistoryParams
   | DevSecuritiesFuturesParams
+  | WithoutOpcode<WsReqStopOrdersGetAndSubscribeV2>
   | DevGetOneStopOrderParams;
 
 export type ConditionalResult<

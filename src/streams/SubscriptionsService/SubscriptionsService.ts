@@ -1,5 +1,9 @@
 import { BaseStream } from "../base-stream";
-import { SubscriptionAction, WithoutOpcode } from "../../types";
+import {
+  ConditionalResult,
+  SubscriptionAction,
+  WithoutOpcode,
+} from "../../types";
 import { MarketSubscription, ResponseData } from "../../market-subscription";
 import { v4 as uuidv } from "uuid";
 import AlorApi from "../../api";
@@ -29,6 +33,13 @@ import {
   Security,
   WsReqAllTradesGetAndSubscribe,
   Alltrade,
+  WsResStopOrdersGetAndSubscribeWarp,
+  DevSecuritiesSearchExchangeParams,
+  SecuritiesSlim,
+  SecuritiesHeavy,
+  Securities,
+  WsResSlimStopOrdersGetAndSubscribeWarp,
+  WsResHeavyStopOrdersGetAndSubscribeWarp,
 } from "../../models/models";
 
 export class SubscriptionsService extends BaseStream {
@@ -177,9 +188,16 @@ export class SubscriptionsService extends BaseStream {
   /**
    * Подписка на информацию о стоп-заявках
    */
-  stoporders = (
-    req: WithoutOpcode<WsReqStopOrdersGetAndSubscribeV2>,
-    dataHandler: (stoporder: WsResStopOrdersGetAndSubscribe["data"]) => unknown,
+  stoporders = <Params extends WithoutOpcode<WsReqStopOrdersGetAndSubscribeV2>>(
+    req: Params,
+    dataHandler: (
+      stoporder: ConditionalResult<
+        Params,
+        WsResSlimStopOrdersGetAndSubscribeWarp,
+        WsResHeavyStopOrdersGetAndSubscribeWarp,
+        WsResStopOrdersGetAndSubscribeWarp
+      >["data"],
+    ) => unknown,
   ) =>
     this.baseSubscribe(
       req,
