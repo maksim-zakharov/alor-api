@@ -5,6 +5,7 @@ import {
   BodyrequestOrdersActionsMarketTV,
   BodyrequestOrdersActionsMarketTVput,
   CommandApiV2ClientOrdersDeleteParams,
+  EstimateOrderModel,
   EstimateOrderViewModel,
   OrdersActions400CommandAPI,
   OrdersActionsLimitMarket,
@@ -122,7 +123,9 @@ export class OrdersService {
   /**
    * Провести оценку одной заявки
    */
-  async estimateOrder(params: EstimateOrderViewModel): Promise<string> {
+  async estimateOrder(
+    params: EstimateOrderViewModel,
+  ): Promise<EstimateOrderModel> {
     return this.http
       .post(`/commandapi/warptrans/TRADE/v2/client/orders/estimate`, params)
       .then((r) => r.data);
@@ -131,7 +134,9 @@ export class OrdersService {
   /**
    * Провести оценку нескольких заявок
    */
-  async estimateAllOrders(params: EstimateOrderViewModel[]): Promise<string> {
+  async estimateAllOrders(
+    params: EstimateOrderViewModel[],
+  ): Promise<EstimateOrderModel[]> {
     return this.http
       .post(`/commandapi/warptrans/TRADE/v2/client/orders/estimate/all`, params)
       .then((r) => r.data);
