@@ -3169,6 +3169,12 @@ export interface Order {
    * @example true
    */
   existing?: boolean;
+  /**
+   * Объем, для рыночных заявок - null
+   * @format decimal
+   * @example 2086.3
+   */
+  volume?: number | null;
 }
 
 export interface OrderSlim {
@@ -3266,6 +3272,12 @@ export interface OrderSlim {
    * @example true
    */
   h?: boolean;
+  /**
+   * Объем, для рыночных заявок - null
+   * @format decimal
+   * @example 2086.3
+   */
+  v?: number | null;
 }
 
 export interface OrderHeavy {
@@ -3363,6 +3375,12 @@ export interface OrderHeavy {
    * @example true
    */
   existing?: boolean;
+  /**
+   * Объем, для рыночных заявок - null
+   * @format decimal
+   * @example 2086.3
+   */
+  volume?: number | null;
 }
 
 export interface Stoporder {
@@ -3744,6 +3762,12 @@ export interface StoporderWarp {
    * @example true
    */
   existing?: boolean;
+  /**
+   * Объем, для рыночных заявок - null
+   * @format decimal
+   * @example 2086.3
+   */
+  volume?: number | null;
 }
 
 export interface StoporderWarpSlim {
@@ -3868,6 +3892,12 @@ export interface StoporderWarpSlim {
    * @example true
    */
   h?: boolean;
+  /**
+   * Объем, для рыночных заявок - null
+   * @format decimal
+   * @example 2086.3
+   */
+  v?: number | null;
 }
 
 export interface StoporderWarpHeavy {
@@ -3992,6 +4022,12 @@ export interface StoporderWarpHeavy {
    * @example true
    */
   existing?: boolean;
+  /**
+   * Объем, для рыночных заявок - null
+   * @format decimal
+   * @example 2086.3
+   */
+  volume?: number | null;
 }
 
 export interface Summary {
