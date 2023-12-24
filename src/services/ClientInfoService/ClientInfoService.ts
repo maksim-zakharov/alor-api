@@ -47,11 +47,52 @@ import {
 } from "../../models/models";
 import { ConditionalResult } from "../../types";
 
+interface EquityDynamicsRequest {
+  // 2023-11-28T09:42:08.791Z
+  startDate: string;
+  // 2023-11-28T09:42:08.791Z
+  endDate: string;
+  portfolio: string;
+}
+
+export interface EquityDynamicsResponse {
+  portfolioValues: PortfolioValue[];
+  assetsSum: number;
+  profitablity: number;
+  profitablityPct: number;
+  dividends: number;
+  replenishments: number;
+  withdrawals: number;
+}
+
+export interface PortfolioValue {
+  date: Date;
+  value: number;
+}
+
 /**
  * Информация о клиенте
  */
 export class ClientInfoService {
   constructor(private readonly http: AxiosInstance) {}
+
+  /**
+   * Получаем баланс портфеля за определенный период
+   * @param params
+   */
+  getEquityDynamics(
+    params: EquityDynamicsRequest,
+  ): Promise<EquityDynamicsResponse> {
+    return this.http
+      .get(
+        `/client/v2.0/agreements/${params.portfolio}/portfolios/any/dynamics`,
+        {
+          params,
+          baseURL: "https://lk-api.alor.ru",
+        },
+      )
+      .then((r) => r.data);
+  }
 
   /**
    * Получение информации о всех заявках
