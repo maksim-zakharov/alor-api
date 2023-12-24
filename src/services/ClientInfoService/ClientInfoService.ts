@@ -46,6 +46,7 @@ import {
   TradeStatsParams,
 } from "../../models/models";
 import { ConditionalResult } from "../../types";
+import jwt_decode from "jwt-decode";
 
 interface EquityDynamicsRequest {
   // 2023-11-28T09:42:08.791Z
@@ -70,11 +71,246 @@ export interface PortfolioValue {
   value: number;
 }
 
+export interface UserInfoResponse {
+  clientId: number;
+  phoneLogin: string;
+  fullName: string;
+  type: string;
+  typeName: string;
+  nationality: string;
+  citizenship2: null;
+  nationality2: null;
+  registrationDate: Date;
+  document: Document;
+  registrationDocument: null;
+  edo: EDO;
+  formDate: Date;
+  formExpiredDate: Date;
+  nalNoRez: number;
+  registerStatus: string;
+  kvalInvestor: boolean;
+  kvalInvestorDate: Date;
+  nonResident: boolean;
+  hasIIS: boolean;
+  allowIIS: boolean;
+  questionnaire: boolean;
+  profitOrganization: boolean;
+  publicOfficial: PublicOfficial;
+  emailsExt: EmailsEXT[];
+  phones: Phone[];
+  addresses: Address[];
+  agreements: Agreement[];
+  collaboration: Collaboration;
+  confidant: Confidant;
+  emails: string[];
+  lastName: string;
+  firstName: string;
+  secondName: string;
+  gender: string;
+  genderName: string;
+  birthDate: Date;
+  birthPlace: string;
+  citizenship: string;
+  inn: string;
+  uosType: number;
+  nameWithInitials: string;
+}
+
+export interface Address {
+  country: string;
+  countryCode: string;
+  zip: string;
+  address: string;
+  region: string;
+  city: string;
+  type: number;
+  typeName: string;
+}
+
+export interface Agreement {
+  cid: string;
+  agreementNumber: string;
+  agreementType: string;
+  agreementDate: Date;
+  agreementCloseDate: null;
+  portfolios: Portfolio[];
+  status: number;
+  statusCode: null;
+  statusName: null;
+  tradeSystem: string;
+  isIIS: boolean;
+  isActive: boolean;
+}
+
+export interface Portfolio {
+  accountNumber: string;
+  service: string;
+  isCommon: boolean;
+  currencies: string[];
+  registered: Date;
+  registeredOnBirga: Date;
+  tksNumber: string;
+  tariffPlan: string;
+  marketType: string;
+}
+
+export interface Collaboration {
+  type: string;
+  target: string;
+}
+
+export interface Confidant {
+  firstName: null;
+  lastName: null;
+  secondName: null;
+  gender: null;
+  title: null;
+  reasonType: null;
+  reasonTypeName: null;
+  reasonNumber: null;
+  reasonDate: null;
+  term: null;
+  birthDate: null;
+  documentDate: null;
+}
+
+export interface Document {
+  type: string;
+  typeName: string;
+  series: string;
+  number: string;
+  issuer: string;
+  issuerCode: string;
+  date: Date;
+}
+
+export interface EDO {
+  enabled: boolean;
+  phone: string;
+  email: string;
+  type: number;
+  date: Date;
+  number: string;
+}
+
+export interface EmailsEXT {
+  email: string;
+  isVerify: boolean;
+}
+
+export interface Phone {
+  value: string;
+  type: number;
+  typeCode: string;
+  typeName: string;
+}
+
+export interface PublicOfficial {
+  russian: boolean;
+  foreign: boolean;
+  international: boolean;
+  relative: boolean;
+}
+
+export interface JWTTokenDecoded {
+  sub: string;
+  ent: string;
+  ein: string;
+  clientid: string;
+  azp: string;
+  agreements: string;
+  portfolios: string;
+  scope: string;
+  exp: number;
+  iat: number;
+  iss: string;
+  aud: string;
+}
+
+export interface ClientLoginRequest {
+  credentials: { login: string; password: string; twoFactorPin?: string };
+  client_id: "SingleSignOn";
+  redirect_url: string;
+}
+
 /**
  * Информация о клиенте
  */
 export class ClientInfoService {
   constructor(private readonly http: AxiosInstance) {}
+
+  refresh(
+    refreshToken: string,
+  ): Promise<{ jwt: string; refreshExpiresAt: string }> {
+    return this.http
+      .post(
+        `/auth/actions/refresh`,
+        { refreshToken },
+        {
+          baseURL: "https://lk-api.alor.ru",
+        },
+      )
+      .then((r) => r.data);
+  }
+
+  login(
+    login: string,
+    password: string,
+    redirect_url: string = "//lk.alor.ru/",
+  ): Promise<void> {
+    const request: ClientLoginRequest = {
+      client_id: "SingleSignOn",
+      credentials: {
+        login,
+        password,
+      },
+      redirect_url,
+    };
+
+    return this.http
+      .post(`/sso-auth/client`, request, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  twoFactorLogin(login: string): Promise<void> {
+    return this.http
+      .get(`/auth/actions/2factor/?login=${login}`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  /**
+   * Получаем информацию о пользователе
+   * @param params
+   */
+  getUserInfo(): Promise<UserInfoResponse> {
+    const authHeader: string = this.http.defaults.headers.common
+      .Authorization as string;
+
+    if (!authHeader) {
+      throw new Error("Необходимо авторизоваться");
+    }
+
+    const accessToken = authHeader.split("Bearer ")[1];
+
+    if (!accessToken) {
+      throw new Error("Необходимо авторизоваться");
+    }
+
+    // @ts-ignore
+    const decoded: JWTTokenDecoded = jwt_decode<JWTTokenDecoded>(accessToken);
+
+    const phone = decoded.sub;
+
+    return this.http
+      .get(`/client/v2.0/users/${phone}`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
 
   /**
    * Получаем баланс портфеля за определенный период
