@@ -14,6 +14,7 @@ import { OrdersService } from "./services/OrdersService/OrdersService";
 import { StopOrdersService } from "./services/StopOrdersService/StopOrdersService";
 import { BaseStream } from "./streams/base-stream";
 import { WSSOrdersService } from "./streams/WSSOrdersService/WSSOrdersService";
+import {OrderGroupsService} from "./services/OrderGroupsService/OrderGroupsService";
 
 const defaults: Required<
   Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta">
@@ -57,6 +58,10 @@ export class AlorApi {
   }
 
   onAuthCallback(...args) {}
+
+  get orderGroups() {
+    return this.getOrCreateService(OrderGroupsService);
+  }
 
   get orders() {
     return this.getOrCreateService(OrdersService);
