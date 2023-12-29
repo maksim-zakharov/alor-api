@@ -2,6 +2,7 @@ import {
   Order,
   Orders,
   OrdersActionsLimitMarket,
+  OrdersActionsLimitMarketCommandAPI,
   Side,
 } from "../../models/models";
 
@@ -83,16 +84,17 @@ describe("OrdersService", () => {
     const price = 235;
     const symbol = "SBER";
 
-    const res: OrdersActionsLimitMarket = await testApi.orders.sendLimitOrder({
-      quantity,
-      icebergFixed: quantity,
-      icebergVariance: quantity,
-      price,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-      type: "limit",
-    });
+    const res: OrdersActionsLimitMarketCommandAPI =
+      await testApi.orders.sendLimitOrder({
+        quantity,
+        icebergFixed: quantity,
+        icebergVariance: quantity,
+        price,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+        type: "limit",
+      });
 
     const orders: Orders = await testApi.clientInfo.getOrders({
       exchange,
