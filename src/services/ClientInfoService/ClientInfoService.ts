@@ -239,6 +239,71 @@ export interface ClientLoginRequest {
 export class ClientInfoService {
   constructor(private readonly http: AxiosInstance) {}
 
+  createOperation(
+    agreementNumber: string,
+    data: {
+      recipient: string;
+      account: string;
+      currency: "RUB";
+      subportfolioFrom: "MOEX";
+      all: false;
+      bic: string;
+      loroAccount: string;
+      bankName: string;
+      settlementAccount: string;
+      agree: boolean;
+      amount: number;
+    },
+  ): Promise<{
+    validations: [];
+    formErrors: null;
+    data: {};
+    operationId: number;
+    errorMessage: null;
+    success: true;
+  }> {
+    const formData = new FormData();
+    formData.append("operationType", "money_withdrawal");
+    formData.append("agreementNumber", agreementNumber);
+    formData.append("data", JSON.stringify(data));
+    return this.http
+      .post(`/client/v2.0/operations/create`, formData, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  getOperation(id: string): Promise<any> {
+    return this.http
+      .get(`/client/v2.0/operations/${id}`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  getOperationCode(data: {
+    agreementNumber: string;
+    operationId: string;
+  }): Promise<{ errorMessage: null; success: true }> {
+    return this.http
+      .put(`/client/v2.0/operations/code`, data, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  signOperation(data: {
+    agreementNumber: string;
+    operationId: string;
+    confirmationCode: string;
+  }): Promise<{ validations: []; errorMessage: null; success: true }> {
+    return this.http
+      .put(`/client/v2.0/operations/sign`, data, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
   refresh(
     refreshToken: string,
   ): Promise<{ jwt: string; refreshExpiresAt: string }> {
