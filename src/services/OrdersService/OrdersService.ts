@@ -8,7 +8,7 @@ import {
   EstimateOrderModel,
   EstimateOrderViewModel,
   OrdersActions400CommandAPI,
-  OrdersActionsLimitMarket,
+  OrdersActionsLimitMarket, OrdersActionsLimitMarketCommandAPI,
 } from "../../models/models";
 import { v4 as uuidv } from "uuid";
 
@@ -27,7 +27,7 @@ export class OrdersService {
    */
   async sendMarketOrder(
     body: BodyrequestOrdersActionsMarketTV,
-  ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
+  ): Promise<OrdersActionsLimitMarketCommandAPI | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
     return this.http
@@ -48,7 +48,7 @@ export class OrdersService {
    */
   async sendLimitOrder(
     body: BodyrequestOrdersActionsLimitTV,
-  ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
+  ): Promise<OrdersActionsLimitMarketCommandAPI | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
     return this.http
