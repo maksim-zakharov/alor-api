@@ -39,18 +39,20 @@ describe("OrdersService", () => {
     const symbol = "SBER";
     const price = 235;
 
-    const res1: OrdersActionsLimitMarket = await testApi.orders.sendLimitOrder({
-      quantity,
-      icebergFixed: quantity,
-      icebergVariance: quantity,
-      price,
-      side: Side.Buy,
-      user: { portfolio },
-      instrument: { exchange, symbol },
-      type: "limit",
-    });
+    const res1: OrdersActionsLimitMarketCommandAPI =
+      await testApi.orders.sendLimitOrder({
+        quantity,
+        icebergFixed: quantity,
+        icebergVariance: quantity,
+        price,
+        side: Side.Buy,
+        user: { portfolio },
+        instrument: { exchange, symbol },
+        type: "limit",
+      });
 
     const res2 = await testApi.orders.updateLimitOrder({
+      // @ts-ignore
       id: res1.orderNumber,
       quantity,
       icebergFixed: quantity,
