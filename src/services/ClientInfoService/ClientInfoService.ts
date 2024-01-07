@@ -470,6 +470,127 @@ export enum Type {
   Operation = "operation",
 }
 
+export enum Events {
+  /**
+   * Дивиденды
+   */
+  dividend = 'dividend',
+  /**
+   * Купоны
+   */
+  coupon = 'coupon',
+  /**
+   * Погашения
+   */
+  amortization = 'amortization',
+  /**
+   * Оферты
+   */
+  offer = 'offer'
+}
+
+export interface AllEventsCalendarParams {
+  from?: string;
+  to?: string;
+  events?: Events;
+}
+
+export interface AllEventsCalendarResponse {
+  [date: string]: CalendarDateEvents;
+}
+
+export interface CalendarDateEvents {
+  bondEvents?:     BondEvents;
+  dividendEvents?: DividendEvent[];
+}
+
+export interface BondEvents {
+  couponEvents:       CouponEvent[];
+  amortizationEvents: AmortizationEvent[] | null;
+  offerEvents:        OfferEvent[] | null;
+}
+
+export interface AmortizationEvent {
+  symbol:       string;
+  exchange:     Exchange;
+  shortName:    string;
+  fullName:     string;
+  isin:         string;
+  date:         Date;
+  fixDate:      Date;
+  parFraction:  number;
+  buyBackPrice: null;
+  amount:       number;
+  value:        number;
+  currency:     Currency;
+}
+
+export enum Exchange {
+  Moex = "MOEX",
+}
+
+export interface CouponEvent {
+  symbol:          string;
+  exchange:        Exchange;
+  shortName:       string;
+  fullName:        string;
+  isin:            string;
+  date:            Date;
+  fixDate:         Date | null;
+  accruedInterest: number;
+  intervalInDays:  number;
+  couponType:      CouponType;
+  couponRate:      number | null;
+  amount:          number;
+  value:           number | null;
+  currency:        Currency;
+}
+
+export enum CouponType {
+  Fixed = "FIXED",
+  Float = "FLOAT",
+  Unknown = "UNKNOWN",
+}
+
+export interface OfferEvent {
+  symbol:        string;
+  exchange:      Exchange;
+  shortName:     string;
+  fullName:      string;
+  isin:          string;
+  date:          Date;
+  begOrder:      Date | null;
+  endOrder:      Date | null;
+  fixDate:       Date | null;
+  description:   string;
+  bondEventType: BondEventType;
+  amount:        number;
+  value:         number;
+  currency:      Currency;
+}
+
+export enum BondEventType {
+  Call = "CALL",
+  Put = "PUT",
+}
+
+export interface DividendEvent {
+  symbol:                    string;
+  exchange:                  Exchange;
+  shortName:                 string;
+  fullName:                  string;
+  isin:                      string;
+  recordDate:                Date;
+  exDividendDate:            Date;
+  declaredPayDateNominee:    Date;
+  listDate:                  Date;
+  fixDate:                   Date;
+  dividendPerShare:          number;
+  dividendYield:             number;
+  currency:                  Currency;
+  recommendDividendPerShare: number;
+}
+
 /**
  * Информация о клиенте
  */
@@ -536,6 +657,19 @@ export class ClientInfoService {
     return this.http
         .get(`/client/v1.0/history/${clientId}/operations`, {
           baseURL: "https://lk-api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Календарь корпоративных событий
+   * @param params
+   */
+  getAllEventsCalendar(params: AllEventsCalendarParams): Promise<AllEventsCalendarResponse> {
+    return this.http
+        .get(`/instruments/v1/allEventsCalendar`, {
+          params,
+          baseURL: "https://api.alor.ru",
         })
         .then((r) => r.data);
   }
@@ -653,7 +787,6 @@ export class ClientInfoService {
 
   /**
    * Получаем информацию о пользователе
-   * @param params
    */
   getUserInfo(): Promise<UserInfoResponse> {
     const authHeader: string = this.http.defaults.headers.common
