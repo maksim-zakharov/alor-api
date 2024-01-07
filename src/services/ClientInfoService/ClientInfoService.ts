@@ -351,12 +351,123 @@ export enum Currency {
   RUB = 'RUB',USD = 'USD',EUR = 'EUR',CNY = 'CNY',HKD = 'HKD'
 }
 
+export enum Type {
+  Moneymove = "moneymove",
+}
+
+export enum OperationsSearch{
+  /**
+   * Вывод денежных средств
+   */
+  MoneyWithdrawal = 'money_withdrawal',
+  /**
+   * Пополнение счета
+   */
+  MoneyInput = 'money_input',
+  /**
+   * Услуги
+   */
+  Services = 'services',
+  /**
+   * С ценными бумагами
+   */
+  Securities = 'securities',
+  /**
+   * Заявки
+   */
+  Orders = 'orders',
+  /**
+   * Безопаность
+   */
+  Security = 'security',
+  /**
+   * Прочее
+   */
+  Others = 'others'
+}
+
+export interface GetOperationsParams{
+  loadDocuments?: boolean;
+  limit?: number;
+  offset?: number;
+  /**
+   * Тип операции
+   */
+  search?: OperationsSearch;
+  /**
+   * 2024-01-03
+   */
+  dateFrom?: string;
+  /**
+   * 2024-01-03
+   */
+  dateTo?: string;
+}
+
+export interface GetOperationsResponse {
+  status:       Status;
+  statusName:   string;
+  icon:         OperationIcon;
+  data:         Operation;
+  documents:    Document[];
+  files:        string[];
+  refuseReason: null;
+  type:         Type;
+  id:           string;
+  date:         Date;
+  title:        string;
+  subType:      string;
+}
+
+export interface Operation {
+  order?:            string;
+  amount?:           number;
+  accountFrom?:      string;
+  accountTo?:        string;
+  subportfolioFrom?: string;
+  subportfolioTo?:   string;
+  currency?:         string;
+  currencyExchange?: string;
+  categoryName?:     string;
+}
+
+export interface Document {
+  id:          number;
+  title:       string;
+  body:        null;
+  hash:        null;
+  operationId: number;
+  signedAt:    Date | null;
+  signed:      boolean;
+}
+
+export enum OperationIcon {
+  Categorization = "categorization",
+  Other = "other",
+  Service = "service",
+}
+
 export enum Status {
+  /**
+   * Просрочено
+   */
+  Overdue = "overdue",
+  /**
+   * Отклонено
+   */
+  Refused = "refused",
+  /**
+   * Исполнено
+   */
   Resolved = "resolved",
+  /**
+   * Исполняется
+   */
+  executing = "executing"
 }
 
 export enum Type {
-  Moneymove = "moneymove",
+  Operation = "operation",
 }
 
 /**
@@ -414,6 +525,19 @@ export class ClientInfoService {
         baseURL: "https://lk-api.alor.ru",
       })
       .then((r) => r.data);
+  }
+
+  /**
+   * Получение операций по клиенту
+   * @param clientId Идентификатор клиента
+   * @param params
+   */
+  getOperations(clientId: number, params: GetOperationsParams): Promise<GetOperationsResponse> {
+    return this.http
+        .get(`/client/v1.0/history/${clientId}/operations`, {
+          baseURL: "https://lk-api.alor.ru",
+        })
+        .then((r) => r.data);
   }
 
   /**
