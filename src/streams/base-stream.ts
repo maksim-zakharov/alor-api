@@ -30,7 +30,7 @@ export class BaseStream {
 
     const recreateWS = () => {
       this.wss = new WebSocket(this.api.options.wssEndpoint);
-      this.wss.setMaxListeners(100);
+      this.wss.setMaxListeners(0);
 
       this.wss.onclose = async (error) => {
         this.connected = false;

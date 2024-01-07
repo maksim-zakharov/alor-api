@@ -58,16 +58,37 @@ interface EquityDynamicsRequest {
 
 export interface EquityDynamicsResponse {
   portfolioValues: PortfolioValue[];
+  /**
+   * Свободные активы
+   */
   assetsSum: number;
+  /**
+   * Доход
+   */
   profitablity: number;
   profitablityPct: number;
+  /**
+   * Дивиденды/купоны
+   */
   dividends: number;
+  /**
+   * Пополнения
+   */
   replenishments: number;
+  /**
+   * Списания
+   */
   withdrawals: number;
 }
 
 export interface PortfolioValue {
+  /**
+   * Дата
+   */
   date: Date;
+  /**
+   * Активы
+   */
   value: number;
 }
 
@@ -233,20 +254,362 @@ export interface ClientLoginRequest {
   redirect_url: string;
 }
 
+export interface ProfileCategoriesResponse {
+  clientId:   number;
+  categories: ProfileCategory[];
+}
+
+export interface ProfileCategory {
+  id:                     number;
+  complexProductCategory: number;
+  name:                   string;
+  date:                   Date;
+  success:                boolean;
+  visible:                boolean;
+}
+
+export interface Category {
+  id:                     number;
+  name:                   string;
+  complexProductCategory: number;
+  isKvalOnly:             boolean;
+  showDetailsStar:        boolean;
+}
+
+export enum MoneyMovesSearch {
+  /**
+   * Налоги
+   */
+  Taxes = 'taxes',
+  /**
+   * Комиссии
+   */
+  Commissions = 'commissions',
+  /**
+   * Зачисление
+   */
+  Input = 'input',
+  /**
+   * Вывод
+   */
+  Withdraw = 'withdraw',
+  /**
+   * Перевод
+   */
+  Transfer = 'transfer',
+  /**
+   * Дивиденды
+   */
+  Dividends = 'dividends',
+  /**
+   * Купоны
+   */
+  Coupons = 'coupons',
+  /**
+   * Прочее
+   */
+  Others = 'others'
+}
+
+export interface MoneyMovesParams {
+  limit?: number;
+  offset?: number;
+  search?: MoneyMovesSearch;
+  /**
+   * 2024-01-03
+   */
+  dateFrom?: string;
+  /**
+   * 2024-01-03
+   */
+  dateTo?: string;
+  /**
+   * Номер портфеля (D12345)
+   */
+  accountNumber?: string;
+  currency?: Currency;
+}
+
+export interface MoneyMove {
+  sum:           number;
+  currency:      Currency;
+  agreementFrom: null | string;
+  accountFrom:   null | string;
+  agreementTo:   null | string;
+  accountTo:     null | string;
+  type:          Type;
+  status:        Status;
+  statusName:    string;
+  icon:          MoneyMovesSearch;
+  id:            string;
+  date:          Date;
+  title:         string;
+  subType:       MoneyMovesSearch;
+}
+
+export enum Currency {
+  RUB = 'RUB',USD = 'USD',EUR = 'EUR',CNY = 'CNY',HKD = 'HKD'
+}
+
+export enum Type {
+  Moneymove = "moneymove",
+}
+
+export enum OperationsSearch{
+  /**
+   * Вывод денежных средств
+   */
+  MoneyWithdrawal = 'money_withdrawal',
+  /**
+   * Пополнение счета
+   */
+  MoneyInput = 'money_input',
+  /**
+   * Услуги
+   */
+  Services = 'services',
+  /**
+   * С ценными бумагами
+   */
+  Securities = 'securities',
+  /**
+   * Заявки
+   */
+  Orders = 'orders',
+  /**
+   * Безопаность
+   */
+  Security = 'security',
+  /**
+   * Прочее
+   */
+  Others = 'others'
+}
+
+export interface GetOperationsParams{
+  loadDocuments?: boolean;
+  limit?: number;
+  offset?: number;
+  /**
+   * Тип операции
+   */
+  search?: OperationsSearch;
+  /**
+   * 2024-01-03
+   */
+  dateFrom?: string;
+  /**
+   * 2024-01-03
+   */
+  dateTo?: string;
+}
+
+export interface GetOperationsResponse {
+  status:       Status;
+  statusName:   string;
+  icon:         OperationIcon;
+  data:         Operation;
+  documents:    Document[];
+  files:        string[];
+  refuseReason: null;
+  type:         Type;
+  id:           string;
+  date:         Date;
+  title:        string;
+  subType:      string;
+}
+
+export interface Operation {
+  order?:            string;
+  amount?:           number;
+  accountFrom?:      string;
+  accountTo?:        string;
+  subportfolioFrom?: string;
+  subportfolioTo?:   string;
+  currency?:         string;
+  currencyExchange?: string;
+  categoryName?:     string;
+}
+
+export interface Document {
+  id:          number;
+  title:       string;
+  body:        null;
+  hash:        null;
+  operationId: number;
+  signedAt:    Date | null;
+  signed:      boolean;
+}
+
+export enum OperationIcon {
+  Categorization = "categorization",
+  Other = "other",
+  Service = "service",
+}
+
+export enum Status {
+  /**
+   * Просрочено
+   */
+  Overdue = "overdue",
+  /**
+   * Отклонено
+   */
+  Refused = "refused",
+  /**
+   * Исполнено
+   */
+  Resolved = "resolved",
+  /**
+   * Исполняется
+   */
+  executing = "executing"
+}
+
+export enum Type {
+  Operation = "operation",
+}
+
+export enum Events {
+  /**
+   * Дивиденды
+   */
+  dividend = 'dividend',
+  /**
+   * Купоны
+   */
+  coupon = 'coupon',
+  /**
+   * Погашения
+   */
+  amortization = 'amortization',
+  /**
+   * Оферты
+   */
+  offer = 'offer'
+}
+
+export interface AllEventsCalendarParams {
+  from?: string;
+  to?: string;
+  events?: Events;
+}
+
+export interface AllEventsCalendarResponse {
+  [date: string]: CalendarDateEvents;
+}
+
+export interface CalendarDateEvents {
+  bondEvents?:     BondEvents;
+  dividendEvents?: DividendEvent[];
+}
+
+export interface BondEvents {
+  couponEvents:       CouponEvent[];
+  amortizationEvents: AmortizationEvent[] | null;
+  offerEvents:        OfferEvent[] | null;
+}
+
+export interface AmortizationEvent {
+  symbol:       string;
+  exchange:     Exchange;
+  shortName:    string;
+  fullName:     string;
+  isin:         string;
+  date:         Date;
+  fixDate:      Date;
+  parFraction:  number;
+  buyBackPrice: null;
+  amount:       number;
+  value:        number;
+  currency:     Currency;
+}
+
+export enum Exchange {
+  Moex = "MOEX",
+}
+
+export interface CouponEvent {
+  symbol:          string;
+  exchange:        Exchange;
+  shortName:       string;
+  fullName:        string;
+  isin:            string;
+  date:            Date;
+  fixDate:         Date | null;
+  accruedInterest: number;
+  intervalInDays:  number;
+  couponType:      CouponType;
+  couponRate:      number | null;
+  amount:          number;
+  value:           number | null;
+  currency:        Currency;
+}
+
+export enum CouponType {
+  Fixed = "FIXED",
+  Float = "FLOAT",
+  Unknown = "UNKNOWN",
+}
+
+export interface OfferEvent {
+  symbol:        string;
+  exchange:      Exchange;
+  shortName:     string;
+  fullName:      string;
+  isin:          string;
+  date:          Date;
+  begOrder:      Date | null;
+  endOrder:      Date | null;
+  fixDate:       Date | null;
+  description:   string;
+  bondEventType: BondEventType;
+  amount:        number;
+  value:         number;
+  currency:      Currency;
+}
+
+export enum BondEventType {
+  Call = "CALL",
+  Put = "PUT",
+}
+
+export interface DividendEvent {
+  symbol:                    string;
+  exchange:                  Exchange;
+  shortName:                 string;
+  fullName:                  string;
+  isin:                      string;
+  recordDate:                Date;
+  exDividendDate:            Date;
+  declaredPayDateNominee:    Date;
+  listDate:                  Date;
+  fixDate:                   Date;
+  dividendPerShare:          number;
+  dividendYield:             number;
+  currency:                  Currency;
+  recommendDividendPerShare: number;
+}
+
 /**
  * Информация о клиенте
  */
 export class ClientInfoService {
   constructor(private readonly http: AxiosInstance) {}
 
+  /**
+   * Создать операцию на перевод по реквизитам
+   * @param agreementNumber
+   * @param data
+   */
   createOperation(
     agreementNumber: string,
     data: {
       recipient: string;
       account: string;
-      currency: "RUB";
+      currency: Currency;
       subportfolioFrom: "MOEX";
-      all: false;
+      all: boolean;
       bic: string;
       loroAccount: string;
       bankName: string;
@@ -273,6 +636,10 @@ export class ClientInfoService {
       .then((r) => r.data);
   }
 
+  /**
+   * Получить информацию об операции по идентификатору
+   * @param id Идентификатор операции
+   */
   getOperation(id: string): Promise<any> {
     return this.http
       .get(`/client/v2.0/operations/${id}`, {
@@ -281,6 +648,36 @@ export class ClientInfoService {
       .then((r) => r.data);
   }
 
+  /**
+   * Получение операций по клиенту
+   * @param clientId Идентификатор клиента
+   * @param params
+   */
+  getOperations(clientId: number, params: GetOperationsParams): Promise<GetOperationsResponse> {
+    return this.http
+        .get(`/client/v1.0/history/${clientId}/operations`, {
+          baseURL: "https://lk-api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Календарь корпоративных событий
+   * @param params
+   */
+  getAllEventsCalendar(params: AllEventsCalendarParams): Promise<AllEventsCalendarResponse> {
+    return this.http
+        .get(`/instruments/v1/allEventsCalendar`, {
+          params,
+          baseURL: "https://api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Отправить СМС-код подтверждения
+   * @param data
+   */
   getOperationCode(data: {
     agreementNumber: string;
     operationId: string;
@@ -292,6 +689,10 @@ export class ClientInfoService {
       .then((r) => r.data);
   }
 
+  /**
+   * Подтвердить операцию с помощью смс-кода
+   * @param data
+   */
   signOperation(data: {
     agreementNumber: string;
     operationId: string;
@@ -302,6 +703,43 @@ export class ClientInfoService {
         baseURL: "https://lk-api.alor.ru",
       })
       .then((r) => r.data);
+  }
+
+  /**
+   * Получить все категории риска
+   */
+  getCategories(): Promise<Category[]> {
+    return this.http
+        .get(`/client/v2.0/categorization/categories`, {
+          baseURL: "https://lk-api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Получить категории риска по профилю
+   * @param clientId Идентификатор клиента
+   */
+  getProfileCategories(clientId: number): Promise<ProfileCategoriesResponse> {
+    return this.http
+        .get(`/client/v2.0/categorization/${clientId}/profile`, {
+          baseURL: "https://lk-api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Получить движение денеженых средств
+   * @param clientId Идентификатор клиента
+   * @param params Параметры
+   */
+  getMoneyMoves(clientId: number, params: MoneyMovesParams): Promise<MoneyMove[]> {
+    return this.http
+        .get(`/client/v1.0/history/${clientId}/money-moves`, {
+          params,
+          baseURL: "https://lk-api.alor.ru",
+        })
+        .then((r) => r.data);
   }
 
   refresh(
@@ -349,7 +787,6 @@ export class ClientInfoService {
 
   /**
    * Получаем информацию о пользователе
-   * @param params
    */
   getUserInfo(): Promise<UserInfoResponse> {
     const authHeader: string = this.http.defaults.headers.common
