@@ -46,7 +46,7 @@ import {
   TradeStatsParams,
 } from "../../models/models";
 import { ConditionalResult } from "../../types";
-import * as jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 interface EquityDynamicsRequest {
   // 2023-11-28T09:42:08.791Z
@@ -815,7 +815,7 @@ export class ClientInfoService {
     }
 
     // @ts-ignore
-    const decoded: JWTTokenDecoded = jwt_decode<JWTTokenDecoded>(accessToken);
+    const decoded: JWTTokenDecoded = jwtDecode<JWTTokenDecoded>(accessToken);
 
     const phone = decoded.sub;
 
