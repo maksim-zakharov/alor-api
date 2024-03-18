@@ -5,7 +5,7 @@ import { v4 as uuidv } from "uuid";
 import AlorApi from "../../api";
 import {
   CommandwsReqCreateMarketOrder,
-  CommandwsResHandledSuccessfully,
+  WsResHandledSuccessfully,
   CommandwsReqAuthorize,
   CommandwsResAuthorize,
   CommandwsReqCreateLimitOrder,
@@ -39,7 +39,7 @@ export class WSSOrdersService extends BaseStream {
    */
   sendMarketOrder = (
     req: WithoutOpcode<CommandwsReqCreateMarketOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.CreateMarket);
 
   /**
@@ -47,7 +47,7 @@ export class WSSOrdersService extends BaseStream {
    */
   sendLimitOrder = (
     req: WithoutOpcode<CommandwsReqCreateLimitOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.CreateLimit);
 
   /**
@@ -55,7 +55,7 @@ export class WSSOrdersService extends BaseStream {
    */
   sendStopOrder = (
     req: WithoutOpcode<CommandwsReqCreateStopOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.CreateStop);
 
   /**
@@ -63,7 +63,7 @@ export class WSSOrdersService extends BaseStream {
    */
   sendStopLimitOrder = (
     req: WithoutOpcode<CommandwsReqCreateStopLimitOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.CreateStopLimit);
 
   /**
@@ -71,7 +71,7 @@ export class WSSOrdersService extends BaseStream {
    */
   updateMarketOrder = (
     req: WithoutOpcode<CommandwsReqUpdateMarketOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.UpdateMarket);
 
   /**
@@ -79,7 +79,7 @@ export class WSSOrdersService extends BaseStream {
    */
   updateLimitOrder = (
     req: WithoutOpcode<CommandwsReqUpdateLimitOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.UpdateLimit);
 
   /**
@@ -87,7 +87,7 @@ export class WSSOrdersService extends BaseStream {
    */
   updateStopOrder = (
     req: WithoutOpcode<CommandwsReqUpdateStopOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.UpdateStop);
 
   /**
@@ -95,7 +95,7 @@ export class WSSOrdersService extends BaseStream {
    */
   updateStopLimitOrder = (
     req: WithoutOpcode<CommandwsReqUpdateStopLimitOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.UpdateStopLimit);
 
   /**
@@ -103,7 +103,7 @@ export class WSSOrdersService extends BaseStream {
    */
   cancelMarketOrder = (
     req: WithoutOpcode<CommandwsReqDeleteMarketOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.DeleteMarket);
 
   /**
@@ -111,7 +111,7 @@ export class WSSOrdersService extends BaseStream {
    */
   cancelLimitOrder = (
     req: WithoutOpcode<CommandwsReqDeleteLimitOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.DeleteLimit);
 
   /**
@@ -119,7 +119,7 @@ export class WSSOrdersService extends BaseStream {
    */
   cancelStopOrder = (
     req: WithoutOpcode<CommandwsReqDeleteStopOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.DeleteStop);
 
   /**
@@ -127,7 +127,7 @@ export class WSSOrdersService extends BaseStream {
    */
   cancelStopLimitOrder = (
     req: WithoutOpcode<CommandwsReqDeleteStopLimitOrder>,
-    dataHandler: (response: CommandwsResHandledSuccessfully) => unknown,
+    dataHandler: (response: WsResHandledSuccessfully) => unknown,
   ) => this.baseSubscribe(req, dataHandler, SubscriptionAction.DeleteStopLimit);
 
   private baseSubscribe<Req, Res extends ResponseData>(

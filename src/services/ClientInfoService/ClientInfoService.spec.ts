@@ -83,7 +83,7 @@ describe("ClientInfoService", () => {
   it("getTradesBySymbol", async () => {
     const ticker = "SBER";
     const res = await testApi.clientInfo.getTradesBySymbol({
-      ticker,
+      symbol: ticker,
       portfolio,
       exchange,
     });

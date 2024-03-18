@@ -1,13 +1,11 @@
 import { AxiosInstance } from "axios/index";
 import {
-  Alltrade,
   Alltrades,
   AlltradesHeavy,
   Alltradeshistory,
   AlltradeshistoryHeavy,
   AlltradeshistorySlim,
   AlltradesSlim,
-  DevGetOneStopOrderParams,
   DevHistoryParams,
   DevOrderbookExchangSeccodeParams,
   DevQuotesParams,
@@ -116,7 +114,7 @@ export class InstrumentsService {
     ConditionalResult<Params, OrderbookSlim, OrderbookHeavy, Orderbook>
   > {
     return this.http
-      .get(`/md/v2/orderbooks/${params.exchange}/${params.seccode}`, {
+      .get(`/md/v2/orderbooks/${params.exchange}/${params.symbol}`, {
         params,
       })
       .then((r) => r.data);

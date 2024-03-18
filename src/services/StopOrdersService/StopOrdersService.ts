@@ -2,7 +2,7 @@ import { AxiosInstance } from "axios";
 import {
   BodyrequestOrdersActionsStopLimitTVWarp,
   BodyrequestOrdersActionsStopMarketTVWarp,
-  CommandApiV2ClientOrdersDeleteParams,
+  CommandApiWarpV2ClientOrdersDeleteParams,
   CommandwsReqUpdateStopLimitOrder,
   CommandwsReqUpdateStopOrder,
   OrdersActions400CommandAPI,
@@ -21,15 +21,13 @@ export class StopOrdersService {
   ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stop`,
-      body,
-      {
+    return this.http
+      .post(`/commandapi/warptrans/TRADE/v2/client/orders/actions/stop`, body, {
         headers: {
           "X-ALOR-REQID": requestId,
         },
-      },
-    ).then(r => r.data);
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -40,15 +38,17 @@ export class StopOrdersService {
   ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
-    return this.http.post(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stopLimit`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .post(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/stopLimit`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
@@ -59,15 +59,17 @@ export class StopOrdersService {
   ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
-    return this.http.put(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stop/${body.orderId}`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .put(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/stop/${body.orderId}`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
@@ -78,26 +80,30 @@ export class StopOrdersService {
   ): Promise<OrdersActionsLimitMarket | OrdersActions400CommandAPI> {
     const requestId = uuidv();
 
-    return this.http.put(
-      `/commandapi/warptrans/TRADE/v2/client/orders/actions/stoplimit/${body.orderId}`,
-      body,
-      {
-        headers: {
-          "X-ALOR-REQID": requestId,
+    return this.http
+      .put(
+        `/commandapi/warptrans/TRADE/v2/client/orders/actions/stoplimit/${body.orderId}`,
+        body,
+        {
+          headers: {
+            "X-ALOR-REQID": requestId,
+          },
         },
-      },
-    ).then(r => r.data);
+      )
+      .then((r) => r.data);
   }
 
   /**
    * Снятие заявки
    */
   async cancelOrder(
-    params: CommandApiV2ClientOrdersDeleteParams,
+    params: CommandApiWarpV2ClientOrdersDeleteParams,
   ): Promise<string> {
-    return this.http.delete(
-      `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
-      { params },
-    ).then(r => r.data);
+    return this.http
+      .delete(
+        `/commandapi/warptrans/TRADE/v2/client/orders/${params.orderId}`,
+        { params },
+      )
+      .then((r) => r.data);
   }
 }

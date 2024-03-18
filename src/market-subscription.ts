@@ -10,8 +10,8 @@ import {
   WsResStopOrdersGetAndSubscribe,
   WsResSpectraRisksGetAndSubscribe,
   Security,
-  CommandwsResHandledSuccessfully,
   WsResTradesGetAndSubscribe,
+  WsResHandledSuccessfully,
   Alltrade,
 } from "./models/models";
 
@@ -28,7 +28,7 @@ export type ResponseData =
   | Security
   | Alltrade
   | WsResTradesGetAndSubscribe["data"]
-  | CommandwsResHandledSuccessfully;
+  | WsResHandledSuccessfully;
 
 type MarketSubscriptionOptions<R, D> = {
   buildRequest: (subscriptionAction: SubscriptionAction | undefined) => any; // R;

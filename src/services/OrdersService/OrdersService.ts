@@ -4,11 +4,12 @@ import {
   BodyrequestOrdersActionsLimitTVput,
   BodyrequestOrdersActionsMarketTV,
   BodyrequestOrdersActionsMarketTVput,
-  CommandApiV2ClientOrdersDeleteParams,
+  CommandApiWarpV2ClientOrdersDeleteParams,
   EstimateOrderModel,
   EstimateOrderViewModel,
   OrdersActions400CommandAPI,
-  OrdersActionsLimitMarket, OrdersActionsLimitMarketCommandAPI,
+  OrdersActionsLimitMarket,
+  OrdersActionsLimitMarketCommandAPI,
 } from "../../models/models";
 import { v4 as uuidv } from "uuid";
 
@@ -110,7 +111,7 @@ export class OrdersService {
    * Снятие заявки
    */
   async cancelOrder(
-    params: CommandApiV2ClientOrdersDeleteParams,
+    params: CommandApiWarpV2ClientOrdersDeleteParams,
   ): Promise<string> {
     return this.http
       .delete(

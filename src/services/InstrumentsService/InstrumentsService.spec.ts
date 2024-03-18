@@ -30,7 +30,7 @@ describe("InstrumentsService", () => {
 
   it("getOrderbookBySeccode", async () => {
     const res = await testApi.instruments.getOrderbookBySeccode({
-      seccode: symbol,
+      symbol: symbol,
       exchange,
     });
     console.log(res);

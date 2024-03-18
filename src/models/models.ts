@@ -10,90 +10,100 @@
  */
 
 /**
- * Биржа:
- *   * `MOEX` - Московская биржа
- *   * `SPBX` - СПБ Биржа
+ * Идентификатор аккаунта пользователя
+ * @example "L01-00000F00"
  */
-export enum Exchange {
-  MOEX = "MOEX",
-  SPBX = "SPBX",
-}
-
-/** @default "Simple" */
-export enum Format {
-  Simple = "Simple",
-  Slim = "Slim",
-  Heavy = "Heavy",
-}
+export type Account = string;
 
 /**
- * Рынок:
- *   * `FORTS` - Срочный рынок
- *   * `FOND` - Фондовый рынок
- *   * `CURR` - Валютный рынок
+ * Начислено (НКД)
+ * @format decimal
+ * @example 0
  */
-export enum Sector {
-  FORTS = "FORTS",
-  FOND = "FOND",
-  CURR = "CURR",
-}
+export type AccruedInterest = number;
 
 /**
- * Направление сделки:
- *   * `buy` - Купля
- *   * `sell` - Продажа
- * @example "buy"
+ * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
+ * @default true
+ * @example true
  */
-export enum Side {
-  Buy = "buy",
-  Sell = "sell",
-}
+export type ActivateFlag = boolean;
 
 /**
- * Тип заявки:
- *   * `OneDay` - До конца дня
- *   * `ImmediateOrCancel` - Снять остаток
- *   * `FillOrKill` - Исполнить целиком или отклонить
- *   * `GoodTillCancelled` - Активна до отмены
- * @default "OneDay"
- * @example "OneDay"
+ * Аск
+ * @format decimal
+ * @example 171.87
  */
-export enum TimeInForce {
-  OneDay = "OneDay",
-  ImmediateOrCancel = "ImmediateOrCancel",
-  FillOrKill = "FillOrKill",
-  GoodTillCancelled = "GoodTillCancelled",
-}
+export type Ask = number;
 
 /**
- * Статус исполнения:
- *   * `working` - На исполнении
- *   * `filled` - Исполнена
- *   * `canceled` - Отменена
- *   * `rejected` - Отклонена
- * @example "filled"
+ * Количество лотов в ближайшем аске в биржевом стакане
+ * @format int32
+ * @example 107
  */
-export enum OrderStatus {
-  Working = "working",
-  Filled = "filled",
-  Canceled = "canceled",
-  Rejected = "rejected",
-}
+export type AskVolume = number;
 
 /**
- * Условие срабатывания стоп/стоп-лимитной заявки:
- *   * `More` - Цена срабатывания больше текущей цены
- *   * `Less` - Цена срабатывания меньше текущей цены
- *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
- *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
- * @example "More"
+ * Суммарное количество лотов во всех асках в биржевом стакане
+ * @format int32
+ * @example 2183
  */
-export enum Condition {
-  More = "More",
-  Less = "Less",
-  MoreOrEqual = "MoreOrEqual",
-  LessOrEqual = "LessOrEqual",
-}
+export type AskVolumeTotal = number;
+
+/**
+ * Бид
+ * @format decimal
+ * @example 171.82
+ */
+export type Bid = number;
+
+/**
+ * Количество лотов в ближайшем биде в биржевом стакане
+ * @format int32
+ * @example 5
+ */
+export type BidVolume = number;
+
+/**
+ * Суммарное количество лотов во всех бидах в биржевом стакане
+ * @format int32
+ * @example 2716
+ */
+export type BidVolumeTotal = number;
+
+/**
+ * Код режима торгов (Борд):
+ * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+ * * Для Биржи СПБ всегда SPBX
+ * @example "TQBR"
+ */
+export type Board = string;
+
+/**
+ * Пара Биржа:Тикер
+ * @example "MOEX:LKOH"
+ */
+export type BrokerSymbol = string;
+
+/**
+ * Разность цены и цены предыдущего закрытия
+ * @format decimal
+ * @example -3.08
+ */
+export type Change = number;
+
+/**
+ * Относительное изменение цены
+ * @format decimal
+ * @example -1.76
+ */
+export type ChangePercent = number;
+
+/**
+ * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
+ * @example true
+ */
+export type CheckDuplicates = boolean;
 
 /**
  * Тип клиента:
@@ -109,28 +119,10 @@ export enum ClientType {
 }
 
 /**
- * Категория риска.
- * @format int32
- * @example 2
+ * Пользовательский комментарий к заявке
+ * @example "Первая заявка"
  */
-export type RiskCategoryId = number;
-
-/**
- * Торговый статус инструмента:
- *   * `18` - Нет торгов / торги закрыты
- *   * `118` - Период открытия
- *   * `103` - Период закрытия
- *   * `2` - Перерыв в торгах
- *   * `17` - Нормальный период торгов
- *   * `102` - Аукцион закрытия
- *   * `106` - Аукцион крупных пакетов
- *   * `107` - Дискретный аукцион
- *   * `119` - Аукцион открытия
- *   * `120` - Период торгов по цене аукциона закрытия
- * @format int32
- * @example 17
- */
-export type TradingStatus = number;
+export type Comment = string;
 
 /**
  * Требуемая категория для осуществления торговли инструментом:
@@ -154,7 +146,7 @@ export type TradingStatus = number;
  *   * `15` - Облигации иностранных эмитентов с "юрисдикцией" эмитента вне рамок разрешенных
  *   * `16` - Резерв
  *   * `17` - Все бумаги, не попадающие под тесты из Базового стандарта. Ценные бумаги без листинга на Санкт-Петербургской бирже, возникшие в результате корпоративных событий
- * @example "2"
+ * @example 2
  */
 export enum ComplexProductCategory {
   Unknown = "Unknown",
@@ -179,18 +171,94 @@ export enum ComplexProductCategory {
 }
 
 /**
- * Тип заявки:
- *  * Market - Рыночная заявка
- *  * Limit - Лимитная заявка
- *  * Stop - Стоп-заявка
- *  * StopLimit - Стоп-лимит заявка
+ * Условие срабатывания стоп/стоп-лимитной заявки:
+ *   * `More` - Цена срабатывания больше текущей цены
+ *   * `Less` - Цена срабатывания меньше текущей цены
+ *   * `MoreOrEqual` - Цена срабатывания больше или равна текущей цене
+ *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
+ * @example "More"
  */
-export enum OrderType {
-  Limit = "Limit",
-  Market = "Market",
-  Stop = "Stop",
-  StopLimit = "StopLimit",
+export enum Condition {
+  More = "More",
+  Less = "Less",
+  MoreOrEqual = "MoreOrEqual",
+  LessOrEqual = "LessOrEqual",
 }
+
+/**
+ * Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки
+ * @format int32
+ * @example 100
+ */
+export type CreationFixedQuantity = number;
+
+/**
+ * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок
+ * @format int32
+ * @example 2
+ */
+export type CreationVarianceQuantity = number;
+
+/**
+ * Валюта расчетов
+ * @example "RUB"
+ */
+export type Currency = string | null;
+
+/**
+ * Только для опционов. Срок действия опциона (UTC)
+ * @format date-time
+ * @example "2024-03-20T00:00:00.0000000"
+ */
+export type EndExpiration = string;
+
+/**
+ * Дата и время завершения (UTC)
+ * @format date-time
+ * @example "2020-06-16T23:59:59.9990000Z"
+ */
+export type EndTime = string;
+
+/**
+ * Срок действия (UTC) в формате Unix Time seconds
+ * @format int64
+ * @example 1590094740
+ */
+export type EndTimeUnix = number;
+
+/**
+ * Причина отмены стоп-заявки
+ * @example "Цена не кратна минимальному шагу цены."
+ */
+export type ErrorDuringTriggering = string;
+
+/**
+ * Биржа:
+ *   * `MOEX` - Московская биржа
+ *   * `SPBX` - СПБ Биржа
+ */
+export enum Exchange {
+  MOEX = "MOEX",
+  SPBX = "SPBX",
+}
+
+/**
+ * Биржа:
+ *   * `MOEX` - Московская биржа
+ *   * `SPBX` - СПБ Биржа
+ * @deprecated
+ */
+export enum ExchangeDeprecated {
+  MOEX = "MOEX",
+  SPBX = "SPBX",
+}
+
+/**
+ * Уникальный идентификатор биржевой заявки
+ * @format int64
+ * @example 425242362
+ */
+export type ExchangeOrderId = number;
 
 /**
  * Тип группы заявок:
@@ -205,6 +273,164 @@ export enum ExecutionPolicy {
 }
 
 /**
+ * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+ * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+ * * Для срочного рынка — размер одного лота
+ * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
+ * @format decimal
+ * @example 5
+ */
+export type FaceValue = number;
+
+/**
+ * Количество исполненных (лоты)
+ * @format decimal
+ * @example 1
+ */
+export type FilledQtyBatch = number;
+
+/**
+ * Количество исполненных (штуки)
+ * @format decimal
+ * @example 10
+ */
+export type FilledQtyUnits = number;
+
+/**
+ * Только для опционов. Сумма дисконтированных значений объявленных денежных потоков
+ * @format decimal
+ * @example 0
+ */
+export type FixedSpotDiscount = number;
+
+/** @default "Simple" */
+export enum Format {
+  Simple = "Simple",
+  Slim = "Slim",
+  Heavy = "Heavy",
+}
+
+/**
+ * Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды.
+ * @example "c328fcf1-e495-408a-a0ed-e20f95d6b813"
+ */
+export type GuidWs = string;
+
+/**
+ * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
+ * @example "c328fcf1-e495-408a-a0ed-e20f95d6b813"
+ */
+export type GuidCws = string;
+
+/**
+ * HTTP-код ответа
+ * @format int32
+ * @example 200
+ */
+export type HTTP200 = number;
+
+/**
+ * Видимая постоянная часть айсберг-заявки в лотах
+ * @format int32
+ * @example 100
+ */
+export type IcebergFixed = number;
+
+/**
+ * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
+ * @format decimal
+ * @max 20
+ * @example 2
+ */
+export type IcebergVariance = number;
+
+/**
+ * Тип финансового инструмента.
+ *
+ * Возможные значения для MOEX:
+ * * FOR — Валюта
+ * * CS — Обыкновенные акции компании
+ * * PS — Привилегированные акции компании
+ * * MF — Паевой инвестиционный фонд
+ * * RDR — Российская депозитарная расписка
+ * * EUSOV — Облигация федерального займа
+ * * MUNI — Муниципальная облигация
+ * * CORP — Корпоративная облигация
+ * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+ * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+ *
+ * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
+ * @example "CS"
+ */
+export type InstrumentType = string | null;
+
+/**
+ * UTC-timestamp для значения поля `last_price`
+ * @format int64
+ * @example 1610982677
+ */
+export type LastPriceTimestamp = number;
+
+/**
+ * Количество (лоты)
+ * @format int32
+ * @example 1
+ */
+export type LotQuantity = number;
+
+/**
+ * Размер лота
+ * @format decimal
+ * @example 10
+ */
+export type LotSize = number;
+
+/**
+ * Суммарная стоимость лота
+ * @format decimal
+ * @example 26908
+ */
+export type LotValue = number;
+
+/**
+ * Рынок:
+ * * `FORTS` - Срочный рынок Московской биржи
+ * * `FOND` - Фондовый рынок Московской биржи
+ * * `CURR` - Валютный рынок Московской биржи
+ * * `SPBX` - Рынок Санкт-Петербургской биржи
+ * @example "FOND"
+ */
+export type Market = string;
+
+/**
+ * Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null`
+ * @format int32
+ * @example 523920
+ */
+export type OpenInterest = number;
+
+/**
+ * Только для опционов. Сторона опциона:
+ *   * `Call` — Купля
+ *   * `Put` — Продажа
+ * @example "Call"
+ */
+export type OptionSide = string;
+
+/**
+ * Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds
+ * @format int64
+ * @example 1610982677578
+ */
+export type OrderBookMSTimestamp = number;
+
+/**
+ * Уникальный идентификатор заявки
+ * @example "18995978560"
+ */
+export type OrderId = string;
+
+/**
  * Статус группы заявок
  *  * Active - группа активна
  *  * Filled - группа исполнена торговой системой
@@ -216,17 +442,345 @@ export enum OrderGroupStatus {
   Canceled = "Canceled",
 }
 
+/**
+ * Статус исполнения:
+ *   * `working` - На исполнении
+ *   * `filled` - Исполнена
+ *   * `canceled` - Отменена
+ *   * `rejected` - Отклонена
+ * @example "filled"
+ */
+export enum OrderStatus {
+  Working = "working",
+  Filled = "filled",
+  Canceled = "canceled",
+  Rejected = "rejected",
+}
+
+/**
+ * Тип заявки:
+ *  * Market - Рыночная заявка
+ *  * Limit - Лимитная заявка
+ *  * Stop - Стоп-заявка
+ *  * StopLimit - Стоп-лимит заявка
+ */
+export enum OrderType {
+  Limit = "Limit",
+  Market = "Market",
+  Stop = "Stop",
+  StopLimit = "StopLimit",
+}
+
+/**
+ * Тип заявки:
+ *   * `stop` - Стоп-заявка
+ *   * `stoplimit` - Стоп-лимитная заявка
+ * @example "stop"
+ */
+export enum OrderTypeStopLimit {
+  Stop = "stop",
+  Stoplimit = "stoplimit",
+}
+
+/**
+ * Категория риска.
+ * @format int32
+ * @example 2
+ */
+export type RiskCategoryId = number;
+
+/**
+ * Идентификатор клиентского портфеля
+ * @example "D39004"
+ */
+export type Portfolio = string;
+
+/**
+ * Цена
+ * @format decimal
+ * @example 142.52
+ */
+export type PriceCommon = number;
+
+/**
+ * Последняя цена
+ * @format decimal
+ * @example 171.82
+ */
+export type PriceLast = number;
+
+/**
+ * Максимальная цена
+ * @format decimal
+ * @example 176.02
+ */
+export type PriceMaximum = number;
+
+/**
+ * Минимальная цена
+ * @format decimal
+ * @example 170.33
+ */
+export type PriceMinimum = number;
+
+/**
+ * Множитель цены, использующийся при расчёте объёма
+ * @format decimal
+ * @example 1
+ */
+export type PriceMultiplier = number;
+
+/**
+ * Цена открытия
+ * @format decimal
+ * @example 26823
+ */
+export type PriceOpen = number;
+
+/**
+ * Количество единиц валютного инструмента, за которое указывается курс в котировках. Для прочих инструментов значение всегда равно 1
+ * @format decimal
+ * @example 1
+ */
+export type PriceShownUnits = number;
+
+/**
+ * Стоп-цена
+ * @format decimal
+ * @example 191.33
+ */
+export type PriceTrigger = number;
+
+/**
+ * Код базового режима торгов. Применяется в случае, если при создании заявки не было задано иное значение.
+ * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+ * * Для Биржи СПБ всегда SPBX
+ * @example "TQBR"
+ */
+export type PrimaryBoard = string;
+
+/**
+ * Только для опционов. Сумма дисконтированных значений прогнозных денежных потоков
+ * @format decimal
+ * @example 0
+ */
+export type ProjectedSpotDiscount = number;
+
+/**
+ * Рынок:
+ *   * `FORTS` - Срочный рынок
+ *   * `FOND` - Фондовый рынок
+ *   * `CURR` - Валютный рынок
+ */
+export enum Sector {
+  FORTS = "FORTS",
+  FOND = "FOND",
+  CURR = "CURR",
+}
+
+/**
+ * Направление сделки:
+ *   * `buy` — Купля
+ *   * `sell` — Продажа
+ * @example "buy"
+ */
+export enum Side {
+  Buy = "buy",
+  Sell = "sell",
+}
+
+/**
+ * Флаг отсеивания исторических данных:
+ * * `true` — отображать только новые данные
+ * * `false` — отображать в том числе данные из истории
+ * @default false
+ * @example false
+ */
+export type SkipHistory = boolean;
+
+/**
+ * `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий
+ * @example false
+ */
+export type Snapshot = boolean;
+
+/**
+ * Уникальный идентификатор стоп-заявки
+ * @format decimal
+ * @example 347498
+ */
+export type StopOrderId = number;
+
+/**
+ * Только для опционов. Цена Страйк (Цена исполнения опциона)
+ * @format decimal
+ * @example 12000
+ */
+export type StrikePrice = number;
+
+/**
+ * Тикер (Код финансового инструмента)
+ * @example "SBER"
+ */
+export type Ticker = string;
+
+/**
+ * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
+ * @example "SBER"
+ */
+export type TickerUndefined = string;
+
+/**
+ * Тип заявки:
+ *   * `oneday` - До конца дня
+ *   * `immediateorcancel` - Снять остаток
+ *   * `fillorkill` - Исполнить целиком или отклонить
+ *   * `goodtillcancelled` - Активна до отмены
+ * @default "oneday"
+ * @example "oneday"
+ */
+export enum TimeInForce {
+  Oneday = "oneday",
+  Immediateorcancel = "immediateorcancel",
+  Fillorkill = "fillorkill",
+  Goodtillcancelled = "goodtillcancelled",
+}
+
+/**
+ * Время (UTC) (Unix time seconds)
+ * @format int64
+ * @example 1620220020
+ */
+export type TimeUnixSeconds = number;
+
+/**
+ * Время (UTC) в формате Unix Time Milliseconds
+ * @format int64
+ * @example 1610982677578
+ */
+export type TimeUnixMilliseconds = number;
+
+/**
+ * JWT токен для авторизации
+ * @example "eyJhbGciOiJ..."
+ */
+export type Token = string;
+
+/**
+ * Торговый статус инструмента:
+ *   * `18` - Нет торгов / торги закрыты
+ *   * `118` - Период открытия
+ *   * `103` - Период закрытия
+ *   * `2` - Перерыв в торгах
+ *   * `17` - Нормальный период торгов
+ *   * `102` - Аукцион закрытия
+ *   * `106` - Аукцион крупных пакетов
+ *   * `107` - Дискретный аукцион
+ *   * `119` - Аукцион открытия
+ *   * `120` - Период торгов по цене аукциона закрытия
+ * @format int32
+ * @example 17
+ */
+export type TradingStatus = number;
+
+/**
+ * Дата и время выставления (UTC)
+ * @format date-time
+ * @example "2020-06-16T23:59:59.9990000Z"
+ */
+export type TransitionTime = string;
+
+/**
+ * Количество
+ * @format int32
+ * @example 1
+ */
+export type Quantity = number;
+
+/**
+ * Количество (штуки)
+ * @format decimal
+ * @example 20
+ */
+export type QuantityUnitsDec = number;
+
+/**
+ * Количество (штуки)
+ * @format int32
+ * @example 1
+ */
+export type QuantityUnitsInt = number;
+
+/**
+ * Только для опционов. Краткий код опциона
+ * @example "VB12000BC4"
+ */
+export type UnderlyingSymbol = string;
+
+/**
+ * Суммарная прибыль или суммарный убыток за день в валюте расчётов
+ * @format decimal
+ * @example 3250
+ */
+export type UnrealisedPlCurr = number;
+
+/**
+ * суммарная прибыль или суммарный убыток за день в процентах
+ * @format decimal
+ * @example 2.8
+ */
+export type UnrealisedPlPerc = number;
+
+/**
+ * Дата и время изменения статуса заявки (UTC)
+ * @format date-time
+ * @example "2020-06-16T23:59:59.9990000Z"
+ */
+export type UpdateTime = string;
+
+/**
+ * Исполненная часть айсберг-заявки (штуки)
+ * @format int32
+ * @example 0
+ */
+export type VisibleFilledQuantity = number;
+
+/**
+ * Исполненная часть айсберг-заявки (лоты)
+ * @format int32
+ * @example 0
+ */
+export type VisibleFilledQuantityBatch = number;
+
+/**
+ * Видимая постоянная часть айсберг-заявки (штуки)
+ * @format int32
+ * @example 0
+ */
+export type VisibleQuantity = number;
+
+/**
+ * Видимая постоянная часть айсберг-заявки (лоты)
+ * @format int32
+ * @example 0
+ */
+export type VisibleQuantityBatch = number;
+
+/**
+ * Объем, для рыночных заявок - null
+ * @format decimal
+ * @example 2086.3
+ */
+export type Volume = number | null;
+
 export interface OrdersActionsLimitMarketCommandAPI {
   /**
-   * Вид ответа на успешно выполненный запрос.
+   * Вид ответа на успешно выполненный запрос
    * @example "success"
    */
   message?: string;
-  /**
-   * Идентификатор заявки
-   * @example 18946416113
-   */
-  orderNumber?: string;
+  /** Уникальный идентификатор заявки */
+  orderNumber?: OrderId;
 }
 
 export interface OrdersActions400CommandAPI {
@@ -237,33 +791,34 @@ export interface OrdersActions400CommandAPI {
   message?: string;
   oldResponse?: {
     /**
+     * Код ответа
      * @format int32
      * @example 400
      */
     statusCode?: number;
-    /** @example "Provided json can't be properly deserialised, perhaps you made an error or forgot some field" */
-    body?: string;
+    body?: {
+      /**
+       * Текстовое представление ответа
+       * @example "success"
+       */
+      message?: string;
+      /** Уникальный идентификатор заявки */
+      orderNumber?: OrderId;
+    };
   };
 }
 
 export interface OrdersActionsStopProfitLossCommandAPI {
   /**
-   * Вид ответа на успешно выполненный запрос.
+   * Вид ответа на успешно выполненный запрос
    * @example "Succeeded, OrderNo=326123, EndTime={08.08.18  23:59:59}"
    */
   message?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 326123
-   */
-  orderNumber?: number;
+  /** Уникальный идентификатор заявки */
+  orderNumber?: OrderId;
 }
 
-/**
- * Вид ответа на успешно выполненный запрос.
- * @example "success"
- */
+/** Вид ответа на успешно выполненный запрос */
 export type CommandapiSuccessResponse = string;
 
 export interface CommandapiOrderGroupsErrorResponse {
@@ -291,16 +846,13 @@ export interface OrdergroupsActionsGetOrderGroup {
    * @format uuid
    * @example "eafb19d6-c578-4afe-aa95-d528c4531031"
    */
-  Id?: string;
+  id?: string;
   /** @example "P039004" */
-  Login?: string;
+  login?: string;
   /** Список заявок, входящих в группу заявок */
-  Orders?: {
-    /**
-     * Идентификатор заявки
-     * @example 123457854
-     */
-    OrderId?: string;
+  orders?: {
+    /** Уникальный идентификатор заявки */
+    OrderId?: OrderId;
   }[];
   /**
    * Тип группы заявок:
@@ -308,56 +860,40 @@ export interface OrdergroupsActionsGetOrderGroup {
    *  * IgnoreCancel - Группа отменяется при исполнении заявки. При отмене или редактировании заявки - заявка удаляется из группы, группа остаётся активной
    *  * TriggerBracketOrders - Группа, содержащая одну лимитную заявку и несколько стопов. Для создания группы, стоп-заявки должны быть созданны с флагом 'Activate = false'. После выполнения лимитной заявки, активируются стоп-заявки
    */
-  ExecutionPolicy?: ExecutionPolicy;
+  executionPolicy?: ExecutionPolicy;
   /**
    * Статус группы заявок
    *  * Active - группа активна
    *  * Filled - группа исполнена торговой системой
    *  * Canceled - группа отменена пользователем
    */
-  Status?: OrderGroupStatus;
+  status?: OrderGroupStatus;
   /**
    * Время создания группы заявок
    * @format date-time
    */
-  CreatedAt?: string;
+  createdAt?: string;
   /**
    * Время выполнения/отмены группы заявок
    * @format date-time
    */
-  ClosedAt?: string | null;
+  closedAt?: string | null;
 }
 
 export interface BodyrequestOrdersActionsLimitTVput {
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Тип заявки
-   * @example "limit"
-   */
-  type?: string;
-  /**
-   * Количество
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Количество */
+  quantity?: Quantity;
+  /** Цена */
+  price?: PriceCommon;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -365,173 +901,125 @@ export interface BodyrequestOrdersActionsLimitTVput {
      */
     exchange?: Exchange;
     /**
-     * Борд
-     * @example "TQBR"
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
      */
-    instrumentGroup?: string;
+    instrumentGroup?: Board;
   };
-  /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format int32
-   * @example 100
-   */
-  icebergFixed?: number;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
 }
 
 export interface BodyrequestOrdersActionsMarketTVput {
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Тип заявки
-   * @example "market"
-   */
-  type?: string;
-  /**
-   * Количество
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество */
+  quantity?: Quantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
      *   * `SPBX` - СПБ Биржа
      */
     exchange?: Exchange;
+    /**
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
+     */
+    instrumentGroup?: Board;
+  };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
+  user?: {
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  comment?: string;
-  user?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
-  };
+  timeInForce?: TimeInForce;
 }
 
 export interface BodyrequestOrdersActionsLimitTV {
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Тип заявки
-   * @example "limit"
-   */
-  type?: string;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
      *   * `SPBX` - СПБ Биржа
      */
     exchange?: Exchange;
-  };
-  /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
-  user?: {
     /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
      */
-    portfolio?: string;
+    instrumentGroup?: Board;
+  };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
+  user?: {
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format int32
-   * @example 100
-   */
-  icebergFixed?: number;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
 }
 
 export interface BodyrequestOrdersActionsStopMarketTVWarp {
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -542,30 +1030,15 @@ export interface BodyrequestOrdersActionsStopMarketTVWarp {
    *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
-  /**
-   * Цена срабатывания
-   * @format decimal
-   * @example 191.33
-   */
-  triggerPrice?: number;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -573,26 +1046,26 @@ export interface BodyrequestOrdersActionsStopMarketTVWarp {
      */
     exchange?: Exchange;
     /**
-     * Борд
-     * @example "TQBR"
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
      */
-    instrumentGroup?: string;
+    instrumentGroup?: Board;
   };
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
      *   * `SPBX` - СПБ Биржа
      */
-    exchange?: Exchange;
+    exchange?: ExchangeDeprecated;
   };
   /**
-   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
+   * Флаг указывает, создать активную заявку, или не активную.
+   * Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной.
+   * Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
    * @default true
    * @example true
    */
@@ -602,8 +1075,8 @@ export interface BodyrequestOrdersActionsStopMarketTVWarp {
 export interface BodyrequestOrdersActionsStopLimitTVWarp {
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -614,36 +1087,21 @@ export interface BodyrequestOrdersActionsStopLimitTVWarp {
    *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
-  /**
-   * Цена срабатывания
-   * @format decimal
-   * @example 191.33
-   */
-  triggerPrice?: number;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
   /**
    * Цена выставления стоп-лимитной заявки
    * @format decimal
    * @example 191.33
    */
   price?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -651,47 +1109,36 @@ export interface BodyrequestOrdersActionsStopLimitTVWarp {
      */
     exchange?: Exchange;
     /**
-     * Борд
-     * @example "TQBR"
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
      */
-    instrumentGroup?: string;
+    instrumentGroup?: Board;
   };
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
      *   * `SPBX` - СПБ Биржа
      */
-    exchange?: Exchange;
+    exchange?: ExchangeDeprecated;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
   /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format int32
-   * @example 100
-   */
-  icebergFixed?: number;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number;
-  /**
-   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
+   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом `TriggerBracketOrders`
    * @default true
    * @example true
    */
@@ -701,58 +1148,51 @@ export interface BodyrequestOrdersActionsStopLimitTVWarp {
 export interface BodyrequestOrdersActionsMarketTV {
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Тип заявки
-   * @example "market"
-   */
-  type?: string;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
      *   * `SPBX` - СПБ Биржа
      */
     exchange?: Exchange;
+    /**
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
+     */
+    instrumentGroup?: Board;
+  };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
+  user?: {
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  comment?: string;
-  user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
-  };
+  timeInForce?: TimeInForce;
 }
 
 export interface BodyrequestOrdersActionsStopTV {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -766,24 +1206,13 @@ export interface BodyrequestOrdersActionsStopTV {
    * @example 190.98
    */
   takeProfit?: number;
-  /**
-   * Стоп-цена
-   * @format decimal
-   * @example 190.98
-   */
-  triggerPrice?: number;
-  /**
-   * Количество
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Количество */
+  quantity?: Quantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -791,50 +1220,31 @@ export interface BodyrequestOrdersActionsStopTV {
      */
     exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   user?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор аккаунта пользователя */
+    account?: Account;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Срок действия
-   * @format date-time
-   * @example "2020-05-21T20:59:00.000Z"
-   */
-  endTime?: string;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
 }
 
 export interface BodyrequestOrdersActionsStopLimitTV {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Цена */
+  price?: PriceCommon;
   /**
    * Тип заявки
    * @example "takeprofit"
@@ -846,24 +1256,13 @@ export interface BodyrequestOrdersActionsStopLimitTV {
    * @example 190.98
    */
   takeProfit?: number;
-  /**
-   * Стоп-цена
-   * @format decimal
-   * @example 190.98
-   */
-  triggerPrice?: number;
-  /**
-   * Количество
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Количество */
+  quantity?: Quantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -871,36 +1270,25 @@ export interface BodyrequestOrdersActionsStopLimitTV {
      */
     exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   user?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор аккаунта пользователя */
+    account?: Account;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Срок действия
-   * @format date-time
-   * @example "2020-05-21T20:59:00.000Z"
-   */
-  endTime?: string;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
 }
 
 export interface OrdersActionsLimitMarket {
   /**
-   * Вид ответа на успешно выполненный запрос.
-   * @example "(162) Заявка на покупку N 9763124 зарегистрирована (1 удовлетворено)."
+   * Вид ответа на успешно выполненный запрос
+   * @example "(162) Заявка на покупку N 9763124 зарегистрирована (1 удовлетворено).
+   * "
    */
   message?: string;
   /**
@@ -913,16 +1301,18 @@ export interface OrdersActionsLimitMarket {
 
 export interface OrdersActions400 {
   /**
-   * Вид ответа для случая отвергнутой заявки.
-   * @example "Заявка не может быть принята из-за возможного недопустимого снижения уровня маржи."
+   * Вид ответа для случая отвергнутой заявки
+   * @example "Заявка не может быть принята из-за возможного недопустимого снижения уровня маржи.
+   * "
    */
   message?: string;
 }
 
 export interface OrdersActionsStopProfitLoss {
   /**
-   * Вид ответа на успешно выполненный запрос.
-   * @example "Succeeded, OrderNo=326123, EndTime={08.08.18  23:59:59}, OrderEndTime=(None)"
+   * Вид ответа на успешно выполненный запрос
+   * @example "Succeeded, OrderNo=326123, EndTime={08.08.18  23:59:59}, OrderEndTime=(None)
+   * "
    */
   message?: string;
   /**
@@ -934,36 +1324,25 @@ export interface OrdersActionsStopProfitLoss {
 }
 
 /**
- * Вид ответа на успешно выполненный запрос.
+ * Вид ответа на успешно выполненный запрос
  * @example "Succeeded"
  */
 export type OrdersActionsDeleteOrderId = string;
 
 export interface BodyrequestOrdersActionsLimit {
-  /**
-   * Количество
-   * @format int32
-   * @example 1
-   */
-  Quantity?: number;
+  /** Количество */
+  Quantity?: Quantity;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   Side?: Side;
-  /**
-   * Цена
-   * @format decimal
-   * @example 195.11
-   */
-  Price?: number;
+  /** Цена */
+  Price?: PriceCommon;
   Instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    Symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    Symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -971,22 +1350,13 @@ export interface BodyrequestOrdersActionsLimit {
      */
     Exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   User?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    Account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    Portfolio?: string;
+    /** Идентификатор аккаунта пользователя */
+    Account?: Account;
+    /** Идентификатор клиентского портфеля */
+    Portfolio?: Portfolio;
   };
   /**
    * Время (UTC) завершения сделки в формате Unix Time seconds
@@ -997,24 +1367,17 @@ export interface BodyrequestOrdersActionsLimit {
 }
 
 export interface BodyrequestOrdersActionsMarket {
-  /**
-   * Количество
-   * @format int32
-   * @example 1
-   */
-  Quantity?: number;
+  /** Количество */
+  Quantity?: Quantity;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   Side?: Side;
   Instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    Symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    Symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -1022,22 +1385,13 @@ export interface BodyrequestOrdersActionsMarket {
      */
     Exchange?: Exchange;
   };
-  /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   User?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    Account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    Portfolio?: string;
+    /** Идентификатор аккаунта пользователя */
+    Account?: Account;
+    /** Идентификатор клиентского портфеля */
+    Portfolio?: Portfolio;
   };
   /**
    * Время (UTC) завершения сделки в формате Unix Time seconds
@@ -1048,31 +1402,20 @@ export interface BodyrequestOrdersActionsMarket {
 }
 
 export interface BodyrequestOrdersActionsStop {
-  /**
-   * Количество
-   * @format int32
-   * @example 1
-   */
-  Quantity?: number;
+  /** Количество */
+  Quantity?: Quantity;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   Side?: Side;
-  /**
-   * Стоп-цена
-   * @format decimal
-   * @example 215.11
-   */
-  TriggerPrice?: number;
+  /** Стоп-цена */
+  TriggerPrice?: PriceTrigger;
   /** Информация об инструмента и бирже */
   Instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    Symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    Symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -1080,18 +1423,14 @@ export interface BodyrequestOrdersActionsStop {
      */
     Exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /** Информация о пользователе */
   User?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    Account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    Portfolio?: string;
+    /** Идентификатор аккаунта пользователя */
+    Account?: Account;
+    /** Идентификатор клиентского портфеля */
+    Portfolio?: Portfolio;
   };
   /**
    * Время (UTC) завершения сделки в формате Unix Time Seconds
@@ -1102,36 +1441,21 @@ export interface BodyrequestOrdersActionsStop {
 }
 
 export interface BodyrequestOrdersActionsStoplimit {
-  /**
-   * Количество
-   * @format int32
-   * @example 1
-   */
-  Quantity?: number;
+  /** Количество */
+  Quantity?: Quantity;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   Side?: Side;
-  /**
-   * Стоп-цена
-   * @format decimal
-   * @example 205.11
-   */
-  TriggerPrice?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 210.11
-   */
-  Price?: number;
+  /** Стоп-цена */
+  TriggerPrice?: PriceTrigger;
+  /** Цена */
+  Price?: PriceCommon;
   Instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    Symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    Symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -1139,17 +1463,13 @@ export interface BodyrequestOrdersActionsStoplimit {
      */
     Exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   User?: {
-    /**
-     * Идентификатор аккаунта пользователя
-     * @example "L01-00000F00"
-     */
-    Account?: string;
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    Portfolio?: string;
+    /** Идентификатор аккаунта пользователя */
+    Account?: Account;
+    /** Идентификатор клиентского портфеля */
+    Portfolio?: Portfolio;
   };
   /**
    * Время (UTC) завершения сделки в формате Unix Time seconds
@@ -1159,75 +1479,67 @@ export interface BodyrequestOrdersActionsStoplimit {
   OrderEndUnixTime?: number;
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format int32
-   * @example 100
-   */
-  icebergFixed?: number;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
 }
 
 export interface BodyrequestCreateOrderGroup {
   /** Заявки, из которых будет состоять группа */
-  Orders: OrderGroupItem[];
+  orders?: OrderGroupItem[];
   /**
    * Тип группы заявок:
    *  * OnExecuteOrCancel - Группа отменяется при отмене/выполнении/редактировании любой заявки
    *  * IgnoreCancel - Группа отменяется при исполнении заявки. При отмене или редактировании заявки - заявка удаляется из группы, группа остаётся активной
    *  * TriggerBracketOrders - Группа, содержащая одну лимитную заявку и несколько стопов. Для создания группы, стоп-заявки должны быть созданны с флагом 'Activate = false'. После выполнения лимитной заявки, активируются стоп-заявки
    */
-  ExecutionPolicy: ExecutionPolicy;
+  executionPolicy?: ExecutionPolicy;
 }
 
 export interface BodyrequestModifyOrderGroup {
   /** Заявки, из которых будет состоять группа */
-  Orders?: OrderGroupItem[];
+  orders?: OrderGroupItem[];
   /**
    * Тип группы заявок:
    *  * OnExecuteOrCancel - Группа отменяется при отмене/выполнении/редактировании любой заявки
    *  * IgnoreCancel - Группа отменяется при исполнении заявки. При отмене или редактировании заявки - заявка удаляется из группы, группа остаётся активной
    *  * TriggerBracketOrders - Группа, содержащая одну лимитную заявку и несколько стопов. Для создания группы, стоп-заявки должны быть созданны с флагом 'Activate = false'. После выполнения лимитной заявки, активируются стоп-заявки
    */
-  ExecutionPolicy: ExecutionPolicy;
+  executionPolicy?: ExecutionPolicy;
 }
 
 export interface BodyresponseOrderGroup {
   /** @example "success" */
-  Message?: string;
+  message?: string;
   /**
    * Идентификатор только что созданной группы
    * @format uuid
    * @example "eafb19d6-c578-4afe-aa95-d528c4531031"
    */
-  GroupId?: string;
+  groupId?: string;
 }
 
 export interface OrderGroupItem {
-  Portfolio?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
-  Exchange?: Exchange;
+  exchange?: Exchange;
   /**
    * Идентификатор заявки
-   * @example 1532944860
+   * @example "1532944860"
    */
-  OrderId?: string;
+  orderId?: string;
   /**
    * Тип заявки:
    *  * Market - Рыночная заявка
@@ -1235,17 +1547,14 @@ export interface OrderGroupItem {
    *  * Stop - Стоп-заявка
    *  * StopLimit - Стоп-лимит заявка
    */
-  Type?: OrderType;
+  type?: OrderType;
 }
 
 export type Symbols = Symbol[];
 
 export interface Symbol {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "KMEZ"
-   */
-  symbol?: string;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -1254,39 +1563,91 @@ export interface Symbol {
   exchange?: Exchange;
   /**
    * Короткое описание на русском языке
-   * @example "КМЗ"
+   * @example "Сбербанк России ПАО ао"
    */
   description?: string;
-  /**
-   * Аск
-   * @format decimal
-   * @example 171.87
-   */
-  ask?: number;
-  /**
-   * Бид
-   * @format decimal
-   * @example 171.82
-   */
-  bid?: number;
   /**
    * Цена предыдущего закрытия
    * @format decimal
    * @example 174.9
    */
   prev_close_price?: number;
+  /** Последняя цена */
+  last_price?: PriceLast;
+  /** UTC-timestamp для значения поля `last_price` */
+  last_price_timestamp?: LastPriceTimestamp;
+  /** Максимальная цена */
+  high_price?: PriceMaximum;
+  /** Минимальная цена */
+  low_price?: PriceMinimum;
+  /** Начислено (НКД) */
+  accruedInt?: AccruedInterest;
   /**
-   * Последняя цена
+   * Объём
    * @format decimal
-   * @example 171.82
+   * @example 38767080
    */
-  last_price?: number;
+  volume?: number;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  open_interest?: OpenInterest;
+  /** Аск */
+  ask?: Ask;
+  /** Бид */
+  bid?: Bid;
+  /** Количество лотов в ближайшем аске в биржевом стакане */
+  ask_vol?: AskVolume;
+  /** Количество лотов в ближайшем биде в биржевом стакане */
+  bid_vol?: BidVolume;
+  /** Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds */
+  ob_ms_timestamp?: OrderBookMSTimestamp;
+  /** Цена открытия */
+  open_price?: PriceOpen;
   /**
-   * UTC-timestamp для значения поля "last_price"
-   * @format int64
-   * @example 1610982677
+   * Доходность, рассчитанная по цене сделки
+   * @format int32
+   * @example null
    */
-  last_price_timestamp?: number;
+  yield?: number | null;
+  /** Размер лота */
+  lotsize?: LotSize;
+  /** Суммарная стоимость лота */
+  lotvalue?: LotValue;
+  /**
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
+   */
+  facevalue?: FaceValue;
+  /**
+   * Тип финансового инструмента.
+   *
+   * Возможные значения для MOEX:
+   * * FOR — Валюта
+   * * CS — Обыкновенные акции компании
+   * * PS — Привилегированные акции компании
+   * * MF — Паевой инвестиционный фонд
+   * * RDR — Российская депозитарная расписка
+   * * EUSOV — Облигация федерального займа
+   * * MUNI — Муниципальная облигация
+   * * CORP — Корпоративная облигация
+   * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+   * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+   *
+   * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
+   */
+  type?: InstrumentType;
+  /** Суммарное количество лотов во всех бидах в биржевом стакане */
+  total_bid_vol?: BidVolumeTotal;
+  /** Суммарное количество лотов во всех асках в биржевом стакане */
+  total_ask_vol?: AskVolumeTotal;
+  /**
+   * Начислено (НКД)
+   * @deprecated
+   * @format decimal
+   * @example 0
+   */
+  accrued_interest?: number;
   /**
    * Разность цены и цены предыдущего закрытия
    * @format decimal
@@ -1299,83 +1660,13 @@ export interface Symbol {
    * @example -1.76
    */
   change_percent?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 176.02
-   */
-  high_price?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 170.33
-   */
-  low_price?: number;
-  /**
-   * Начислено (НКД)
-   * @format decimal
-   * @example 0
-   */
-  accruedInt?: number;
-  /**
-   * Начислено (НКД)
-   * @deprecated
-   * @format decimal
-   * @example 0
-   */
-  accrued_interest?: number;
-  /**
-   * Объём
-   * @format decimal
-   * @example 38767080
-   */
-  volume?: number;
-  /**
-   * @format decimal
-   * @example null
-   */
-  open_interest?: number | null;
-  /**
-   * Цена открытия
-   * @format decimal
-   * @example 175.07
-   */
-  open_price?: number;
-  /**
-   * Доходность, рассчитанная по цене сделки
-   * @format int32
-   * @example null
-   */
-  yield?: number | null;
-  /**
-   * Размер лота
-   * @format decimal
-   * @example 10
-   */
-  lotsize?: number;
-  /**
-   * @format decimal
-   * @example 1990.2
-   */
-  lotvalue?: number;
-  /**
-   * Номинальная стоимость
-   * @format decimal
-   * @example 5
-   */
-  facevalue?: number;
-  /** @example "CS" */
-  type?: string | null;
 }
 
 export type SymbolsSlim = SymbolSlim[];
 
 export interface SymbolSlim {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  sym?: string;
+  /** Тикер (Код финансового инструмента) */
+  sym?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -1387,95 +1678,82 @@ export interface SymbolSlim {
    * @example "Сбербанк России ПАО ао"
    */
   desc?: string;
-  /**
-   * Аск
-   * @format decimal
-   * @example 303.65
-   */
-  ask?: number;
-  /**
-   * Бид
-   * @format decimal
-   * @example 303.59
-   */
-  bid?: number;
-  /**
-   * Последняя цена
-   * @format decimal
-   * @example 303.59
-   */
-  c?: number;
-  /**
-   * Время последней цены (UTC)
-   * @format int64
-   * @example 1620221538
-   */
-  tst?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 305
-   */
-  h?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 302.71
-   */
-  l?: number;
-  /**
-   * Начислено
-   * @format decimal
-   * @example 0
-   */
-  acci?: number | null;
+  /** UTC-timestamp для значения поля `last_price` */
+  tst?: LastPriceTimestamp;
+  /** Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds */
+  tso?: OrderBookMSTimestamp;
+  /** Цена открытия */
+  o?: PriceOpen;
+  /** Максимальная цена */
+  h?: PriceMaximum;
+  /** Минимальная цена */
+  l?: PriceMinimum;
+  /** Последняя цена */
+  c?: PriceLast;
   /**
    * Объём
    * @format decimal
    * @example 38767080
    */
   v?: number;
-  /**
-   * Цена открытия
-   * @format decimal
-   * @example 304.01
-   */
-  o?: number;
+  /** Начислено (НКД) */
+  acci?: AccruedInterest;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  oi?: OpenInterest;
   /**
    * Доходность, рассчитанная по цене сделки
    * @format int32
    * @example null
    */
   y?: number | null;
+  /** Аск */
+  ask?: Ask;
+  /** Бид */
+  bid?: Bid;
+  /** Количество лотов в ближайшем аске в биржевом стакане */
+  av?: AskVolume;
+  /** Количество лотов в ближайшем биде в биржевом стакане */
+  bv?: BidVolume;
+  /** Суммарное количество лотов во всех бидах в биржевом стакане */
+  tbv?: BidVolumeTotal;
+  /** Суммарное количество лотов во всех асках в биржевом стакане */
+  tav?: AskVolumeTotal;
+  /** Размер лота */
+  lot?: LotSize;
+  /** Суммарная стоимость лота */
+  lotv?: LotValue;
   /**
-   * Размер лота
-   * @format decimal
-   * @example 10
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
    */
-  lot?: number;
+  fv?: FaceValue;
   /**
-   * @format decimal
-   * @example 3035.9
+   * Тип финансового инструмента.
+   *
+   * Возможные значения для MOEX:
+   * * FOR — Валюта
+   * * CS — Обыкновенные акции компании
+   * * PS — Привилегированные акции компании
+   * * MF — Паевой инвестиционный фонд
+   * * RDR — Российская депозитарная расписка
+   * * EUSOV — Облигация федерального займа
+   * * MUNI — Муниципальная облигация
+   * * CORP — Корпоративная облигация
+   * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+   * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+   *
+   * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
    */
-  lotv?: number;
-  /**
-   * Номинальная стоимость
-   * @format decimal
-   * @example 3
-   */
-  fv?: number;
-  /** @example "CS" */
-  t?: string | null;
+  t?: InstrumentType;
 }
 
 export type SymbolsHeavy = SymbolHeavy[];
 
 export interface SymbolHeavy {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -1493,102 +1771,92 @@ export interface SymbolHeavy {
    */
   currency?: string | null;
   /**
-   * Аск
-   * @format decimal
-   * @example 303.65
-   */
-  ask?: number;
-  /**
-   * Бид
-   * @format decimal
-   * @example 303.59
-   */
-  bid?: number;
-  /**
    * Цена предыдущего закрытия
    * @format decimal
-   * @example 303.7
+   * @example 174.9
    */
   prevClosePrice?: number;
-  /**
-   * Последняя цена
-   * @format decimal
-   * @example 303.59
-   */
-  lastPrice?: number;
-  /**
-   * Время последней цены (UTC)
-   * @format int64
-   * @example 1620221538
-   */
-  lastPriceTimestamp?: number;
-  /**
-   * Разность цены и цены предыдущего закрытия
-   * @format decimal
-   * @example -0.11
-   */
-  change?: number | null;
-  /**
-   * Относительное изменение цены
-   * @format decimal
-   * @example -0.04
-   */
-  changePercent?: number | null;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 305
-   */
-  highPrice?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 302.71
-   */
-  lowPrice?: number;
-  /**
-   * Начислено
-   * @format decimal
-   * @example 0
-   */
-  accruedInterest?: number | null;
+  /** Последняя цена */
+  lastPrice?: PriceLast;
+  /** UTC-timestamp для значения поля `last_price` */
+  lastPriceTimestamp?: LastPriceTimestamp;
+  /** Максимальная цена */
+  highPrice?: PriceMaximum;
+  /** Минимальная цена */
+  lowPrice?: PriceMinimum;
+  /** Начислено (НКД) */
+  accruedInterest?: AccruedInterest;
   /**
    * Объём
    * @format decimal
    * @example 38767080
    */
   volume?: number;
-  /**
-   * Цена открытия
-   * @format decimal
-   * @example 304.01
-   */
-  openPrice?: number;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  openInterest?: OpenInterest;
+  /** Аск */
+  ask?: Ask;
+  /** Бид */
+  bid?: Bid;
+  /** Количество лотов в ближайшем аске в биржевом стакане */
+  askVol?: AskVolume;
+  /** Количество лотов в ближайшем биде в биржевом стакане */
+  bidVol?: BidVolume;
+  /** Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds */
+  obMsTimestamp?: OrderBookMSTimestamp;
+  /** Цена открытия */
+  openPrice?: PriceOpen;
   /**
    * Доходность, рассчитанная по цене сделки
    * @format int32
    * @example null
    */
   yield?: number | null;
+  /** Размер лота */
+  lotSize?: LotSize;
+  /** Суммарная стоимость лота */
+  lotValue?: LotValue;
   /**
-   * Размер лота
-   * @format decimal
-   * @example 10
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
    */
-  lotSize?: number;
+  faceValue?: FaceValue;
   /**
-   * @format decimal
-   * @example 3035.9
+   * Тип финансового инструмента.
+   *
+   * Возможные значения для MOEX:
+   * * FOR — Валюта
+   * * CS — Обыкновенные акции компании
+   * * PS — Привилегированные акции компании
+   * * MF — Паевой инвестиционный фонд
+   * * RDR — Российская депозитарная расписка
+   * * EUSOV — Облигация федерального займа
+   * * MUNI — Муниципальная облигация
+   * * CORP — Корпоративная облигация
+   * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+   * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+   *
+   * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
    */
-  lotValue?: number;
+  type?: InstrumentType;
+  /** Суммарное количество лотов во всех бидах в биржевом стакане */
+  totalBidVol?: BidVolumeTotal;
+  /** Суммарное количество лотов во всех асках в биржевом стакане */
+  totalAskVol?: AskVolumeTotal;
   /**
-   * Номинальная стоимость
+   * Разность цены и цены предыдущего закрытия
    * @format decimal
-   * @example 3
+   * @example -3.08
    */
-  faceValue?: number;
-  /** @example "CS" */
-  type?: string | null;
+  change?: number;
+  /**
+   * Относительное изменение цены
+   * @format decimal
+   * @example -1.76
+   */
+  changePercent?: number;
 }
 
 export type Orders = Order[];
@@ -1626,12 +1894,8 @@ export interface History {
 }
 
 export interface HistoryObject {
-  /**
-   * Время (UTC) (Unix time seconds)
-   * @format int64
-   * @example 1532944740
-   */
-  time?: number;
+  /** Время (UTC) (Unix time seconds) */
+  time?: TimeUnixSeconds;
   /**
    * Цена при закрытии
    * @format decimal
@@ -1644,18 +1908,10 @@ export interface HistoryObject {
    * @example 210.82
    */
   open?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 210.83
-   */
-  high?: number;
-  /**
-   * Миниимальная цена
-   * @format decimal
-   * @example 210.68
-   */
-  low?: number;
+  /** Максимальная цена */
+  high?: PriceMaximum;
+  /** Минимальная цена */
+  low?: PriceMinimum;
   /**
    * Объём
    * @format int32
@@ -1681,12 +1937,8 @@ export interface HistorySlim {
 }
 
 export interface HistoryObjectSlim {
-  /**
-   * Время (UTC) (Unix time seconds)
-   * @format int64
-   * @example 1620220020
-   */
-  t?: number;
+  /** Время (UTC) (Unix time seconds) */
+  t?: TimeUnixSeconds;
   /**
    * Цена при закрытии
    * @format decimal
@@ -1699,18 +1951,10 @@ export interface HistoryObjectSlim {
    * @example 210.82
    */
   o?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 210.83
-   */
-  h?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 210.68
-   */
-  l?: number;
+  /** Максимальная цена */
+  h?: PriceMaximum;
+  /** Минимальная цена */
+  l?: PriceMinimum;
   /**
    * Объём
    * @format int32
@@ -1736,12 +1980,8 @@ export interface HistoryHeavy {
 }
 
 export interface HistoryObjectHeavy {
-  /**
-   * Время (UTC) (Unix time seconds)
-   * @format int64
-   * @example 1532944740
-   */
-  time?: number;
+  /** Время (UTC) (Unix time seconds) */
+  time?: TimeUnixSeconds;
   /**
    * Цена при закрытии
    * @format decimal
@@ -1754,18 +1994,10 @@ export interface HistoryObjectHeavy {
    * @example 210.82
    */
   open?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 210.83
-   */
-  high?: number;
-  /**
-   * Миниимальная цена
-   * @format decimal
-   * @example 210.68
-   */
-  low?: number;
+  /** Максимальная цена */
+  high?: PriceMaximum;
+  /** Минимальная цена */
+  low?: PriceMinimum;
   /**
    * Объём
    * @format int32
@@ -1778,22 +2010,6 @@ export type Positions = Position[];
 
 export interface Position {
   /**
-   * Тикер (Код финансового инструмента)
-   * @example "LKOH"
-   */
-  symbol?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  brokerSymbol?: string;
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   *   * `SPBX` - СПБ Биржа
-   */
-  exchange?: Exchange;
-  /**
    * Объём, рассчитанный по средней цене
    * @format decimal
    * @example 38767080
@@ -1805,30 +2021,34 @@ export interface Position {
    * @example 38798790
    */
   currentVolume?: number;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange?: Exchange;
   /**
    * Средняя цена
    * @format decimal
    * @example 16.6
    */
   avgPrice?: number;
-  /**
-   * Количество (штуки)
-   * @format decimal
-   * @example 20
-   */
-  qtyUnits?: number;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsDec;
   /**
    * Количество открытых позиций на момент открытия (начала торгов)
    * @format decimal
    * @example 30
    */
   openUnits?: number;
-  /**
-   * Размер лота
-   * @format decimal
-   * @example 1
-   */
-  lotSize?: number;
+  /** Размер лота */
+  lotSize?: LotSize;
   /**
    * Короткое наименование
    * @example "ЛУКОЙЛ"
@@ -1852,12 +2072,8 @@ export interface Position {
    * @example 20
    */
   qtyT2?: number;
-  /**
-   * Количество (штуки)
-   * @format decimal
-   * @example 20
-   */
-  qtyTFuture?: number;
+  /** Количество (штуки) */
+  qtyTFuture?: QuantityUnitsDec;
   /**
    * Агрегированное количество T0 (лоты)
    * @format decimal
@@ -1906,19 +2122,12 @@ export interface Position {
    * @example 20
    */
   open?: number;
+  /** суммарная прибыль или суммарный убыток за день в процентах */
+  dailyUnrealisedPl?: UnrealisedPlPerc;
+  /** Суммарная прибыль или суммарный убыток за день в валюте расчётов */
+  unrealisedPl?: UnrealisedPlCurr;
   /**
-   * Нереализованная прибыль за день
-   * @format decimal
-   * @example 2.8
-   */
-  dailyUnrealisedPl?: number;
-  /**
-   * @format decimal
-   * @example 3250
-   */
-  unrealisedPl?: number;
-  /**
-   * True для валютных остатков (денег), false - для торговых инструментов
+   * `True` для валютных остатков (денег), `false` - для торговых инструментов
    * @example false
    */
   isCurrency?: boolean;
@@ -1927,22 +2136,6 @@ export interface Position {
 export type PositionsSlim = PositionSlim[];
 
 export interface PositionSlim {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "LKOH"
-   */
-  sym?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  tic?: string;
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   *   * `SPBX` - СПБ Биржа
-   */
-  ex?: Exchange;
   /**
    * Объём, рассчитанный по средней цене
    * @format decimal
@@ -1955,30 +2148,34 @@ export interface PositionSlim {
    * @example 38798790
    */
   cv?: number;
+  /** Тикер (Код финансового инструмента) */
+  sym?: Ticker;
+  /** Пара Биржа:Тикер */
+  tic?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  p?: Portfolio;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  ex?: Exchange;
   /**
    * Средняя цена
    * @format decimal
    * @example 16.6
    */
   pxavg?: number;
-  /**
-   * Количество (штуки)
-   * @format decimal
-   * @example 20
-   */
-  q?: number;
+  /** Количество (штуки) */
+  q?: QuantityUnitsDec;
   /**
    * Количество открытых позиций на момент открытия (начала торгов)
    * @format decimal
    * @example 30
    */
   o?: number;
-  /**
-   * Размер лота
-   * @format decimal
-   * @example 1
-   */
-  lot?: number;
+  /** Размер лота */
+  lot?: LotSize;
   /**
    * Короткое наименование
    * @example "ЛУКОЙЛ"
@@ -2002,25 +2199,14 @@ export interface PositionSlim {
    * @example 20
    */
   q2?: number;
+  /** Количество (штуки) */
+  qf?: QuantityUnitsDec;
+  /** суммарная прибыль или суммарный убыток за день в процентах */
+  upd?: UnrealisedPlPerc;
+  /** Суммарная прибыль или суммарный убыток за день в валюте расчётов */
+  up?: UnrealisedPlCurr;
   /**
-   * Количество (штуки)
-   * @format decimal
-   * @example 20
-   */
-  qf?: number;
-  /**
-   * Нереализованная прибыль за день
-   * @format decimal
-   * @example 2.8
-   */
-  upd?: number;
-  /**
-   * @format decimal
-   * @example 3250
-   */
-  up?: number;
-  /**
-   * True для валютных остатков (денег), false - для торговых инструментов
+   * `True` для валютных остатков (денег), `false` - для торговых инструментов
    * @example false
    */
   cur?: boolean;
@@ -2029,22 +2215,6 @@ export interface PositionSlim {
 export type PositionsHeavy = PositionHeavy[];
 
 export interface PositionHeavy {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "LKOH"
-   */
-  symbol?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  brokerSymbol?: string;
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   *   * `SPBX` - СПБ Биржа
-   */
-  exchange?: Exchange;
   /**
    * Объём, рассчитанный по средней цене
    * @format decimal
@@ -2057,30 +2227,34 @@ export interface PositionHeavy {
    * @example 38798790
    */
   currentVolume?: number;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange?: Exchange;
   /**
    * Средняя цена
    * @format decimal
    * @example 16.6
    */
   avgPrice?: number;
-  /**
-   * Количество (штуки)
-   * @format decimal
-   * @example 20
-   */
-  qtyUnits?: number;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsDec;
   /**
    * Количество открытых позиций на момент открытия (начала торгов)
    * @format decimal
    * @example 30
    */
   openUnits?: number;
-  /**
-   * Размер лота
-   * @format decimal
-   * @example 1
-   */
-  lotSize?: number;
+  /** Размер лота */
+  lotSize?: LotSize;
   /**
    * Короткое наименование
    * @example "ЛУКОЙЛ"
@@ -2104,12 +2278,8 @@ export interface PositionHeavy {
    * @example 20
    */
   qtyT2?: number;
-  /**
-   * Количество (штуки)
-   * @format decimal
-   * @example 20
-   */
-  qtyTFuture?: number;
+  /** Количество (штуки) */
+  qtyTFuture?: QuantityUnitsDec;
   /**
    * Агрегированное количество T0 (лоты)
    * @format decimal
@@ -2135,30 +2305,17 @@ export interface PositionHeavy {
    */
   qtyTFutureBatch?: number;
   /**
-   * Агрегированное количество TFuture
-   * @format decimal
-   * @example 20
-   */
-  qtyBatch?: number;
-  /**
    * Агрегированное количество на момент открытия (начала торгов) (лоты)
    * @format decimal
    * @example 20
    */
   openQtyBatch?: number;
+  /** суммарная прибыль или суммарный убыток за день в процентах */
+  dailyUnrealisedPl?: UnrealisedPlPerc;
+  /** Суммарная прибыль или суммарный убыток за день в валюте расчётов */
+  unrealisedPl?: UnrealisedPlCurr;
   /**
-   * Нереализованная прибыль за день
-   * @format decimal
-   * @example 2.8
-   */
-  dailyUnrealisedPl?: number;
-  /**
-   * @format decimal
-   * @example 3250
-   */
-  unrealisedPl?: number;
-  /**
-   * True для валютных остатков (денег), false - для торговых инструментов
+   * `True` для валютных остатков (денег), `false` - для торговых инструментов
    * @example false
    */
   isCurrency?: boolean;
@@ -2170,10 +2327,16 @@ export type TradesSlim = TradeSlim[];
 
 export type TradesHeavy = TradeHeavy[];
 
+export type TradesV2 = TradeV2[];
+
+export type TradesV2Slim = TradeV2Slim[];
+
+export type TradesV2Heavy = TradeV2Heavy[];
+
 /** Данные о запрашиваемом "биржевом стакане" */
 export interface Orderbook {
   /**
-   * Deprecated. Устаревшее поле, будет удалено в будущих обновлениях.
+   * Deprecated. Устаревшее поле, будет удалено в будущих обновлениях
    * @deprecated
    * @example true
    */
@@ -2183,23 +2346,16 @@ export interface Orderbook {
   /** Аски */
   asks?: OrderbookAsk[];
   /**
-   * Deprecated. Устаревшее поле, будет удалено в будущих обновлениях. Вместо этого поля используйте поле "ms_timestamp".
+   * Deprecated. Устаревшее поле, будет удалено в будущих обновлениях. Вместо этого поля используйте поле `ms_timestamp`
    * @deprecated
    * @format decimal
    * @example 1610982677
    */
   timestamp?: number;
-  /**
-   * Время(UTC) в формате Unix Time Milliseconds
-   * @format int64
-   * @example 1610982677578
-   */
-  ms_timestamp?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  existing?: boolean;
+  /** Время (UTC) в формате Unix Time Milliseconds */
+  ms_timestamp?: TimeUnixMilliseconds;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
 }
 
 /** Данные о запрашиваемом "биржевом стакане" */
@@ -2208,17 +2364,10 @@ export interface OrderbookSlim {
   b?: OrderbookBidSlim[];
   /** Аски */
   a?: OrderbookAskSlim[];
-  /**
-   * Время(UTC) в формате Unix Time Milliseconds
-   * @format int64
-   * @example 1610982677578
-   */
-  t?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  h?: boolean;
+  /** Время (UTC) в формате Unix Time Milliseconds */
+  t?: TimeUnixMilliseconds;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  h?: Snapshot;
 }
 
 /** Данные о запрашиваемом "биржевом стакане" */
@@ -2227,17 +2376,10 @@ export interface OrderbookHeavy {
   bids?: OrderbookBid[];
   /** Аски */
   asks?: OrderbookAsk[];
-  /**
-   * Время(UTC) в формате Unix Time Milliseconds
-   * @format int64
-   * @example 1610982677578
-   */
-  msTimestamp?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  existing?: boolean;
+  /** Время (UTC) в формате Unix Time Milliseconds */
+  msTimestamp?: TimeUnixMilliseconds;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
 }
 
 export interface OrderbookBid {
@@ -2339,11 +2481,8 @@ export interface AlltradeshistoryHeavy {
 export type Securities = Security[];
 
 export interface Security {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Краткое наименование инструмента
    * @example "Сбербанк"
@@ -2355,27 +2494,38 @@ export interface Security {
    */
   description?: string;
   /**
-   * Биржа
-   * @example "MOEX"
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
    */
-  exchange?: string;
+  exchange?: Exchange;
   /**
-   * Тип
-   * @example "CS"
+   * Тип финансового инструмента.
+   *
+   * Возможные значения для MOEX:
+   * * FOR — Валюта
+   * * CS — Обыкновенные акции компании
+   * * PS — Привилегированные акции компании
+   * * MF — Паевой инвестиционный фонд
+   * * RDR — Российская депозитарная расписка
+   * * EUSOV — Облигация федерального займа
+   * * MUNI — Муниципальная облигация
+   * * CORP — Корпоративная облигация
+   * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+   * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+   *
+   * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
    */
-  type?: string | null;
+  type?: InstrumentType;
+  /** Размер лота */
+  lotsize?: LotSize;
   /**
-   * Размер лота
-   * @format decimal
-   * @example 1
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
    */
-  lotsize?: number;
-  /**
-   * Номинальная стоимость
-   * @format decimal
-   * @example 100
-   */
-  facevalue?: number;
+  facevalue?: FaceValue;
   /**
    * Тип ценной бумаги согласно стандарту ISO 10962
    * @example "ESXXXX"
@@ -2398,19 +2548,19 @@ export interface Security {
    */
   rating?: number;
   /**
-   * Цена маржинальной покупки (заемные средства)
+   * Цена маржинальной покупки (заемные средства). Только срочный рынок
    * @format decimal
    * @example 6707.86
    */
   marginbuy?: number;
   /**
-   * Цена маржинальной продажи (заемные средства)
+   * Цена маржинальной продажи (заемные средства). Только срочный рынок
    * @format decimal
    * @example 6707.86
    */
   marginsell?: number;
   /**
-   * Отношение цены маржинальной покупки к цене последней сделки
+   * Отношение цены маржинальной покупки к цене последней сделки. Только срочный рынок
    * @format decimal
    * @example 89.3428
    */
@@ -2421,18 +2571,10 @@ export interface Security {
    * @example 6.30202
    */
   pricestep?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 79.57
-   */
-  priceMax?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 70.55
-   */
-  priceMin?: number;
+  /** Максимальная цена */
+  priceMax?: PriceMaximum;
+  /** Минимальная цена */
+  priceMin?: PriceMinimum;
   /**
    * Теоретическая цена опциона
    * @format decimal
@@ -2468,10 +2610,17 @@ export interface Security {
    */
   yield?: number | null;
   /**
-   * Код режима торгов
-   * @example "ROPD"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  primary_board?: string;
+  board?: Board;
+  /**
+   * Код базового режима торгов. Применяется в случае, если при создании заявки не было задано иное значение.
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  primary_board?: PrimaryBoard;
   /**
    * Торговый статус инструмента:
    *   * `18` - Нет торгов / торги закрыты
@@ -2515,16 +2664,33 @@ export interface Security {
    *   * `17` - Все бумаги, не попадающие под тесты из Базового стандарта. Ценные бумаги без листинга на Санкт-Петербургской бирже, возникшие в результате корпоративных событий
    */
   complexProductCategory?: ComplexProductCategory;
+  /** Множитель цены, использующийся при расчёте объёма */
+  priceMultiplier?: PriceMultiplier;
+  /** Количество единиц валютного инструмента, за которое указывается курс в котировках. Для прочих инструментов значение всегда равно 1 */
+  priceShownUnits?: PriceShownUnits;
+  /** Только для опционов. Цена Страйк (Цена исполнения опциона) */
+  strikePrice?: StrikePrice;
+  /** Только для опционов. Срок действия опциона (UTC) */
+  endExpiration?: EndExpiration;
+  /** Только для опционов. Сумма дисконтированных значений объявленных денежных потоков */
+  fixedSpotDiscount?: FixedSpotDiscount;
+  /** Только для опционов. Сумма дисконтированных значений прогнозных денежных потоков */
+  projectedSpotDiscount?: ProjectedSpotDiscount;
+  /** Только для опционов. Краткий код опциона */
+  underlyingSymbol?: UnderlyingSymbol;
+  /**
+   * Только для опционов. Сторона опциона:
+   *   * `Call` — Купля
+   *   * `Put` — Продажа
+   */
+  optionSide?: OptionSide;
 }
 
 export type SecuritiesSlim = SecuritySlim[];
 
 export interface SecuritySlim {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  sym?: string;
+  /** Тикер (Код финансового инструмента) */
+  sym?: Ticker;
   /**
    * Краткое наименование инструмента
    * @example "Сбербанк"
@@ -2536,27 +2702,38 @@ export interface SecuritySlim {
    */
   desc?: string;
   /**
-   * Биржа
-   * @example "MOEX"
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
    */
-  ex?: string;
+  ex?: Exchange;
   /**
-   * Тип
-   * @example "CS"
+   * Тип финансового инструмента.
+   *
+   * Возможные значения для MOEX:
+   * * FOR — Валюта
+   * * CS — Обыкновенные акции компании
+   * * PS — Привилегированные акции компании
+   * * MF — Паевой инвестиционный фонд
+   * * RDR — Российская депозитарная расписка
+   * * EUSOV — Облигация федерального займа
+   * * MUNI — Муниципальная облигация
+   * * CORP — Корпоративная облигация
+   * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+   * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+   *
+   * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
    */
-  t?: string | null;
+  t?: InstrumentType;
+  /** Размер лота */
+  lot?: LotSize;
   /**
-   * Размер лота
-   * @format decimal
-   * @example 1
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
    */
-  lot?: number;
-  /**
-   * Номинальная стоимость
-   * @format decimal
-   * @example 100
-   */
-  fv?: number;
+  fv?: FaceValue;
   /**
    * Тип ценной бумаги согласно стандарту ISO 10962
    * @example "ESXXXX"
@@ -2579,19 +2756,19 @@ export interface SecuritySlim {
    */
   rt?: number;
   /**
-   * Цена маржинальной покупки (заемные средства)
+   * Цена маржинальной покупки (заемные средства). Только срочный рынок
    * @format decimal
    * @example 6707.86
    */
   mgb?: number;
   /**
-   * Цена маржинальной продажи (заемные средства)
+   * Цена маржинальной продажи (заемные средства). Только срочный рынок
    * @format decimal
    * @example 6707.86
    */
   mgs?: number;
   /**
-   * Отношение цены маржинальной покупки к цене последней сделки
+   * Отношение цены маржинальной покупки к цене последней сделки. Только срочный рынок
    * @format decimal
    * @example 89.3428
    */
@@ -2602,18 +2779,10 @@ export interface SecuritySlim {
    * @example 6.30202
    */
   stppx?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 79.57
-   */
-  pxmx?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 70.55
-   */
-  pxmn?: number;
+  /** Максимальная цена */
+  pxmx?: PriceMaximum;
+  /** Минимальная цена */
+  pxmn?: PriceMinimum;
   /**
    * Теоретическая цена опциона
    * @format decimal
@@ -2626,6 +2795,10 @@ export interface SecuritySlim {
    * @example 0
    */
   pxtl?: number;
+  /** Множитель цены, использующийся при расчёте объёма */
+  pxmu?: PriceMultiplier;
+  /** Количество единиц валютного инструмента, за которое указывается курс в котировках. Для прочих инструментов значение всегда равно 1 */
+  pxu?: PriceShownUnits;
   /**
    * Волатильность
    * @format decimal
@@ -2649,10 +2822,17 @@ export interface SecuritySlim {
    */
   yld?: number | null;
   /**
-   * Код режима торгов
-   * @example "ROPD"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  pbd?: string;
+  bd?: Board;
+  /**
+   * Код базового режима торгов. Применяется в случае, если при создании заявки не было задано иное значение.
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  pbd?: PrimaryBoard;
   /**
    * Торговый статус инструмента:
    *   * `18` - Нет торгов / торги закрыты
@@ -2696,16 +2876,29 @@ export interface SecuritySlim {
    *   * `17` - Все бумаги, не попадающие под тесты из Базового стандарта. Ценные бумаги без листинга на Санкт-Петербургской бирже, возникшие в результате корпоративных событий
    */
   cpct?: ComplexProductCategory;
+  /** Только для опционов. Цена Страйк (Цена исполнения опциона) */
+  pxs?: StrikePrice;
+  /** Только для опционов. Срок действия опциона (UTC) */
+  exp?: EndExpiration;
+  /** Только для опционов. Сумма дисконтированных значений объявленных денежных потоков */
+  fdis?: FixedSpotDiscount;
+  /** Только для опционов. Сумма дисконтированных значений прогнозных денежных потоков */
+  pdis?: ProjectedSpotDiscount;
+  /** Только для опционов. Краткий код опциона */
+  usym?: UnderlyingSymbol;
+  /**
+   * Только для опционов. Сторона опциона:
+   *   * `Call` — Купля
+   *   * `Put` — Продажа
+   */
+  osd?: OptionSide;
 }
 
 export type SecuritiesHeavy = SecurityHeavy[];
 
 export interface SecurityHeavy {
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Краткое наименование инструмента
    * @example "Сбербанк"
@@ -2717,27 +2910,38 @@ export interface SecurityHeavy {
    */
   description?: string;
   /**
-   * Биржа
-   * @example "MOEX"
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
    */
-  exchange?: string;
+  exchange?: Exchange;
   /**
-   * Тип
-   * @example "CS"
+   * Тип финансового инструмента.
+   *
+   * Возможные значения для MOEX:
+   * * FOR — Валюта
+   * * CS — Обыкновенные акции компании
+   * * PS — Привилегированные акции компании
+   * * MF — Паевой инвестиционный фонд
+   * * RDR — Российская депозитарная расписка
+   * * EUSOV — Облигация федерального займа
+   * * MUNI — Муниципальная облигация
+   * * CORP — Корпоративная облигация
+   * * "Фьючерсный контракт X" — Фьючерсный контракт с указанием базового актива
+   * * "Марж. амер. Call X" — Опцион с указанием основных параметров контракта
+   *
+   * От SPBX возвращается только тип "t", присваиваемый всем доступным инструментам.
    */
-  type?: string | null;
+  type?: InstrumentType;
+  /** Размер лота */
+  lotSize?: LotSize;
   /**
-   * Размер лота
-   * @format decimal
-   * @example 1
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
    */
-  lotSize?: number;
-  /**
-   * Номинальная стоимость
-   * @format decimal
-   * @example 100
-   */
-  faceValue?: number;
+  faceValue?: FaceValue;
   /**
    * Тип ценной бумаги согласно стандарту ISO 10962
    * @example "ESXXXX"
@@ -2755,7 +2959,7 @@ export interface SecurityHeavy {
    */
   minStep?: number;
   /**
-   * Количество знаком после запятой в цене
+   * Количество знаков после запятой в цене
    * @format int32
    * @example 2
    */
@@ -2766,19 +2970,19 @@ export interface SecurityHeavy {
    */
   rating?: number;
   /**
-   * Цена маржинальной покупки (заемные средства)
+   * Цена маржинальной покупки (заемные средства). Только срочный рынок
    * @format decimal
    * @example 6707.86
    */
   marginBuy?: number;
   /**
-   * Цена маржинальной продажи (заемные средства)
+   * Цена маржинальной продажи (заемные средства). Только срочный рынок
    * @format decimal
    * @example 6707.86
    */
   marginSell?: number;
   /**
-   * Отношение цены маржинальной покупки к цене последней сделки
+   * Отношение цены маржинальной покупки к цене последней сделки. Только срочный рынок
    * @format decimal
    * @example 89.3428
    */
@@ -2789,18 +2993,10 @@ export interface SecurityHeavy {
    * @example 6.30202
    */
   priceStep?: number;
-  /**
-   * Максимальная цена
-   * @format decimal
-   * @example 79.57
-   */
-  priceMax?: number;
-  /**
-   * Минимальная цена
-   * @format decimal
-   * @example 70.55
-   */
-  priceMin?: number;
+  /** Максимальная цена */
+  priceMax?: PriceMaximum;
+  /** Минимальная цена */
+  priceMin?: PriceMinimum;
   /**
    * Теоретическая цена опциона
    * @format decimal
@@ -2836,10 +3032,17 @@ export interface SecurityHeavy {
    */
   yield?: number | null;
   /**
-   * Код режима торгов
-   * @example "ROPD"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  primaryBoard?: string;
+  board?: Board;
+  /**
+   * Код базового режима торгов. Применяется в случае, если при создании заявки не было задано иное значение.
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  primaryBoard?: PrimaryBoard;
   /**
    * Торговый статус инструмента:
    *   * `18` - Нет торгов / торги закрыты
@@ -2883,6 +3086,26 @@ export interface SecurityHeavy {
    *   * `17` - Все бумаги, не попадающие под тесты из Базового стандарта. Ценные бумаги без листинга на Санкт-Петербургской бирже, возникшие в результате корпоративных событий
    */
   complexProductCategory?: ComplexProductCategory;
+  /** Множитель цены, использующийся при расчёте объёма */
+  priceMultiplier?: PriceMultiplier;
+  /** Количество единиц валютного инструмента, за которое указывается курс в котировках. Для прочих инструментов значение всегда равно 1 */
+  priceShownUnits?: PriceShownUnits;
+  /** Только для опционов. Цена Страйк (Цена исполнения опциона) */
+  strikePrice?: StrikePrice;
+  /** Только для опционов. Срок действия опциона (UTC) */
+  endExpiration?: EndExpiration;
+  /** Только для опционов. Сумма дисконтированных значений объявленных денежных потоков */
+  fixedSpotDiscount?: FixedSpotDiscount;
+  /** Только для опционов. Сумма дисконтированных значений прогнозных денежных потоков */
+  projectedSpotDiscount?: ProjectedSpotDiscount;
+  /** Только для опционов. Краткий код опциона */
+  underlyingSymbol?: UnderlyingSymbol;
+  /**
+   * Только для опционов. Сторона опциона:
+   *   * `Call` — Купля
+   *   * `Put` — Продажа
+   */
+  optionSide?: OptionSide;
 }
 
 export interface RiskRates {
@@ -2939,12 +3162,8 @@ export interface Money {
    * @example 525.21
    */
   changes?: number;
-  /**
-   * Идентификатор клиентского портфеля
-   * @format decimal
-   * @example 525.56
-   */
-  portfolio?: number;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Свободные средства
    * @format decimal
@@ -2996,12 +3215,8 @@ export interface MoneySlim {
    * @example 525.21
    */
   ch?: number;
-  /**
-   * Идентификатор клиентского портфеля
-   * @format decimal
-   * @example 525.56
-   */
-  p?: number;
+  /** Идентификатор клиентского портфеля */
+  p?: Portfolio;
   /**
    * Свободные средства
    * @format decimal
@@ -3053,12 +3268,8 @@ export interface MoneyHeavy {
    * @example 525.21
    */
   changes?: number;
-  /**
-   * Идентификатор клиентского портфеля
-   * @format decimal
-   * @example 525.56
-   */
-  portfolio?: number;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Свободные средства
    * @format decimal
@@ -3068,32 +3279,22 @@ export interface MoneyHeavy {
 }
 
 export interface Order {
-  /**
-   * Уникальный идентификатор заявки
-   * @example "18995978560"
-   */
-  id?: string;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
-  /**
-   * Пара биржа-Тикер
-   * @example "MOEX:SBER"
-   */
-  brokerSymbol?: string;
+  /** Уникальный идентификатор заявки */
+  id?: OrderId;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
   exchange?: Exchange;
-  /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
    * Тип заявки:
    *   * `limit` - Лимитная заявка
@@ -3103,8 +3304,8 @@ export interface Order {
   type?: "limit" | "market";
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -3115,100 +3316,72 @@ export interface Order {
    *   * `rejected` - Отклонена
    */
   status?: OrderStatus;
+  /** Дата и время выставления (UTC) */
+  transTime?: TransitionTime;
+  /** Дата и время изменения статуса заявки (UTC) */
+  updateTime?: UpdateTime;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество (лоты) */
+  qty?: LotQuantity;
+  /** Количество исполненных (штуки) */
+  filledQtyUnits?: FilledQtyUnits;
+  /** Количество исполненных (лоты) */
+  filledQtyBatch?: FilledQtyBatch;
+  /** Количество исполненных (лоты) */
+  filled?: FilledQtyBatch;
+  /** Цена */
+  price?: PriceCommon;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
   /**
-   * Время выставления (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  transTime?: string;
-  /**
-   * Время завершения (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  endTime?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 1
-   */
-  qtyUnits?: number;
-  /**
-   * Количество (лоты)
-   * @format decimal
-   * @example 1
-   */
-  qtyBatch?: number;
-  /**
-   * Количество (лоты)
-   * @format decimal
-   * @example 1
-   */
-  qty?: number;
-  /**
-   * Количество исполненных (штуки)
-   * @format decimal
-   * @example 1
-   */
-  filledQtyUnits?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  filledQtyBatch?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  filled?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 208.6
-   */
-  price?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
-   */
-  existing?: boolean;
-  /**
-   * Объем, для рыночных заявок - null
-   * @format decimal
-   * @example 2086.3
-   */
-  volume?: number | null;
+  timeInForce?: TimeInForce;
+  /** Специальные поля для сделок со скрытой частью */
+  iceberg?: {
+    /** Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки */
+    creationFixedQuantity?: CreationFixedQuantity;
+    /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок */
+    creationVarianceQuantity?: CreationVarianceQuantity;
+    /** Видимая постоянная часть айсберг-заявки (штуки) */
+    visibleQuantity?: VisibleQuantity;
+    /** Видимая постоянная часть айсберг-заявки (лоты) */
+    visibleQuantityBatch?: VisibleQuantityBatch;
+    /** Исполненная часть айсберг-заявки (штуки) */
+    visibleFilledQuantity?: VisibleFilledQuantity;
+    /** Исполненная часть айсберг-заявки (лоты) */
+    visibleFilledQuantityBatch?: VisibleFilledQuantityBatch;
+  };
+  /** Объем, для рыночных заявок - null */
+  volume?: Volume;
 }
 
 export interface OrderSlim {
-  /**
-   * Уникальный идентификатор заявки
-   * @example "18995978560"
-   */
-  id?: string;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  sym?: string;
-  /**
-   * Пара биржа-Тикер
-   * @example "MOEX:SBER"
-   */
-  tic?: string;
+  /** Уникальный идентификатор заявки */
+  id?: OrderId;
+  /** Тикер (Код финансового инструмента) */
+  sym?: Ticker;
+  /** Пара Биржа:Тикер */
+  tic?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  p?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
   ex?: Exchange;
-  /**
-   * Комментарий
-   * @example "Первая заявка"
-   */
-  cmt?: string;
+  /** Пользовательский комментарий к заявке */
+  cmt?: Comment;
   /**
    * Тип заявки:
    *   * `limit` - Лимитная заявка
@@ -3218,8 +3391,8 @@ export interface OrderSlim {
   t?: "limit" | "market";
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   s?: Side;
   /**
@@ -3230,88 +3403,68 @@ export interface OrderSlim {
    *   * `rejected` - Отклонена
    */
   st?: OrderStatus;
+  /** Дата и время выставления (UTC) */
+  tt?: TransitionTime;
+  /** Дата и время изменения статуса заявки (UTC) */
+  ut?: UpdateTime;
+  /** Дата и время завершения (UTC) */
+  et?: EndTime;
+  /** Количество (штуки) */
+  q?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qb?: LotQuantity;
+  /** Количество исполненных (штуки) */
+  fq?: FilledQtyUnits;
+  /** Количество исполненных (лоты) */
+  fqb?: FilledQtyBatch;
+  /** Цена */
+  px?: PriceCommon;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  h?: Snapshot;
   /**
-   * Время выставления (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  tt?: string;
-  /**
-   * Время завершения (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  et?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 1
-   */
-  q?: number;
-  /**
-   * Количество (лоты)
-   * @format decimal
-   * @example 1
-   */
-  qb?: number;
-  /**
-   * Количество исполненных (штуки)
-   * @format decimal
-   * @example 1
-   */
-  fq?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  fqb?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 208.6
-   */
-  px?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
-   */
-  h?: boolean;
-  /**
-   * Объем, для рыночных заявок - null
-   * @format decimal
-   * @example 2086.3
-   */
-  v?: number | null;
+  tf?: TimeInForce;
+  /** Специальные поля для сделок со скрытой частью */
+  i?: {
+    /** Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки */
+    cf?: CreationFixedQuantity;
+    /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок */
+    cv?: CreationVarianceQuantity;
+    /** Видимая постоянная часть айсберг-заявки (штуки) */
+    v?: VisibleQuantity;
+    /** Видимая постоянная часть айсберг-заявки (лоты) */
+    vb?: VisibleQuantityBatch;
+    /** Исполненная часть айсберг-заявки (штуки) */
+    vf?: VisibleFilledQuantity;
+    /** Исполненная часть айсберг-заявки (лоты) */
+    vfb?: VisibleFilledQuantityBatch;
+  };
+  /** Объем, для рыночных заявок - null */
+  v?: Volume;
 }
 
 export interface OrderHeavy {
-  /**
-   * Уникальный идентификатор заявки
-   * @example "18995978560"
-   */
-  id?: string;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
-  /**
-   * Пара биржа-Тикер
-   * @example "MOEX:SBER"
-   */
-  brokerSymbol?: string;
+  /** Уникальный идентификатор заявки */
+  id?: OrderId;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
   exchange?: Exchange;
-  /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
    * Тип заявки:
    *   * `limit` - Лимитная заявка
@@ -3321,8 +3474,8 @@ export interface OrderHeavy {
   type?: "limit" | "market";
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -3333,91 +3486,70 @@ export interface OrderHeavy {
    *   * `rejected` - Отклонена
    */
   status?: OrderStatus;
+  /** Дата и время выставления (UTC) */
+  transTime?: TransitionTime;
+  /** Дата и время изменения статуса заявки (UTC) */
+  updateTime?: UpdateTime;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество исполненных (штуки) */
+  filledQtyUnits?: FilledQtyUnits;
+  /** Количество исполненных (лоты) */
+  filledQtyBatch?: FilledQtyBatch;
+  /** Цена */
+  price?: PriceCommon;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
   /**
-   * Время выставления (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  transTime?: string;
-  /**
-   * Время завершения (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  endTime?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 1
-   */
-  qtyUnits?: number;
-  /**
-   * Количество (лоты)
-   * @format decimal
-   * @example 1
-   */
-  qtyBatch?: number;
-  /**
-   * Количество исполненных (штуки)
-   * @format decimal
-   * @example 1
-   */
-  filledQtyUnits?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  filledQtyBatch?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 208.6
-   */
-  price?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
-   */
-  existing?: boolean;
-  /**
-   * Объем, для рыночных заявок - null
-   * @format decimal
-   * @example 2086.3
-   */
-  volume?: number | null;
+  timeInForce?: TimeInForce;
+  /** Специальные поля для сделок со скрытой частью */
+  iceberg?: {
+    /** Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки */
+    creationFixedQuantity?: CreationFixedQuantity;
+    /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок */
+    creationVarianceQuantity?: CreationVarianceQuantity;
+    /** Видимая постоянная часть айсберг-заявки (штуки) */
+    visibleQuantity?: VisibleQuantity;
+    /** Видимая постоянная часть айсберг-заявки (лоты) */
+    visibleQuantityBatch?: VisibleQuantityBatch;
+    /** Исполненная часть айсберг-заявки (штуки) */
+    visibleFilledQuantity?: VisibleFilledQuantity;
+    /** Исполненная часть айсберг-заявки (лоты) */
+    visibleFilledQuantityBatch?: VisibleFilledQuantityBatch;
+  };
+  /** Объем, для рыночных заявок - null */
+  volume?: Volume;
 }
 
 export interface Stoporder {
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format decimal
-   * @example 347498
-   */
-  id?: number;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Уникальный идентификатор стоп-заявки */
+  id?: StopOrderId;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
   exchange?: Exchange;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  brokerSymbol?: string;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
   /**
    * Тип заявки:
    *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
-   * @example "stop"
    */
-  type?: "stop" | "stoplimit";
+  type?: OrderTypeStopLimit;
   /**
    * Условная цена
    * @format decimal
@@ -3426,8 +3558,8 @@ export interface Stoporder {
   stopPrice?: number;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -3438,12 +3570,8 @@ export interface Stoporder {
    *   * `rejected` - Отклонена
    */
   status?: OrderStatus;
-  /**
-   * Время действия заявки (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  endTime?: string;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
   /**
    * Количество
    * @format decimal
@@ -3457,48 +3585,34 @@ export interface Stoporder {
    */
   filledQtyBatch?: number;
   /**
-   * Цена(Лимит)
+   * Цена (Лимит)
    * @format decimal
    * @example 208.6
    */
   price?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
-   */
-  existing?: boolean;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
 }
 
 export interface StoporderSlim {
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format decimal
-   * @example 347498
-   */
-  id?: number;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  sym?: string;
+  /** Уникальный идентификатор стоп-заявки */
+  id?: StopOrderId;
+  /** Тикер (Код финансового инструмента) */
+  sym?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
   ex?: Exchange;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  tic?: string;
+  /** Пара Биржа:Тикер */
+  tic?: BrokerSymbol;
   /**
    * Тип заявки:
-   *   * `stop` - Стоп заявка
+   *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
-   * @example "stop"
    */
-  t?: "stop" | "stoplimit";
+  t?: OrderTypeStopLimit;
   /**
    * Условная цена
    * @format decimal
@@ -3507,8 +3621,8 @@ export interface StoporderSlim {
   pxs?: number;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   s?: Side;
   /**
@@ -3519,12 +3633,8 @@ export interface StoporderSlim {
    *   * `rejected` - Отклонена
    */
   st?: OrderStatus;
-  /**
-   * Время действия заявки (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  exp?: string;
+  /** Дата и время завершения (UTC) */
+  exp?: EndTime;
   /**
    * Количество
    * @format decimal
@@ -3538,48 +3648,34 @@ export interface StoporderSlim {
    */
   fqb?: number;
   /**
-   * Цена(Лимит)
+   * Цена (Лимит)
    * @format decimal
    * @example 208.6
    */
   px?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
-   */
-  e?: boolean;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  e?: Snapshot;
 }
 
 export interface StoporderHeavy {
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format decimal
-   * @example 347498
-   */
-  id?: number;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
+  /** Уникальный идентификатор стоп-заявки */
+  id?: StopOrderId;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
    */
   exchange?: Exchange;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  brokerSymbol?: string;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
   /**
    * Тип заявки:
    *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
-   * @example "stop"
    */
-  type?: "stop" | "stoplimit";
+  type?: OrderTypeStopLimit;
   /**
    * Условная цена
    * @format decimal
@@ -3588,8 +3684,8 @@ export interface StoporderHeavy {
   stopPrice?: number;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -3600,12 +3696,8 @@ export interface StoporderHeavy {
    *   * `rejected` - Отклонена
    */
   status?: OrderStatus;
-  /**
-   * Время действия заявки (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  endTime?: string;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
   /**
    * Количество
    * @format decimal
@@ -3619,46 +3711,26 @@ export interface StoporderHeavy {
    */
   filledQtyBatch?: number;
   /**
-   * Цена(Лимит)
+   * Цена (Лимит)
    * @format decimal
    * @example 208.6
    */
   price?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
-   */
-  existing?: boolean;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
 }
 
 export interface StoporderWarp {
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format int64
-   * @example 347499
-   */
-  id?: number;
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format int64
-   * @example 425242362
-   */
-  exchangeOrderId?: number;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  brokerSymbol?: string;
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  portfolio?: string;
+  /** Уникальный идентификатор стоп-заявки */
+  id?: StopOrderId;
+  /** Уникальный идентификатор биржевой заявки */
+  exchangeOrderId?: ExchangeOrderId;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -3669,13 +3741,12 @@ export interface StoporderWarp {
    * Тип заявки:
    *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
-   * @example "stop"
    */
-  type?: "stop" | "stoplimit";
+  type?: OrderTypeStopLimit;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -3694,58 +3765,33 @@ export interface StoporderWarp {
    *   * `rejected` - Отклонена
    */
   status?: OrderStatus;
-  /**
-   * Время выставления заявки (UTC)
-   * @format date-time
-   * @example "2020-05-16T23:59:59.9990000"
-   */
-  transTime?: string;
-  /**
-   * Время действия заявки (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  endTime?: string;
-  /**
-   * Количество (Штуки)
-   * @format decimal
-   * @example 10
-   */
-  qtyUnits?: number;
-  /**
-   * Количество (Лоты)
-   * @format decimal
-   * @example 1
-   */
-  qtyBatch?: number;
-  /**
-   * Количество (Лоты)
-   * @deprecated
-   * @format decimal
-   * @example 1
-   */
-  qty?: number;
-  /**
-   * Количество исполненных (штуки)
-   * @format decimal
-   * @example 10
-   */
-  filledQtyUnits?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  filledQtyBatch?: number;
+  /** Дата и время выставления (UTC) */
+  transTime?: TransitionTime;
+  /** Дата и время изменения статуса заявки (UTC) */
+  updateTime?: UpdateTime;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
+  /** Причина отмены стоп-заявки */
+  error?: ErrorDuringTriggering;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsDec;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество (лоты) */
+  qty?: LotQuantity;
   /**
    * Количество исполненных (штуки)
    * @deprecated
    * @format decimal
-   * @example 1
+   * @example 10
    */
   filled?: number;
+  /** Количество исполненных (штуки) */
+  filledQtyUnits?: FilledQtyUnits;
+  /** Количество исполненных (лоты) */
+  filledQtyBatch?: FilledQtyBatch;
   /**
-   * Цена(Лимит)
+   * Цена (Лимит)
    * @format decimal
    * @example 208.6
    */
@@ -3762,47 +3808,45 @@ export interface StoporderWarp {
    * @example 215
    */
   stopPrice?: number;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
   /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  existing?: boolean;
-  /**
-   * Объем, для рыночных заявок - null
-   * @format decimal
-   * @example 2086.3
-   */
-  volume?: number | null;
+  timeInForce?: TimeInForce;
+  iceberg?: {
+    /** Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки */
+    creationFixedQuantity?: CreationFixedQuantity;
+    /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок */
+    creationVarianceQuantity?: CreationVarianceQuantity;
+    /** Видимая постоянная часть айсберг-заявки (штуки) */
+    visibleQuantity?: VisibleQuantity;
+    /** Видимая постоянная часть айсберг-заявки (лоты) */
+    visibleQuantityBatch?: VisibleQuantityBatch;
+    /** Исполненная часть айсберг-заявки (штуки) */
+    visibleFilledQuantity?: VisibleFilledQuantity;
+    /** Исполненная часть айсберг-заявки (лоты) */
+    visibleFilledQuantityBatch?: VisibleFilledQuantityBatch;
+  };
+  /** Объем, для рыночных заявок - null */
+  volume?: Volume;
 }
 
 export interface StoporderWarpSlim {
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format int64
-   * @example 347499
-   */
-  id?: number;
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format int64
-   * @example 425242362
-   */
-  eid?: number;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  sym?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  tic?: string;
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  p?: string;
+  /** Уникальный идентификатор стоп-заявки */
+  id?: StopOrderId;
+  /** Уникальный идентификатор биржевой заявки */
+  eid?: ExchangeOrderId;
+  /** Тикер (Код финансового инструмента) */
+  sym?: Ticker;
+  /** Пара Биржа:Тикер */
+  tic?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  p?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -3811,15 +3855,14 @@ export interface StoporderWarpSlim {
   ex?: Exchange;
   /**
    * Тип заявки:
-   *   * `stop` - Стоп заявка
+   *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
-   * @example "stop"
    */
-  t?: "stop" | "stoplimit";
+  t?: OrderTypeStopLimit;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   s?: Side;
   /**
@@ -3838,44 +3881,24 @@ export interface StoporderWarpSlim {
    *   * `rejected` - Отклонена
    */
   st?: OrderStatus;
+  /** Дата и время выставления (UTC) */
+  tt?: TransitionTime;
+  /** Дата и время изменения статуса заявки (UTC) */
+  ut?: UpdateTime;
+  /** Дата и время завершения (UTC) */
+  et?: EndTime;
+  /** Причина отмены стоп-заявки */
+  err?: ErrorDuringTriggering;
+  /** Количество (штуки) */
+  q?: QuantityUnitsDec;
+  /** Количество (лоты) */
+  qb?: LotQuantity;
+  /** Количество исполненных (штуки) */
+  fq?: FilledQtyUnits;
+  /** Количество исполненных (лоты) */
+  fqb?: FilledQtyBatch;
   /**
-   * Время выставления заявки (UTC)
-   * @format date-time
-   * @example "2020-05-16T23:59:59.9990000"
-   */
-  tt?: string;
-  /**
-   * Время действия заявки (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  et?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 10
-   */
-  q?: number;
-  /**
-   * Количество (лоты)
-   * @format decimal
-   * @example 1
-   */
-  qb?: number;
-  /**
-   * Количество исполненных (штуки)
-   * @format decimal
-   * @example 10
-   */
-  fq?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  fqb?: number;
-  /**
-   * Цена(Лимит)
+   * Цена (Лимит)
    * @format decimal
    * @example 208.6
    */
@@ -3892,47 +3915,45 @@ export interface StoporderWarpSlim {
    * @example 215
    */
   pxs?: number;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  h?: Snapshot;
   /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  h?: boolean;
-  /**
-   * Объем, для рыночных заявок - null
-   * @format decimal
-   * @example 2086.3
-   */
-  v?: number | null;
+  tf?: TimeInForce;
+  i?: {
+    /** Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки */
+    cf?: CreationFixedQuantity;
+    /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок */
+    cv?: CreationVarianceQuantity;
+    /** Видимая постоянная часть айсберг-заявки (штуки) */
+    v?: VisibleQuantity;
+    /** Видимая постоянная часть айсберг-заявки (лоты) */
+    vb?: VisibleQuantityBatch;
+    /** Исполненная часть айсберг-заявки (штуки) */
+    vf?: VisibleFilledQuantity;
+    /** Исполненная часть айсберг-заявки (лоты) */
+    vfb?: VisibleFilledQuantityBatch;
+  };
+  /** Объем, для рыночных заявок - null */
+  v?: Volume;
 }
 
 export interface StoporderWarpHeavy {
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format int64
-   * @example 347499
-   */
-  id?: number;
-  /**
-   * Уникальный идентификатор стоп-заявки
-   * @format int64
-   * @example 425242362
-   */
-  exchangeOrderId?: number;
-  /**
-   * Тикер (Код финансового инструмента)
-   * @example "SBER"
-   */
-  symbol?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "MOEX:LKOH"
-   */
-  brokerSymbol?: string;
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  portfolio?: string;
+  /** Уникальный идентификатор стоп-заявки */
+  id?: StopOrderId;
+  /** Уникальный идентификатор биржевой заявки */
+  exchangeOrderId?: ExchangeOrderId;
+  /** Тикер (Код финансового инструмента) */
+  symbol?: Ticker;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -3943,13 +3964,12 @@ export interface StoporderWarpHeavy {
    * Тип заявки:
    *   * `stop` - Стоп-заявка
    *   * `stoplimit` - Стоп-лимитная заявка
-   * @example "stop"
    */
-  type?: "stop" | "stoplimit";
+  type?: OrderTypeStopLimit;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
   /**
@@ -3968,44 +3988,24 @@ export interface StoporderWarpHeavy {
    *   * `rejected` - Отклонена
    */
   status?: OrderStatus;
+  /** Дата и время выставления (UTC) */
+  transTime?: TransitionTime;
+  /** Дата и время изменения статуса заявки (UTC) */
+  updateTime?: UpdateTime;
+  /** Дата и время завершения (UTC) */
+  endTime?: EndTime;
+  /** Причина отмены стоп-заявки */
+  error?: ErrorDuringTriggering;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsDec;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество исполненных (штуки) */
+  filledQtyUnits?: FilledQtyUnits;
+  /** Количество исполненных (лоты) */
+  filledQtyBatch?: FilledQtyBatch;
   /**
-   * Время выставления заявки (UTC)
-   * @format date-time
-   * @example "2020-05-16T23:59:59.9990000"
-   */
-  transTime?: string;
-  /**
-   * Время действия заявки (UTC)
-   * @format date-time
-   * @example "2020-06-16T23:59:59.9990000"
-   */
-  endTime?: string;
-  /**
-   * Количество (Штуки)
-   * @format decimal
-   * @example 10
-   */
-  qtyUnits?: number;
-  /**
-   * Количество (Лоты)
-   * @format decimal
-   * @example 1
-   */
-  qtyBatch?: number;
-  /**
-   * Количество исполненных (штуки)
-   * @format decimal
-   * @example 10
-   */
-  filledQtyUnits?: number;
-  /**
-   * Количество исполненных (лоты)
-   * @format decimal
-   * @example 1
-   */
-  filledQtyBatch?: number;
-  /**
-   * Цена(Лимит)
+   * Цена (Лимит)
    * @format decimal
    * @example 208.6
    */
@@ -4022,17 +4022,32 @@ export interface StoporderWarpHeavy {
    * @example 215
    */
   stopPrice?: number;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
   /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example true
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  existing?: boolean;
-  /**
-   * Объем, для рыночных заявок - null
-   * @format decimal
-   * @example 2086.3
-   */
-  volume?: number | null;
+  timeInForce?: TimeInForce;
+  iceberg?: {
+    /** Видимая постоянная часть айсберг-заявки в лотах, указанная при создании стоп-лимитной заявки */
+    creationFixedQuantity?: CreationFixedQuantity;
+    /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки, указанная при создании стоп-лимитной заявки. Только срочный рынок */
+    creationVarianceQuantity?: CreationVarianceQuantity;
+    /** Видимая постоянная часть айсберг-заявки (штуки) */
+    visibleQuantity?: VisibleQuantity;
+    /** Видимая постоянная часть айсберг-заявки (лоты) */
+    visibleQuantityBatch?: VisibleQuantityBatch;
+    /** Исполненная часть айсберг-заявки (штуки) */
+    visibleFilledQuantity?: VisibleFilledQuantity;
+    /** Исполненная часть айсберг-заявки (лоты) */
+    visibleFilledQuantityBatch?: VisibleFilledQuantityBatch;
+  };
+  /** Объем, для рыночных заявок - null */
+  volume?: Volume;
 }
 
 export interface Summary {
@@ -4208,12 +4223,16 @@ export interface SummaryHeavy {
 
 export interface Fortsrisk {
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D49004"
+   * Сальдо денежных торговых переводов за текущую сессию (поле будет удалено в будущих обновлениях)
+   * @deprecated
+   * @format decimal
+   * @example 1.93
    */
-  portfolio?: string;
+  balanceMoney?: number;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (MoneyFree = MoneyAmount + VmInterCl – MoneyBlocked – VmReserve – Fee)
+   * Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (`MoneyFree` = `MoneyAmount` + `VmInterCl` – `MoneyBlocked` – `VmReserve` – `Fee`)
    * @format decimal
    * @example 452404
    */
@@ -4224,13 +4243,6 @@ export interface Fortsrisk {
    * @example 12560
    */
   moneyBlocked?: number;
-  /**
-   * Сальдо денежных торговых переводов за текущую сессию (поле будет удалено в будущих обновлениях)
-   * @deprecated
-   * @format decimal
-   * @example 1.93
-   */
-  balanceMoney?: number;
   /**
    * Списанный сбор
    * @format decimal
@@ -4268,7 +4280,7 @@ export interface Fortsrisk {
    */
   vmCurrentPositions?: number;
   /**
-   * VmCurrentPositions + VmInterCl
+   * Вариационная маржа, рассчитанная по формуле `VmCurrentPositions` + `VmInterCl`
    * @format decimal
    * @example 552061
    */
@@ -4281,13 +4293,10 @@ export interface Fortsrisk {
 }
 
 export interface FortsriskSlim {
+  /** Идентификатор клиентского портфеля */
+  p?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D49004"
-   */
-  p?: string;
-  /**
-   * Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (MoneyFree = MoneyAmount + VmInterCl – MoneyBlocked – VmReserve – Fee)
+   * Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (`MoneyFree` = `MoneyAmount` + `VmInterCl` – `MoneyBlocked` – `VmReserve` – `Fee`)
    * @format decimal
    * @example 452404
    */
@@ -4342,13 +4351,10 @@ export interface FortsriskSlim {
 }
 
 export interface FortsriskHeavy {
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D49004"
-   */
-  portfolio?: string;
-  /**
-   * Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (MoneyFree = MoneyAmount + VmInterCl – MoneyBlocked – VmReserve – Fee)
+   * Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (`MoneyFree` = `MoneyAmount` + `VmInterCl` – `MoneyBlocked` – `VmReserve` – `Fee`)
    * @format decimal
    * @example 452404
    */
@@ -4396,7 +4402,7 @@ export interface FortsriskHeavy {
    */
   vmCurrentPositions?: number;
   /**
-   * VmCurrentPositions + VmInterCl
+   * Вариационная маржа, рассчитанная по формуле `VmCurrentPositions` + `VmInterCl`
    * @format decimal
    * @example 552061
    */
@@ -4409,11 +4415,8 @@ export interface FortsriskHeavy {
 }
 
 export interface Risk {
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D49004"
-   */
-  portfolio?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -4484,11 +4487,8 @@ export interface Risk {
 }
 
 export interface RiskSlim {
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D49004"
-   */
-  p?: string;
+  /** Идентификатор клиентского портфеля */
+  p?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -4559,11 +4559,8 @@ export interface RiskSlim {
 }
 
 export interface RiskHeavy {
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D49004"
-   */
-  portfolio?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -4635,7 +4632,7 @@ export interface RiskHeavy {
 
 export interface Alltrade {
   /**
-   * Уникальный идентификатор.
+   * Уникальный идентификатор
    * @format int64
    * @example 159
    */
@@ -4647,155 +4644,116 @@ export interface Alltrade {
    */
   orderno?: number;
   /**
-   * Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
+   * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
    * @example "SBER"
    */
   symbol?: string;
   /**
-   * Количество
-   * @format int32
-   * @example 1
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  qty?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 142.52
-   */
-  price?: number;
+  board?: Board;
+  /** Количество */
+  qty?: Quantity;
+  /** Цена */
+  price?: PriceCommon;
   /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
    */
   time?: string;
-  /**
-   * Время (UTC) в формате Unix Time Milliseconds
-   * @format int64
-   * @example 1611158710768
-   */
-  timestamp?: number;
+  /** Время (UTC) в формате Unix Time Milliseconds */
+  timestamp?: TimeUnixMilliseconds;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Открытый интерес (open interest). Если не поддерживается инстурментом - значение 0.
-   * @format int32
-   * @example 523920
-   */
-  oi?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  existing?: boolean;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  oi?: OpenInterest;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
 }
 
 export interface AlltradeSlim {
   /**
-   * Уникальный идентификатор.
+   * Уникальный идентификатор
    * @format int64
    * @example 159
    */
   id?: number;
   /**
-   * Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
+   * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
    * @example "SBER"
    */
   sym?: string;
   /**
-   * Количество
-   * @format int32
-   * @example 1
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  q?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 142.52
-   */
-  px?: number;
-  /**
-   * Время (UTC) в формате Unix Time Milliseconds
-   * @format int64
-   * @example 1611158710768
-   */
-  t?: number;
+  bd?: Board;
+  /** Количество */
+  q?: Quantity;
+  /** Цена */
+  px?: PriceCommon;
+  /** Время (UTC) в формате Unix Time Milliseconds */
+  t?: TimeUnixMilliseconds;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   s?: Side;
-  /**
-   * Открытый интерес (open interest). Если не поддерживается инстурментом - значение 0.
-   * @format int32
-   * @example 523920
-   */
-  oi?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  h?: boolean;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  oi?: OpenInterest;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  h?: Snapshot;
 }
 
 export interface AlltradeHeavy {
   /**
-   * Уникальный идентификатор.
+   * Уникальный идентификатор
    * @format int64
    * @example 159
    */
   id?: number;
   /**
-   * Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
+   * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
    * @example "SBER"
    */
   symbol?: string;
   /**
-   * Количество
-   * @format int32
-   * @example 1
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  qty?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 142.52
-   */
-  price?: number;
+  board?: Board;
+  /** Количество */
+  qty?: Quantity;
+  /** Цена */
+  price?: PriceCommon;
   /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
    */
   time?: string;
-  /**
-   * Время (UTC) в формате Unix Time Milliseconds
-   * @format int64
-   * @example 1611158710768
-   */
-  timestamp?: number;
+  /** Время (UTC) в формате Unix Time Milliseconds */
+  timestamp?: TimeUnixMilliseconds;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Открытый интерес (open interest). Если не поддерживается инстурментом - значение 0.
-   * @format int32
-   * @example 523920
-   */
-  oi?: number;
-  /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  existing?: boolean;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  oi?: OpenInterest;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
 }
 
 export interface RiskRate {
@@ -4819,7 +4777,7 @@ export interface RiskRate {
   /** Категория риска. */
   riskCategoryId?: RiskCategoryId;
   /**
-   * Id категории бумаги для категоризации.
+   * Id категории бумаги для категоризации
    * @format decimal
    * @example 1
    */
@@ -4830,22 +4788,22 @@ export interface RiskRate {
    */
   assetType?: string;
   /**
-   * Чаще всего будет null. Поле показывает к какому базовому инструменту принадлежит данный инструмент.
+   * Чаще всего будет null. Поле показывает к какому базовому инструменту принадлежит данный инструмент
    * @example "SBER"
    */
   underlyingAsset?: string | null;
   /**
-   * Чаще всего будет null. Поле показывает к множеству инструменту принадлежит данный инструмент.
+   * Чаще всего будет null. Поле показывает к множеству инструменту принадлежит данный инструмент
    * @example "SBER"
    */
   setName?: string | null;
   /**
-   * Является ли зависимость инструмента к базовому активу прямой или обратной.
+   * Является ли зависимость инструмента к базовому активу прямой или обратной
    * @example false
    */
   isDirect?: boolean;
   /**
-   * ISIN инструмента. Если есть.
+   * ISIN инструмента. Если есть
    * @example "RU0009029557"
    */
   isin?: string;
@@ -4855,13 +4813,13 @@ export interface RiskRate {
    */
   currencyCode?: string;
   /**
-   * Ставка риска повышения цены. Применяется для шортов.
+   * Ставка риска повышения цены. Применяется для шортов
    * @format decimal
    * @example 20
    */
   rateUp?: number;
   /**
-   * Ставка риска понижения цены. Применяется для лонгов.
+   * Ставка риска понижения цены. Применяется для лонгов
    * @format decimal
    * @example 10
    */
@@ -4873,12 +4831,12 @@ export interface RiskRate {
    */
   rateSymmetric?: number;
   /**
-   * Разрешен ли шорт по бумаге. True если да.
+   * Разрешен ли шорт по бумаге. True если да
    * @example true
    */
   isShortSellPossible?: boolean;
   /**
-   * Доступен ли данный инструмент в маржу. Т.е. есть ли он в списке маржинальных инструментов брокера.
+   * Доступен ли данный инструмент в маржу. Т.е. есть ли он в списке маржинальных инструментов брокера
    * @example true
    */
   isMarginal?: boolean;
@@ -4890,6 +4848,7 @@ export interface RiskRate {
   setRate?: number;
   /**
    * Время добавления ставки риска
+   * @format date-time
    * @example "2021-08-24T10:13:01.6584899"
    */
   createdAt?: string;
@@ -4899,6 +4858,11 @@ export interface RiskRate {
    * @example "2021-10-13T16:01:42.7957367"
    */
   updatedAt?: string;
+  /**
+   * Инициатор последнего обновления ставки риска
+   * @example "RiskRatesLoader"
+   */
+  updatedBy?: string;
 }
 
 /**
@@ -4920,16 +4884,15 @@ export interface Trade {
    * @example 7271479
    */
   orderno?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
-   * Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
-   * @example "GAZP"
+   * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
+   * @example "SBER"
    */
   symbol?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "GAZP:MOEX"
-   */
-  brokerSymbol?: string;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -4937,56 +4900,41 @@ export interface Trade {
    */
   exchange?: Exchange;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
-  /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
    */
   date?: string;
   /**
-   * Код режима торгов
-   * @example "TQBR"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  board?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 1
-   */
-  qtyUnits?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 1
-   */
-  qtyBatch?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 1
-   */
-  qty?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 142.52
-   */
-  price?: number;
+  board?: Board;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество (лоты) */
+  qty?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
+  /** Начислено (НКД) */
+  accruedInt?: AccruedInterest;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
   /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
+   * Суммарная комиссия (null для Срочного рынка)
+   * @format decimal
+   * @example 24.21
    */
-  existing?: boolean;
+  commission?: number | null;
   /** Специальные поля для сделок РЕПО */
   repoSpecificFields?: {
     /**
@@ -4996,12 +4944,15 @@ export interface Trade {
      */
     repoRate?: number;
     /**
-     * Поле-примечание, используется для обратной связи с внешними системами. Например, идентификатор пользователя внешней системы, поставившего заявку.
+     * Поле-примечание, используется для обратной связи с внешними
+     * системами. Например, идентификатор пользователя внешней системы,
+     * поставившего заявку.
      * @example "MB0014100002"
      */
     extRef?: string;
     /**
-     * Срок РЕПО - промежуток времени, выраженный в календарных днях, между датами исполнения первой и второй частей сделки РЕПО.
+     * Срок РЕПО - промежуток времени, выраженный в календарных днях,
+     * между датами исполнения первой и второй частей сделки РЕПО.
      * @format int32
      * @example 2
      */
@@ -5029,6 +4980,12 @@ export interface Trade {
      */
     yield?: number;
   };
+  /**
+   * Объём, рассчитанный по средней цене
+   * @format decimal
+   * @example 38767080
+   */
+  volume?: number;
 }
 
 export interface TradeSlim {
@@ -5043,16 +5000,15 @@ export interface TradeSlim {
    * @example 7271479
    */
   eid?: string;
+  /** Пользовательский комментарий к заявке */
+  cmt?: Comment;
   /**
-   * Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
-   * @example "GAZP"
+   * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
+   * @example "SBER"
    */
   sym?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "GAZP:MOEX"
-   */
-  tic?: string;
+  /** Пара Биржа:Тикер */
+  tic?: BrokerSymbol;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -5060,56 +5016,39 @@ export interface TradeSlim {
    */
   ex?: Exchange;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  cmt?: string;
-  /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
    */
   d?: string;
   /**
-   * Код режима торгов
-   * @example "TQBR"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  b?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 1
-   */
-  q?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 1
-   */
-  qb?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 142.52
-   */
-  px?: number;
+  b?: Board;
+  /** Количество (штуки) */
+  q?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qb?: LotQuantity;
+  /** Цена */
+  px?: PriceCommon;
+  /** Начислено (НКД) */
+  ai?: AccruedInterest;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   s?: Side;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  h?: Snapshot;
   /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
-   */
-  h?: boolean;
-  /**
-   * Объем
+   * Суммарная комиссия (null для Срочного рынка)
    * @format decimal
-   * @example 1421.52
+   * @example 24.21
    */
-  v?: number;
+  cms?: number | null;
   /** Специальные поля для сделок РЕПО */
   r?: {
     /**
@@ -5119,12 +5058,15 @@ export interface TradeSlim {
      */
     r?: number;
     /**
-     * Поле-примечание, используется для обратной связи с внешними системами. Например, идентификатор пользователя внешней системы, поставившего заявку.
+     * Поле-примечание, используется для обратной связи с внешними
+     * системами. Например, идентификатор пользователя внешней системы,
+     * поставившего заявку.
      * @example "MB0014100002"
      */
     exr?: string;
     /**
-     * Срок РЕПО - промежуток времени, выраженный в календарных днях, между датами исполнения первой и второй частей сделки РЕПО.
+     * Срок РЕПО - промежуток времени, выраженный в календарных днях,
+     * между датами исполнения первой и второй частей сделки РЕПО.
      * @format int32
      * @example 2
      */
@@ -5152,6 +5094,12 @@ export interface TradeSlim {
      */
     y?: number;
   };
+  /**
+   * Объём, рассчитанный по средней цене
+   * @format decimal
+   * @example 38767080
+   */
+  v?: number;
 }
 
 export interface TradeHeavy {
@@ -5166,16 +5114,15 @@ export interface TradeHeavy {
    * @example 7271479
    */
   orderNo?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
-   * Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
-   * @example "GAZP"
+   * Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен
+   * @example "SBER"
    */
   symbol?: string;
-  /**
-   * Пара Биржа:Тикер
-   * @example "GAZP:MOEX"
-   */
-  brokerSymbol?: string;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -5183,56 +5130,41 @@ export interface TradeHeavy {
    */
   exchange?: Exchange;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
-   */
-  comment?: string;
-  /**
    * Дата и время (UTC) закрытия заявки
    * @format date-time
    * @example "2018-08-07T08:40:03.445Z"
    */
   date?: string;
   /**
-   * Код режима торгов
-   * @example "TQBR"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  board?: string;
-  /**
-   * Количество (штуки)
-   * @format int32
-   * @example 1
-   */
-  qtyUnits?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 1
-   */
-  qtyBatch?: number;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 1
-   */
-  qty?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 142.52
-   */
-  price?: number;
+  board?: Board;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество (лоты) */
+  qty?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
+  /** Начислено (НКД) */
+  accruedInt?: AccruedInterest;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
   /**
-   * True - для данных из "снепшота", то есть из истории. False - для новых событий
-   * @example false
+   * Суммарная комиссия (null для Срочного рынка)
+   * @format decimal
+   * @example 24.21
    */
-  existing?: boolean;
+  commission?: number | null;
   /** Специальные поля для сделок РЕПО */
   repoSpecificFields?: {
     /**
@@ -5242,12 +5174,15 @@ export interface TradeHeavy {
      */
     repoRate?: number;
     /**
-     * Поле-примечание, используется для обратной связи с внешними системами. Например, идентификатор пользователя внешней системы, поставившего заявку.
+     * Поле-примечание, используется для обратной связи с внешними
+     * системами. Например, идентификатор пользователя внешней системы,
+     * поставившего заявку.
      * @example "MB0014100002"
      */
     extRef?: string;
     /**
-     * Срок РЕПО - промежуток времени, выраженный в календарных днях, между датами исполнения первой и второй частей сделки РЕПО.
+     * Срок РЕПО - промежуток времени, выраженный в календарных днях,
+     * между датами исполнения первой и второй частей сделки РЕПО.
      * @format int32
      * @example 2
      */
@@ -5275,325 +5210,1034 @@ export interface TradeHeavy {
      */
     yield?: number;
   };
+  /**
+   * Объём, рассчитанный по средней цене
+   * @format decimal
+   * @example 38767080
+   */
+  volume?: number;
+}
+
+export interface TradeV2 {
+  /**
+   * Уникальный идентификатор сделки
+   * @format decimal
+   * @example 159
+   */
+  id?: number;
+  /**
+   * Идентификатор заявки
+   * @example 7271479
+   */
+  orderno?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
+  /** Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен */
+  symbol?: TickerUndefined;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange?: Exchange;
+  /**
+   * Дата и время (UTC) закрытия заявки
+   * @format date-time
+   * @example "2018-08-07T08:40:03.445Z"
+   */
+  date?: string;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  board?: Board;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество (лоты) */
+  qty?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
+  /**
+   * Направление сделки:
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
+   */
+  side?: Side;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
+  /**
+   * Суммарная комиссия (null для Срочного рынка)
+   * @format decimal
+   * @example 24.21
+   */
+  commission?: number | null;
+  /** Специальные поля для сделок РЕПО */
+  repoSpecificFields?: {
+    /**
+     * Цена репо в процентах годовых.
+     * @format decimal
+     * @example 23.45
+     */
+    repoRate?: number;
+    /**
+     * Поле-примечание, используется для обратной связи с внешними
+     * системами. Например, идентификатор пользователя внешней системы,
+     * поставившего заявку.
+     * @example "MB0014100002"
+     */
+    extRef?: string;
+    /**
+     * Срок РЕПО - промежуток времени, выраженный в календарных днях,
+     * между датами исполнения первой и второй частей сделки РЕПО.
+     * @format int32
+     * @example 2
+     */
+    repoTerm?: number;
+    /**
+     * Торговый счет, в счет которого заключена данная сделка
+     * @example "MB0014100002"
+     */
+    account?: string;
+    /**
+     * Описание типа сделки
+     * @example "Расчетная по операции своп"
+     */
+    tradeTypeInfo?: string;
+    /**
+     * Объем сделки, выраженный в валюте расчетов
+     * @format decimal
+     * @example 46
+     */
+    value?: number;
+    /**
+     * Доходность, рассчитанная по цене сделки
+     * @format decimal
+     * @example 23.45
+     */
+    yield?: number;
+  };
+  /**
+   * Объём, рассчитанный по средней цене
+   * @format decimal
+   * @example 38767080
+   */
+  volume?: number;
+}
+
+export interface TradeV2Slim {
+  /**
+   * Уникальный идентификатор сделки
+   * @format decimal
+   * @example 159
+   */
+  id?: number;
+  /**
+   * Идентификатор заявки
+   * @example 7271479
+   */
+  eid?: string;
+  /** Пользовательский комментарий к заявке */
+  cmt?: Comment;
+  /** Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен */
+  sym?: TickerUndefined;
+  /** Пара Биржа:Тикер */
+  tic?: BrokerSymbol;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  ex?: Exchange;
+  /**
+   * Дата и время (UTC) закрытия заявки
+   * @format date-time
+   * @example "2018-08-07T08:40:03.445Z"
+   */
+  d?: string;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  b?: Board;
+  /** Количество (штуки) */
+  q?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qb?: LotQuantity;
+  /** Цена */
+  px?: PriceCommon;
+  /**
+   * Направление сделки:
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
+   */
+  s?: Side;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  h?: Snapshot;
+  /**
+   * Суммарная комиссия (null для Срочного рынка)
+   * @format decimal
+   * @example 24.21
+   */
+  cms?: number | null;
+  /** Специальные поля для сделок РЕПО */
+  r?: {
+    /**
+     * Цена репо в процентах годовых.
+     * @format decimal
+     * @example 23.45
+     */
+    r?: number;
+    /**
+     * Поле-примечание, используется для обратной связи с внешними
+     * системами. Например, идентификатор пользователя внешней системы,
+     * поставившего заявку.
+     * @example "MB0014100002"
+     */
+    exr?: string;
+    /**
+     * Срок РЕПО - промежуток времени, выраженный в календарных днях,
+     * между датами исполнения первой и второй частей сделки РЕПО.
+     * @format int32
+     * @example 2
+     */
+    tm?: number;
+    /**
+     * Торговый счет, в счет которого заключена данная сделка
+     * @example "MB0014100002"
+     */
+    a?: string;
+    /**
+     * Описание типа сделки
+     * @example "Расчетная по операции своп"
+     */
+    t?: string;
+    /**
+     * Объем сделки, выраженный в валюте расчетов
+     * @format decimal
+     * @example 46
+     */
+    v?: number;
+    /**
+     * Доходность, рассчитанная по цене сделки
+     * @format decimal
+     * @example 23.45
+     */
+    y?: number;
+  };
+  /**
+   * Объём, рассчитанный по средней цене
+   * @format decimal
+   * @example 38767080
+   */
+  v?: number;
+}
+
+export interface TradeV2Heavy {
+  /**
+   * Уникальный идентификатор сделки
+   * @format decimal
+   * @example 159
+   */
+  id?: number;
+  /**
+   * Идентификатор заявки
+   * @example 7271479
+   */
+  orderNo?: string;
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
+  /** Тикер (Код финансового инструмента). "[N/A]" используется, если `symbol` не определен */
+  symbol?: TickerUndefined;
+  /** Пара Биржа:Тикер */
+  brokerSymbol?: BrokerSymbol;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange?: Exchange;
+  /**
+   * Дата и время (UTC) закрытия заявки
+   * @format date-time
+   * @example "2018-08-07T08:40:03.445Z"
+   */
+  date?: string;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  board?: Board;
+  /** Количество (штуки) */
+  qtyUnits?: QuantityUnitsInt;
+  /** Количество (лоты) */
+  qtyBatch?: LotQuantity;
+  /** Количество (лоты) */
+  qty?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
+  /**
+   * Направление сделки:
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
+   */
+  side?: Side;
+  /** `True` - для данных из "снепшота", то есть из истории. `False` - для новых событий */
+  existing?: Snapshot;
+  /**
+   * Суммарная комиссия (null для Срочного рынка)
+   * @format decimal
+   * @example 24.21
+   */
+  commission?: number | null;
+  /** Специальные поля для сделок РЕПО */
+  repoSpecificFields?: {
+    /**
+     * Цена репо в процентах годовых.
+     * @format decimal
+     * @example 23.45
+     */
+    repoRate?: number;
+    /**
+     * Поле-примечание, используется для обратной связи с внешними
+     * системами. Например, идентификатор пользователя внешней системы,
+     * поставившего заявку.
+     * @example "MB0014100002"
+     */
+    extRef?: string;
+    /**
+     * Срок РЕПО - промежуток времени, выраженный в календарных днях,
+     * между датами исполнения первой и второй частей сделки РЕПО.
+     * @format int32
+     * @example 2
+     */
+    repoTerm?: number;
+    /**
+     * Торговый счет, в счет которого заключена данная сделка
+     * @example "MB0014100002"
+     */
+    account?: string;
+    /**
+     * Описание типа сделки
+     * @example "Расчетная по операции своп"
+     */
+    tradeTypeInfo?: string;
+    /**
+     * Объем сделки, выраженный в валюте расчетов
+     * @format decimal
+     * @example 46
+     */
+    value?: number;
+    /**
+     * Доходность, рассчитанная по цене сделки
+     * @format decimal
+     * @example 23.45
+     */
+    yield?: number;
+  };
+  /**
+   * Объём, рассчитанный по средней цене
+   * @format decimal
+   * @example 38767080
+   */
+  volume?: number;
+}
+
+export interface Tradingsession {
+  /**
+   * Рынок:
+   * * `FORTS` - Срочный рынок Московской биржи
+   * * `FOND` - Фондовый рынок Московской биржи
+   * * `CURR` - Валютный рынок Московской биржи
+   * * `SPBX` - Рынок Санкт-Петербургской биржи
+   */
+  code?: Market;
+  /**
+   * Текущий статус торгов
+   * @example "open"
+   */
+  status?: string;
+}
+
+export interface TradingsessionSlim {
+  /**
+   * Рынок:
+   * * `FORTS` - Срочный рынок Московской биржи
+   * * `FOND` - Фондовый рынок Московской биржи
+   * * `CURR` - Валютный рынок Московской биржи
+   * * `SPBX` - Рынок Санкт-Петербургской биржи
+   */
+  code?: Market;
+  /**
+   * Текущий статус торгов
+   * @example "open"
+   */
+  status?: string;
+}
+
+export interface TradingsessionHeavy {
+  /**
+   * Рынок:
+   * * `FORTS` - Срочный рынок Московской биржи
+   * * `FOND` - Фондовый рынок Московской биржи
+   * * `CURR` - Валютный рынок Московской биржи
+   * * `SPBX` - Рынок Санкт-Петербургской биржи
+   */
+  code?: Market;
+  /**
+   * Текущий статус торгов
+   * @example "open"
+   */
+  status?: string;
+}
+
+export interface CurrencyPair {
+  /**
+   * Базовая валюта
+   * @example "EUR"
+   */
+  firstCode?: string;
+  /**
+   * Котируемая валюта
+   * @example "RUB"
+   */
+  secondCode?: string;
+  /**
+   * Код валютной пары как инструмента
+   * @example "EUR_RUB__TOM"
+   */
+  symbolTom?: string;
+}
+
+export type CurrencyPairs = CurrencyPair[];
+
+export interface Futures {
+  /**
+   * Имя фьючерса
+   * @example "SBRF-12.23"
+   */
+  symbol?: string;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange?: Exchange;
+  /**
+   * Тикер фьючерсного контракта
+   * @example "SRZ3"
+   */
+  description?: string;
+  /**
+   * Цена предыдущего закрытия
+   * @format decimal
+   * @example 26822
+   */
+  prev_close_price?: number;
+  /** Последняя цена */
+  last_price?: PriceLast;
+  /** UTC-timestamp для значения поля `last_price` */
+  last_price_timestamp?: LastPriceTimestamp;
+  /** Максимальная цена */
+  high_price?: PriceMaximum;
+  /** Минимальная цена */
+  low_price?: PriceMinimum;
+  /** Начислено (НКД) */
+  accruedInt?: AccruedInterest;
+  /** Объем, для рыночных заявок - null */
+  volume?: Volume;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  open_interest?: OpenInterest;
+  /** Аск */
+  ask?: Ask;
+  /** Бид */
+  bid?: Bid;
+  /** Количество лотов в ближайшем аске в биржевом стакане */
+  ask_vol?: AskVolume;
+  /** Количество лотов в ближайшем биде в биржевом стакане */
+  bid_vol?: BidVolume;
+  /** Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds */
+  ob_ms_timestamp?: OrderBookMSTimestamp;
+  /** Цена открытия */
+  open_price?: PriceOpen;
+  /**
+   * Доходность, рассчитанная по цене сделки
+   * @format int32
+   * @example null
+   */
+  yield?: number | null;
+  /** Размер лота */
+  lotsize?: LotSize;
+  /** Суммарная стоимость лота */
+  lotvalue?: LotValue;
+  /**
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
+   */
+  facevalue?: FaceValue;
+  /**
+   * Полное название фьючерса
+   * @example "Фьючерсный контракт SBRF-12.23"
+   */
+  type?: string;
+  /** Суммарное количество лотов во всех бидах в биржевом стакане */
+  total_bid_vol?: BidVolumeTotal;
+  /** Суммарное количество лотов во всех асках в биржевом стакане */
+  total_ask_vol?: AskVolumeTotal;
+  /**
+   * Начислено (НКД)
+   * @deprecated
+   * @format decimal
+   * @example 0
+   */
+  accrued_interest?: number;
+  /** Разность цены и цены предыдущего закрытия */
+  change?: Change;
+  /** Относительное изменение цены */
+  change_percent?: ChangePercent;
+}
+
+export interface FuturesSlim {
+  /**
+   * Имя фьючерса
+   * @example "SBRF-12.23"
+   */
+  sym?: string;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  ex?: Exchange;
+  /**
+   * Тикер фьючерсного контракта
+   * @example "SRZ3"
+   */
+  desc?: string;
+  /** UTC-timestamp для значения поля `last_price` */
+  tst?: LastPriceTimestamp;
+  /** Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds */
+  tso?: OrderBookMSTimestamp;
+  /** Цена открытия */
+  o?: PriceOpen;
+  /** Максимальная цена */
+  h?: PriceMaximum;
+  /** Минимальная цена */
+  l?: PriceMinimum;
+  /** Последняя цена */
+  c?: PriceLast;
+  /** Объем, для рыночных заявок - null */
+  v?: Volume;
+  /** Начислено (НКД) */
+  acci?: AccruedInterest;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  oi?: OpenInterest;
+  /**
+   * Доходность, рассчитанная по цене сделки
+   * @format int32
+   * @example null
+   */
+  y?: number | null;
+  /** Аск */
+  ask?: Ask;
+  /** Бид */
+  bid?: Bid;
+  /** Количество лотов в ближайшем аске в биржевом стакане */
+  av?: AskVolume;
+  /** Количество лотов в ближайшем биде в биржевом стакане */
+  bv?: BidVolume;
+  /** Суммарное количество лотов во всех бидах в биржевом стакане */
+  tbv?: BidVolumeTotal;
+  /** Суммарное количество лотов во всех асках в биржевом стакане */
+  tav?: AskVolumeTotal;
+  /** Размер лота */
+  lot?: LotSize;
+  /** Суммарная стоимость лота */
+  lotv?: LotValue;
+  /**
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
+   */
+  fv?: FaceValue;
+  /**
+   * Полное название фьючерса
+   * @example "Фьючерсный контракт SBRF-12.23"
+   */
+  t?: string;
+}
+
+export interface FuturesHeavy {
+  /**
+   * Имя фьючерса
+   * @example "SBRF-12.23"
+   */
+  symbol?: string;
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange?: Exchange;
+  /**
+   * Тикер фьючерсного контракта
+   * @example "SRZ3"
+   */
+  description?: string;
+  /** Валюта расчетов */
+  currency?: Currency;
+  /**
+   * Цена предыдущего закрытия
+   * @format decimal
+   * @example 26822
+   */
+  prevClosePrice?: number;
+  /** Последняя цена */
+  lastPrice?: PriceLast;
+  /** UTC-timestamp для значения поля `last_price` */
+  lastPriceTimestamp?: LastPriceTimestamp;
+  /** Максимальная цена */
+  highPrice?: PriceMaximum;
+  /** Минимальная цена */
+  lowPrice?: PriceMinimum;
+  /** Начислено (НКД) */
+  accruedInterest?: AccruedInterest;
+  /** Объем, для рыночных заявок - null */
+  volume?: Volume;
+  /** Открытый интерес (open interest). Если не поддерживается инструментом — значение 0 или `null` */
+  openInterest?: OpenInterest;
+  /** Аск */
+  ask?: Ask;
+  /** Бид */
+  bid?: Bid;
+  /** Количество лотов в ближайшем аске в биржевом стакане */
+  askVol?: AskVolume;
+  /** Количество лотов в ближайшем биде в биржевом стакане */
+  bidVol?: BidVolume;
+  /** Временная метка (UTC) сообщения о состоянии биржевого стакана в формате Unix Time Milliseconds */
+  obMsTimestamp?: OrderBookMSTimestamp;
+  /** Цена открытия */
+  openPrice?: PriceOpen;
+  /**
+   * Доходность, рассчитанная по цене сделки
+   * @format int32
+   * @example null
+   */
+  yield?: number | null;
+  /** Размер лота */
+  lotSize?: LotSize;
+  /** Суммарная стоимость лота */
+  lotValue?: LotValue;
+  /**
+   * Показатель, значение которого варьируется в зависимости от выбранного рынка:
+   * * Для фондового рынка — номинальная стоимость единицы финансового инструмента
+   * * Для срочного рынка — размер одного лота
+   * * Для валютного рынка — количество валюты лота, за которое указывается цена в котировках
+   */
+  faceValue?: FaceValue;
+  /**
+   * Полное название фьючерса
+   * @example "Фьючерсный контракт SBRF-12.23"
+   */
+  type?: string;
+  /** Суммарное количество лотов во всех бидах в биржевом стакане */
+  totalBidVol?: BidVolumeTotal;
+  /** Суммарное количество лотов во всех асках в биржевом стакане */
+  totalAskVol?: AskVolumeTotal;
+  /** Разность цены и цены предыдущего закрытия */
+  change?: Change;
+  /** Относительное изменение цены */
+  changePercent?: ChangePercent;
+}
+
+export type AvailableBoards = Board[];
+
+export interface WsResAllTradesGetAndSubscribe {
+  data?: Alltrade;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
+}
+
+export interface WsResSlimAllTradesGetAndSubscribe {
+  data?: AlltradeSlim;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
+}
+
+export interface WsResHeavyAllTradesGetAndSubscribe {
+  data?: AlltradeHeavy;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResOrderBookGetAndSubscribe {
   /** Данные о запрашиваемом "биржевом стакане" */
   data?: Orderbook;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimOrderBookGetAndSubscribe {
   /** Данные о запрашиваемом "биржевом стакане" */
   data?: OrderbookSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyOrderBookGetAndSubscribe {
   /** Данные о запрашиваемом "биржевом стакане" */
   data?: OrderbookHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResBarsGetAndSubscribe {
   data?: HistoryObject;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimBarsGetAndSubscribe {
   data?: HistoryObjectSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyBarsGetAndSubscribe {
   data?: HistoryObjectSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResQuotesSubscribe {
   data?: Symbol;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimQuotesSubscribe {
   data?: SymbolSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyQuotesSubscribe {
   data?: SymbolHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResPositionsGetAndSubscribe {
   data?: Position;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimPositionsGetAndSubscribe {
   data?: PositionSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyPositionsGetAndSubscribe {
   data?: PositionHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResTradesGetAndSubscribe {
   data?: Trade;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimTradesGetAndSubscribe {
   data?: TradeSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyTradesGetAndSubscribe {
   data?: TradeHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSummariesGetAndSubscribeV2 {
   data?: Summary;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimSummariesGetAndSubscribeV2 {
   data?: SummarySlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavySummariesGetAndSubscribeV2 {
   data?: SummaryHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResRisksGetAndSubscribe {
   data?: Risk;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimRisksGetAndSubscribe {
   data?: RiskSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyRisksGetAndSubscribe {
   data?: RiskHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSpectraRisksGetAndSubscribe {
   data?: Fortsrisk;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimSpectraRisksGetAndSubscribe {
   data?: FortsriskSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavySpectraRisksGetAndSubscribe {
   data?: FortsriskHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResStopOrdersGetAndSubscribe {
   data?: Stoporder;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimStopOrdersGetAndSubscribe {
   data?: StoporderSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyStopOrdersGetAndSubscribe {
   data?: StoporderHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResStopOrdersGetAndSubscribeWarp {
   data?: StoporderWarp;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimStopOrdersGetAndSubscribeWarp {
   data?: StoporderWarpSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyStopOrdersGetAndSubscribeWarp {
   data?: StoporderWarpHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResOrdersGetAndSubscribe {
   data?: Order;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResSlimOrdersGetAndSubscribe {
   data?: OrderSlim;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHeavyOrdersGetAndSubscribe {
   data?: OrderHeavy;
-  /**
-   * Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
+}
+
+export interface WsResInstrumentsGetAndSubscribeV2 {
+  data?: {
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
+    /**
+     * Биржа:
+     *   * `MOEX` - Московская биржа
+     *   * `SPBX` - СПБ Биржа
+     */
+    exchange?: Exchange;
+    /**
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
+     */
+    board?: Board;
+    /**
+     * Торговый статус инструмента:
+     *   * `18` - Нет торгов / торги закрыты
+     *   * `118` - Период открытия
+     *   * `103` - Период закрытия
+     *   * `2` - Перерыв в торгах
+     *   * `17` - Нормальный период торгов
+     *   * `102` - Аукцион закрытия
+     *   * `106` - Аукцион крупных пакетов
+     *   * `107` - Дискретный аукцион
+     *   * `119` - Аукцион открытия
+     *   * `120` - Период торгов по цене аукциона закрытия
+     */
+    tradingStatus?: TradingStatus;
+    /**
+     * Описание торгового статуса инструмента
+     * @example "нормальный период торгов"
+     */
+    tradingStatusInfo?: string;
+    /** Минимальная цена */
+    priceMin?: PriceMinimum;
+    /** Максимальная цена */
+    priceMax?: PriceMaximum;
+  };
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
+}
+
+export interface WsResSlimInstrumentsGetAndSubscribeV2 {
+  data?: {
+    /** Тикер (Код финансового инструмента) */
+    sym?: Ticker;
+    /**
+     * Биржа:
+     *   * `MOEX` - Московская биржа
+     *   * `SPBX` - СПБ Биржа
+     */
+    ex?: Exchange;
+    /**
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
+     */
+    bd?: Board;
+    /**
+     * Торговый статус инструмента:
+     *   * `18` - Нет торгов / торги закрыты
+     *   * `118` - Период открытия
+     *   * `103` - Период закрытия
+     *   * `2` - Перерыв в торгах
+     *   * `17` - Нормальный период торгов
+     *   * `102` - Аукцион закрытия
+     *   * `106` - Аукцион крупных пакетов
+     *   * `107` - Дискретный аукцион
+     *   * `119` - Аукцион открытия
+     *   * `120` - Период торгов по цене аукциона закрытия
+     */
+    st?: TradingStatus;
+    /**
+     * Описание торгового статуса инструмента
+     * @example "нормальный период торгов"
+     */
+    sti?: string;
+    /** Минимальная цена */
+    pxmn?: PriceMinimum;
+    /** Максимальная цена */
+    pxmx?: PriceMaximum;
+  };
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
+}
+
+export interface WsResHeavyInstrumentsGetAndSubscribeV2 {
+  data?: {
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
+    /**
+     * Биржа:
+     *   * `MOEX` - Московская биржа
+     *   * `SPBX` - СПБ Биржа
+     */
+    exchange?: Exchange;
+    /**
+     * Код режима торгов (Борд):
+     * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+     * * Для Биржи СПБ всегда SPBX
+     */
+    board?: Board;
+    /**
+     * Торговый статус инструмента:
+     *   * `18` - Нет торгов / торги закрыты
+     *   * `118` - Период открытия
+     *   * `103` - Период закрытия
+     *   * `2` - Перерыв в торгах
+     *   * `17` - Нормальный период торгов
+     *   * `102` - Аукцион закрытия
+     *   * `106` - Аукцион крупных пакетов
+     *   * `107` - Дискретный аукцион
+     *   * `119` - Аукцион открытия
+     *   * `120` - Период торгов по цене аукциона закрытия
+     */
+    tradingStatus?: TradingStatus;
+    /**
+     * Описание торгового статуса инструмента
+     * @example "нормальный период торгов"
+     */
+    tradingStatusInfo?: string;
+    /** Минимальная цена */
+    priceMin?: PriceMinimum;
+    /** Максимальная цена */
+    priceMax?: PriceMaximum;
+  };
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
 }
 
 export interface WsResHandledSuccessfully {
   /**
-   * Информация по созданной/отменённой подписке
+   * Текстовое представление возвращаемого сообщения
    * @example "Handled successfully"
    */
   message?: string;
+  /** HTTP-код ответа */
+  httpCode?: HTTP200;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  requestGuid?: GuidWs;
+}
+
+export interface WsResInvalidJWT {
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  requestGuid?: GuidWs;
   /**
    * HTTP-код ответа
    * @format int32
-   * @example 200
+   * @example 401
    */
   httpCode?: number;
   /**
-   * Уникальный идентификатор подписки. Значение во входящем сообщении равно значению поля \"guid\", переданному при установке соединения.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
+   * Текстовое представление возвращаемого сообщения
+   * @example "Invalid JWT token!"
    */
-  requestGuid?: string;
+  message?: string;
 }
 
 export interface WsReqBaseObject {
@@ -5610,31 +6254,23 @@ export interface WsReqBaseObject {
    * @default 175
    */
   frequency?: number;
-  /**
-   * Уникальный идентификатор сообщений создаваемой подписки. Все входящие сообщения, соответствующие этой подписке, будут иметь такое значение поля guid.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * JWT токен для авторизации
-   * @example "eyJhbGciOiJ..."
-   */
-  token?: string;
+  /** Клиентский идентификатор подписки. В качестве идентификатора требуется уникальная случайная строка. Значение в возвращаемых в рамках подписки сообщениях равно значению поля `guid`, переданному при отправке команды. */
+  guid?: GuidWs;
+  /** JWT токен для авторизации */
+  token?: Token;
 }
 
 export type WsReqOrderBookGetAndSubscribe = {
   /**
-   * Код операции
+   * Код операции.
    * @example "OrderBookGetAndSubscribe"
    */
   opcode?: "OrderBookGetAndSubscribe";
+  /** Тикер (Код финансового инструмента) */
+  code?: Ticker;
   /**
-   * Тикер
-   * @example "SBER"
-   */
-  code?: string;
-  /**
-   * Глубина стакана. Стандартное и максимальное значение - 20 (20х20).
+   * Глубина стакана. Стандартное и максимальное значение - 20
+   * (20х20).
    * @format int32
    * @max 20
    * @default 20
@@ -5649,16 +6285,20 @@ export type WsReqBarsGetAndSubscribe = {
    * @example "BarsGetAndSubscribe"
    */
   opcode?: "BarsGetAndSubscribe";
+  /** Тикер (Код финансового инструмента) */
+  code?: Ticker;
   /**
-   * Тикер
-   * @example "SBER"
+   * Длительность таймфрейма. В качестве значения можно указать точное количество секунд или код таймфрейма:
+   * * `15` — 15 секунд
+   * * `60` — 60 секунд или 1 минута
+   * * `3600` — 3600 секунд или 1 час
+   * * `D` — сутки (соответствует значению 86400)
+   * * `W` — неделя (соответствует значению 604800)
+   * * `M` — месяц (соответствует значению 2592000)
+   * * `Y` — год (соответствует значению 31536000)
+   * @example "60"
    */
-  code?: string;
-  /**
-   * Длительность таймфрейма в секундах или код ("D" - дни, "W" - недели, "M" - месяцы, "Y" - годы)
-   * @example 60
-   */
-  tf?: "15" | "60" | "300" | "3600" | "D" | "W" | "M" | "Y";
+  tf?: string;
   /**
    * Дата и время (UTC) для первой запрашиваемой свечи
    * @format int64
@@ -5666,10 +6306,17 @@ export type WsReqBarsGetAndSubscribe = {
    */
   from?: number;
   /**
-   * Данные c задержкой в 15 минут. Для авторизованых клиентов задержка не применяется.
+   * Данные c задержкой в 15 минут. Для авторизованых клиентов
+   * задержка не применяется.
    * @example false
    */
   delayed?: boolean;
+  /**
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
+   */
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqQuotesSubscribe = {
@@ -5678,31 +6325,34 @@ export type WsReqQuotesSubscribe = {
    * @example "QuotesSubscribe"
    */
   opcode?: "QuotesSubscribe";
-  /**
-   * Тикер
-   * @example "SBER"
-   */
-  code?: string;
+  /** Тикер (Код финансового инструмента) */
+  code?: Ticker;
 } & WsReqBaseObject;
 
 export type WsReqPositionsGetAndSubscribe = {
   /** Код операции */
   opcode?: "PositionsGetAndSubscribeV2";
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
    */
-  portfolio?: string;
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqTradesGetAndSubscribe = {
   /** Код операции */
   opcode?: "TradesGetAndSubscribeV2";
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D61971"
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
    */
-  portfolio?: string;
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqAllTradesGetAndSubscribe = {
@@ -5714,7 +6364,8 @@ export type WsReqAllTradesGetAndSubscribe = {
    */
   token?: string;
   /**
-   * Если указать, то перед актуальными данными придут данные о последних N сделках.
+   * Если указать, то перед актуальными данными придут данные о
+   * последних N сделках.
    * @format int32
    * @max 5000
    * @example 50
@@ -5725,16 +6376,27 @@ export type WsReqAllTradesGetAndSubscribe = {
    * @example false
    */
   includeVirtualTrades?: boolean;
+  /** Тикер (Код финансового инструмента) */
+  code?: Ticker;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  instrumentGroup?: Board;
 } & WsReqBaseObject;
 
 export type WsReqSummariesGetAndSubscribeV2 = {
   /** Код операции */
   opcode?: "SummariesGetAndSubscribeV2";
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D61971"
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
    */
-  portfolio?: string;
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqRisksGetAndSubscribe = {
@@ -5743,73 +6405,84 @@ export type WsReqRisksGetAndSubscribe = {
    * @example "RisksGetAndSubscribe"
    */
   opcode?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D61971"
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
    */
-  portfolio?: string;
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqSpectraRisksGetAndSubscribe = {
   /** Код операции */
   opcode?: "SpectraRisksGetAndSubscribe";
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /**
-   * Идентификатор клиентского портфеля
-   * @example "7500PUQ"
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
    */
-  portfolio?: string;
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqStopOrdersGetAndSubscribe = {
   /** Код операции */
   opcode?: "StopOrdersGetAndSubscribe";
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  portfolio?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
 } & WsReqBaseObject;
 
 export type WsReqStopOrdersGetAndSubscribeV2 = {
   /** Код операции */
   opcode?: "StopOrdersGetAndSubscribeV2";
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
+  /** Опциональный фильтр по статусам заявок. Влияет только на фильтрацию первичных исторических данных при подписке */
+  orderStatuses?: OrderStatus[];
   /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
    */
-  portfolio?: string;
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqOrdersGetAndSubscribe = {
   /** Код операции */
   opcode?: "OrdersGetAndSubscribeV2";
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D61971"
-   */
-  portfolio?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
   /** Опциональный фильтр по статусам заявок. Влияет только на фильтрацию первичных исторических данных при подписке */
   orderStatuses?: OrderStatus[];
+  /**
+   * Флаг отсеивания исторических данных:
+   * * `true` — отображать только новые данные
+   * * `false` — отображать в том числе данные из истории
+   */
+  skipHistory?: SkipHistory;
 } & WsReqBaseObject;
 
 export type WsReqInstrumentsGetAndSubscribeV2 = {
   /** Код операции */
   opcode?: "InstrumentsGetAndSubscribeV2";
+  /** Тикер (Код финансового инструмента) */
+  code?: Ticker;
   /**
-   * Тикер
-   * @example "SBER"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  code?: string;
+  instrumentGroup?: Board;
 } & WsReqBaseObject;
 
 export interface WsReqUnsubscribe {
   /** Код операции */
   opcode?: "unsubscribe";
-  /**
-   * JWT токен для авторизации
-   * @example "eyJhbGciOiJ..."
-   */
-  token?: string;
+  /** JWT токен для авторизации */
+  token?: Token;
   /**
    * Уникальный идентификатор подписки, от которой отписываемся.
    * @example "f35a2373-612c-4518-54af-72025384f59b"
@@ -5819,10 +6492,10 @@ export interface WsReqUnsubscribe {
 
 /** Модель результата оценки стоимости и количества в лотах */
 export interface EstimateOrderModel {
-  /** Портфель клиента */
-  portfolio?: string | null;
-  /** Инструмент */
-  ticker?: string | null;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
+  /** Тикер (Код финансового инструмента) */
+  ticker?: Ticker;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -5863,24 +6536,26 @@ export interface EstimateOrderModel {
 
 /** Модель заявки для оценки стоимости и количества в лотах */
 export interface EstimateOrderViewModel {
-  /** Портфель клиента */
-  portfolio?: string;
-  /** Инструмент */
-  ticker?: string;
-  /** Биржа */
-  exchange?: string;
+  /** Идентификатор клиентского портфеля */
+  portfolio?: Portfolio;
+  /** Тикер (Код финансового инструмента) */
+  ticker?: Ticker;
   /**
-   * Цена
-   * @format decimal
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
    */
-  price?: number;
+  exchange?: Exchange;
+  /** Цена */
+  price?: PriceCommon;
+  /** Количество (лоты) */
+  lotQuantity?: LotQuantity;
   /**
-   * Количество лотов
-   * @format int64
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  lotQuantity?: number;
-  /** Режим торгов (борд) */
-  board?: string | null;
+  board?: Board;
   /**
    * Учитывать ли лимитные заявки при расчете
    * @default false
@@ -5890,16 +6565,13 @@ export interface EstimateOrderViewModel {
 
 export interface CommandwsResAuthorize {
   /**
-   * Уникальный идентификатор подписки. Значение во входящем сообщении равно значению поля \"guid\", переданному при отправке команды.
+   * Уникальный идентификатор подписки. Значение во входящем сообщении
+   * равно значению поля \"guid\", переданному при отправке команды.
    * @example "f35a2373-612c-4518-54af-72025384f59b"
    */
   requestGuid?: string;
-  /**
-   * HTTP-код ответа
-   * @format int32
-   * @example 200
-   */
-  httpCode?: number;
+  /** HTTP-код ответа */
+  httpCode?: HTTP200;
   /**
    * Информация об инициализации токена.
    * @example "The connection has been initialized."
@@ -5907,31 +6579,51 @@ export interface CommandwsResAuthorize {
   message?: string;
 }
 
-export interface CommandwsResHandledSuccessfully {
-  /**
-   * Уникальный идентификатор подписки. Значение во входящем сообщении равно значению поля \"guid\", переданному при отправке команды.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  requestGuid?: string;
-  /**
-   * HTTP-код ответа
-   * @format int32
-   * @example 200
-   */
-  httpCode?: number;
+export interface CommandwsResSuccessfullyCreated {
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  requestGuid?: GuidCws;
+  /** HTTP-код ответа */
+  httpCode?: HTTP200;
   /**
    * Информация о результате выполнения команды
    * @example "An order '12345' has been created."
    */
   message?: string;
+  /** Уникальный идентификатор заявки */
+  orderNumber?: OrderId;
+}
+
+export interface CommandwsResSuccessfullyUpdated {
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  requestGuid?: GuidCws;
+  /** HTTP-код ответа */
+  httpCode?: HTTP200;
+  /**
+   * Информация о результате выполнения команды
+   * @example "An order has been updated. New order Id is '12345'."
+   */
+  message?: string;
+  /** Уникальный идентификатор заявки */
+  orderNumber?: OrderId;
+}
+
+export interface CommandwsResSuccessfullyDeleted {
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  requestGuid?: GuidCws;
+  /** HTTP-код ответа */
+  httpCode?: HTTP200;
+  /**
+   * Информация о результате выполнения команды
+   * @example "An order '12345' has been deleted."
+   */
+  message?: string;
+  /** Уникальный идентификатор заявки */
+  orderNumber?: OrderId;
 }
 
 export interface CommandwsResBadrequest {
-  /**
-   * Уникальный идентификатор подписки. Значение во входящем сообщении равно значению поля \"guid\", переданному при отправке команды.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  requestGuid?: string;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  requestGuid?: GuidCws;
   /**
    * @format int32
    * @example 400
@@ -5947,44 +6639,28 @@ export interface CommandwsResBadrequest {
 export interface CommandwsReqAuthorize {
   /** Код операции */
   opcode?: "authorize";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string | null;
-  /**
-   * JWT токен для авторизации
-   * @example "eyJhbGciOiJ..."
-   */
-  token?: string;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** JWT токен для авторизации */
+  token?: Token;
 }
 
 export interface CommandwsReqCreateMarketOrder {
   /** Код операции */
   opcode?: "create:market";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -5992,59 +6668,48 @@ export interface CommandwsReqCreateMarketOrder {
      */
     exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  comment?: string;
-  /** Режим торгов (борд) */
-  board?: string | null;
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  checkDuplicates?: boolean;
+  timeInForce?: TimeInForce;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqCreateLimitOrder {
   /** Код операции */
   opcode?: "create:limit";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6052,68 +6717,47 @@ export interface CommandwsReqCreateLimitOrder {
      */
     exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  comment?: string;
-  /** Режим торгов (борд) */
-  board?: string | null;
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format decimal
-   * @example 100
-   */
-  icebergFixed?: number | null;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number | null;
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqCreateStopOrder {
   /** Код операции */
   opcode?: "create:stop";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   /**
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
@@ -6122,24 +6766,13 @@ export interface CommandwsReqCreateStopOrder {
    *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
-  /**
-   * Цена срабатывания
-   * @format decimal
-   * @example 191.33
-   */
-  triggerPrice?: number;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6147,54 +6780,37 @@ export interface CommandwsReqCreateStopOrder {
      */
     exchange?: Exchange;
   };
-  /** Режим торгов (борд) */
-  board?: string | null;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
-  /**
-   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
-   * @default true
-   * @example true
-   */
-  activate?: boolean;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
+  /** Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders' */
+  activate?: ActivateFlag;
 }
 
 export interface CommandwsReqCreateStopLimitOrder {
   /** Код операции */
   opcode?: "create:stopLimit";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
   /**
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
@@ -6203,24 +6819,13 @@ export interface CommandwsReqCreateStopLimitOrder {
    *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
-  /**
-   * Цена срабатывания
-   * @format decimal
-   * @example 191.33
-   */
-  triggerPrice?: number;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6228,81 +6833,52 @@ export interface CommandwsReqCreateStopLimitOrder {
      */
     exchange?: Exchange;
   };
-  /** Режим торгов (борд) */
-  board?: string | null;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format decimal
-   * @example 100
-   */
-  icebergFixed?: number | null;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number | null;
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
-  /**
-   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
-   * @default true
-   * @example true
-   */
-  activate?: boolean;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
+  /** Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders' */
+  activate?: ActivateFlag;
 }
 
 export interface CommandwsReqUpdateMarketOrder {
   /** Код операции */
   opcode?: "update:market";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6310,65 +6886,50 @@ export interface CommandwsReqUpdateMarketOrder {
      */
     exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  comment?: string;
-  /** Режим торгов (борд) */
-  board?: string | null;
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
+   * Тип заявки:
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
-  checkDuplicates?: boolean;
+  timeInForce?: TimeInForce;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqUpdateLimitOrder {
   /** Код операции */
   opcode?: "update:limit";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6376,74 +6937,49 @@ export interface CommandwsReqUpdateLimitOrder {
      */
     exchange?: Exchange;
   };
+  /** Пользовательский комментарий к заявке */
+  comment?: Comment;
   /**
-   * Пользовательский комментарий к заявке
-   * @example "первая заявка"
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
    */
-  comment?: string;
-  /** Режим торгов (борд) */
-  board?: string | null;
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format decimal
-   * @example 100
-   */
-  icebergFixed?: number | null;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number | null;
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqUpdateStopOrder {
   /** Код операции */
   opcode?: "update:stop";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
   /**
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
@@ -6452,24 +6988,13 @@ export interface CommandwsReqUpdateStopOrder {
    *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
-  /**
-   * Цена срабатывания
-   * @format decimal
-   * @example 191.33
-   */
-  triggerPrice?: number;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6477,60 +7002,39 @@ export interface CommandwsReqUpdateStopOrder {
      */
     exchange?: Exchange;
   };
-  /** Режим торгов (борд) */
-  board?: string | null;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
-  /**
-   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
-   * @default true
-   * @example true
-   */
-  activate?: boolean;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
+  /** Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders' */
+  activate?: ActivateFlag;
 }
 
 export interface CommandwsReqUpdateStopLimitOrder {
   /** Код операции */
   opcode?: "update:stopLimit";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Направление сделки:
-   *   * `buy` - Купля
-   *   * `sell` - Продажа
+   *   * `buy` — Купля
+   *   * `sell` — Продажа
    */
   side?: Side;
-  /**
-   * Количество (лоты)
-   * @format int32
-   * @example 2
-   */
-  quantity?: number;
-  /**
-   * Цена
-   * @format decimal
-   * @example 190.97
-   */
-  price?: number;
+  /** Количество (лоты) */
+  quantity?: LotQuantity;
+  /** Цена */
+  price?: PriceCommon;
   /**
    * Условие срабатывания стоп/стоп-лимитной заявки:
    *   * `More` - Цена срабатывания больше текущей цены
@@ -6539,24 +7043,13 @@ export interface CommandwsReqUpdateStopLimitOrder {
    *   * `LessOrEqual` - Цена срабатывания меньше или равна текущей цене
    */
   condition?: Condition;
-  /**
-   * Цена срабатывания
-   * @format decimal
-   * @example 191.33
-   */
-  triggerPrice?: number;
-  /**
-   * Срок действия (UTC) в формате Unix Time seconds
-   * @format int64
-   * @example 1590094740
-   */
-  stopEndUnixTime?: number;
+  /** Стоп-цена */
+  triggerPrice?: PriceTrigger;
+  /** Срок действия (UTC) в формате Unix Time seconds */
+  stopEndUnixTime?: EndTimeUnix;
   instrument?: {
-    /**
-     * Тикер (Код финансового инструмента)
-     * @example "SBER"
-     */
-    symbol?: string;
+    /** Тикер (Код финансового инструмента) */
+    symbol?: Ticker;
     /**
      * Биржа:
      *   * `MOEX` - Московская биржа
@@ -6564,63 +7057,41 @@ export interface CommandwsReqUpdateStopLimitOrder {
      */
     exchange?: Exchange;
   };
-  /** Режим торгов (борд) */
-  board?: string | null;
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   */
+  board?: Board;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
   /**
    * Тип заявки:
-   *   * `OneDay` - До конца дня
-   *   * `ImmediateOrCancel` - Снять остаток
-   *   * `FillOrKill` - Исполнить целиком или отклонить
-   *   * `GoodTillCancelled` - Активна до отмены
+   *   * `oneday` - До конца дня
+   *   * `immediateorcancel` - Снять остаток
+   *   * `fillorkill` - Исполнить целиком или отклонить
+   *   * `goodtillcancelled` - Активна до отмены
    */
   timeInForce?: TimeInForce;
-  /**
-   * Видимая постоянная часть айсберг-заявки в лотах
-   * @format decimal
-   * @example 100
-   */
-  icebergFixed?: number | null;
-  /**
-   * Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
-   * @format decimal
-   * @max 20
-   * @example 2
-   */
-  icebergVariance?: number | null;
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
-  /**
-   * Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
-   * @default true
-   * @example true
-   */
-  activate?: boolean;
+  /** Видимая постоянная часть айсберг-заявки в лотах */
+  icebergFixed?: IcebergFixed;
+  /** Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок */
+  icebergVariance?: IcebergVariance;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
+  /** Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders' */
+  activate?: ActivateFlag;
 }
 
 export interface CommandwsReqDeleteMarketOrder {
   /** Код операции */
   opcode?: "delete:market";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -6628,33 +7099,20 @@ export interface CommandwsReqDeleteMarketOrder {
    */
   exchange?: Exchange;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqDeleteLimitOrder {
   /** Код операции */
   opcode?: "delete:limit";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -6662,33 +7120,20 @@ export interface CommandwsReqDeleteLimitOrder {
    */
   exchange?: Exchange;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqDeleteStopOrder {
   /** Код операции */
   opcode?: "delete:stop";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -6696,33 +7141,20 @@ export interface CommandwsReqDeleteStopOrder {
    */
   exchange?: Exchange;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
 }
 
 export interface CommandwsReqDeleteStopLimitOrder {
   /** Код операции */
   opcode?: "delete:stopLimit";
-  /**
-   * Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
-   * @example "f35a2373-612c-4518-54af-72025384f59b"
-   */
-  guid?: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 18936040296
-   */
-  orderId?: number;
+  /** Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно. */
+  guid?: GuidCws;
+  /** Уникальный идентификатор заявки */
+  orderId?: OrderId;
   /**
    * Биржа:
    *   * `MOEX` - Московская биржа
@@ -6730,17 +7162,16 @@ export interface CommandwsReqDeleteStopLimitOrder {
    */
   exchange?: Exchange;
   user?: {
-    /**
-     * Идентификатор клиентского портфеля
-     * @example "D39004"
-     */
-    portfolio?: string;
+    /** Идентификатор клиентского портфеля */
+    portfolio?: Portfolio;
   };
-  /**
-   * Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
-   * @example true
-   */
-  checkDuplicates?: boolean;
+  /** Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки. */
+  checkDuplicates?: CheckDuplicates;
+}
+
+export interface RefreshCreateParams {
+  /** Refresh token, получаемый в кабинете разработчика */
+  token: string;
 }
 
 export interface DevGetAllOrdersParams {
@@ -6763,6 +7194,50 @@ export interface DevGetAllOrdersParams {
 }
 
 export interface DevGetOneOrderParams {
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange: "MOEX" | "SPBX";
+  /**
+   * Идентификатор клиентского портфеля
+   * @example "D39004"
+   */
+  portfolio: string;
+  /**
+   * Идентификатор заявки
+   * @format int64
+   * @example 93713183
+   */
+  orderId: number;
+}
+
+export interface DevGetAllStopOrdersParams {
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange: "MOEX" | "SPBX";
+  /**
+   * Идентификатор клиентского портфеля
+   * @example "D39004"
+   */
+  portfolio: string;
+}
+
+export interface DevGetOneStopOrderParams {
   /**
    * Формат возвращаемого сервером JSON
    * @example "Simple"
@@ -6875,6 +7350,11 @@ export interface DevGetOnePositionParams {
 
 export interface DevGetAllTradesParams {
   /**
+   * Флаг отображения заявок с РЕПО
+   * @example false
+   */
+  withRepo?: boolean;
+  /**
    * Формат возвращаемого сервером JSON
    * @example "Simple"
    */
@@ -6913,7 +7393,7 @@ export interface DevGetTickerTradesParams {
    * Тикер (Код финансового инструмента)
    * @example "LKOH"
    */
-  ticker: string;
+  symbol: string;
 }
 
 export interface FortsriskParams {
@@ -6953,6 +7433,24 @@ export interface RiskParams {
   portfolio: string;
 }
 
+export interface DevGetAllPositionsByLoginV2Params {
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Исключить из ответа все денежные инструменты
+   * @example false
+   */
+  withoutCurrency?: boolean;
+  /**
+   * Логин торгового аккаунта
+   * @example "P039004"
+   */
+  login: string;
+}
+
 export interface TradeStatsParams {
   /**
    * Начиная с какой даты отдавать историю сделок
@@ -6960,6 +7458,18 @@ export interface TradeStatsParams {
    * @example "2021-10-13"
    */
   dateFrom?: string;
+  /**
+   * Тикер\код инструмента, ISIN для облигаций
+   * @example "SBER"
+   */
+  ticker?: string;
+  /**
+   * Направление сделки:
+   *   * `buy` - Купля
+   *   * `sell` - Продажа
+   * @example "buy"
+   */
+  side?: "buy" | "sell";
   /**
    * Начальный номер сделки для фильтра результатов
    * @format int64
@@ -7044,16 +7554,127 @@ export interface TradeStatsBySymbolParams {
   symbol: string;
 }
 
+export interface TradeStatsV2Params {
+  /**
+   * Начиная с какой даты отдавать историю сделок
+   * @format date
+   * @example "2021-10-13"
+   */
+  dateFrom?: string;
+  /**
+   * Тикер\код инструмента, ISIN для облигаций
+   * @example "SBER"
+   */
+  ticker?: string;
+  /**
+   * Начальный номер сделки для фильтра результатов
+   * @format int64
+   * @example 93713183
+   */
+  from?: number;
+  /**
+   * Количество возвращаемых записей
+   * @format int32
+   * @max 1000
+   * @example 50
+   */
+  limit?: number;
+  /**
+   * Флаг обратной сортировки выдачи
+   * @example false
+   */
+  descending?: boolean;
+  /**
+   * Направление сделки:
+   *   * `buy` - Купля
+   *   * `sell` - Продажа
+   * @example "buy"
+   */
+  side?: "buy" | "sell";
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange: "MOEX" | "SPBX";
+  /**
+   * Идентификатор клиентского портфеля
+   * @example "D39004"
+   */
+  portfolio: string;
+}
+
+export interface TradeStatsBySymbolV2Params {
+  /**
+   * Начиная с какой даты отдавать историю сделок
+   * @format date
+   * @example "2021-10-13"
+   */
+  dateFrom?: string;
+  /**
+   * Начальный номер сделки для фильтра результатов
+   * @format int64
+   * @example 93713183
+   */
+  from?: number;
+  /**
+   * Количество возвращаемых записей
+   * @format int32
+   * @max 1000
+   * @example 50
+   */
+  limit?: number;
+  /**
+   * Флаг обратной сортировки выдачи
+   * @example false
+   */
+  descending?: boolean;
+  /**
+   * Направление сделки:
+   *   * `buy` - Купля
+   *   * `sell` - Продажа
+   * @example "buy"
+   */
+  side?: "buy" | "sell";
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange: "MOEX" | "SPBX";
+  /**
+   * Идентификатор клиентского портфеля
+   * @example "D39004"
+   */
+  portfolio: string;
+  /**
+   * Тикер (Код финансового инструмента)
+   * @example "LKOH"
+   */
+  symbol: string;
+}
+
 export interface DevSecuritiesSearchParams {
   /**
    * Тикер (Код финансового инструмента)
-   * @example "GAZP"
+   * @example "SBER"
    */
-  query: string;
+  query?: string;
   /**
    * Ограничение на количество выдаваемых результатов поиска
    * @format int32
-   * @example 3
+   * @default 25
+   * @example 100
    */
   limit?: number;
   /**
@@ -7082,6 +7703,18 @@ export interface DevSecuritiesSearchParams {
    */
   exchange?: "MOEX" | "SPBX";
   /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   * @example "TQBR"
+   */
+  instrumentGroup?: string;
+  /**
+   * Флаг выгрузки инструментов для всех режимов торгов, включая отличающиеся от установленного для инструмента значения параметра `primary_board`
+   * @example false
+   */
+  includeNonBaseBoards?: boolean;
+  /**
    * Формат возвращаемого сервером JSON
    * @example "Simple"
    */
@@ -7109,6 +7742,23 @@ export interface DevSecuritiesSearchExchangeParams {
    */
   includeOld?: boolean;
   /**
+   * Ограничение на количество выдаваемых результатов поиска
+   * @format int32
+   * @example 3
+   */
+  limit?: number;
+  /**
+   * Флаг выгрузки инструментов для всех режимов торгов, включая отличающиеся от установленного для инструмента значения параметра `primary_board`
+   * @example false
+   */
+  includeNonBaseBoards?: boolean;
+  /**
+   * Смещение начала выборки (для пагинации)
+   * @format int32
+   * @example 10
+   */
+  offset?: number;
+  /**
    * Биржа:
    *   * `MOEX` - Московская биржа
    *   * `SPBX` - СПБ Биржа
@@ -7117,6 +7767,13 @@ export interface DevSecuritiesSearchExchangeParams {
 }
 
 export interface DevSecuritiesSearchExchangeCodeParams {
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   * @example "TQBR"
+   */
+  instrumentGroup?: string;
   /**
    * Формат возвращаемого сервером JSON
    * @example "Simple"
@@ -7135,48 +7792,14 @@ export interface DevSecuritiesSearchExchangeCodeParams {
   symbol: string;
 }
 
-export interface DevQuotesParams {
-  /**
-   * Формат возвращаемого сервером JSON
-   * @example "Simple"
-   */
-  format?: "Simple" | "Slim" | "Heavy";
-  /**
-   * Принимает несколько пар биржа-тикер. Пары отделены запятыми. Биржа и тикер разделены двоеточием
-   * @example "MOEX:SBER,MOEX:GAZP,SPBX:AAPL"
-   */
-  symbols: string;
-}
-
-export interface DevOrderbookExchangSeccodeParams {
-  /**
-   * Глубина стакана. Стандартное и максимальное значение - 20 (20х20).
-   * @format int32
-   * @min 1
-   * @max 20
-   * @default 20
-   * @example 5
-   */
-  depth?: number;
-  /**
-   * Формат возвращаемого сервером JSON
-   * @example "Simple"
-   */
-  format?: "Simple" | "Slim" | "Heavy";
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   *   * `SPBX` - СПБ Биржа
-   */
-  exchange: "MOEX" | "SPBX";
-  /**
-   * Инструмент
-   * @example "RTS-9.20"
-   */
-  seccode: string;
-}
-
 export interface DevSecuritiesSearchAllTradesParams {
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   * @example "TQBR"
+   */
+  instrumentGroup?: string;
   /**
    * Формат возвращаемого сервером JSON
    * @example "Simple"
@@ -7207,6 +7830,43 @@ export interface DevSecuritiesSearchAllTradesParams {
    */
   toId?: number;
   /**
+   * Нижняя граница объёма сделки в лотах
+   * @format int32
+   * @example 10
+   */
+  qtyFrom?: number;
+  /**
+   * Верхняя граница объёма сделки в лотах
+   * @format int32
+   * @example 100
+   */
+  qtyTo?: number;
+  /**
+   * Нижняя граница цены, по которой была совершена сделка
+   * @format decimal
+   * @example 178.2
+   */
+  priceFrom?: number;
+  /**
+   * Верхняя граница цены, по которой была совершена сделка
+   * @format decimal
+   * @example 179.1
+   */
+  priceTo?: number;
+  /**
+   * Направление сделки:
+   *   * `buy` - Купля
+   *   * `sell` - Продажа
+   * @example "buy"
+   */
+  side?: "buy" | "sell";
+  /**
+   * Смещение начала выборки (для пагинации)
+   * @format int32
+   * @example 10
+   */
+  offset?: number;
+  /**
    * Количество загружаемых элементов
    * @format int32
    * @example 10
@@ -7236,6 +7896,13 @@ export interface DevSecuritiesSearchAllTradesParams {
 }
 
 export interface DevSecuritiesSearchAllTradesHistoryParams {
+  /**
+   * Код режима торгов (Борд):
+   * * Для Московской Биржи список кодов доступен в [таблице](https://fs.moex.com/files/3864/)
+   * * Для Биржи СПБ всегда SPBX
+   * @example "TQBR"
+   */
+  instrumentGroup?: string;
   /**
    * Начало отрезка времени (UTC) для фильтра результатов в формате Unix Time Seconds
    * @format int64
@@ -7298,6 +7965,47 @@ export interface DevSecuritiesFuturesParams {
   symbol: string;
 }
 
+export interface DevQuotesParams {
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Принимает несколько пар биржа-тикер. Пары отделены запятыми. Биржа и тикер разделены двоеточием
+   * @example "MOEX:SBER,MOEX:GAZP,SPBX:AAPL"
+   */
+  symbols: string;
+}
+
+export interface DevOrderbookExchangSeccodeParams {
+  /**
+   * Глубина стакана. Стандартное и максимальное значение - 20 (20х20)
+   * @format int32
+   * @min 1
+   * @max 20
+   * @default 20
+   * @example 5
+   */
+  depth?: number;
+  /**
+   * Формат возвращаемого сервером JSON
+   * @example "Simple"
+   */
+  format?: "Simple" | "Slim" | "Heavy";
+  /**
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
+   */
+  exchange: "MOEX" | "SPBX";
+  /**
+   * Тикер (Код финансового инструмента)
+   * @example "LKOH"
+   */
+  symbol: string;
+}
+
 export interface RiskRatesParams {
   /**
    * Биржа:
@@ -7320,6 +8028,18 @@ export interface RiskRatesParams {
    * @example "SBER"
    */
   search?: string;
+  /**
+   * Ограничение на количество выдаваемых результатов поиска
+   * @format int32
+   * @example 3
+   */
+  limit?: number;
+  /**
+   * Смещение начала выборки (для пагинации)
+   * @format int32
+   * @example 10
+   */
+  offset?: number;
 }
 
 export interface DevHistoryParams {
@@ -7335,10 +8055,17 @@ export interface DevHistoryParams {
    */
   exchange: "MOEX" | "SPBX";
   /**
-   * Длительность таймфрейма в секундах или код ("D" - дни, "W" - недели, "M" - месяцы, "Y" - годы)
+   * Длительность таймфрейма. В качестве значения можно указать точное количество секунд или код таймфрейма:
+   * * `15` — 15 секунд
+   * * `60` — 60 секунд или 1 минута
+   * * `3600` — 3600 секунд или 1 час
+   * * `D` — сутки (соответствует значению 86400)
+   * * `W` — неделя (соответствует значению 604800)
+   * * `M` — месяц (соответствует значению 2592000)
+   * * `Y` — год (соответствует значению 31536000)
    * @example "60"
    */
-  tf: "15" | "60" | "300" | "3600" | "D" | "W" | "M" | "Y";
+  tf: string;
   /**
    * Начало отрезка времени (UTC) в формате Unix Time Seconds
    * @format int64
@@ -7363,38 +8090,27 @@ export interface DevHistoryParams {
   format?: "Simple" | "Slim" | "Heavy";
 }
 
-export interface CommandApiV2ClientOrdersDeleteParams {
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  portfolio: string;
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   */
-  exchange: "MOEX" | "SPBX";
-  /**
-   * Является стоп-заявкой?
-   * @example false
-   */
-  stop: boolean;
-  /**
-   * Ответ в формате JSON. В виде отдельного параметра для обратной совместимости.
-   * @example false
-   */
-  jsonResponse?: boolean;
+export interface DevTradingSessionStatusParams {
   /**
    * Формат возвращаемого сервером JSON
    * @example "Simple"
    */
   format?: "Simple" | "Slim" | "Heavy";
   /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 93713183
+   * Биржа:
+   *   * `MOEX` - Московская биржа
+   *   * `SPBX` - СПБ Биржа
    */
-  orderId: number;
+  exchange: "MOEX" | "SPBX";
+  /**
+   * Рынок:
+   *   * `FORTS` - Срочный рынок Московской биржи
+   *   * `FOND` - Фондовый рынок Московской биржи
+   *   * `CURR` - Валютный рынок Московской биржи
+   *   * `SPBX` - Рынок Санкт-Петербургской биржи
+   * @example "FOND"
+   */
+  market: "FORTS" | "FOND" | "CURR" | "SPBX";
 }
 
 export interface V2ClientOrdersActionsOrderIdParams {
@@ -7424,50 +8140,6 @@ export interface V2ClientOrdersActionsOrderIdParams {
 
 export type V2ClientOrdersActionsEstimateAllPayload = EstimateOrderViewModel[];
 
-export interface DevGetAllStopOrdersParams {
-  /**
-   * Формат возвращаемого сервером JSON
-   * @example "Simple"
-   */
-  format?: "Simple" | "Slim" | "Heavy";
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   *   * `SPBX` - СПБ Биржа
-   */
-  exchange: "MOEX" | "SPBX";
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  portfolio: string;
-}
-
-export interface DevGetOneStopOrderParams {
-  /**
-   * Формат возвращаемого сервером JSON
-   * @example "Simple"
-   */
-  format?: "Simple" | "Slim" | "Heavy";
-  /**
-   * Биржа:
-   *   * `MOEX` - Московская биржа
-   *   * `SPBX` - СПБ Биржа
-   */
-  exchange: "MOEX" | "SPBX";
-  /**
-   * Идентификатор клиентского портфеля
-   * @example "D39004"
-   */
-  portfolio: string;
-  /**
-   * Идентификатор заявки
-   * @format int64
-   * @example 93713183
-   */
-  orderId: number;
-}
-
 export interface CommandApiWarpV2ClientOrdersDeleteParams {
   /**
    * Идентификатор клиентского портфеля
@@ -7478,14 +8150,14 @@ export interface CommandApiWarpV2ClientOrdersDeleteParams {
    * Биржа:
    *   * `MOEX` - Московская биржа
    */
-  exchange: "MOEX" | "SPBX";
+  exchange: "MOEX";
   /**
    * Является стоп-заявкой?
    * @example false
    */
   stop: boolean;
   /**
-   * Ответ в формате JSON. В виде отдельного параметра для обратной совместимости.
+   * Ответ в формате JSON. В виде отдельного параметра для обратной совместимости
    * @example false
    */
   jsonResponse?: boolean;

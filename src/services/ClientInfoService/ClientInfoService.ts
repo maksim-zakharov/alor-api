@@ -941,7 +941,7 @@ export class ClientInfoService {
   ): Promise<ConditionalResult<Params, TradesSlim, TradesHeavy, Trades>> {
     return this.http
       .get(
-        `/md/v2/Clients/${params.exchange}/${params.portfolio}/${params.ticker}/trades`,
+        `/md/v2/Clients/${params.exchange}/${params.portfolio}/${params.symbol}/trades`,
         { params },
       )
       .then((r) => r.data);

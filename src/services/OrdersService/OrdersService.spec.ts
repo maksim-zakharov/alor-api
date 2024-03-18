@@ -20,7 +20,6 @@ describe("OrdersService", () => {
       side: Side.Buy,
       user: { portfolio },
       instrument: { exchange, symbol },
-      type: "limit",
     });
     console.log(res);
     expect(res.message).toBe("success");
@@ -48,7 +47,6 @@ describe("OrdersService", () => {
         side: Side.Buy,
         user: { portfolio },
         instrument: { exchange, symbol },
-        type: "limit",
       });
 
     const res2 = await testApi.orders.updateLimitOrder({
@@ -95,7 +93,6 @@ describe("OrdersService", () => {
         side: Side.Buy,
         user: { portfolio },
         instrument: { exchange, symbol },
-        type: "limit",
       });
 
     const orders: Orders = await testApi.clientInfo.getOrders({

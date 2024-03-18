@@ -56,7 +56,7 @@ describe("StopOrdersService", () => {
 
     const res2: OrdersActionsLimitMarket =
       await testApi.stoporders.updateStopOrder({
-        orderId: res1.orderNumber,
+        orderId: res1.orderNumber?.toString(),
         quantity: quantity2,
         triggerPrice,
         condition: Condition.Less,
@@ -93,7 +93,7 @@ describe("StopOrdersService", () => {
 
     const res2: OrdersActionsLimitMarket =
       await testApi.stoporders.updateStopOrder({
-        orderId: res1.orderNumber,
+        orderId: res1.orderNumber?.toString(),
         quantity: quantity2,
         side: Side.Buy,
         user: { portfolio },
