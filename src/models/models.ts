@@ -364,6 +364,11 @@ export interface BodyrequestOrdersActionsLimitTVput {
      *   * `SPBX` - СПБ Биржа
      */
     exchange?: Exchange;
+    /**
+     * Борд
+     * @example "TQBR"
+     */
+    instrumentGroup?: string;
   };
   /**
    * Пользовательский комментарий к заявке
@@ -7368,7 +7373,7 @@ export interface CommandApiV2ClientOrdersDeleteParams {
    * Биржа:
    *   * `MOEX` - Московская биржа
    */
-  exchange: "MOEX";
+  exchange: "MOEX" | "SPBX";
   /**
    * Является стоп-заявкой?
    * @example false
@@ -7473,7 +7478,7 @@ export interface CommandApiWarpV2ClientOrdersDeleteParams {
    * Биржа:
    *   * `MOEX` - Московская биржа
    */
-  exchange: "MOEX";
+  exchange: "MOEX" | "SPBX";
   /**
    * Является стоп-заявкой?
    * @example false
