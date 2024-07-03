@@ -54,6 +54,7 @@ interface EquityDynamicsRequest {
   // 2023-11-28T09:42:08.791Z
   endDate: string;
   portfolio: string;
+  agreementNumber: string;
 }
 
 export interface EquityDynamicsResponse {
@@ -835,7 +836,7 @@ export class ClientInfoService {
   ): Promise<EquityDynamicsResponse> {
     return this.http
       .get(
-        `/client/v2.0/agreements/${params.portfolio}/portfolios/any/dynamics`,
+        `/client/v2.0/agreements/${params.agreementNumber}/portfolios/any/dynamics`,
         {
           params,
           baseURL: "https://lk-api.alor.ru",
