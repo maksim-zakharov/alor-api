@@ -15,6 +15,7 @@ import { StopOrdersService } from "./services/StopOrdersService/StopOrdersServic
 import { BaseStream } from "./streams/base-stream";
 import { WSSOrdersService } from "./streams/WSSOrdersService/WSSOrdersService";
 import {OrderGroupsService} from "./services/OrderGroupsService/OrderGroupsService";
+import {AuthService} from "./services/AuthService/AuthService";
 
 const defaults: Required<
   Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta">
@@ -46,18 +47,22 @@ export class AlorApi {
 
     this.http.defaults.baseURL = this.options.endpoint;
 
-    this.refresh = refreshTokenMiddleware(
-      this.http,
-      this.options.token,
-      (token) => {
+    this.refresh = refreshTokenMiddleware({
+      axios: this.http,
+      refreshTokenCallback: () => this.auth.refreshToken({refreshToken: this.options.token}).then(r => r.AccessToken),
+      callback: (token) => {
         this.accessToken = token;
 
         this.onAuthCallback(token);
-      },
-    );
+      }
+    });
   }
 
   onAuthCallback(...args) {}
+
+  get auth() {
+    return this.getOrCreateService(AuthService);
+  }
 
   get orderGroups() {
     return this.getOrCreateService(OrderGroupsService);
@@ -117,12 +122,10 @@ export class AlorApi {
   }
 
   async refreshToken() {
-    const result = await this.http
-      .post(`https://oauth.alor.ru/refresh?token=${this.options.token}`)
-      .then((r) => r.data);
+    const result = await this.auth.refreshToken({refreshToken: this.options.token});
 
     if (result?.AccessToken) {
-      this.accessToken = result?.AccessToken;
+      this.accessToken = result?.AccessToken!;
       this.http.defaults.headers[
         "Authorization"
       ] = `Bearer ${this.accessToken}`;

@@ -1,13 +1,10 @@
 import {
   MarketSubscription,
-  UniversalMarketResponse,
+
 } from "../market-subscription";
-import { AlorOpenApiOptions, SubscriptionAction } from "../types";
+import { SubscriptionAction } from "../types";
 import { WebSocket, CloseEvent } from "ws";
-import { refreshTokenMiddleware } from "../utils";
-import { AxiosInstance } from "axios";
 import AlorApi from "../api";
-// import { refreshTokenMiddleware } from './utils';
 
 export class BaseStream {
   connected = false;
