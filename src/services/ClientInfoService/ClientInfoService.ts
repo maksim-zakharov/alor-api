@@ -46,7 +46,7 @@ import {
   TradeStatsParams,
 } from "../../models/models";
 import { ConditionalResult } from "../../types";
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 interface EquityDynamicsRequest {
   // 2023-11-28T09:42:08.791Z
@@ -54,6 +54,7 @@ interface EquityDynamicsRequest {
   // 2023-11-28T09:42:08.791Z
   endDate: string;
   portfolio: string;
+  agreementNumber: string;
 }
 
 export interface EquityDynamicsResponse {
@@ -255,60 +256,60 @@ export interface ClientLoginRequest {
 }
 
 export interface ProfileCategoriesResponse {
-  clientId:   number;
+  clientId: number;
   categories: ProfileCategory[];
 }
 
 export interface ProfileCategory {
-  id:                     number;
+  id: number;
   complexProductCategory: number;
-  name:                   string;
-  date:                   Date;
-  success:                boolean;
-  visible:                boolean;
+  name: string;
+  date: Date;
+  success: boolean;
+  visible: boolean;
 }
 
 export interface Category {
-  id:                     number;
-  name:                   string;
+  id: number;
+  name: string;
   complexProductCategory: number;
-  isKvalOnly:             boolean;
-  showDetailsStar:        boolean;
+  isKvalOnly: boolean;
+  showDetailsStar: boolean;
 }
 
 export enum MoneyMovesSearch {
   /**
    * Налоги
    */
-  Taxes = 'taxes',
+  Taxes = "taxes",
   /**
    * Комиссии
    */
-  Commissions = 'commissions',
+  Commissions = "commissions",
   /**
    * Зачисление
    */
-  Input = 'input',
+  Input = "input",
   /**
    * Вывод
    */
-  Withdraw = 'withdraw',
+  Withdraw = "withdraw",
   /**
    * Перевод
    */
-  Transfer = 'transfer',
+  Transfer = "transfer",
   /**
    * Дивиденды
    */
-  Dividends = 'dividends',
+  Dividends = "dividends",
   /**
    * Купоны
    */
-  Coupons = 'coupons',
+  Coupons = "coupons",
   /**
    * Прочее
    */
-  Others = 'others'
+  Others = "others",
 }
 
 export interface MoneyMovesParams {
@@ -331,62 +332,66 @@ export interface MoneyMovesParams {
 }
 
 export interface MoneyMove {
-  sum:           number;
-  currency:      Currency;
+  sum: number;
+  currency: Currency;
   agreementFrom: null | string;
-  accountFrom:   null | string;
-  agreementTo:   null | string;
-  accountTo:     null | string;
-  type:          Type;
-  status:        Status;
-  statusName:    string;
-  icon:          MoneyMovesSearch;
-  id:            string;
-  date:          Date;
-  title:         string;
-  subType:       MoneyMovesSearch;
+  accountFrom: null | string;
+  agreementTo: null | string;
+  accountTo: null | string;
+  type: Type;
+  status: Status;
+  statusName: string;
+  icon: MoneyMovesSearch;
+  id: string;
+  date: Date;
+  title: string;
+  subType: MoneyMovesSearch;
 }
 
 export enum Currency {
-  RUB = 'RUB',USD = 'USD',EUR = 'EUR',CNY = 'CNY',HKD = 'HKD'
+  RUB = "RUB",
+  USD = "USD",
+  EUR = "EUR",
+  CNY = "CNY",
+  HKD = "HKD",
 }
 
 export enum Type {
   Moneymove = "moneymove",
 }
 
-export enum OperationsSearch{
+export enum OperationsSearch {
   /**
    * Вывод денежных средств
    */
-  MoneyWithdrawal = 'money_withdrawal',
+  MoneyWithdrawal = "money_withdrawal",
   /**
    * Пополнение счета
    */
-  MoneyInput = 'money_input',
+  MoneyInput = "money_input",
   /**
    * Услуги
    */
-  Services = 'services',
+  Services = "services",
   /**
    * С ценными бумагами
    */
-  Securities = 'securities',
+  Securities = "securities",
   /**
    * Заявки
    */
-  Orders = 'orders',
+  Orders = "orders",
   /**
    * Безопаность
    */
-  Security = 'security',
+  Security = "security",
   /**
    * Прочее
    */
-  Others = 'others'
+  Others = "others",
 }
 
-export interface GetOperationsParams{
+export interface GetOperationsParams {
   loadDocuments?: boolean;
   limit?: number;
   offset?: number;
@@ -405,40 +410,40 @@ export interface GetOperationsParams{
 }
 
 export interface GetOperationsResponse {
-  status:       Status;
-  statusName:   string;
-  icon:         OperationIcon;
-  data:         Operation;
-  documents:    Document[];
-  files:        string[];
+  status: Status;
+  statusName: string;
+  icon: OperationIcon;
+  data: Operation;
+  documents: Document[];
+  files: string[];
   refuseReason: null;
-  type:         Type;
-  id:           string;
-  date:         Date;
-  title:        string;
-  subType:      string;
+  type: Type;
+  id: string;
+  date: Date;
+  title: string;
+  subType: string;
 }
 
 export interface Operation {
-  order?:            string;
-  amount?:           number;
-  accountFrom?:      string;
-  accountTo?:        string;
+  order?: string;
+  amount?: number;
+  accountFrom?: string;
+  accountTo?: string;
   subportfolioFrom?: string;
-  subportfolioTo?:   string;
-  currency?:         string;
+  subportfolioTo?: string;
+  currency?: string;
   currencyExchange?: string;
-  categoryName?:     string;
+  categoryName?: string;
 }
 
 export interface Document {
-  id:          number;
-  title:       string;
-  body:        null;
-  hash:        null;
+  id: number;
+  title: string;
+  body: null;
+  hash: null;
   operationId: number;
-  signedAt:    Date | null;
-  signed:      boolean;
+  signedAt: Date | null;
+  signed: boolean;
 }
 
 export enum OperationIcon {
@@ -463,7 +468,7 @@ export enum Status {
   /**
    * Исполняется
    */
-  executing = "executing"
+  executing = "executing",
 }
 
 export enum Type {
@@ -474,19 +479,19 @@ export enum Events {
   /**
    * Дивиденды
    */
-  dividend = 'dividend',
+  dividend = "dividend",
   /**
    * Купоны
    */
-  coupon = 'coupon',
+  coupon = "coupon",
   /**
    * Погашения
    */
-  amortization = 'amortization',
+  amortization = "amortization",
   /**
    * Оферты
    */
-  offer = 'offer'
+  offer = "offer",
 }
 
 export interface AllEventsCalendarParams {
@@ -500,29 +505,29 @@ export interface AllEventsCalendarResponse {
 }
 
 export interface CalendarDateEvents {
-  bondEvents?:     BondEvents;
+  bondEvents?: BondEvents;
   dividendEvents?: DividendEvent[];
 }
 
 export interface BondEvents {
-  couponEvents:       CouponEvent[];
+  couponEvents: CouponEvent[];
   amortizationEvents: AmortizationEvent[] | null;
-  offerEvents:        OfferEvent[] | null;
+  offerEvents: OfferEvent[] | null;
 }
 
 export interface AmortizationEvent {
-  symbol:       string;
-  exchange:     Exchange;
-  shortName:    string;
-  fullName:     string;
-  isin:         string;
-  date:         Date;
-  fixDate:      Date;
-  parFraction:  number;
+  symbol: string;
+  exchange: Exchange;
+  shortName: string;
+  fullName: string;
+  isin: string;
+  date: Date;
+  fixDate: Date;
+  parFraction: number;
   buyBackPrice: null;
-  amount:       number;
-  value:        number;
-  currency:     Currency;
+  amount: number;
+  value: number;
+  currency: Currency;
 }
 
 export enum Exchange {
@@ -530,20 +535,20 @@ export enum Exchange {
 }
 
 export interface CouponEvent {
-  symbol:          string;
-  exchange:        Exchange;
-  shortName:       string;
-  fullName:        string;
-  isin:            string;
-  date:            Date;
-  fixDate:         Date | null;
+  symbol: string;
+  exchange: Exchange;
+  shortName: string;
+  fullName: string;
+  isin: string;
+  date: Date;
+  fixDate: Date | null;
   accruedInterest: number;
-  intervalInDays:  number;
-  couponType:      CouponType;
-  couponRate:      number | null;
-  amount:          number;
-  value:           number | null;
-  currency:        Currency;
+  intervalInDays: number;
+  couponType: CouponType;
+  couponRate: number | null;
+  amount: number;
+  value: number | null;
+  currency: Currency;
 }
 
 export enum CouponType {
@@ -553,20 +558,20 @@ export enum CouponType {
 }
 
 export interface OfferEvent {
-  symbol:        string;
-  exchange:      Exchange;
-  shortName:     string;
-  fullName:      string;
-  isin:          string;
-  date:          Date;
-  begOrder:      Date | null;
-  endOrder:      Date | null;
-  fixDate:       Date | null;
-  description:   string;
+  symbol: string;
+  exchange: Exchange;
+  shortName: string;
+  fullName: string;
+  isin: string;
+  date: Date;
+  begOrder: Date | null;
+  endOrder: Date | null;
+  fixDate: Date | null;
+  description: string;
   bondEventType: BondEventType;
-  amount:        number;
-  value:         number;
-  currency:      Currency;
+  amount: number;
+  value: number;
+  currency: Currency;
 }
 
 export enum BondEventType {
@@ -575,19 +580,19 @@ export enum BondEventType {
 }
 
 export interface DividendEvent {
-  symbol:                    string;
-  exchange:                  Exchange;
-  shortName:                 string;
-  fullName:                  string;
-  isin:                      string;
-  recordDate:                Date;
-  exDividendDate:            Date;
-  declaredPayDateNominee:    Date;
-  listDate:                  Date;
-  fixDate:                   Date;
-  dividendPerShare:          number;
-  dividendYield:             number;
-  currency:                  Currency;
+  symbol: string;
+  exchange: Exchange;
+  shortName: string;
+  fullName: string;
+  isin: string;
+  recordDate: Date;
+  exDividendDate: Date;
+  declaredPayDateNominee: Date;
+  listDate: Date;
+  fixDate: Date;
+  dividendPerShare: number;
+  dividendYield: number;
+  currency: Currency;
   recommendDividendPerShare: number;
 }
 
@@ -653,25 +658,30 @@ export class ClientInfoService {
    * @param clientId Идентификатор клиента
    * @param params
    */
-  getOperations(clientId: number, params: GetOperationsParams): Promise<GetOperationsResponse> {
+  getOperations(
+    clientId: number,
+    params: GetOperationsParams,
+  ): Promise<GetOperationsResponse> {
     return this.http
-        .get(`/client/v1.0/history/${clientId}/operations`, {
-          baseURL: "https://lk-api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/client/v1.0/history/${clientId}/operations`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   /**
    * Календарь корпоративных событий
    * @param params
    */
-  getAllEventsCalendar(params: AllEventsCalendarParams): Promise<AllEventsCalendarResponse> {
+  getAllEventsCalendar(
+    params: AllEventsCalendarParams,
+  ): Promise<AllEventsCalendarResponse> {
     return this.http
-        .get(`/instruments/v1/allEventsCalendar`, {
-          params,
-          baseURL: "https://api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/instruments/v1/allEventsCalendar`, {
+        params,
+        baseURL: "https://api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -710,10 +720,10 @@ export class ClientInfoService {
    */
   getCategories(): Promise<Category[]> {
     return this.http
-        .get(`/client/v2.0/categorization/categories`, {
-          baseURL: "https://lk-api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/client/v2.0/categorization/categories`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -722,10 +732,10 @@ export class ClientInfoService {
    */
   getProfileCategories(clientId: number): Promise<ProfileCategoriesResponse> {
     return this.http
-        .get(`/client/v2.0/categorization/${clientId}/profile`, {
-          baseURL: "https://lk-api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/client/v2.0/categorization/${clientId}/profile`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   /**
@@ -733,13 +743,16 @@ export class ClientInfoService {
    * @param clientId Идентификатор клиента
    * @param params Параметры
    */
-  getMoneyMoves(clientId: number, params: MoneyMovesParams): Promise<MoneyMove[]> {
+  getMoneyMoves(
+    clientId: number,
+    params: MoneyMovesParams,
+  ): Promise<MoneyMove[]> {
     return this.http
-        .get(`/client/v1.0/history/${clientId}/money-moves`, {
-          params,
-          baseURL: "https://lk-api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/client/v1.0/history/${clientId}/money-moves`, {
+        params,
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   refresh(
@@ -803,7 +816,7 @@ export class ClientInfoService {
     }
 
     // @ts-ignore
-    const decoded: JWTTokenDecoded = jwt_decode<JWTTokenDecoded>(accessToken);
+    const decoded: JWTTokenDecoded = jwtDecode<JWTTokenDecoded>(accessToken);
 
     const phone = decoded.sub;
 
@@ -823,7 +836,7 @@ export class ClientInfoService {
   ): Promise<EquityDynamicsResponse> {
     return this.http
       .get(
-        `/client/v2.0/agreements/${params.portfolio}/portfolios/any/dynamics`,
+        `/client/v2.0/agreements/${params.agreementNumber}/portfolios/any/dynamics`,
         {
           params,
           baseURL: "https://lk-api.alor.ru",
