@@ -18,11 +18,12 @@ import {OrderGroupsService} from "./services/OrderGroupsService/OrderGroupsServi
 import {AuthService} from "./services/AuthService/AuthService";
 
 const defaults: Required<
-  Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta">
+  Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta" | 'refreshType'>
 > = {
   endpoint: Endpoint.PROD,
   wssEndpoint: WssEndpoint.PROD,
   wssEndpointBeta: WssEndpointBeta.PROD,
+  refreshType: 'dev'
 };
 
 export class AlorApi {
@@ -49,7 +50,7 @@ export class AlorApi {
 
     this.refresh = refreshTokenMiddleware({
       axios: this.http,
-      refreshTokenCallback: () => this.auth.refreshToken({refreshToken: this.options.token}).then(r => r.AccessToken),
+      refreshTokenCallback: () => this.auth.refreshToken({refreshToken: this.options.token, type: this.options.refreshType}).then(r => r.AccessToken),
       callback: (token) => {
         this.accessToken = token;
 

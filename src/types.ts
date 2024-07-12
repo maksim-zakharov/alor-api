@@ -87,6 +87,8 @@ export interface AlorOpenApiOptions {
 
   /** WSS Beta endpoint */
   wssEndpointBeta: WssEndpointBeta.PROD;
+
+  refreshType?: 'dev' | 'lk'
 }
 
 export enum Timeframe {
