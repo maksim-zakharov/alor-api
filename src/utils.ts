@@ -1,10 +1,14 @@
 import { AxiosInstance, AxiosRequestConfig } from "axios";
 
-export const refreshTokenMiddleware = (
-  axios: AxiosInstance,
-  refreshToken: string,
-  callback?: (token: string) => void,
-) => {
+export const refreshTokenMiddleware = ({
+                                         axios,
+                                           refreshTokenCallback,
+                                         callback,
+}: {
+                                         axios: AxiosInstance,
+    refreshTokenCallback: () => Promise<string>,
+                                         callback?: (token: string) => void,
+}) => {
   let isRefreshing = false;
   let failedQueue: any[] = [];
 
@@ -25,18 +29,17 @@ export const refreshTokenMiddleware = (
     resolve?: any,
     reject?: any,
   ) =>
-    axios
-      .post(`https://oauth.alor.ru/refresh?token=${refreshToken}`)
-      .then(({ data }) => {
+      refreshTokenCallback()
+      .then((AccessToken) => {
         if (callback) {
-          callback(data.AccessToken);
+          callback(AccessToken);
         }
         axios.defaults.headers.common["Authorization"] =
-          "Bearer " + data.AccessToken;
+          "Bearer " + AccessToken;
         if (originalRequest && originalRequest.headers)
           originalRequest.headers["Authorization"] =
-            "Bearer " + data.AccessToken;
-        processQueue(null, data.AccessToken);
+            "Bearer " + AccessToken;
+        processQueue(null, AccessToken);
         if (originalRequest && resolve) resolve(axios(originalRequest));
       })
       .catch((err) => {
