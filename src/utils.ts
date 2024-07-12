@@ -42,7 +42,7 @@ export const refreshTokenMiddleware = ({
         if (originalRequest && resolve) resolve(axios(originalRequest));
       })
       .catch((err) => {
-        processQueue(err, null);
+        processQueue(err);
 
         if (reject) reject(err);
       })
