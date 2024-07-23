@@ -1,18 +1,18 @@
 import { AxiosInstance, AxiosRequestConfig } from "axios";
 
 export const refreshTokenMiddleware = ({
-                                         axios,
-                                           refreshTokenCallback,
-                                         callback,
+  axios,
+  refreshTokenCallback,
+  callback,
 }: {
-                                         axios: AxiosInstance,
-    refreshTokenCallback: () => Promise<string>,
-                                         callback?: (token: string) => void,
+  axios: AxiosInstance;
+  refreshTokenCallback: () => Promise<string>;
+  callback?: (token: string) => void;
 }) => {
   let isRefreshing = false;
   let failedQueue: any[] = [];
 
-  const processQueue = (error, token = null) => {
+  const processQueue = (error, token?: string) => {
     failedQueue.forEach((prom) => {
       if (error) {
         prom.reject(error);
@@ -29,7 +29,7 @@ export const refreshTokenMiddleware = ({
     resolve?: any,
     reject?: any,
   ) =>
-      refreshTokenCallback()
+    refreshTokenCallback()
       .then((AccessToken) => {
         if (callback) {
           callback(AccessToken);
@@ -37,13 +37,12 @@ export const refreshTokenMiddleware = ({
         axios.defaults.headers.common["Authorization"] =
           "Bearer " + AccessToken;
         if (originalRequest && originalRequest.headers)
-          originalRequest.headers["Authorization"] =
-            "Bearer " + AccessToken;
+          originalRequest.headers["Authorization"] = "Bearer " + AccessToken;
         processQueue(null, AccessToken);
         if (originalRequest && resolve) resolve(axios(originalRequest));
       })
       .catch((err) => {
-        processQueue(err, null);
+        processQueue(err);
 
         if (reject) reject(err);
       })
