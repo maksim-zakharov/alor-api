@@ -48,13 +48,46 @@ import {
 import { ConditionalResult } from "../../types";
 import { jwtDecode } from "jwt-decode";
 
-interface EquityDynamicsRequest {
+export interface EquityDynamicsRequest {
   // 2023-11-28T09:42:08.791Z
   startDate: string;
   // 2023-11-28T09:42:08.791Z
   endDate: string;
   portfolio: string;
   agreementNumber: string;
+}
+
+interface PublicOfferingRequest {
+  category: "current" | "past";
+}
+
+export interface PublicOfferingResponse {
+  list: PublicOfferingItem[];
+  total: number;
+}
+
+export interface PublicOfferingItem {
+  id: number;
+  issuer: string;
+  logo: string;
+  shortDescription: string;
+  collectApplicationDateFrom: Date;
+  collectApplicationDateTo: Date;
+  activationDate: Date;
+  termsParticipation: number;
+  type: Type;
+  potentialYield: number | null;
+  dateDescription: DateDescription;
+  fullDateDescription: DateDescription;
+}
+
+export enum DateDescription {
+  Завершен = "завершен",
+}
+
+export enum Type {
+  Bond = "bond",
+  Stock = "stock",
 }
 
 export interface EquityDynamicsResponse {
@@ -822,6 +855,21 @@ export class ClientInfoService {
 
     return this.http
       .get(`/client/v2.0/users/${phone}`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  /**
+   * Получаем список IPO
+   * @param params
+   */
+  getPublicOffering(
+    params: PublicOfferingRequest,
+  ): Promise<PublicOfferingResponse> {
+    return this.http
+      .get(`/client/v2.0/publicOffering`, {
+        params,
         baseURL: "https://lk-api.alor.ru",
       })
       .then((r) => r.data);
