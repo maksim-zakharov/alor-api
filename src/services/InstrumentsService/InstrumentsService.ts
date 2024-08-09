@@ -1,13 +1,11 @@
 import { AxiosInstance } from "axios/index";
 import {
-  Alltrade,
   Alltrades,
   AlltradesHeavy,
   Alltradeshistory,
   AlltradeshistoryHeavy,
   AlltradeshistorySlim,
   AlltradesSlim,
-  DevGetOneStopOrderParams,
   DevHistoryParams,
   DevOrderbookExchangSeccodeParams,
   DevQuotesParams,
@@ -31,16 +29,56 @@ import {
   Security,
   SecurityHeavy,
   SecuritySlim,
-  Stoporder,
-  StoporderHeavy,
-  StoporderSlim,
-  Symbol,
   Symbols,
   SymbolsHeavy,
   SymbolsSlim,
 } from "../../models/models";
 import { ConditionalResult } from "../../types";
+import {Currency} from "../ClientInfoService/ClientInfoService";
 
+export interface SecurityDescription {
+  symbol:       string;
+  description:  string;
+  sector:       string;
+  isin:         string;
+  baseCurrency: string;
+  securityType: string;
+  lotsize:      number;
+  shortName:    string;
+  cfiCode:      string;
+}
+
+export interface SecurityDividend {
+  recordDate:                Date;
+  dividendPerShare:          number;
+  dividendYield:             number;
+  currency:                  Currency;
+  recommendDividendPerShare: number;
+  listDate:                  Date;
+  declaredPayDateNominee:    Date | null;
+  exDividendDate:            Date | null;
+  fixDate:                   Date | null;
+}
+
+export interface NewsRequest {
+  limit:           number;
+  offset:     number;
+  sortDesc:     string;
+  symbols?:       string;
+}
+
+export interface News {
+  id:           number;
+  sourceId:     string;
+  header:       string;
+  publishDate:  Date;
+  newsType:     number;
+  content:      string;
+  countryCodes: string[];
+  rubricCodes:  string[];
+  symbols:      string[];
+  mt:           null;
+}
 /**
  * Ценные бумаги / инструменты
  */
@@ -190,5 +228,45 @@ export class InstrumentsService {
     params: Params,
   ): Promise<ConditionalResult<Params, HistorySlim, HistoryHeavy, History>> {
     return this.http.get(`/md/v2/history`, { params }).then((r) => r.data);
+  }
+
+  /**
+   * Описание инструмента
+   * @param ticker - Тикер инструмента
+   */
+  getSecurityDescription(
+      ticker: string): Promise<SecurityDescription> {
+    return this.http
+        .get(`/instruments/v1/${ticker}/description`, {
+          baseURL: "https://api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Дивиденды инструмента
+   * @param ticker - Тикер инструмента
+   */
+  getSecurityDividends(
+      ticker: string): Promise<SecurityDividend[]> {
+    return this.http
+        .get(`/instruments/v1/${ticker}/stock/dividends`, {
+          baseURL: "https://api.alor.ru",
+        })
+        .then((r) => r.data);
+  }
+
+  /**
+   * Получение новостей
+   * @param params
+   */
+  getNews(
+      params: NewsRequest): Promise<News[]> {
+    return this.http
+        .get(`/news/news`, {
+          params,
+          baseURL: "https://api.alor.ru",
+        })
+        .then((r) => r.data);
   }
 }
