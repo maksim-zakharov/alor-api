@@ -57,7 +57,50 @@ export interface EquityDynamicsRequest {
   agreementNumber: string;
 }
 
-interface PublicOfferingRequest {
+export interface PublicOfferingByIdRequest {
+  type: Type;
+  id: PublicOfferingItem["id"];
+}
+
+export interface PublicOfferingByIdResponse {
+  issueNumber: string;
+  maturity: string;
+  callDate: string;
+  couponPeriod: string;
+  minParticipation: number;
+  minParticipationCurrency: null;
+  potentialYield: number;
+  methodIssuance: string;
+  couponType: string;
+  transactionFee: string;
+  tradeVolume: null;
+  totalOfferValue: number;
+  issuerRating: string;
+  faceValue: number;
+  typeSecuritiesFaceValue: string;
+  dateIssuance: Date;
+  typeSecuritiesTotalOfferValue: string;
+  lotSize: number;
+  programmNumber: string;
+  termsParticipation: number;
+  tradingSchedule: number;
+  additionalInfo: null;
+  couponRate: null;
+  type: string;
+  id: number;
+  issuer: string;
+  logo: string;
+  description: string;
+  shortDescription: string;
+  settlementCurrency: string;
+  collectApplicationDateFrom: Date;
+  collectApplicationDateTo: Date;
+  activationDate: Date;
+  exchange: string;
+  counterparty: string;
+}
+
+export interface PublicOfferingRequest {
   category: "current" | "past";
 }
 
@@ -855,6 +898,20 @@ export class ClientInfoService {
 
     return this.http
       .get(`/client/v2.0/users/${phone}`, {
+        baseURL: "https://lk-api.alor.ru",
+      })
+      .then((r) => r.data);
+  }
+
+  /**
+   * Получаем IPO по идентификатору
+   * @param params
+   */
+  getPublicOfferingById(
+    params: PublicOfferingByIdRequest,
+  ): Promise<PublicOfferingByIdResponse> {
+    return this.http
+      .get(`/client/v2.0/publicOffering/${params.type}/${params.id}`, {
         baseURL: "https://lk-api.alor.ru",
       })
       .then((r) => r.data);
