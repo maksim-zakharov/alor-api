@@ -88,14 +88,17 @@ export interface AlorOpenApiOptions {
   /** WSS Beta endpoint */
   wssEndpointBeta: WssEndpointBeta.PROD;
 
-  refreshType?: 'dev' | 'lk'
+  refreshType?: "dev" | "lk";
 }
 
 export enum Timeframe {
   Sec15 = 15,
   Min1 = 60,
   Min5 = 300,
+  Min15 = 900,
+  Min30 = 1800,
   Hour1 = 3600,
+  Hour4 = 14400,
   Day = "D",
   Week = "W",
   Month = "M",
