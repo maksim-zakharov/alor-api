@@ -237,6 +237,7 @@ export interface Agreement {
   statusName: null;
   tradeSystem: string;
   isIIS: boolean;
+  isEDP: boolean;
   isActive: boolean;
 }
 

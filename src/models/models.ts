@@ -13,10 +13,12 @@
  * Биржа:
  *   * `MOEX` - Московская биржа
  *   * `SPBX` - СПБ Биржа
+ *   * `UNITED` - Единый счет (ЕДП)
  */
 export enum Exchange {
   MOEX = "MOEX",
   SPBX = "SPBX",
+  UNITED = "UNITED",
 }
 
 /** @default "Simple" */
