@@ -87,7 +87,8 @@ export class MarketSubscription<R, D extends ResponseData> {
     if (!this.waitingStatusResolve || !this.waitingStatusReject) return;
     if (!httpCode || !requestGuid) return;
     if (requestGuid !== this.options.requestGuid) return;
-    if (httpCode !== 200) {
+    if (httpCode >= 300) {
+      // if (httpCode !== 200) {
       this.waitingStatusReject({
         httpCode,
         requestGuid,
