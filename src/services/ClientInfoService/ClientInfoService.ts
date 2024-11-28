@@ -1092,9 +1092,12 @@ export class ClientInfoService {
     params: Params,
   ): Promise<ConditionalResult<Params, TradesSlim, TradesHeavy, Trades>> {
     return this.http
-      .get(`/md/stats/${params.exchange}/${params.portfolio}/history/trades`, {
-        params,
-      })
+      .get(
+        `/md/v2/Stats/${params.exchange}/${params.portfolio}/history/trades`,
+        {
+          params,
+        },
+      )
       .then((r) => r.data);
   }
 
