@@ -5,10 +5,7 @@ import { AuthEndpoint } from "../../types";
  * Сервис авторизации
  */
 export class AuthService {
-  private readonly http: Axios;
-  constructor() {
-    this.http = new Axios(); //  axios;
-  }
+  constructor(private readonly http: Axios) {}
 
   /**
    * refreshToken
