@@ -1,4 +1,4 @@
-import { AxiosInstance } from "axios";
+import { Axios, AxiosInstance } from "axios";
 import {
   DevGetAllOrdersParams,
   DevGetAllPositionsParams,
@@ -677,7 +677,7 @@ export interface DividendEvent {
  * Информация о клиенте
  */
 export class ClientInfoService {
-  constructor(private readonly http: AxiosInstance) {}
+  constructor(private readonly http: Axios) {}
 
   /**
    * Создать операцию на перевод по реквизитам

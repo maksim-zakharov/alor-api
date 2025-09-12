@@ -1,4 +1,4 @@
-import { AxiosInstance } from "axios";
+import { Axios, AxiosInstance } from "axios";
 import {
   BodyrequestOrdersActionsLimitTV,
   BodyrequestOrdersActionsLimitTVput,
@@ -8,7 +8,8 @@ import {
   EstimateOrderModel,
   EstimateOrderViewModel,
   OrdersActions400CommandAPI,
-  OrdersActionsLimitMarket, OrdersActionsLimitMarketCommandAPI,
+  OrdersActionsLimitMarket,
+  OrdersActionsLimitMarketCommandAPI,
 } from "../../models/models";
 import { v4 as uuidv } from "uuid";
 
@@ -20,7 +21,7 @@ interface IupdateMarketOrder extends BodyrequestOrdersActionsMarketTVput {
 }
 
 export class OrdersService {
-  constructor(private readonly http: AxiosInstance) {}
+  constructor(private readonly http: Axios) {}
 
   /**
    * Создание рыночной заявки

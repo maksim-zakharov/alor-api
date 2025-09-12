@@ -1,11 +1,11 @@
-import { AxiosInstance, AxiosRequestConfig } from "axios";
+import { Axios, AxiosInstance, AxiosRequestConfig } from "axios";
 
 export const refreshTokenMiddleware = ({
   axios,
   refreshTokenCallback,
   callback,
 }: {
-  axios: AxiosInstance;
+  axios: Axios;
   refreshTokenCallback: () => Promise<string>;
   callback?: (token: string) => void;
 }) => {
@@ -39,7 +39,7 @@ export const refreshTokenMiddleware = ({
         if (originalRequest && originalRequest.headers)
           originalRequest.headers["Authorization"] = "Bearer " + AccessToken;
         processQueue(null, AccessToken);
-        if (originalRequest && resolve) resolve(axios(originalRequest));
+        if (originalRequest && resolve) resolve(axios.request(originalRequest));
       })
       .catch((err) => {
         processQueue(err);
@@ -71,7 +71,7 @@ export const refreshTokenMiddleware = ({
             .then((token) => {
               originalRequest.headers &&
                 (originalRequest.headers["Authorization"] = "Bearer " + token);
-              return axios(originalRequest);
+              return axios.request(originalRequest);
             })
             .catch((err) => {
               return Promise.reject(err);

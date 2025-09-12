@@ -1,4 +1,4 @@
-import { AxiosInstance } from "axios";
+import { Axios, AxiosInstance } from "axios";
 import {
   BodyrequestCreateOrderGroup,
   BodyrequestModifyOrderGroup,
@@ -10,17 +10,15 @@ import {
 import { v4 as uuidv } from "uuid";
 
 export class OrderGroupsService {
-  constructor(private readonly http: AxiosInstance) {}
+  constructor(private readonly http: Axios) {}
 
   /**
    * Получение всех групп заявок
    */
-  async getOrderGroups(): Promise<OrdergroupsActionsGetOrderGroup[] | CommandapiOrderGroupsErrorResponse> {
-    return this.http
-      .get(
-        `/commandapi/api/orderGroups`,
-      )
-      .then((r) => r.data);
+  async getOrderGroups(): Promise<
+    OrdergroupsActionsGetOrderGroup[] | CommandapiOrderGroupsErrorResponse
+  > {
+    return this.http.get(`/commandapi/api/orderGroups`).then((r) => r.data);
   }
 
   /**
@@ -32,15 +30,11 @@ export class OrderGroupsService {
     const requestId = uuidv();
 
     return this.http
-      .post(
-        `/commandapi/api/orderGroups`,
-        body,
-        {
-          headers: {
-            "X-ALOR-REQID": requestId,
-          },
+      .post(`/commandapi/api/orderGroups`, body, {
+        headers: {
+          "X-ALOR-REQID": requestId,
         },
-      )
+      })
       .then((r) => r.data);
   }
 
@@ -48,32 +42,30 @@ export class OrderGroupsService {
    * Получение всех групп заявок
    * @param orderGroupId Идентификатор группы заявок
    */
-  async getOrderGroupById(orderGroupId: string): Promise<OrdergroupsActionsGetOrderGroup | CommandapiOrderGroupsErrorResponse> {
+  async getOrderGroupById(
+    orderGroupId: string,
+  ): Promise<
+    OrdergroupsActionsGetOrderGroup | CommandapiOrderGroupsErrorResponse
+  > {
     return this.http
-        .get(
-            `/commandapi/api/orderGroups/${orderGroupId}`,
-        )
-        .then((r) => r.data);
+      .get(`/commandapi/api/orderGroups/${orderGroupId}`)
+      .then((r) => r.data);
   }
 
   /**
    * Редактирование группы заявок
    */
   async updateOrderGroup(
-    body: BodyrequestModifyOrderGroup & {orderGroupId: string},
+    body: BodyrequestModifyOrderGroup & { orderGroupId: string },
   ): Promise<CommandapiSuccessResponse | CommandapiOrderGroupsErrorResponse> {
     const requestId = uuidv();
 
     return this.http
-      .put(
-          `/commandapi/api/orderGroups/${body.orderGroupId}`,
-        body,
-        {
-          headers: {
-            "X-ALOR-REQID": requestId,
-          },
+      .put(`/commandapi/api/orderGroups/${body.orderGroupId}`, body, {
+        headers: {
+          "X-ALOR-REQID": requestId,
         },
-      )
+      })
       .then((r) => r.data);
   }
 
@@ -81,11 +73,11 @@ export class OrderGroupsService {
    * Удаление группы заявок
    * @param orderGroupId Идентификатор группы заявок
    */
-  async deleteOrderGroup(orderGroupId: string): Promise<CommandapiSuccessResponse | CommandapiOrderGroupsErrorResponse> {
+  async deleteOrderGroup(
+    orderGroupId: string,
+  ): Promise<CommandapiSuccessResponse | CommandapiOrderGroupsErrorResponse> {
     return this.http
-      .delete(
-          `/commandapi/api/orderGroups/${orderGroupId}`,
-      )
+      .delete(`/commandapi/api/orderGroups/${orderGroupId}`)
       .then((r) => r.data);
   }
 }

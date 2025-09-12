@@ -34,56 +34,57 @@ import {
   SymbolsSlim,
 } from "../../models/models";
 import { ConditionalResult } from "../../types";
-import {Currency} from "../ClientInfoService/ClientInfoService";
+import { Currency } from "../ClientInfoService/ClientInfoService";
+import { Axios } from "axios";
 
 export interface SecurityDescription {
-  symbol:       string;
-  description:  string;
-  sector:       string;
-  isin:         string;
+  symbol: string;
+  description: string;
+  sector: string;
+  isin: string;
   baseCurrency: string;
   securityType: string;
-  lotsize:      number;
-  shortName:    string;
-  cfiCode:      string;
+  lotsize: number;
+  shortName: string;
+  cfiCode: string;
 }
 
 export interface SecurityDividend {
-  recordDate:                Date;
-  dividendPerShare:          number;
-  dividendYield:             number;
-  currency:                  Currency;
+  recordDate: Date;
+  dividendPerShare: number;
+  dividendYield: number;
+  currency: Currency;
   recommendDividendPerShare: number;
-  listDate:                  Date;
-  declaredPayDateNominee:    Date | null;
-  exDividendDate:            Date | null;
-  fixDate:                   Date | null;
+  listDate: Date;
+  declaredPayDateNominee: Date | null;
+  exDividendDate: Date | null;
+  fixDate: Date | null;
 }
 
 export interface NewsRequest {
-  limit:           number;
-  offset:     number;
-  sortDesc:     string;
-  symbols?:       string;
+  limit: number;
+  offset: number;
+  sortDesc: string;
+  symbols?: string;
 }
 
 export interface News {
-  id:           number;
-  sourceId:     string;
-  header:       string;
-  publishDate:  Date;
-  newsType:     number;
-  content:      string;
+  id: number;
+  sourceId: string;
+  header: string;
+  publishDate: Date;
+  newsType: number;
+  content: string;
   countryCodes: string[];
-  rubricCodes:  string[];
-  symbols:      string[];
-  mt:           null;
+  rubricCodes: string[];
+  symbols: string[];
+  mt: null;
 }
 /**
  * Ценные бумаги / инструменты
  */
 export class InstrumentsService {
-  constructor(private readonly http: AxiosInstance) {}
+  constructor(private readonly http: Axios) {}
 
   /**
    * Получение информации о торговых инструментах
@@ -234,39 +235,36 @@ export class InstrumentsService {
    * Описание инструмента
    * @param ticker - Тикер инструмента
    */
-  getSecurityDescription(
-      ticker: string): Promise<SecurityDescription> {
+  getSecurityDescription(ticker: string): Promise<SecurityDescription> {
     return this.http
-        .get(`/instruments/v1/${ticker}/description`, {
-          baseURL: "https://api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/instruments/v1/${ticker}/description`, {
+        baseURL: "https://api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   /**
    * Дивиденды инструмента
    * @param ticker - Тикер инструмента
    */
-  getSecurityDividends(
-      ticker: string): Promise<SecurityDividend[]> {
+  getSecurityDividends(ticker: string): Promise<SecurityDividend[]> {
     return this.http
-        .get(`/instruments/v1/${ticker}/stock/dividends`, {
-          baseURL: "https://api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/instruments/v1/${ticker}/stock/dividends`, {
+        baseURL: "https://api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 
   /**
    * Получение новостей
    * @param params
    */
-  getNews(
-      params: NewsRequest): Promise<News[]> {
+  getNews(params: NewsRequest): Promise<News[]> {
     return this.http
-        .get(`/news/news`, {
-          params,
-          baseURL: "https://api.alor.ru",
-        })
-        .then((r) => r.data);
+      .get(`/news/news`, {
+        params,
+        baseURL: "https://api.alor.ru",
+      })
+      .then((r) => r.data);
   }
 }

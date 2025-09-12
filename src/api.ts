@@ -3,9 +3,10 @@ import {
   Endpoint,
   WssEndpoint,
   IService,
-  WssEndpointBeta, AuthEndpoint,
+  WssEndpointBeta,
+  AuthEndpoint,
 } from "./types";
-import axios, { AxiosInstance } from "axios";
+import axios, { Axios, AxiosInstance } from "axios";
 import { SubscriptionsService } from "./streams/SubscriptionsService/SubscriptionsService";
 import { refreshTokenMiddleware } from "./utils";
 import { ClientInfoService } from "./services/ClientInfoService/ClientInfoService";
@@ -14,21 +15,28 @@ import { OrdersService } from "./services/OrdersService/OrdersService";
 import { StopOrdersService } from "./services/StopOrdersService/StopOrdersService";
 import { BaseStream } from "./streams/base-stream";
 import { WSSOrdersService } from "./streams/WSSOrdersService/WSSOrdersService";
-import {OrderGroupsService} from "./services/OrderGroupsService/OrderGroupsService";
-import {AuthService} from "./services/AuthService/AuthService";
+import { OrderGroupsService } from "./services/OrderGroupsService/OrderGroupsService";
+import { AuthService } from "./services/AuthService/AuthService";
 
 const defaults: Required<
-  Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta" | 'refreshType' | 'authEndpoint'>
+  Pick<
+    AlorOpenApiOptions,
+    | "endpoint"
+    | "wssEndpoint"
+    | "wssEndpointBeta"
+    | "refreshType"
+    | "authEndpoint"
+  >
 > = {
   endpoint: Endpoint.PROD,
   authEndpoint: AuthEndpoint.PROD,
   wssEndpoint: WssEndpoint.PROD,
   wssEndpointBeta: WssEndpointBeta.PROD,
-  refreshType: 'dev'
+  refreshType: "dev",
 };
 
 export class AlorApi {
-  public readonly http: AxiosInstance;
+  public readonly http: Axios;
   public accessToken: string;
 
   public readonly options: AlorOpenApiOptions;
@@ -40,7 +48,7 @@ export class AlorApi {
   protected _subscriptions: Map<IService, IService> = new Map();
 
   constructor(options: AlorOpenApiOptions) {
-    this.http = axios;
+    this.http = new Axios(); //  axios;
     this.options = Object.assign({}, defaults, options);
 
     if (options.accessToken) {
@@ -51,12 +59,18 @@ export class AlorApi {
 
     this.refresh = refreshTokenMiddleware({
       axios: this.http,
-      refreshTokenCallback: () => this.auth.refreshToken({refreshToken: this.options.token, type: this.options.refreshType}).then(r => r.AccessToken),
+      refreshTokenCallback: () =>
+        this.auth
+          .refreshToken({
+            refreshToken: this.options.token,
+            type: this.options.refreshType,
+          })
+          .then((r) => r.AccessToken),
       callback: (token) => {
         this.accessToken = token;
 
         this.onAuthCallback(token);
-      }
+      },
     });
   }
 
@@ -106,7 +120,7 @@ export class AlorApi {
   }
 
   private getOrCreateService<S extends IService>(type: {
-    new (http: AxiosInstance): S;
+    new (http: Axios): S;
   }): S {
     if (!this.services.get(type)) {
       this.services.set(type, new type(this.http));
@@ -124,7 +138,10 @@ export class AlorApi {
   }
 
   async refreshToken() {
-    const result = await this.auth.refreshToken({refreshToken: this.options.token, endpoint: this.options.authEndpoint});
+    const result = await this.auth.refreshToken({
+      refreshToken: this.options.token,
+      endpoint: this.options.authEndpoint,
+    });
 
     if (result?.AccessToken) {
       this.accessToken = result?.AccessToken!;

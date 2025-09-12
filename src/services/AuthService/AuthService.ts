@@ -1,18 +1,21 @@
-import axios, { AxiosInstance } from "axios";
-import {AuthEndpoint} from "../../types";
+import axios, { Axios, AxiosInstance } from "axios";
+import { AuthEndpoint } from "../../types";
 
 /**
  * Сервис авторизации
  */
 export class AuthService {
-  constructor(private readonly http: AxiosInstance) {}
+  private readonly http: Axios;
+  constructor() {
+    this.http = new Axios(); //  axios;
+  }
 
   /**
    * refreshToken
    */
   async refreshToken({
     refreshToken,
-      endpoint = AuthEndpoint.PROD,
+    endpoint = AuthEndpoint.PROD,
     type = "dev",
   }: {
     refreshToken: string;
@@ -20,13 +23,13 @@ export class AuthService {
     type?: "dev" | "lk";
   }): Promise<{ AccessToken: string }> {
     if (type === "dev")
-      return axios
+      return this.http
         .post<{ AccessToken: string }>(
           `${endpoint}/refresh?token=${refreshToken}`,
         )
         .then((r) => r.data);
     else
-      return axios
+      return this.http
         .post<{ jwt: string }>(`https://lk-api.alor.ru/auth/actions/refresh`, {
           refreshToken,
         })
@@ -37,7 +40,7 @@ export class AuthService {
    * twoFactorLogin
    */
   async twoFactorLogin({ login }: { login: string }): Promise<boolean> {
-    return axios
+    return this.http
       .post<boolean>(
         `https://lk-api.alor.ru/auth/actions/2factor/?login=${login}`,
       )
@@ -57,7 +60,7 @@ export class AuthService {
     type?: "lk" | "sso";
   }): Promise<{ jwt: string; refreshToken: string }> {
     if (type === "lk") {
-      return axios
+      return this.http
         .post<{ jwt: string; refreshToken: string }>(
           "https://lk-api.alor.ru/auth/actions/login",
           {
@@ -71,7 +74,7 @@ export class AuthService {
         )
         .then((res) => res.data);
     }
-    return axios
+    return this.http
       .post<{ jwt: string; refreshToken: string }>(
         "https://lk-api.alor.ru/sso-auth/client",
         {
