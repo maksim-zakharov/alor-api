@@ -3,7 +3,7 @@ import {
   Endpoint,
   WssEndpoint,
   IService,
-  WssEndpointBeta,
+  WssEndpointBeta, AuthEndpoint,
 } from "./types";
 import axios, { AxiosInstance } from "axios";
 import { SubscriptionsService } from "./streams/SubscriptionsService/SubscriptionsService";
@@ -18,9 +18,10 @@ import {OrderGroupsService} from "./services/OrderGroupsService/OrderGroupsServi
 import {AuthService} from "./services/AuthService/AuthService";
 
 const defaults: Required<
-  Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta" | 'refreshType'>
+  Pick<AlorOpenApiOptions, "endpoint" | "wssEndpoint" | "wssEndpointBeta" | 'refreshType' | 'authEndpoint'>
 > = {
   endpoint: Endpoint.PROD,
+  authEndpoint: AuthEndpoint.PROD,
   wssEndpoint: WssEndpoint.PROD,
   wssEndpointBeta: WssEndpointBeta.PROD,
   refreshType: 'dev'
@@ -123,7 +124,7 @@ export class AlorApi {
   }
 
   async refreshToken() {
-    const result = await this.auth.refreshToken({refreshToken: this.options.token});
+    const result = await this.auth.refreshToken({refreshToken: this.options.token, endpoint: this.options.authEndpoint});
 
     if (result?.AccessToken) {
       this.accessToken = result?.AccessToken!;

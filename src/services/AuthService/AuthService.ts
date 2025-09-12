@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios";
+import {AuthEndpoint} from "../../types";
 
 /**
  * Сервис авторизации
@@ -11,15 +12,17 @@ export class AuthService {
    */
   async refreshToken({
     refreshToken,
+      endpoint = AuthEndpoint.PROD,
     type = "dev",
   }: {
     refreshToken: string;
+    endpoint?: AuthEndpoint;
     type?: "dev" | "lk";
   }): Promise<{ AccessToken: string }> {
     if (type === "dev")
       return axios
         .post<{ AccessToken: string }>(
-          `https://oauth.alor.ru/refresh?token=${refreshToken}`,
+          `${endpoint}/refresh?token=${refreshToken}`,
         )
         .then((r) => r.data);
     else

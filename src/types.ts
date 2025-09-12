@@ -63,16 +63,33 @@ export type ConditionalResult<
 export enum Endpoint {
   DEV = "https://apidev.alor.ru",
   PROD = "https://api.alor.ru",
+
+  ITS_DEV = 'https://apidev.inviabroker.com',
+  ITS_PROD = 'https://api.inviabroker.com'
+}
+
+export enum AuthEndpoint {
+  DEV = "https://oauthdev.alor.ru",
+  PROD = "https://oauth.alor.ru",
+
+  ITS_DEV = 'https://oauthdev.inviabroker.com',
+  ITS_PROD = 'https://oauth.inviabroker.com'
 }
 
 export enum WssEndpoint {
   DEV = "wss://apidev.alor.ru/ws",
   PROD = "wss://api.alor.ru/ws",
+
+  ITS_DEV = 'wss://apidev.inviabroker.com/ws',
+  ITS_PROD = 'wss://api.inviabroker.com/ws'
 }
 
 export enum WssEndpointBeta {
   DEV = "wss://apidev.alor.ru/cws",
   PROD = "wss://api.alor.ru/cws",
+
+  ITS_DEV = 'wss://apidev.inviabroker.com/cws',
+  ITS_PROD = 'wss://api.inviabroker.com/cws'
 }
 
 export interface AlorOpenApiOptions {
@@ -82,6 +99,8 @@ export interface AlorOpenApiOptions {
   accessToken?: string;
   /** API endpoint */
   endpoint: Endpoint;
+  /** Auth endpoint */
+  authEndpoint: AuthEndpoint;
   /** WSS endpoint */
   wssEndpoint: WssEndpoint;
 
