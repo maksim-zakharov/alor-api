@@ -65,6 +65,7 @@ export class AlorApi {
           .refreshToken({
             refreshToken: this.options.token,
             type: this.options.refreshType,
+            endpoint: this.options.authEndpoint,
           })
           .then((r) => r.AccessToken),
       callback: (token) => {
