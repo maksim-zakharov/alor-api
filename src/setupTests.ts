@@ -1,6 +1,6 @@
 import "dotenv/config";
 import assert from "assert";
-import { Endpoint, WssEndpoint, WssEndpointBeta } from "./types";
+import { AuthEndpoint, Endpoint, WssEndpoint, WssEndpointBeta } from "./types";
 import process from "process";
 import AlorApi from "./api";
 import { Exchange } from "./models/models";
@@ -10,6 +10,7 @@ let exchange = Exchange.MOEX;
 
 const testApi = new AlorApi({
   endpoint: Endpoint.PROD,
+  authEndpoint: AuthEndpoint.PROD,
   token: process.env.ALOR_REFRESH_TOKEN!,
   accessToken: process.env.ALOR_ACCESS_TOKEN!,
   wssEndpoint: WssEndpoint.PROD,
