@@ -48,14 +48,14 @@ export class AlorApi {
   protected _subscriptions: Map<IService, IService> = new Map();
 
   constructor(options: AlorOpenApiOptions) {
-    this.http = new Axios(); //  axios;
+    this.http = axios.create({
+      baseURL: this.options.endpoint,
+    }); //  axios;
     this.options = Object.assign({}, defaults, options);
 
     if (options.accessToken) {
       this.accessToken = options.accessToken;
     }
-
-    this.http.defaults.baseURL = this.options.endpoint;
 
     this.refresh = refreshTokenMiddleware({
       axios: this.http,
