@@ -221,6 +221,6 @@ export class SubscriptionsService extends BaseStream {
         guid,
       }),
     });
-    return this.watch(subscription);
+    return this.subscribe(subscription);
   }
 }

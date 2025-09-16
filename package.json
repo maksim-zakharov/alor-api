@@ -1,6 +1,6 @@
 {
   "name": "alor-api",
-  "version": "1.0.64",
+  "version": "1.0.65",
   "description": "Node.js SDK for Alor Open API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

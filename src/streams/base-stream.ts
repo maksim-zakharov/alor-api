@@ -1,9 +1,6 @@
-import {
-  MarketSubscription,
-
-} from "../market-subscription";
+import { MarketSubscription } from "../market-subscription";
 import { SubscriptionAction } from "../types";
-import { WebSocket, CloseEvent } from "ws";
+import { WebSocket } from "ws";
 import AlorApi from "../api";
 
 export class BaseStream {
@@ -15,6 +12,13 @@ export class BaseStream {
     endpoint: "",
     token: "",
   };
+
+  private reconnectAttempts = 0;
+  private maxReconnectAttempts = 5;
+  private reconnectInterval = 1000;
+  private reconnectDecay = 500;
+  private maxReconnectInterval = 5000;
+
   protected wss: WebSocket;
   protected autoReconnectDelay = 0;
   subscriptions = new Set<MarketSubscription<any, any>>();
@@ -25,17 +29,27 @@ export class BaseStream {
     this.options = { ...this.options, ...this.api.options };
     this.refresh = this.api.refresh;
 
-    const recreateWS = () => {
-      this.wss = new WebSocket(this.api.options.wssEndpoint);
-      this.wss.setMaxListeners(0);
+    this.connect();
+  }
 
-      this.wss.onclose = async (error) => {
-        this.connected = false;
-        await this.onClose(error, recreateWS);
-      };
+  private connect() {
+    this.wss = new WebSocket(this.api.options.wssEndpoint);
+    this.wss.setMaxListeners(0);
+
+    this.wss.onopen = async () => {
+      this.connected = true;
+      this.reconnectAttempts = 0;
+      console.log("WebSocket connected");
+
+      // Повторная подписка на все события
+      await this.resubscribe();
     };
 
-    recreateWS();
+    this.wss.on("close", (code, reason) => {
+      console.warn(`Connection closed: code=${code}, reason=${reason}`);
+      this.connected = false;
+      this.attemptReconnect();
+    });
   }
 
   setMaxListeners(listeners: number) {
@@ -45,42 +59,6 @@ export class BaseStream {
   protected async waitEvents() {
     this.connected = true;
     this.wss.emit("open");
-  }
-
-  protected calcAutoReconnectDelay() {
-    this.autoReconnectDelay =
-      this.autoReconnectDelay === 0
-        ? this.options.autoReconnectDelayMin
-        : Math.min(
-            this.autoReconnectDelay * 2,
-            this.options.autoReconnectDelayMax,
-          );
-  }
-
-  protected async onClose(error?: CloseEvent, recreateWS?: any) {
-    this.subscriptions.forEach((subscription) =>
-      this.wss.off("message", subscription.handler),
-    );
-
-    if (!error) {
-      return;
-    }
-
-    /**
-     * Если соединение закрылось ошибочно
-     */
-    if (!error.wasClean) {
-      await this.refresh();
-    }
-
-    if (this.options.autoReconnect) {
-      if (recreateWS) {
-        recreateWS();
-      }
-
-      setTimeout(() => this.reconnect(), this.autoReconnectDelay);
-      this.calcAutoReconnectDelay();
-    }
   }
 
   /**
@@ -103,29 +81,36 @@ export class BaseStream {
     }, 5);
   }
 
-  protected async connect() {
-    if (!this.connected) {
-      await this.waitEvents();
+  // Попытка переподключения
+  private attemptReconnect() {
+    if (this.reconnectAttempts >= this.maxReconnectAttempts) {
+      console.error("Max reconnect attempts reached");
+      return;
     }
+
+    const delay = Math.min(
+      this.reconnectInterval *
+        Math.pow(this.reconnectDecay, this.reconnectAttempts),
+      this.maxReconnectInterval,
+    );
+
+    console.log(`Attempting to reconnect in ${delay}ms...`);
+    setTimeout(() => {
+      this.reconnectAttempts++;
+      this.connect();
+    }, delay);
   }
 
-  async reconnect() {
-    await this.connect();
+  private async resubscribe() {
     for (const subscription of this.subscriptions) {
-      await this.watch(subscription, false);
+      await this.subscribe(subscription);
     }
-    this.autoReconnectDelay = 0;
   }
 
-  protected async watch(
-    subscription: MarketSubscription<any, any>,
-    withAuth: boolean = true,
-  ) {
+  protected async subscribe(subscription: MarketSubscription<any, any>) {
     if (!subscription || !(subscription instanceof MarketSubscription)) {
       throw new Error("Subscription not found");
     }
-
-    if (withAuth) await this.connect();
 
     this.sendRequest(subscription.getRequest());
 
