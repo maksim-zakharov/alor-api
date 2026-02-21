@@ -1,6 +1,6 @@
 # Enumeration: WssEndpoint
 
-Defined in: [types.ts:79](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L79)
+Defined in: [types.ts:79](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L79)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:79](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > **DEV**: `"wss://apidev.alor.ru/ws"`
 
-Defined in: [types.ts:80](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L80)
+Defined in: [types.ts:80](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L80)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [types.ts:80](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > **ITS\_DEV**: `"wss://apidev.inviabroker.com/ws"`
 
-Defined in: [types.ts:83](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L83)
+Defined in: [types.ts:83](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L83)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [types.ts:83](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > **ITS\_PROD**: `"wss://api.inviabroker.com/ws"`
 
-Defined in: [types.ts:84](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L84)
+Defined in: [types.ts:84](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L84)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [types.ts:84](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > **PROD**: `"wss://api.alor.ru/ws"`
 
-Defined in: [types.ts:81](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L81)
+Defined in: [types.ts:81](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L81)

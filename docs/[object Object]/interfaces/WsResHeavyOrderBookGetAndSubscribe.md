@@ -1,6 +1,6 @@
 # Interface: WsResHeavyOrderBookGetAndSubscribe
 
-Defined in: [models/models.ts:5297](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5297)
+Defined in: [models/models.ts:5297](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5297)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5297](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **data**: [`OrderbookHeavy`](OrderbookHeavy.md)
 
-Defined in: [models/models.ts:5299](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5299)
+Defined in: [models/models.ts:5299](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5299)
 
 Данные о запрашиваемом "биржевом стакане"
 
@@ -18,7 +18,7 @@ Defined in: [models/models.ts:5299](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5304](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5304)
+Defined in: [models/models.ts:5304](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5304)
 
 Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
 

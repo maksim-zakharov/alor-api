@@ -1,6 +1,6 @@
 # Interface: HistoryObjectHeavy
 
-Defined in: [models/models.ts:1735](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1735)
+Defined in: [models/models.ts:1735](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1735)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1735](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **close**: `number`
 
-Defined in: [models/models.ts:1747](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1747)
+Defined in: [models/models.ts:1747](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1747)
 
 Цена при закрытии
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **high**: `number`
 
-Defined in: [models/models.ts:1759](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1759)
+Defined in: [models/models.ts:1759](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1759)
 
 Максимальная цена
 
@@ -48,7 +48,7 @@ decimal
 
 > `optional` **low**: `number`
 
-Defined in: [models/models.ts:1765](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1765)
+Defined in: [models/models.ts:1765](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1765)
 
 Миниимальная цена
 
@@ -68,7 +68,7 @@ decimal
 
 > `optional` **open**: `number`
 
-Defined in: [models/models.ts:1753](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1753)
+Defined in: [models/models.ts:1753](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1753)
 
 Цена при открытии
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **time**: `number`
 
-Defined in: [models/models.ts:1741](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1741)
+Defined in: [models/models.ts:1741](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1741)
 
 Время (UTC) (Unix time seconds)
 
@@ -108,7 +108,7 @@ int64
 
 > `optional` **volume**: `number`
 
-Defined in: [models/models.ts:1771](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1771)
+Defined in: [models/models.ts:1771](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1771)
 
 Объём
 

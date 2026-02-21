@@ -1,6 +1,6 @@
 # Enumeration: TimeInForce
 
-Defined in: [models/models.ts:63](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L63)
+Defined in: [models/models.ts:63](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L63)
 
 Тип заявки:
   * `OneDay` - До конца дня
@@ -26,7 +26,7 @@ Defined in: [models/models.ts:63](https://github.com/maksim-zakharov/alor-api/bl
 
 > **FillOrKill**: `"FillOrKill"`
 
-Defined in: [models/models.ts:66](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L66)
+Defined in: [models/models.ts:66](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L66)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [models/models.ts:66](https://github.com/maksim-zakharov/alor-api/bl
 
 > **GoodTillCancelled**: `"GoodTillCancelled"`
 
-Defined in: [models/models.ts:67](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L67)
+Defined in: [models/models.ts:67](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L67)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [models/models.ts:67](https://github.com/maksim-zakharov/alor-api/bl
 
 > **ImmediateOrCancel**: `"ImmediateOrCancel"`
 
-Defined in: [models/models.ts:65](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L65)
+Defined in: [models/models.ts:65](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L65)
 
 ***
 
@@ -50,4 +50,4 @@ Defined in: [models/models.ts:65](https://github.com/maksim-zakharov/alor-api/bl
 
 > **OneDay**: `"OneDay"`
 
-Defined in: [models/models.ts:64](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L64)
+Defined in: [models/models.ts:64](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L64)

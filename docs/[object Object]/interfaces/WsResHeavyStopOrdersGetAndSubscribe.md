@@ -1,6 +1,6 @@
 # Interface: WsResHeavyStopOrdersGetAndSubscribe
 
-Defined in: [models/models.ts:5514](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5514)
+Defined in: [models/models.ts:5514](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5514)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5514](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **data**: [`StoporderHeavy`](StoporderHeavy.md)
 
-Defined in: [models/models.ts:5515](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5515)
+Defined in: [models/models.ts:5515](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5515)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [models/models.ts:5515](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5520](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5520)
+Defined in: [models/models.ts:5520](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5520)
 
 Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
 

@@ -1,6 +1,6 @@
 # Enumeration: OrderStatus
 
-Defined in: [models/models.ts:78](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L78)
+Defined in: [models/models.ts:78](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L78)
 
 Статус исполнения:
   * `working` - На исполнении
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:78](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Canceled**: `"canceled"`
 
-Defined in: [models/models.ts:81](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L81)
+Defined in: [models/models.ts:81](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L81)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [models/models.ts:81](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Filled**: `"filled"`
 
-Defined in: [models/models.ts:80](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L80)
+Defined in: [models/models.ts:80](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L80)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:80](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Rejected**: `"rejected"`
 
-Defined in: [models/models.ts:82](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L82)
+Defined in: [models/models.ts:82](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L82)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [models/models.ts:82](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Working**: `"working"`
 
-Defined in: [models/models.ts:79](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L79)
+Defined in: [models/models.ts:79](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L79)

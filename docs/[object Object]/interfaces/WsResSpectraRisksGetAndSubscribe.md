@@ -1,6 +1,6 @@
 # Interface: WsResSpectraRisksGetAndSubscribe
 
-Defined in: [models/models.ts:5469](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5469)
+Defined in: [models/models.ts:5469](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5469)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5469](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **data**: [`Fortsrisk`](Fortsrisk.md)
 
-Defined in: [models/models.ts:5470](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5470)
+Defined in: [models/models.ts:5470](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5470)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [models/models.ts:5470](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5475](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5475)
+Defined in: [models/models.ts:5475](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5475)
 
 Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
 

@@ -1,6 +1,6 @@
 # Interface: DevGetOneOrderParams
 
-Defined in: [models/models.ts:6762](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6762)
+Defined in: [models/models.ts:6762](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6762)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:6762](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:6773](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6773)
+Defined in: [models/models.ts:6773](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6773)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:6773](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:6767](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6767)
+Defined in: [models/models.ts:6767](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6767)
 
 Формат возвращаемого сервером JSON
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:6767](https://github.com/maksim-zakharov/alor-api/
 
 > **orderId**: `number`
 
-Defined in: [models/models.ts:6784](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6784)
+Defined in: [models/models.ts:6784](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6784)
 
 Идентификатор заявки
 
@@ -56,7 +56,7 @@ int64
 
 > **portfolio**: `string`
 
-Defined in: [models/models.ts:6778](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6778)
+Defined in: [models/models.ts:6778](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6778)
 
 Идентификатор клиентского портфеля
 

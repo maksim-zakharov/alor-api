@@ -1,6 +1,6 @@
 # Interface: RiskSlim
 
-Defined in: [models/models.ts:4483](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4483)
+Defined in: [models/models.ts:4483](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4483)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4483](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **ct**: [`ClientType`](../enumerations/ClientType.md)
 
-Defined in: [models/models.ts:4545](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4545)
+Defined in: [models/models.ts:4545](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4545)
 
 Тип клиента:
   * `StandardRisk` - Стандартный уровень риска (КСУР)
@@ -21,7 +21,7 @@ Defined in: [models/models.ts:4545](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **ex**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:4494](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4494)
+Defined in: [models/models.ts:4494](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4494)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -33,7 +33,7 @@ Defined in: [models/models.ts:4494](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **fpos**: `boolean`
 
-Defined in: [models/models.ts:4550](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4550)
+Defined in: [models/models.ts:4550](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4550)
 
 Имеются ли запретные позиции
 
@@ -49,7 +49,7 @@ false
 
 > `optional` **mgc**: `number`
 
-Defined in: [models/models.ts:4524](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4524)
+Defined in: [models/models.ts:4524](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4524)
 
 Скорректированная маржа
 
@@ -69,7 +69,7 @@ decimal
 
 > `optional` **mgi**: `number`
 
-Defined in: [models/models.ts:4512](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4512)
+Defined in: [models/models.ts:4512](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4512)
 
 Начальная маржа
 
@@ -89,7 +89,7 @@ decimal
 
 > `optional` **mgmn**: `number`
 
-Defined in: [models/models.ts:4518](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4518)
+Defined in: [models/models.ts:4518](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4518)
 
 Минимальная маржа
 
@@ -109,7 +109,7 @@ decimal
 
 > `optional` **nq**: `boolean`
 
-Defined in: [models/models.ts:4555](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4555)
+Defined in: [models/models.ts:4555](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4555)
 
 Имеются ли отрицательные количества
 
@@ -125,7 +125,7 @@ false
 
 > `optional` **p**: `string`
 
-Defined in: [models/models.ts:4488](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4488)
+Defined in: [models/models.ts:4488](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4488)
 
 Идентификатор клиентского портфеля
 
@@ -141,7 +141,7 @@ Defined in: [models/models.ts:4488](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **pe**: `number`
 
-Defined in: [models/models.ts:4500](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4500)
+Defined in: [models/models.ts:4500](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4500)
 
 Общая стоимость портфеля
 
@@ -161,7 +161,7 @@ decimal
 
 > `optional` **plv**: `number`
 
-Defined in: [models/models.ts:4506](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4506)
+Defined in: [models/models.ts:4506](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4506)
 
 Стоимость ликвидного портфеля
 
@@ -181,7 +181,7 @@ decimal
 
 > `optional` **r1**: `number`
 
-Defined in: [models/models.ts:4530](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4530)
+Defined in: [models/models.ts:4530](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4530)
 
 НПР1
 
@@ -201,7 +201,7 @@ decimal
 
 > `optional` **r2**: `number`
 
-Defined in: [models/models.ts:4536](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4536)
+Defined in: [models/models.ts:4536](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4536)
 
 НПР2
 
@@ -221,6 +221,6 @@ decimal
 
 > `optional` **rid**: `number`
 
-Defined in: [models/models.ts:4538](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4538)
+Defined in: [models/models.ts:4538](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4538)
 
 Категория риска.

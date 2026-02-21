@@ -1,6 +1,6 @@
 # Interface: FortsriskSlim
 
-Defined in: [models/models.ts:4280](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4280)
+Defined in: [models/models.ts:4280](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4280)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4280](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **a**: `number`
 
-Defined in: [models/models.ts:4315](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4315)
+Defined in: [models/models.ts:4315](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4315)
 
 Общее количество рублей и дисконтированных в рубли залогов
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **b**: `number`
 
-Defined in: [models/models.ts:4297](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4297)
+Defined in: [models/models.ts:4297](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4297)
 
 Средства, заблокированные под ГО
 
@@ -48,7 +48,7 @@ decimal
 
 > `optional` **f**: `number`
 
-Defined in: [models/models.ts:4291](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4291)
+Defined in: [models/models.ts:4291](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4291)
 
 Свободные средства. Сумма рублей и залогов, дисконтированных в рубли, доступная для открытия позиций. (MoneyFree = MoneyAmount + VmInterCl – MoneyBlocked – VmReserve – Fee)
 
@@ -68,7 +68,7 @@ decimal
 
 > `optional` **fee**: `number`
 
-Defined in: [models/models.ts:4303](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4303)
+Defined in: [models/models.ts:4303](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4303)
 
 Списанный сбор
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **lim**: `boolean`
 
-Defined in: [models/models.ts:4338](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4338)
+Defined in: [models/models.ts:4338](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4338)
 
 Наличие установленных денежного и залогового лимитов
 
@@ -104,7 +104,7 @@ false
 
 > `optional` **mgc**: `number`
 
-Defined in: [models/models.ts:4327](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4327)
+Defined in: [models/models.ts:4327](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4327)
 
 Вариационная маржа, списанная или полученная в пром. клиринг
 
@@ -124,7 +124,7 @@ decimal
 
 > `optional` **mgp**: `number`
 
-Defined in: [models/models.ts:4333](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4333)
+Defined in: [models/models.ts:4333](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4333)
 
 Сагрегированная вармаржа по текущим позициям
 
@@ -144,7 +144,7 @@ decimal
 
 > `optional` **o**: `number`
 
-Defined in: [models/models.ts:4309](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4309)
+Defined in: [models/models.ts:4309](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4309)
 
 Общее количество рублей и дисконтированных в рубли залогов на начало сессии
 
@@ -164,7 +164,7 @@ decimal
 
 > `optional` **p**: `string`
 
-Defined in: [models/models.ts:4285](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4285)
+Defined in: [models/models.ts:4285](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4285)
 
 Идентификатор клиентского портфеля
 
@@ -180,7 +180,7 @@ Defined in: [models/models.ts:4285](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **pa**: `number`
 
-Defined in: [models/models.ts:4321](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4321)
+Defined in: [models/models.ts:4321](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4321)
 
 Сумма залогов, дисконтированных в рубли
 

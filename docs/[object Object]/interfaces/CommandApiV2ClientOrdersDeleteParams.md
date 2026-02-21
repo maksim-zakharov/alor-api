@@ -1,6 +1,6 @@
 # Interface: CommandApiV2ClientOrdersDeleteParams
 
-Defined in: [models/models.ts:7363](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7363)
+Defined in: [models/models.ts:7363](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7363)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7363](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"`
 
-Defined in: [models/models.ts:7373](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7373)
+Defined in: [models/models.ts:7373](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7373)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -19,7 +19,7 @@ Defined in: [models/models.ts:7373](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7388](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7388)
+Defined in: [models/models.ts:7388](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7388)
 
 Формат возвращаемого сервером JSON
 
@@ -35,7 +35,7 @@ Defined in: [models/models.ts:7388](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **jsonResponse**: `boolean`
 
-Defined in: [models/models.ts:7383](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7383)
+Defined in: [models/models.ts:7383](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7383)
 
 Ответ в формате JSON. В виде отдельного параметра для обратной совместимости.
 
@@ -51,7 +51,7 @@ false
 
 > **orderId**: `number`
 
-Defined in: [models/models.ts:7394](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7394)
+Defined in: [models/models.ts:7394](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7394)
 
 Идентификатор заявки
 
@@ -71,7 +71,7 @@ int64
 
 > **portfolio**: `string`
 
-Defined in: [models/models.ts:7368](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7368)
+Defined in: [models/models.ts:7368](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7368)
 
 Идентификатор клиентского портфеля
 
@@ -87,7 +87,7 @@ Defined in: [models/models.ts:7368](https://github.com/maksim-zakharov/alor-api/
 
 > **stop**: `boolean`
 
-Defined in: [models/models.ts:7378](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7378)
+Defined in: [models/models.ts:7378](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7378)
 
 Является стоп-заявкой?
 

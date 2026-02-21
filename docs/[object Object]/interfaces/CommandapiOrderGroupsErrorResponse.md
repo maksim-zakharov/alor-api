@@ -1,6 +1,6 @@
 # Interface: CommandapiOrderGroupsErrorResponse
 
-Defined in: [models/models.ts:271](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L271)
+Defined in: [models/models.ts:271](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L271)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:271](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **detail**: `string`
 
-Defined in: [models/models.ts:287](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L287)
+Defined in: [models/models.ts:287](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L287)
 
 Описание ошибки
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:287](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **status**: `number`
 
-Defined in: [models/models.ts:282](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L282)
+Defined in: [models/models.ts:282](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L282)
 
 Код ошибки
 
@@ -44,7 +44,7 @@ int32
 
 > `optional` **title**: `string`
 
-Defined in: [models/models.ts:276](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L276)
+Defined in: [models/models.ts:276](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L276)
 
 Описание кода ошибки
 

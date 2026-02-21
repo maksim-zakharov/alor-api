@@ -1,6 +1,6 @@
 # Enumeration: Format
 
-Defined in: [models/models.ts:25](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L25)
+Defined in: [models/models.ts:25](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L25)
 
 ## Default
 
@@ -14,7 +14,7 @@ Defined in: [models/models.ts:25](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Heavy**: `"Heavy"`
 
-Defined in: [models/models.ts:28](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L28)
+Defined in: [models/models.ts:28](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L28)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [models/models.ts:28](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Simple**: `"Simple"`
 
-Defined in: [models/models.ts:26](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L26)
+Defined in: [models/models.ts:26](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L26)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [models/models.ts:26](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Slim**: `"Slim"`
 
-Defined in: [models/models.ts:27](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L27)
+Defined in: [models/models.ts:27](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L27)

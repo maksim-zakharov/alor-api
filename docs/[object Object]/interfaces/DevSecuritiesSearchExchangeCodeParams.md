@@ -1,6 +1,6 @@
 # Interface: DevSecuritiesSearchExchangeCodeParams
 
-Defined in: [models/models.ts:7116](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7116)
+Defined in: [models/models.ts:7116](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7116)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7116](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7127](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7127)
+Defined in: [models/models.ts:7127](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7127)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:7127](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7121](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7121)
+Defined in: [models/models.ts:7121](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7121)
 
 Формат возвращаемого сервером JSON
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:7121](https://github.com/maksim-zakharov/alor-api/
 
 > **symbol**: `string`
 
-Defined in: [models/models.ts:7132](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7132)
+Defined in: [models/models.ts:7132](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7132)
 
 Тикер (Код финансового инструмента)
 

@@ -1,6 +1,6 @@
 # Interface: MoneySlim
 
-Defined in: [models/models.ts:2953](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2953)
+Defined in: [models/models.ts:2953](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2953)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:2953](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **c**: `number`
 
-Defined in: [models/models.ts:2959](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2959)
+Defined in: [models/models.ts:2959](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2959)
 
 Количество средств
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **ch**: `number`
 
-Defined in: [models/models.ts:2995](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2995)
+Defined in: [models/models.ts:2995](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2995)
 
 Изменения
 
@@ -48,7 +48,7 @@ decimal
 
 > `optional` **cms**: `number`
 
-Defined in: [models/models.ts:2989](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2989)
+Defined in: [models/models.ts:2989](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2989)
 
 Комиссия (в рублях)
 
@@ -68,7 +68,7 @@ decimal
 
 > `optional` **f**: `number`
 
-Defined in: [models/models.ts:3007](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L3007)
+Defined in: [models/models.ts:3007](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L3007)
 
 Свободные средства
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **o**: `number`
 
-Defined in: [models/models.ts:2971](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2971)
+Defined in: [models/models.ts:2971](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2971)
 
 Средства на момент открытия
 
@@ -108,7 +108,7 @@ decimal
 
 > `optional` **p**: `number`
 
-Defined in: [models/models.ts:3001](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L3001)
+Defined in: [models/models.ts:3001](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L3001)
 
 Идентификатор клиентского портфеля
 
@@ -128,7 +128,7 @@ decimal
 
 > `optional` **pf**: `number`
 
-Defined in: [models/models.ts:2977](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2977)
+Defined in: [models/models.ts:2977](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2977)
 
 Прибыль
 
@@ -148,7 +148,7 @@ decimal
 
 > `optional` **pfr**: `number`
 
-Defined in: [models/models.ts:2983](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2983)
+Defined in: [models/models.ts:2983](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2983)
 
 Прибыль в процентах
 
@@ -168,7 +168,7 @@ decimal
 
 > `optional` **u**: `number`
 
-Defined in: [models/models.ts:2965](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2965)
+Defined in: [models/models.ts:2965](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2965)
 
 Количество использованных
 

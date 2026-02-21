@@ -1,6 +1,6 @@
 # Interface: WsResHeavyPositionsGetAndSubscribe
 
-Defined in: [models/models.ts:5379](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5379)
+Defined in: [models/models.ts:5379](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5379)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5379](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **data**: [`PositionHeavy`](PositionHeavy.md)
 
-Defined in: [models/models.ts:5380](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5380)
+Defined in: [models/models.ts:5380](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5380)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [models/models.ts:5380](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5385](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5385)
+Defined in: [models/models.ts:5385](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5385)
 
 Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
 

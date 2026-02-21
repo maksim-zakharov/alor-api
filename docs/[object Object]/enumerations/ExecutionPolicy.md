@@ -1,6 +1,6 @@
 # Enumeration: ExecutionPolicy
 
-Defined in: [models/models.ts:203](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L203)
+Defined in: [models/models.ts:203](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L203)
 
 Тип группы заявок:
  * OnExecuteOrCancel - Группа отменяется при отмене/выполнении/редактировании любой заявки
@@ -13,7 +13,7 @@ Defined in: [models/models.ts:203](https://github.com/maksim-zakharov/alor-api/b
 
 > **IgnoreCancel**: `"IgnoreCancel"`
 
-Defined in: [models/models.ts:205](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L205)
+Defined in: [models/models.ts:205](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L205)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [models/models.ts:205](https://github.com/maksim-zakharov/alor-api/b
 
 > **OnExecuteOrCancel**: `"OnExecuteOrCancel"`
 
-Defined in: [models/models.ts:204](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L204)
+Defined in: [models/models.ts:204](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L204)
 
 ***
 
@@ -29,4 +29,4 @@ Defined in: [models/models.ts:204](https://github.com/maksim-zakharov/alor-api/b
 
 > **TriggerBracketOrders**: `"TriggerBracketOrders"`
 
-Defined in: [models/models.ts:206](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L206)
+Defined in: [models/models.ts:206](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L206)

@@ -1,6 +1,6 @@
 # Interface: SymbolSlim
 
-Defined in: [models/models.ts:1370](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1370)
+Defined in: [models/models.ts:1370](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1370)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1370](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **acci**: `number` \| `null`
 
-Defined in: [models/models.ts:1428](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1428)
+Defined in: [models/models.ts:1428](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1428)
 
 Начислено
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **ask**: `number`
 
-Defined in: [models/models.ts:1392](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1392)
+Defined in: [models/models.ts:1392](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1392)
 
 Аск
 
@@ -48,7 +48,7 @@ decimal
 
 > `optional` **bid**: `number`
 
-Defined in: [models/models.ts:1398](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1398)
+Defined in: [models/models.ts:1398](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1398)
 
 Бид
 
@@ -68,7 +68,7 @@ decimal
 
 > `optional` **c**: `number`
 
-Defined in: [models/models.ts:1404](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1404)
+Defined in: [models/models.ts:1404](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1404)
 
 Последняя цена
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **desc**: `string`
 
-Defined in: [models/models.ts:1386](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1386)
+Defined in: [models/models.ts:1386](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1386)
 
 Короткое описание на русском языке
 
@@ -104,7 +104,7 @@ Defined in: [models/models.ts:1386](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **ex**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:1381](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1381)
+Defined in: [models/models.ts:1381](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1381)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -116,7 +116,7 @@ Defined in: [models/models.ts:1381](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **fv**: `number`
 
-Defined in: [models/models.ts:1463](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1463)
+Defined in: [models/models.ts:1463](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1463)
 
 Номинальная стоимость
 
@@ -136,7 +136,7 @@ decimal
 
 > `optional` **h**: `number`
 
-Defined in: [models/models.ts:1416](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1416)
+Defined in: [models/models.ts:1416](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1416)
 
 Максимальная цена
 
@@ -156,7 +156,7 @@ decimal
 
 > `optional` **l**: `number`
 
-Defined in: [models/models.ts:1422](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1422)
+Defined in: [models/models.ts:1422](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1422)
 
 Минимальная цена
 
@@ -176,7 +176,7 @@ decimal
 
 > `optional` **lot**: `number`
 
-Defined in: [models/models.ts:1452](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1452)
+Defined in: [models/models.ts:1452](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1452)
 
 Размер лота
 
@@ -196,7 +196,7 @@ decimal
 
 > `optional` **lotv**: `number`
 
-Defined in: [models/models.ts:1457](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1457)
+Defined in: [models/models.ts:1457](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1457)
 
 #### Format
 
@@ -214,7 +214,7 @@ decimal
 
 > `optional` **o**: `number`
 
-Defined in: [models/models.ts:1440](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1440)
+Defined in: [models/models.ts:1440](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1440)
 
 Цена открытия
 
@@ -234,7 +234,7 @@ decimal
 
 > `optional` **sym**: `string`
 
-Defined in: [models/models.ts:1375](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1375)
+Defined in: [models/models.ts:1375](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1375)
 
 Тикер (Код финансового инструмента)
 
@@ -250,7 +250,7 @@ Defined in: [models/models.ts:1375](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **t**: `string` \| `null`
 
-Defined in: [models/models.ts:1465](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1465)
+Defined in: [models/models.ts:1465](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1465)
 
 #### Example
 
@@ -264,7 +264,7 @@ Defined in: [models/models.ts:1465](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **tst**: `number`
 
-Defined in: [models/models.ts:1410](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1410)
+Defined in: [models/models.ts:1410](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1410)
 
 Время последней цены (UTC)
 
@@ -284,7 +284,7 @@ int64
 
 > `optional` **v**: `number`
 
-Defined in: [models/models.ts:1434](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1434)
+Defined in: [models/models.ts:1434](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1434)
 
 Объём
 
@@ -304,7 +304,7 @@ decimal
 
 > `optional` **y**: `number` \| `null`
 
-Defined in: [models/models.ts:1446](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1446)
+Defined in: [models/models.ts:1446](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1446)
 
 Доходность, рассчитанная по цене сделки
 

@@ -1,6 +1,6 @@
 # Interface: AlltradeSlim
 
-Defined in: [models/models.ts:4694](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4694)
+Defined in: [models/models.ts:4694](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4694)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4694](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **h**: `boolean`
 
-Defined in: [models/models.ts:4740](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4740)
+Defined in: [models/models.ts:4740](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4740)
 
 True - для данных из "снепшота", то есть из истории. False - для новых событий
 
@@ -24,7 +24,7 @@ false
 
 > `optional` **id**: `number`
 
-Defined in: [models/models.ts:4700](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4700)
+Defined in: [models/models.ts:4700](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4700)
 
 Уникальный идентификатор.
 
@@ -44,7 +44,7 @@ int64
 
 > `optional` **oi**: `number`
 
-Defined in: [models/models.ts:4735](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4735)
+Defined in: [models/models.ts:4735](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4735)
 
 Открытый интерес (open interest). Если не поддерживается инстурментом - значение 0.
 
@@ -64,7 +64,7 @@ int32
 
 > `optional` **px**: `number`
 
-Defined in: [models/models.ts:4717](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4717)
+Defined in: [models/models.ts:4717](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4717)
 
 Цена
 
@@ -84,7 +84,7 @@ decimal
 
 > `optional` **q**: `number`
 
-Defined in: [models/models.ts:4711](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4711)
+Defined in: [models/models.ts:4711](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4711)
 
 Количество
 
@@ -104,7 +104,7 @@ int32
 
 > `optional` **s**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:4729](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4729)
+Defined in: [models/models.ts:4729](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4729)
 
 Направление сделки:
   * `buy` - Купля
@@ -116,7 +116,7 @@ Defined in: [models/models.ts:4729](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **sym**: `string`
 
-Defined in: [models/models.ts:4705](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4705)
+Defined in: [models/models.ts:4705](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4705)
 
 Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
 
@@ -132,7 +132,7 @@ Defined in: [models/models.ts:4705](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **t**: `number`
 
-Defined in: [models/models.ts:4723](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4723)
+Defined in: [models/models.ts:4723](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4723)
 
 Время (UTC) в формате Unix Time Milliseconds
 

@@ -1,6 +1,6 @@
 # Interface: DevOrderbookExchangSeccodeParams
 
-Defined in: [models/models.ts:7148](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7148)
+Defined in: [models/models.ts:7148](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7148)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7148](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **depth**: `number`
 
-Defined in: [models/models.ts:7157](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7157)
+Defined in: [models/models.ts:7157](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7157)
 
 Глубина стакана. Стандартное и максимальное значение - 20 (20х20).
 
@@ -42,7 +42,7 @@ int32
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7168](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7168)
+Defined in: [models/models.ts:7168](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7168)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -54,7 +54,7 @@ Defined in: [models/models.ts:7168](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7162](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7162)
+Defined in: [models/models.ts:7162](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7162)
 
 Формат возвращаемого сервером JSON
 
@@ -70,7 +70,7 @@ Defined in: [models/models.ts:7162](https://github.com/maksim-zakharov/alor-api/
 
 > **seccode**: `string`
 
-Defined in: [models/models.ts:7173](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7173)
+Defined in: [models/models.ts:7173](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7173)
 
 Инструмент
 

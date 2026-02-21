@@ -1,6 +1,6 @@
 # Interface: AlorOpenApiOptions
 
-Defined in: [types.ts:95](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L95)
+Defined in: [types.ts:95](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L95)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:95](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > `optional` **accessToken**: `string`
 
-Defined in: [types.ts:99](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L99)
+Defined in: [types.ts:99](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L99)
 
 Токен доступа
 
@@ -18,7 +18,7 @@ Defined in: [types.ts:99](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > **authEndpoint**: [`AuthEndpoint`](../enumerations/AuthEndpoint.md)
 
-Defined in: [types.ts:103](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L103)
+Defined in: [types.ts:103](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L103)
 
 Auth endpoint
 
@@ -28,7 +28,7 @@ Auth endpoint
 
 > **endpoint**: [`Endpoint`](../enumerations/Endpoint.md)
 
-Defined in: [types.ts:101](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L101)
+Defined in: [types.ts:101](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L101)
 
 API endpoint
 
@@ -38,7 +38,7 @@ API endpoint
 
 > `optional` **refreshType**: `"dev"` \| `"lk"`
 
-Defined in: [types.ts:110](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L110)
+Defined in: [types.ts:110](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L110)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [types.ts:110](https://github.com/maksim-zakharov/alor-api/blob/3acf
 
 > **token**: `string`
 
-Defined in: [types.ts:97](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L97)
+Defined in: [types.ts:97](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L97)
 
 Рефреш токен доступа
 
@@ -56,7 +56,7 @@ Defined in: [types.ts:97](https://github.com/maksim-zakharov/alor-api/blob/3acf3
 
 > **wssEndpoint**: [`WssEndpoint`](../enumerations/WssEndpoint.md)
 
-Defined in: [types.ts:105](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L105)
+Defined in: [types.ts:105](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L105)
 
 WSS endpoint
 
@@ -66,6 +66,6 @@ WSS endpoint
 
 > **wssEndpointBeta**: [`WssEndpointBeta`](../enumerations/WssEndpointBeta.md)
 
-Defined in: [types.ts:108](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/types.ts#L108)
+Defined in: [types.ts:108](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/types.ts#L108)
 
 WSS Beta endpoint

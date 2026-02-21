@@ -1,6 +1,6 @@
 # Interface: CommandwsReqDeleteMarketOrder
 
-Defined in: [models/models.ts:6607](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6607)
+Defined in: [models/models.ts:6607](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6607)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:6607](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **checkDuplicates**: `boolean`
 
-Defined in: [models/models.ts:6638](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6638)
+Defined in: [models/models.ts:6638](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6638)
 
 Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
 
@@ -24,7 +24,7 @@ true
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:6626](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6626)
+Defined in: [models/models.ts:6626](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6626)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:6626](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:6614](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6614)
+Defined in: [models/models.ts:6614](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6614)
 
 Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:6614](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **opcode**: `"delete:market"`
 
-Defined in: [models/models.ts:6609](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6609)
+Defined in: [models/models.ts:6609](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6609)
 
 Код операции
 
@@ -62,7 +62,7 @@ Defined in: [models/models.ts:6609](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **orderId**: `number`
 
-Defined in: [models/models.ts:6620](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6620)
+Defined in: [models/models.ts:6620](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6620)
 
 Идентификатор заявки
 
@@ -82,7 +82,7 @@ int64
 
 > `optional` **user**: `object`
 
-Defined in: [models/models.ts:6627](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6627)
+Defined in: [models/models.ts:6627](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6627)
 
 #### portfolio?
 

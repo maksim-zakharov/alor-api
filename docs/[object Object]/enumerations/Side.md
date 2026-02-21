@@ -1,6 +1,6 @@
 # Enumeration: Side
 
-Defined in: [models/models.ts:49](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L49)
+Defined in: [models/models.ts:49](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L49)
 
 Направление сделки:
   * `buy` - Купля
@@ -18,7 +18,7 @@ Defined in: [models/models.ts:49](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Buy**: `"buy"`
 
-Defined in: [models/models.ts:50](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L50)
+Defined in: [models/models.ts:50](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L50)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [models/models.ts:50](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Sell**: `"sell"`
 
-Defined in: [models/models.ts:51](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L51)
+Defined in: [models/models.ts:51](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L51)

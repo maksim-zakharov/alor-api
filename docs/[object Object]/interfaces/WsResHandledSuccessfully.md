@@ -1,6 +1,6 @@
 # Interface: WsResHandledSuccessfully
 
-Defined in: [models/models.ts:5577](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5577)
+Defined in: [models/models.ts:5577](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5577)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5577](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **httpCode**: `number`
 
-Defined in: [models/models.ts:5588](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5588)
+Defined in: [models/models.ts:5588](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5588)
 
 HTTP-код ответа
 
@@ -28,7 +28,7 @@ int32
 
 > `optional` **message**: `string`
 
-Defined in: [models/models.ts:5582](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5582)
+Defined in: [models/models.ts:5582](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5582)
 
 Информация по созданной/отменённой подписке
 
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:5582](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **requestGuid**: `string`
 
-Defined in: [models/models.ts:5593](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5593)
+Defined in: [models/models.ts:5593](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5593)
 
 Уникальный идентификатор подписки. Значение во входящем сообщении равно значению поля \"guid\", переданному при установке соединения.
 

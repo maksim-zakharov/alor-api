@@ -1,6 +1,6 @@
 # Interface: SummarySlim
 
-Defined in: [models/models.ts:4092](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4092)
+Defined in: [models/models.ts:4092](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4092)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4092](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **bp**: `number`
 
-Defined in: [models/models.ts:4104](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4104)
+Defined in: [models/models.ts:4104](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4104)
 
 Покупательская способность
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **bpm**: `number`
 
-Defined in: [models/models.ts:4098](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4098)
+Defined in: [models/models.ts:4098](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4098)
 
 Покупательская способность на утро
 
@@ -48,7 +48,7 @@ decimal
 
 > `optional` **cms**: `number` \| `null`
 
-Defined in: [models/models.ts:4146](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4146)
+Defined in: [models/models.ts:4146](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4146)
 
 Суммарная комиссия (null для Срочного рынка)
 
@@ -68,7 +68,7 @@ decimal
 
 > `optional` **im**: `number`
 
-Defined in: [models/models.ts:4134](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4134)
+Defined in: [models/models.ts:4134](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4134)
 
 Маржа
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **p**: `number`
 
-Defined in: [models/models.ts:4110](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4110)
+Defined in: [models/models.ts:4110](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4110)
 
 Прибыль за сегодня
 
@@ -108,7 +108,7 @@ decimal
 
 > `optional` **pe**: `number`
 
-Defined in: [models/models.ts:4122](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4122)
+Defined in: [models/models.ts:4122](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4122)
 
 Ликвидный портфель
 
@@ -128,7 +128,7 @@ decimal
 
 > `optional` **plv**: `number`
 
-Defined in: [models/models.ts:4128](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4128)
+Defined in: [models/models.ts:4128](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4128)
 
 Оценка портфеля
 
@@ -148,7 +148,7 @@ decimal
 
 > `optional` **pr**: `number`
 
-Defined in: [models/models.ts:4116](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4116)
+Defined in: [models/models.ts:4116](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4116)
 
 Норма прибыли, %
 
@@ -168,7 +168,7 @@ decimal
 
 > `optional` **r**: `number`
 
-Defined in: [models/models.ts:4140](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4140)
+Defined in: [models/models.ts:4140](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L4140)
 
 Риск до закрытия
 

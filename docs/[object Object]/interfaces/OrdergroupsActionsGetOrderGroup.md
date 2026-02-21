@@ -1,6 +1,6 @@
 # Interface: OrdergroupsActionsGetOrderGroup
 
-Defined in: [models/models.ts:290](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L290)
+Defined in: [models/models.ts:290](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L290)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:290](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **ClosedAt**: `string` \| `null`
 
-Defined in: [models/models.ts:330](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L330)
+Defined in: [models/models.ts:330](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L330)
 
 Время выполнения/отмены группы заявок
 
@@ -22,7 +22,7 @@ date-time
 
 > `optional` **CreatedAt**: `string`
 
-Defined in: [models/models.ts:325](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L325)
+Defined in: [models/models.ts:325](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L325)
 
 Время создания группы заявок
 
@@ -36,7 +36,7 @@ date-time
 
 > `optional` **ExecutionPolicy**: [`ExecutionPolicy`](../enumerations/ExecutionPolicy.md)
 
-Defined in: [models/models.ts:313](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L313)
+Defined in: [models/models.ts:313](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L313)
 
 Тип группы заявок:
  * OnExecuteOrCancel - Группа отменяется при отмене/выполнении/редактировании любой заявки
@@ -49,7 +49,7 @@ Defined in: [models/models.ts:313](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **Id**: `string`
 
-Defined in: [models/models.ts:296](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L296)
+Defined in: [models/models.ts:296](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L296)
 
 Идентификатор группы заявок
 
@@ -69,7 +69,7 @@ uuid
 
 > `optional` **Login**: `string`
 
-Defined in: [models/models.ts:298](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L298)
+Defined in: [models/models.ts:298](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L298)
 
 #### Example
 
@@ -83,7 +83,7 @@ Defined in: [models/models.ts:298](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **Orders**: `object`[]
 
-Defined in: [models/models.ts:300](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L300)
+Defined in: [models/models.ts:300](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L300)
 
 Список заявок, входящих в группу заявок
 
@@ -105,7 +105,7 @@ Defined in: [models/models.ts:300](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **Status**: [`OrderGroupStatus`](../enumerations/OrderGroupStatus.md)
 
-Defined in: [models/models.ts:320](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L320)
+Defined in: [models/models.ts:320](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L320)
 
 Статус группы заявок
  * Active - группа активна

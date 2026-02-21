@@ -1,6 +1,6 @@
 # Enumeration: Exchange
 
-Defined in: [models/models.ts:18](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L18)
+Defined in: [models/models.ts:18](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L18)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -13,7 +13,7 @@ Defined in: [models/models.ts:18](https://github.com/maksim-zakharov/alor-api/bl
 
 > **MOEX**: `"MOEX"`
 
-Defined in: [models/models.ts:19](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L19)
+Defined in: [models/models.ts:19](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L19)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [models/models.ts:19](https://github.com/maksim-zakharov/alor-api/bl
 
 > **SPBX**: `"SPBX"`
 
-Defined in: [models/models.ts:20](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L20)
+Defined in: [models/models.ts:20](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L20)
 
 ***
 
@@ -29,4 +29,4 @@ Defined in: [models/models.ts:20](https://github.com/maksim-zakharov/alor-api/bl
 
 > **UNITED**: `"UNITED"`
 
-Defined in: [models/models.ts:21](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L21)
+Defined in: [models/models.ts:21](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L21)

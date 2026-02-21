@@ -1,6 +1,6 @@
 # Interface: AlltradeshistoryHeavy
 
-Defined in: [models/models.ts:2326](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2326)
+Defined in: [models/models.ts:2326](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2326)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:2326](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **list**: [`AlltradeHeavy`](AlltradeHeavy.md)[]
 
-Defined in: [models/models.ts:2333](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2333)
+Defined in: [models/models.ts:2333](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2333)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [models/models.ts:2333](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **total**: `number`
 
-Defined in: [models/models.ts:2332](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2332)
+Defined in: [models/models.ts:2332](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2332)
 
 Количество записей
 

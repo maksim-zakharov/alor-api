@@ -2,4 +2,4 @@
 
 > **TradesSlim** = [`TradeSlim`](../interfaces/TradeSlim.md)[]
 
-Defined in: [models/models.ts:2166](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2166)
+Defined in: [models/models.ts:2166](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L2166)

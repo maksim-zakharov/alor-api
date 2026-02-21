@@ -1,6 +1,6 @@
 # Interface: TradeStatsBySymbolParams
 
-Defined in: [models/models.ts:6996](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6996)
+Defined in: [models/models.ts:6996](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6996)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:6996](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **dateFrom**: `string`
 
-Defined in: [models/models.ts:7002](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7002)
+Defined in: [models/models.ts:7002](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7002)
 
 Начиная с какой даты отдавать историю сделок
 
@@ -28,7 +28,7 @@ date
 
 > `optional` **descending**: `boolean`
 
-Defined in: [models/models.ts:7020](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7020)
+Defined in: [models/models.ts:7020](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7020)
 
 Флаг обратной сортировки выдачи
 
@@ -44,7 +44,7 @@ false
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7031](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7031)
+Defined in: [models/models.ts:7031](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7031)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -56,7 +56,7 @@ Defined in: [models/models.ts:7031](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7025](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7025)
+Defined in: [models/models.ts:7025](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7025)
 
 Формат возвращаемого сервером JSON
 
@@ -72,7 +72,7 @@ Defined in: [models/models.ts:7025](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **from**: `number`
 
-Defined in: [models/models.ts:7008](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7008)
+Defined in: [models/models.ts:7008](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7008)
 
 Начальный номер сделки для фильтра результатов
 
@@ -92,7 +92,7 @@ int64
 
 > `optional` **limit**: `number`
 
-Defined in: [models/models.ts:7015](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7015)
+Defined in: [models/models.ts:7015](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7015)
 
 Количество возвращаемых записей
 
@@ -116,7 +116,7 @@ int32
 
 > **portfolio**: `string`
 
-Defined in: [models/models.ts:7036](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7036)
+Defined in: [models/models.ts:7036](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7036)
 
 Идентификатор клиентского портфеля
 
@@ -132,7 +132,7 @@ Defined in: [models/models.ts:7036](https://github.com/maksim-zakharov/alor-api/
 
 > **symbol**: `string`
 
-Defined in: [models/models.ts:7041](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7041)
+Defined in: [models/models.ts:7041](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L7041)
 
 Тикер (Код финансового инструмента)
 

@@ -1,6 +1,6 @@
 # Enumeration: ClientType
 
-Defined in: [models/models.ts:107](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L107)
+Defined in: [models/models.ts:107](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L107)
 
 Тип клиента:
   * `StandardRisk` - Стандартный уровень риска (КСУР)
@@ -19,7 +19,7 @@ Defined in: [models/models.ts:107](https://github.com/maksim-zakharov/alor-api/b
 
 > **HighRisk**: `"HighRisk"`
 
-Defined in: [models/models.ts:109](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L109)
+Defined in: [models/models.ts:109](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L109)
 
 ***
 
@@ -27,7 +27,7 @@ Defined in: [models/models.ts:109](https://github.com/maksim-zakharov/alor-api/b
 
 > **Special**: `"Special"`
 
-Defined in: [models/models.ts:110](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L110)
+Defined in: [models/models.ts:110](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L110)
 
 ***
 
@@ -35,4 +35,4 @@ Defined in: [models/models.ts:110](https://github.com/maksim-zakharov/alor-api/b
 
 > **StandardRisk**: `"StandardRisk"`
 
-Defined in: [models/models.ts:108](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L108)
+Defined in: [models/models.ts:108](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L108)

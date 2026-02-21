@@ -1,6 +1,6 @@
 # Interface: DevGetOnePositionParams
 
-Defined in: [models/models.ts:6849](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6849)
+Defined in: [models/models.ts:6849](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6849)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:6849](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:6860](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6860)
+Defined in: [models/models.ts:6860](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6860)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:6860](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:6854](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6854)
+Defined in: [models/models.ts:6854](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6854)
 
 Формат возвращаемого сервером JSON
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:6854](https://github.com/maksim-zakharov/alor-api/
 
 > **portfolio**: `string`
 
-Defined in: [models/models.ts:6865](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6865)
+Defined in: [models/models.ts:6865](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6865)
 
 Идентификатор клиентского портфеля
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:6865](https://github.com/maksim-zakharov/alor-api/
 
 > **symbol**: `string`
 
-Defined in: [models/models.ts:6870](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6870)
+Defined in: [models/models.ts:6870](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L6870)
 
 Тикер (Код финансового инструмента)
 

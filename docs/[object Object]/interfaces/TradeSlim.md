@@ -1,6 +1,6 @@
 # Interface: TradeSlim
 
-Defined in: [models/models.ts:5031](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5031)
+Defined in: [models/models.ts:5031](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5031)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5031](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **b**: `string`
 
-Defined in: [models/models.ts:5074](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5074)
+Defined in: [models/models.ts:5074](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5074)
 
 Код режима торгов
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:5074](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **cmt**: `string`
 
-Defined in: [models/models.ts:5063](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5063)
+Defined in: [models/models.ts:5063](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5063)
 
 Пользовательский комментарий к заявке
 
@@ -40,7 +40,7 @@ Defined in: [models/models.ts:5063](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **d**: `string`
 
-Defined in: [models/models.ts:5069](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5069)
+Defined in: [models/models.ts:5069](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5069)
 
 Дата и время (UTC) закрытия заявки
 
@@ -60,7 +60,7 @@ date-time
 
 > `optional` **eid**: `string`
 
-Defined in: [models/models.ts:5042](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5042)
+Defined in: [models/models.ts:5042](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5042)
 
 Идентификатор заявки
 
@@ -76,7 +76,7 @@ Defined in: [models/models.ts:5042](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **ex**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:5058](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5058)
+Defined in: [models/models.ts:5058](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5058)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -88,7 +88,7 @@ Defined in: [models/models.ts:5058](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **h**: `boolean`
 
-Defined in: [models/models.ts:5103](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5103)
+Defined in: [models/models.ts:5103](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5103)
 
 True - для данных из "снепшота", то есть из истории. False - для новых событий
 
@@ -104,7 +104,7 @@ false
 
 > `optional` **id**: `number`
 
-Defined in: [models/models.ts:5037](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5037)
+Defined in: [models/models.ts:5037](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5037)
 
 Уникальный идентификатор сделки
 
@@ -124,7 +124,7 @@ decimal
 
 > `optional` **px**: `number`
 
-Defined in: [models/models.ts:5092](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5092)
+Defined in: [models/models.ts:5092](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5092)
 
 Цена
 
@@ -144,7 +144,7 @@ decimal
 
 > `optional` **q**: `number`
 
-Defined in: [models/models.ts:5080](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5080)
+Defined in: [models/models.ts:5080](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5080)
 
 Количество (штуки)
 
@@ -164,7 +164,7 @@ int32
 
 > `optional` **qb**: `number`
 
-Defined in: [models/models.ts:5086](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5086)
+Defined in: [models/models.ts:5086](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5086)
 
 Количество (лоты)
 
@@ -184,7 +184,7 @@ int32
 
 > `optional` **r**: `object`
 
-Defined in: [models/models.ts:5111](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5111)
+Defined in: [models/models.ts:5111](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5111)
 
 Специальные поля для сделок РЕПО
 
@@ -294,7 +294,7 @@ decimal
 
 > `optional` **s**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:5098](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5098)
+Defined in: [models/models.ts:5098](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5098)
 
 Направление сделки:
   * `buy` - Купля
@@ -306,7 +306,7 @@ Defined in: [models/models.ts:5098](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **sym**: `string`
 
-Defined in: [models/models.ts:5047](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5047)
+Defined in: [models/models.ts:5047](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5047)
 
 Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
 
@@ -322,7 +322,7 @@ Defined in: [models/models.ts:5047](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **tic**: `string`
 
-Defined in: [models/models.ts:5052](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5052)
+Defined in: [models/models.ts:5052](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5052)
 
 Пара Биржа:Тикер
 
@@ -338,7 +338,7 @@ Defined in: [models/models.ts:5052](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **v**: `number`
 
-Defined in: [models/models.ts:5109](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5109)
+Defined in: [models/models.ts:5109](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L5109)
 
 Объем
 

@@ -1,6 +1,6 @@
 # Interface: HistoryHeavy
 
-Defined in: [models/models.ts:1719](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1719)
+Defined in: [models/models.ts:1719](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1719)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1719](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **history**: [`HistoryObjectHeavy`](HistoryObjectHeavy.md)[]
 
-Defined in: [models/models.ts:1720](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1720)
+Defined in: [models/models.ts:1720](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1720)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [models/models.ts:1720](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **next**: `number` \| `null`
 
-Defined in: [models/models.ts:1726](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1726)
+Defined in: [models/models.ts:1726](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1726)
 
 Время (UTC) начала следующей свечи
 
@@ -36,7 +36,7 @@ int64
 
 > `optional` **prev**: `number` \| `null`
 
-Defined in: [models/models.ts:1732](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1732)
+Defined in: [models/models.ts:1732](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L1732)
 
 Время (UTC) начала предыдущей свечи
 

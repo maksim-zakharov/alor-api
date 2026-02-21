@@ -1,6 +1,6 @@
 # Interface: BodyrequestOrdersActionsStopMarketTVWarp
 
-Defined in: [models/models.ts:527](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L527)
+Defined in: [models/models.ts:527](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L527)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:527](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **activate**: `boolean`
 
-Defined in: [models/models.ts:596](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L596)
+Defined in: [models/models.ts:596](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L596)
 
 Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
 
@@ -30,7 +30,7 @@ true
 
 > `optional` **condition**: [`Condition`](../enumerations/Condition.md)
 
-Defined in: [models/models.ts:541](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L541)
+Defined in: [models/models.ts:541](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L541)
 
 Условие срабатывания стоп/стоп-лимитной заявки:
   * `More` - Цена срабатывания больше текущей цены
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:541](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **instrument**: `object`
 
-Defined in: [models/models.ts:560](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L560)
+Defined in: [models/models.ts:560](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L560)
 
 #### exchange?
 
@@ -84,7 +84,7 @@ Defined in: [models/models.ts:560](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **quantity**: `number`
 
-Defined in: [models/models.ts:559](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L559)
+Defined in: [models/models.ts:559](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L559)
 
 Количество (лоты)
 
@@ -104,7 +104,7 @@ int32
 
 > `optional` **side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:533](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L533)
+Defined in: [models/models.ts:533](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L533)
 
 Направление сделки:
   * `buy` - Купля
@@ -116,7 +116,7 @@ Defined in: [models/models.ts:533](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **stopEndUnixTime**: `number`
 
-Defined in: [models/models.ts:553](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L553)
+Defined in: [models/models.ts:553](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L553)
 
 Срок действия (UTC) в формате Unix Time seconds
 
@@ -136,7 +136,7 @@ int64
 
 > `optional` **triggerPrice**: `number`
 
-Defined in: [models/models.ts:547](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L547)
+Defined in: [models/models.ts:547](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L547)
 
 Цена срабатывания
 
@@ -156,7 +156,7 @@ decimal
 
 > `optional` **user**: `object`
 
-Defined in: [models/models.ts:578](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L578)
+Defined in: [models/models.ts:578](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L578)
 
 #### exchange?
 

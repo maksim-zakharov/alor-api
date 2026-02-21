@@ -1,6 +1,6 @@
 # Enumeration: Sector
 
-Defined in: [models/models.ts:37](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L37)
+Defined in: [models/models.ts:37](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L37)
 
 Рынок:
   * `FORTS` - Срочный рынок
@@ -13,7 +13,7 @@ Defined in: [models/models.ts:37](https://github.com/maksim-zakharov/alor-api/bl
 
 > **CURR**: `"CURR"`
 
-Defined in: [models/models.ts:40](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L40)
+Defined in: [models/models.ts:40](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L40)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [models/models.ts:40](https://github.com/maksim-zakharov/alor-api/bl
 
 > **FOND**: `"FOND"`
 
-Defined in: [models/models.ts:39](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L39)
+Defined in: [models/models.ts:39](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L39)
 
 ***
 
@@ -29,4 +29,4 @@ Defined in: [models/models.ts:39](https://github.com/maksim-zakharov/alor-api/bl
 
 > **FORTS**: `"FORTS"`
 
-Defined in: [models/models.ts:38](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L38)
+Defined in: [models/models.ts:38](https://github.com/maksim-zakharov/alor-api/blob/3b8532d44ddd22bae03b068d0c63473e6d89249e/src/models/models.ts#L38)
