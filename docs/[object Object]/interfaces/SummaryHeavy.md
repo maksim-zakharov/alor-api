@@ -1,6 +1,6 @@
 # Interface: SummaryHeavy
 
-Defined in: [models/models.ts:4149](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4149)
+Defined in: [models/models.ts:4149](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4149)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4149](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **buyingPower**: `number`
 
-Defined in: [models/models.ts:4161](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4161)
+Defined in: [models/models.ts:4161](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4161)
 
 Покупательская способность
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **buyingPowerAtMorning**: `number`
 
-Defined in: [models/models.ts:4155](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4155)
+Defined in: [models/models.ts:4155](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4155)
 
 Покупательская способность на утро
 
@@ -48,7 +48,7 @@ decimal
 
 > `optional` **commission**: `number` \| `null`
 
-Defined in: [models/models.ts:4203](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4203)
+Defined in: [models/models.ts:4203](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4203)
 
 Суммарная комиссия (null для Срочного рынка)
 
@@ -68,7 +68,7 @@ decimal
 
 > `optional` **initialMargin**: `number`
 
-Defined in: [models/models.ts:4191](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4191)
+Defined in: [models/models.ts:4191](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4191)
 
 Маржа
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **portfolioEvaluation**: `number`
 
-Defined in: [models/models.ts:4179](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4179)
+Defined in: [models/models.ts:4179](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4179)
 
 Ликвидный портфель
 
@@ -108,7 +108,7 @@ decimal
 
 > `optional` **portfolioLiquidationValue**: `number`
 
-Defined in: [models/models.ts:4185](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4185)
+Defined in: [models/models.ts:4185](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4185)
 
 Оценка портфеля
 
@@ -128,7 +128,7 @@ decimal
 
 > `optional` **profit**: `number`
 
-Defined in: [models/models.ts:4167](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4167)
+Defined in: [models/models.ts:4167](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4167)
 
 Прибыль за сегодня
 
@@ -148,7 +148,7 @@ decimal
 
 > `optional` **profitRate**: `number`
 
-Defined in: [models/models.ts:4173](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4173)
+Defined in: [models/models.ts:4173](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4173)
 
 Норма прибыли, %
 
@@ -168,7 +168,7 @@ decimal
 
 > `optional` **riskBeforeForcePositionClosing**: `number`
 
-Defined in: [models/models.ts:4197](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4197)
+Defined in: [models/models.ts:4197](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4197)
 
 Риск до закрытия
 

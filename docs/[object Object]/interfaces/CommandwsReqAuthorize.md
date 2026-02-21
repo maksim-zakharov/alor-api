@@ -1,6 +1,6 @@
 # Interface: CommandwsReqAuthorize
 
-Defined in: [models/models.ts:5944](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5944)
+Defined in: [models/models.ts:5944](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5944)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5944](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string` \| `null`
 
-Defined in: [models/models.ts:5951](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5951)
+Defined in: [models/models.ts:5951](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5951)
 
 Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:5951](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **opcode**: `"authorize"`
 
-Defined in: [models/models.ts:5946](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5946)
+Defined in: [models/models.ts:5946](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5946)
 
 Код операции
 
@@ -34,7 +34,7 @@ Defined in: [models/models.ts:5946](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **token**: `string`
 
-Defined in: [models/models.ts:5956](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5956)
+Defined in: [models/models.ts:5956](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5956)
 
 JWT токен для авторизации
 

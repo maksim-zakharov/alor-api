@@ -1,6 +1,6 @@
 # Interface: DevGetAllStopOrdersParams
 
-Defined in: [models/models.ts:7424](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7424)
+Defined in: [models/models.ts:7424](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7424)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7424](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7435](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7435)
+Defined in: [models/models.ts:7435](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7435)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:7435](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7429](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7429)
+Defined in: [models/models.ts:7429](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7429)
 
 Формат возвращаемого сервером JSON
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:7429](https://github.com/maksim-zakharov/alor-api/
 
 > **portfolio**: `string`
 
-Defined in: [models/models.ts:7440](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7440)
+Defined in: [models/models.ts:7440](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7440)
 
 Идентификатор клиентского портфеля
 

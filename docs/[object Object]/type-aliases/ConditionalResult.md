@@ -2,7 +2,7 @@
 
 > **ConditionalResult**\<`Params`, `Slim`, `Heavy`, `Simple`\> = `Params`\[`"format"`\] *extends* `"Slim"` ? `Slim` : `Params`\[`"format"`\] *extends* `"Heavy"` ? `Heavy` : `Simple`
 
-Defined in: [types.ts:52](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L52)
+Defined in: [types.ts:52](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L52)
 
 ## Type Parameters
 

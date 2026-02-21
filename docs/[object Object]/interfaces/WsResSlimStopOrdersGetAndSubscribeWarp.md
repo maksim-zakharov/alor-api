@@ -1,6 +1,6 @@
 # Interface: WsResSlimStopOrdersGetAndSubscribeWarp
 
-Defined in: [models/models.ts:5532](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5532)
+Defined in: [models/models.ts:5532](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5532)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5532](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **data**: [`StoporderWarpSlim`](StoporderWarpSlim.md)
 
-Defined in: [models/models.ts:5533](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5533)
+Defined in: [models/models.ts:5533](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5533)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [models/models.ts:5533](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5538](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5538)
+Defined in: [models/models.ts:5538](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5538)
 
 Уникальный идентификатор сообщений подписки. Значение во входящем сообщении равно значению одноимённого поля, переданному при установке соединения.
 

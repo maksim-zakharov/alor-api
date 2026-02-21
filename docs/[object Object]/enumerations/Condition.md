@@ -1,6 +1,6 @@
 # Enumeration: Condition
 
-Defined in: [models/models.ts:93](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L93)
+Defined in: [models/models.ts:93](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L93)
 
 Условие срабатывания стоп/стоп-лимитной заявки:
   * `More` - Цена срабатывания больше текущей цены
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:93](https://github.com/maksim-zakharov/alor-api/bl
 
 > **Less**: `"Less"`
 
-Defined in: [models/models.ts:95](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L95)
+Defined in: [models/models.ts:95](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L95)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [models/models.ts:95](https://github.com/maksim-zakharov/alor-api/bl
 
 > **LessOrEqual**: `"LessOrEqual"`
 
-Defined in: [models/models.ts:97](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L97)
+Defined in: [models/models.ts:97](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L97)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:97](https://github.com/maksim-zakharov/alor-api/bl
 
 > **More**: `"More"`
 
-Defined in: [models/models.ts:94](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L94)
+Defined in: [models/models.ts:94](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L94)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [models/models.ts:94](https://github.com/maksim-zakharov/alor-api/bl
 
 > **MoreOrEqual**: `"MoreOrEqual"`
 
-Defined in: [models/models.ts:96](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L96)
+Defined in: [models/models.ts:96](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L96)

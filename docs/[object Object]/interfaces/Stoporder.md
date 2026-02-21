@@ -1,6 +1,6 @@
 # Interface: Stoporder
 
-Defined in: [models/models.ts:3388](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3388)
+Defined in: [models/models.ts:3388](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3388)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:3388](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **brokerSymbol**: `string`
 
-Defined in: [models/models.ts:3410](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3410)
+Defined in: [models/models.ts:3410](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3410)
 
 Пара Биржа:Тикер
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:3410](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **endTime**: `string`
 
-Defined in: [models/models.ts:3443](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3443)
+Defined in: [models/models.ts:3443](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3443)
 
 Время действия заявки (UTC)
 
@@ -44,7 +44,7 @@ date-time
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:3405](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3405)
+Defined in: [models/models.ts:3405](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3405)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -56,7 +56,7 @@ Defined in: [models/models.ts:3405](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **existing**: `boolean`
 
-Defined in: [models/models.ts:3466](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3466)
+Defined in: [models/models.ts:3466](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3466)
 
 True - для данных из "снепшота", то есть из истории. False - для новых событий
 
@@ -72,7 +72,7 @@ true
 
 > `optional` **filledQtyBatch**: `number`
 
-Defined in: [models/models.ts:3455](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3455)
+Defined in: [models/models.ts:3455](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3455)
 
 Количество исполненных
 
@@ -92,7 +92,7 @@ decimal
 
 > `optional` **id**: `number`
 
-Defined in: [models/models.ts:3394](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3394)
+Defined in: [models/models.ts:3394](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3394)
 
 Уникальный идентификатор стоп-заявки
 
@@ -112,7 +112,7 @@ decimal
 
 > `optional` **price**: `number`
 
-Defined in: [models/models.ts:3461](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3461)
+Defined in: [models/models.ts:3461](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3461)
 
 Цена(Лимит)
 
@@ -132,7 +132,7 @@ decimal
 
 > `optional` **qty**: `number`
 
-Defined in: [models/models.ts:3449](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3449)
+Defined in: [models/models.ts:3449](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3449)
 
 Количество
 
@@ -152,7 +152,7 @@ decimal
 
 > `optional` **side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:3429](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3429)
+Defined in: [models/models.ts:3429](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3429)
 
 Направление сделки:
   * `buy` - Купля
@@ -164,7 +164,7 @@ Defined in: [models/models.ts:3429](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **status**: [`OrderStatus`](../enumerations/OrderStatus.md)
 
-Defined in: [models/models.ts:3437](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3437)
+Defined in: [models/models.ts:3437](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3437)
 
 Статус исполнения:
   * `working` - На исполнении
@@ -178,7 +178,7 @@ Defined in: [models/models.ts:3437](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **stopPrice**: `number`
 
-Defined in: [models/models.ts:3423](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3423)
+Defined in: [models/models.ts:3423](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3423)
 
 Условная цена
 
@@ -198,7 +198,7 @@ decimal
 
 > `optional` **symbol**: `string`
 
-Defined in: [models/models.ts:3399](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3399)
+Defined in: [models/models.ts:3399](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3399)
 
 Тикер (Код финансового инструмента)
 
@@ -214,7 +214,7 @@ Defined in: [models/models.ts:3399](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **type**: `"stop"` \| `"stoplimit"`
 
-Defined in: [models/models.ts:3417](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L3417)
+Defined in: [models/models.ts:3417](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L3417)
 
 Тип заявки:
   * `stop` - Стоп-заявка

@@ -1,6 +1,6 @@
 # Interface: OrdersActions400
 
-Defined in: [models/models.ts:911](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L911)
+Defined in: [models/models.ts:911](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L911)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:911](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **message**: `string`
 
-Defined in: [models/models.ts:916](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L916)
+Defined in: [models/models.ts:916](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L916)
 
 Вид ответа для случая отвергнутой заявки.
 

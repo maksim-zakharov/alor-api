@@ -1,6 +1,6 @@
 # Interface: BodyrequestOrdersActionsStopLimitTVWarp
 
-Defined in: [models/models.ts:599](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L599)
+Defined in: [models/models.ts:599](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L599)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:599](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **activate**: `boolean`
 
-Defined in: [models/models.ts:695](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L695)
+Defined in: [models/models.ts:695](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L695)
 
 Флаг указывает, создать активную заявку, или не активную. Не активная заявка отображается в системе, но не участвует в процессе выставления на биржу, пока не станет активной. Данный флаг необходим при создании группы заявок с типом 'TriggerBracketOrders'
 
@@ -30,7 +30,7 @@ true
 
 > `optional` **condition**: [`Condition`](../enumerations/Condition.md)
 
-Defined in: [models/models.ts:613](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L613)
+Defined in: [models/models.ts:613](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L613)
 
 Условие срабатывания стоп/стоп-лимитной заявки:
   * `More` - Цена срабатывания больше текущей цены
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:613](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **icebergFixed**: `number`
 
-Defined in: [models/models.ts:682](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L682)
+Defined in: [models/models.ts:682](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L682)
 
 Видимая постоянная часть айсберг-заявки в лотах
 
@@ -64,7 +64,7 @@ int32
 
 > `optional` **icebergVariance**: `number`
 
-Defined in: [models/models.ts:689](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L689)
+Defined in: [models/models.ts:689](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L689)
 
 Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
 
@@ -88,7 +88,7 @@ decimal
 
 > `optional` **instrument**: `object`
 
-Defined in: [models/models.ts:638](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L638)
+Defined in: [models/models.ts:638](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L638)
 
 #### exchange?
 
@@ -128,7 +128,7 @@ Defined in: [models/models.ts:638](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **price**: `number`
 
-Defined in: [models/models.ts:631](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L631)
+Defined in: [models/models.ts:631](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L631)
 
 Цена выставления стоп-лимитной заявки
 
@@ -148,7 +148,7 @@ decimal
 
 > `optional` **quantity**: `number`
 
-Defined in: [models/models.ts:637](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L637)
+Defined in: [models/models.ts:637](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L637)
 
 Количество (лоты)
 
@@ -168,7 +168,7 @@ int32
 
 > `optional` **side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:605](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L605)
+Defined in: [models/models.ts:605](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L605)
 
 Направление сделки:
   * `buy` - Купля
@@ -180,7 +180,7 @@ Defined in: [models/models.ts:605](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **stopEndUnixTime**: `number`
 
-Defined in: [models/models.ts:625](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L625)
+Defined in: [models/models.ts:625](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L625)
 
 Срок действия (UTC) в формате Unix Time seconds
 
@@ -200,7 +200,7 @@ int64
 
 > `optional` **timeInForce**: [`TimeInForce`](../enumerations/TimeInForce.md)
 
-Defined in: [models/models.ts:676](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L676)
+Defined in: [models/models.ts:676](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L676)
 
 Тип заявки:
   * `OneDay` - До конца дня
@@ -214,7 +214,7 @@ Defined in: [models/models.ts:676](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **triggerPrice**: `number`
 
-Defined in: [models/models.ts:619](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L619)
+Defined in: [models/models.ts:619](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L619)
 
 Цена срабатывания
 
@@ -234,7 +234,7 @@ decimal
 
 > `optional` **user**: `object`
 
-Defined in: [models/models.ts:656](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L656)
+Defined in: [models/models.ts:656](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L656)
 
 #### exchange?
 

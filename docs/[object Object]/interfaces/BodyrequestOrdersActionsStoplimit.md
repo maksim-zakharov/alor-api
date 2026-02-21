@@ -1,6 +1,6 @@
 # Interface: BodyrequestOrdersActionsStoplimit
 
-Defined in: [models/models.ts:1101](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1101)
+Defined in: [models/models.ts:1101](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1101)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1101](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **icebergFixed**: `number`
 
-Defined in: [models/models.ts:1170](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1170)
+Defined in: [models/models.ts:1170](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1170)
 
 Видимая постоянная часть айсберг-заявки в лотах
 
@@ -28,7 +28,7 @@ int32
 
 > `optional` **icebergVariance**: `number`
 
-Defined in: [models/models.ts:1177](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1177)
+Defined in: [models/models.ts:1177](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1177)
 
 Амплитуда отклонения (в % от icebergFixed) случайной надбавки к видимой части айсберг-заявки. Только срочный рынок
 
@@ -52,7 +52,7 @@ decimal
 
 > `optional` **Instrument**: `object`
 
-Defined in: [models/models.ts:1126](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1126)
+Defined in: [models/models.ts:1126](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1126)
 
 #### Exchange?
 
@@ -80,7 +80,7 @@ Defined in: [models/models.ts:1126](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **OrderEndUnixTime**: `number`
 
-Defined in: [models/models.ts:1156](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1156)
+Defined in: [models/models.ts:1156](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1156)
 
 Время (UTC) завершения сделки в формате Unix Time seconds
 
@@ -100,7 +100,7 @@ int64
 
 > `optional` **Price**: `number`
 
-Defined in: [models/models.ts:1125](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1125)
+Defined in: [models/models.ts:1125](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1125)
 
 Цена
 
@@ -120,7 +120,7 @@ decimal
 
 > `optional` **Quantity**: `number`
 
-Defined in: [models/models.ts:1107](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1107)
+Defined in: [models/models.ts:1107](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1107)
 
 Количество
 
@@ -140,7 +140,7 @@ int32
 
 > `optional` **Side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:1113](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1113)
+Defined in: [models/models.ts:1113](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1113)
 
 Направление сделки:
   * `buy` - Купля
@@ -152,7 +152,7 @@ Defined in: [models/models.ts:1113](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **timeInForce**: [`TimeInForce`](../enumerations/TimeInForce.md)
 
-Defined in: [models/models.ts:1164](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1164)
+Defined in: [models/models.ts:1164](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1164)
 
 Тип заявки:
   * `OneDay` - До конца дня
@@ -166,7 +166,7 @@ Defined in: [models/models.ts:1164](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **TriggerPrice**: `number`
 
-Defined in: [models/models.ts:1119](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1119)
+Defined in: [models/models.ts:1119](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1119)
 
 Стоп-цена
 
@@ -186,7 +186,7 @@ decimal
 
 > `optional` **User**: `object`
 
-Defined in: [models/models.ts:1139](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1139)
+Defined in: [models/models.ts:1139](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1139)
 
 #### Account?
 

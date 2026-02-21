@@ -1,6 +1,6 @@
 # Interface: DevSecuritiesSearchAllTradesParams
 
-Defined in: [models/models.ts:7176](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7176)
+Defined in: [models/models.ts:7176](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7176)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7176](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **descending**: `boolean`
 
-Defined in: [models/models.ts:7216](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7216)
+Defined in: [models/models.ts:7216](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7216)
 
 Флаг обратной сортировки выдачи
 
@@ -24,7 +24,7 @@ false
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7227](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7227)
+Defined in: [models/models.ts:7227](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7227)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:7227](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7181](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7181)
+Defined in: [models/models.ts:7181](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7181)
 
 Формат возвращаемого сервером JSON
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:7181](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **from**: `number`
 
-Defined in: [models/models.ts:7187](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7187)
+Defined in: [models/models.ts:7187](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7187)
 
 Начало отрезка времени (UTC) для фильтра результатов в формате Unix Time Seconds
 
@@ -72,7 +72,7 @@ int64
 
 > `optional` **fromId**: `number`
 
-Defined in: [models/models.ts:7199](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7199)
+Defined in: [models/models.ts:7199](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7199)
 
 Начальный номер сделки для фильтра результатов
 
@@ -92,7 +92,7 @@ int64
 
 > `optional` **includeVirtualTrades**: `boolean`
 
-Defined in: [models/models.ts:7221](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7221)
+Defined in: [models/models.ts:7221](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7221)
 
 Флаг загрузки виртуальных (индикативных) сделок, полученных из заявок на питерской бирже
 
@@ -108,7 +108,7 @@ false
 
 > **symbol**: `string`
 
-Defined in: [models/models.ts:7232](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7232)
+Defined in: [models/models.ts:7232](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7232)
 
 Тикер (Код финансового инструмента)
 
@@ -124,7 +124,7 @@ Defined in: [models/models.ts:7232](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **take**: `number`
 
-Defined in: [models/models.ts:7211](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7211)
+Defined in: [models/models.ts:7211](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7211)
 
 Количество загружаемых элементов
 
@@ -144,7 +144,7 @@ int32
 
 > `optional` **to**: `number`
 
-Defined in: [models/models.ts:7193](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7193)
+Defined in: [models/models.ts:7193](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7193)
 
 Конец отрезка времени (UTC) для фильтра результатов в формате Unix Time Seconds
 
@@ -164,7 +164,7 @@ int64
 
 > `optional` **toId**: `number`
 
-Defined in: [models/models.ts:7205](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7205)
+Defined in: [models/models.ts:7205](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7205)
 
 Конечный номер сделки для фильтра результатов
 

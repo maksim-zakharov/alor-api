@@ -1,6 +1,6 @@
 # Interface: RiskHeavy
 
-Defined in: [models/models.ts:4558](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4558)
+Defined in: [models/models.ts:4558](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4558)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4558](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **clientType**: [`ClientType`](../enumerations/ClientType.md)
 
-Defined in: [models/models.ts:4620](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4620)
+Defined in: [models/models.ts:4620](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4620)
 
 Тип клиента:
   * `StandardRisk` - Стандартный уровень риска (КСУР)
@@ -21,7 +21,7 @@ Defined in: [models/models.ts:4620](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **correctedMargin**: `number`
 
-Defined in: [models/models.ts:4599](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4599)
+Defined in: [models/models.ts:4599](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4599)
 
 Скорректированная маржа
 
@@ -41,7 +41,7 @@ decimal
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:4569](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4569)
+Defined in: [models/models.ts:4569](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4569)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -53,7 +53,7 @@ Defined in: [models/models.ts:4569](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **hasForbiddenPositions**: `boolean`
 
-Defined in: [models/models.ts:4625](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4625)
+Defined in: [models/models.ts:4625](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4625)
 
 Имеются ли запретные позиции
 
@@ -69,7 +69,7 @@ false
 
 > `optional` **hasNegativeQuantity**: `boolean`
 
-Defined in: [models/models.ts:4630](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4630)
+Defined in: [models/models.ts:4630](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4630)
 
 Имеются ли отрицательные количества
 
@@ -85,7 +85,7 @@ false
 
 > `optional` **initialMargin**: `number`
 
-Defined in: [models/models.ts:4587](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4587)
+Defined in: [models/models.ts:4587](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4587)
 
 Начальная маржа
 
@@ -105,7 +105,7 @@ decimal
 
 > `optional` **minimalMargin**: `number`
 
-Defined in: [models/models.ts:4593](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4593)
+Defined in: [models/models.ts:4593](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4593)
 
 Минимальная маржа
 
@@ -125,7 +125,7 @@ decimal
 
 > `optional` **portfolio**: `string`
 
-Defined in: [models/models.ts:4563](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4563)
+Defined in: [models/models.ts:4563](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4563)
 
 Идентификатор клиентского портфеля
 
@@ -141,7 +141,7 @@ Defined in: [models/models.ts:4563](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **portfolioEvaluation**: `number`
 
-Defined in: [models/models.ts:4575](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4575)
+Defined in: [models/models.ts:4575](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4575)
 
 Общая стоимость портфеля
 
@@ -161,7 +161,7 @@ decimal
 
 > `optional` **portfolioLiquidationValue**: `number`
 
-Defined in: [models/models.ts:4581](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4581)
+Defined in: [models/models.ts:4581](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4581)
 
 Стоимость ликвидного портфеля
 
@@ -181,7 +181,7 @@ decimal
 
 > `optional` **riskCategoryId**: `number`
 
-Defined in: [models/models.ts:4613](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4613)
+Defined in: [models/models.ts:4613](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4613)
 
 Категория риска.
 
@@ -191,7 +191,7 @@ Defined in: [models/models.ts:4613](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **riskCoverageRatioOne**: `number`
 
-Defined in: [models/models.ts:4605](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4605)
+Defined in: [models/models.ts:4605](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4605)
 
 НПР1
 
@@ -211,7 +211,7 @@ decimal
 
 > `optional` **riskCoverageRatioTwo**: `number`
 
-Defined in: [models/models.ts:4611](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L4611)
+Defined in: [models/models.ts:4611](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4611)
 
 НПР2
 

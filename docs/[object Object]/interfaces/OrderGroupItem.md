@@ -1,6 +1,6 @@
 # Interface: OrderGroupItem
 
-Defined in: [models/models.ts:1215](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1215)
+Defined in: [models/models.ts:1215](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1215)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1215](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **Exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:1222](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1222)
+Defined in: [models/models.ts:1222](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1222)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:1222](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **OrderId**: `string`
 
-Defined in: [models/models.ts:1227](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1227)
+Defined in: [models/models.ts:1227](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1227)
 
 Идентификатор заявки
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:1227](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **Portfolio**: `string`
 
-Defined in: [models/models.ts:1216](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1216)
+Defined in: [models/models.ts:1216](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1216)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:1216](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **Type**: [`OrderType`](../enumerations/OrderType.md)
 
-Defined in: [models/models.ts:1235](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L1235)
+Defined in: [models/models.ts:1235](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1235)
 
 Тип заявки:
  * Market - Рыночная заявка

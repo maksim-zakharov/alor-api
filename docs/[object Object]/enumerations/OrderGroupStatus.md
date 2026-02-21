@@ -1,6 +1,6 @@
 # Enumeration: OrderGroupStatus
 
-Defined in: [models/models.ts:215](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L215)
+Defined in: [models/models.ts:215](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L215)
 
 Статус группы заявок
  * Active - группа активна
@@ -13,7 +13,7 @@ Defined in: [models/models.ts:215](https://github.com/maksim-zakharov/alor-api/b
 
 > **Active**: `"Active"`
 
-Defined in: [models/models.ts:216](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L216)
+Defined in: [models/models.ts:216](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L216)
 
 ***
 
@@ -21,7 +21,7 @@ Defined in: [models/models.ts:216](https://github.com/maksim-zakharov/alor-api/b
 
 > **Canceled**: `"Canceled"`
 
-Defined in: [models/models.ts:218](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L218)
+Defined in: [models/models.ts:218](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L218)
 
 ***
 
@@ -29,4 +29,4 @@ Defined in: [models/models.ts:218](https://github.com/maksim-zakharov/alor-api/b
 
 > **Filled**: `"Filled"`
 
-Defined in: [models/models.ts:217](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L217)
+Defined in: [models/models.ts:217](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L217)

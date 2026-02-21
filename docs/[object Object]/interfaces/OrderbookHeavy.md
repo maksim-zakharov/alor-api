@@ -1,6 +1,6 @@
 # Interface: OrderbookHeavy
 
-Defined in: [models/models.ts:2222](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2222)
+Defined in: [models/models.ts:2222](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2222)
 
 Данные о запрашиваемом "биржевом стакане"
 
@@ -10,7 +10,7 @@ Defined in: [models/models.ts:2222](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **asks**: [`OrderbookAsk`](OrderbookAsk.md)[]
 
-Defined in: [models/models.ts:2226](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2226)
+Defined in: [models/models.ts:2226](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2226)
 
 Аски
 
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:2226](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **bids**: [`OrderbookBid`](OrderbookBid.md)[]
 
-Defined in: [models/models.ts:2224](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2224)
+Defined in: [models/models.ts:2224](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2224)
 
 Биды
 
@@ -30,7 +30,7 @@ Defined in: [models/models.ts:2224](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **existing**: `boolean`
 
-Defined in: [models/models.ts:2237](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2237)
+Defined in: [models/models.ts:2237](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2237)
 
 True - для данных из "снепшота", то есть из истории. False - для новых событий
 
@@ -46,7 +46,7 @@ false
 
 > `optional` **msTimestamp**: `number`
 
-Defined in: [models/models.ts:2232](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2232)
+Defined in: [models/models.ts:2232](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2232)
 
 Время(UTC) в формате Unix Time Milliseconds
 

@@ -1,6 +1,6 @@
 # Interface: CommandwsResAuthorize
 
-Defined in: [models/models.ts:5888](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5888)
+Defined in: [models/models.ts:5888](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5888)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5888](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **httpCode**: `number`
 
-Defined in: [models/models.ts:5899](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5899)
+Defined in: [models/models.ts:5899](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5899)
 
 HTTP-код ответа
 
@@ -28,7 +28,7 @@ int32
 
 > `optional` **message**: `string`
 
-Defined in: [models/models.ts:5904](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5904)
+Defined in: [models/models.ts:5904](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5904)
 
 Информация об инициализации токена.
 
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:5904](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **requestGuid**: `string`
 
-Defined in: [models/models.ts:5893](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5893)
+Defined in: [models/models.ts:5893](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5893)
 
 Уникальный идентификатор подписки. Значение во входящем сообщении равно значению поля \"guid\", переданному при отправке команды.
 

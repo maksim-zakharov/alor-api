@@ -1,6 +1,6 @@
 # Interface: DevGetAllPositionsParams
 
-Defined in: [models/models.ts:6825](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6825)
+Defined in: [models/models.ts:6825](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L6825)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:6825](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:6841](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6841)
+Defined in: [models/models.ts:6841](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L6841)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:6841](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:6830](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6830)
+Defined in: [models/models.ts:6830](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L6830)
 
 Формат возвращаемого сервером JSON
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:6830](https://github.com/maksim-zakharov/alor-api/
 
 > **portfolio**: `string`
 
-Defined in: [models/models.ts:6846](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6846)
+Defined in: [models/models.ts:6846](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L6846)
 
 Идентификатор клиентского портфеля
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:6846](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **withoutCurrency**: `boolean`
 
-Defined in: [models/models.ts:6835](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6835)
+Defined in: [models/models.ts:6835](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L6835)
 
 Исключить из ответа все денежные инструменты
 

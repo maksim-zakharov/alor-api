@@ -1,6 +1,6 @@
 # Enumeration: ComplexProductCategoryEnum
 
-Defined in: [types.ts:196](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L196)
+Defined in: [types.ts:196](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L196)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:196](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **DefaultQualInv**: `"0"`
 
-Defined in: [types.ts:200](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L200)
+Defined in: [types.ts:200](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L200)
 
 Инструменты, предназначенные для КИ
 
@@ -18,7 +18,7 @@ Defined in: [types.ts:200](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **ETF**: `"5"`
 
-Defined in: [types.ts:220](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L220)
+Defined in: [types.ts:220](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L220)
 
 ЗПИФ, не предназначенные для КИ
 
@@ -28,7 +28,7 @@ Defined in: [types.ts:220](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **FeaturesAndOptions**: `"2"`
 
-Defined in: [types.ts:208](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L208)
+Defined in: [types.ts:208](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L208)
 
 Производные финансовые инструменты
 
@@ -38,7 +38,7 @@ Defined in: [types.ts:208](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Margin**: `"1"`
 
-Defined in: [types.ts:204](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L204)
+Defined in: [types.ts:204](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L204)
 
 Необеспеченные сделки
 
@@ -48,7 +48,7 @@ Defined in: [types.ts:204](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **NonRatingRusBonds**: `"6"`
 
-Defined in: [types.ts:224](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L224)
+Defined in: [types.ts:224](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L224)
 
 Облигации российских эмитентов без рейтинга
 
@@ -58,7 +58,7 @@ Defined in: [types.ts:224](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Repo**: `"3"`
 
-Defined in: [types.ts:212](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L212)
+Defined in: [types.ts:212](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L212)
 
 Договоры репо, требующие тестирования
 
@@ -68,6 +68,6 @@ Defined in: [types.ts:212](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **StructureBonds**: `"4"`
 
-Defined in: [types.ts:216](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L216)
+Defined in: [types.ts:216](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L216)
 
 Структурные облигации, не предназначенные для КИ

@@ -1,6 +1,6 @@
 # Enumeration: TradingStatusEnum
 
-Defined in: [types.ts:153](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L153)
+Defined in: [types.ts:153](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L153)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:153](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **BigPackagesAuction106**: `103`
 
-Defined in: [types.ts:181](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L181)
+Defined in: [types.ts:181](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L181)
 
 Аукцион крупных пакетов
 
@@ -18,7 +18,7 @@ Defined in: [types.ts:181](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **ClosingAuction**: `102`
 
-Defined in: [types.ts:177](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L177)
+Defined in: [types.ts:177](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L177)
 
 Аукцион закрытия
 
@@ -28,7 +28,7 @@ Defined in: [types.ts:177](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **ClosingAuctionPriceTradingPeriod**: `120`
 
-Defined in: [types.ts:193](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L193)
+Defined in: [types.ts:193](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L193)
 
 Период торгов по цене аукциона закрытия
 
@@ -38,7 +38,7 @@ Defined in: [types.ts:193](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **ClosingPeriod**: `103`
 
-Defined in: [types.ts:165](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L165)
+Defined in: [types.ts:165](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L165)
 
 Период закрытия
 
@@ -48,7 +48,7 @@ Defined in: [types.ts:165](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **DiscreteAuction**: `107`
 
-Defined in: [types.ts:185](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L185)
+Defined in: [types.ts:185](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L185)
 
 Дискретный аукцион
 
@@ -58,7 +58,7 @@ Defined in: [types.ts:185](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **OpeningAuction**: `119`
 
-Defined in: [types.ts:189](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L189)
+Defined in: [types.ts:189](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L189)
 
 Аукцион открытия
 
@@ -68,7 +68,7 @@ Defined in: [types.ts:189](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **OpeningPeriod**: `118`
 
-Defined in: [types.ts:161](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L161)
+Defined in: [types.ts:161](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L161)
 
 Период открытия
 
@@ -78,7 +78,7 @@ Defined in: [types.ts:161](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **TradingBreak**: `2`
 
-Defined in: [types.ts:169](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L169)
+Defined in: [types.ts:169](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L169)
 
 Перерыв в торгах
 
@@ -88,7 +88,7 @@ Defined in: [types.ts:169](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **TradingClosed**: `18`
 
-Defined in: [types.ts:157](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L157)
+Defined in: [types.ts:157](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L157)
 
 Нет торгов / торги закрыты
 
@@ -98,6 +98,6 @@ Defined in: [types.ts:157](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **TradingOpened**: `17`
 
-Defined in: [types.ts:173](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L173)
+Defined in: [types.ts:173](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L173)
 
 Нормальный период торгов

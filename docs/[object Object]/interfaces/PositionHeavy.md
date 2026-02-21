@@ -1,6 +1,6 @@
 # Interface: PositionHeavy
 
-Defined in: [models/models.ts:2028](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2028)
+Defined in: [models/models.ts:2028](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2028)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:2028](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **avgPrice**: `number`
 
-Defined in: [models/models.ts:2062](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2062)
+Defined in: [models/models.ts:2062](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2062)
 
 Средняя цена
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **brokerSymbol**: `string`
 
-Defined in: [models/models.ts:2038](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2038)
+Defined in: [models/models.ts:2038](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2038)
 
 Пара Биржа:Тикер
 
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:2038](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **currentVolume**: `number`
 
-Defined in: [models/models.ts:2056](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2056)
+Defined in: [models/models.ts:2056](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2056)
 
 Объём, рассчитанный по текущей цене
 
@@ -64,7 +64,7 @@ decimal
 
 > `optional` **dailyUnrealisedPl**: `number`
 
-Defined in: [models/models.ts:2151](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2151)
+Defined in: [models/models.ts:2151](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2151)
 
 Нереализованная прибыль за день
 
@@ -84,7 +84,7 @@ decimal
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:2044](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2044)
+Defined in: [models/models.ts:2044](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2044)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -96,7 +96,7 @@ Defined in: [models/models.ts:2044](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **isCurrency**: `boolean`
 
-Defined in: [models/models.ts:2161](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2161)
+Defined in: [models/models.ts:2161](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2161)
 
 True для валютных остатков (денег), false - для торговых инструментов
 
@@ -112,7 +112,7 @@ false
 
 > `optional` **lotSize**: `number`
 
-Defined in: [models/models.ts:2080](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2080)
+Defined in: [models/models.ts:2080](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2080)
 
 Размер лота
 
@@ -132,7 +132,7 @@ decimal
 
 > `optional` **openQtyBatch**: `number`
 
-Defined in: [models/models.ts:2145](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2145)
+Defined in: [models/models.ts:2145](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2145)
 
 Агрегированное количество на момент открытия (начала торгов) (лоты)
 
@@ -152,7 +152,7 @@ decimal
 
 > `optional` **openUnits**: `number`
 
-Defined in: [models/models.ts:2074](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2074)
+Defined in: [models/models.ts:2074](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2074)
 
 Количество открытых позиций на момент открытия (начала торгов)
 
@@ -172,7 +172,7 @@ decimal
 
 > `optional` **qtyBatch**: `number`
 
-Defined in: [models/models.ts:2139](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2139)
+Defined in: [models/models.ts:2139](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2139)
 
 Агрегированное количество TFuture
 
@@ -192,7 +192,7 @@ decimal
 
 > `optional` **qtyT0**: `number`
 
-Defined in: [models/models.ts:2091](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2091)
+Defined in: [models/models.ts:2091](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2091)
 
 Агрегированное количество T0 (штуки)
 
@@ -212,7 +212,7 @@ decimal
 
 > `optional` **qtyT0Batch**: `number`
 
-Defined in: [models/models.ts:2115](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2115)
+Defined in: [models/models.ts:2115](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2115)
 
 Агрегированное количество T0 (лоты)
 
@@ -232,7 +232,7 @@ decimal
 
 > `optional` **qtyT1**: `number`
 
-Defined in: [models/models.ts:2097](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2097)
+Defined in: [models/models.ts:2097](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2097)
 
 Агрегированное количество T1 (штуки)
 
@@ -252,7 +252,7 @@ decimal
 
 > `optional` **qtyT1Batch**: `number`
 
-Defined in: [models/models.ts:2121](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2121)
+Defined in: [models/models.ts:2121](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2121)
 
 Агрегированное количество T1 (лоты)
 
@@ -272,7 +272,7 @@ decimal
 
 > `optional` **qtyT2**: `number`
 
-Defined in: [models/models.ts:2103](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2103)
+Defined in: [models/models.ts:2103](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2103)
 
 Агрегированное количество T2 (штуки)
 
@@ -292,7 +292,7 @@ decimal
 
 > `optional` **qtyT2Batch**: `number`
 
-Defined in: [models/models.ts:2127](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2127)
+Defined in: [models/models.ts:2127](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2127)
 
 Агрегированное количество T2 (лоты)
 
@@ -312,7 +312,7 @@ decimal
 
 > `optional` **qtyTFuture**: `number`
 
-Defined in: [models/models.ts:2109](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2109)
+Defined in: [models/models.ts:2109](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2109)
 
 Количество (штуки)
 
@@ -332,7 +332,7 @@ decimal
 
 > `optional` **qtyTFutureBatch**: `number`
 
-Defined in: [models/models.ts:2133](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2133)
+Defined in: [models/models.ts:2133](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2133)
 
 Агрегированное количество TFuture (лоты)
 
@@ -352,7 +352,7 @@ decimal
 
 > `optional` **qtyUnits**: `number`
 
-Defined in: [models/models.ts:2068](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2068)
+Defined in: [models/models.ts:2068](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2068)
 
 Количество (штуки)
 
@@ -372,7 +372,7 @@ decimal
 
 > `optional` **shortName**: `string`
 
-Defined in: [models/models.ts:2085](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2085)
+Defined in: [models/models.ts:2085](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2085)
 
 Короткое наименование
 
@@ -388,7 +388,7 @@ Defined in: [models/models.ts:2085](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **symbol**: `string`
 
-Defined in: [models/models.ts:2033](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2033)
+Defined in: [models/models.ts:2033](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2033)
 
 Тикер (Код финансового инструмента)
 
@@ -404,7 +404,7 @@ Defined in: [models/models.ts:2033](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **unrealisedPl**: `number`
 
-Defined in: [models/models.ts:2156](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2156)
+Defined in: [models/models.ts:2156](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2156)
 
 #### Format
 
@@ -422,7 +422,7 @@ decimal
 
 > `optional` **volume**: `number`
 
-Defined in: [models/models.ts:2050](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L2050)
+Defined in: [models/models.ts:2050](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2050)
 
 Объём, рассчитанный по средней цене
 

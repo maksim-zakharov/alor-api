@@ -1,6 +1,6 @@
 # Enumeration: SubscriptionAction
 
-Defined in: [types.ts:238](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L238)
+Defined in: [types.ts:238](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L238)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:238](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **AllTradesGetAndSubscribe**: `"AllTradesGetAndSubscribe"`
 
-Defined in: [types.ts:242](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L242)
+Defined in: [types.ts:242](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L242)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [types.ts:242](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Authorize**: `"authorize"`
 
-Defined in: [types.ts:252](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L252)
+Defined in: [types.ts:252](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L252)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [types.ts:252](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **BarsGetAndSubscribe**: `"BarsGetAndSubscribe"`
 
-Defined in: [types.ts:241](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L241)
+Defined in: [types.ts:241](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L241)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [types.ts:241](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **CreateLimit**: `"create:limit"`
 
-Defined in: [types.ts:254](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L254)
+Defined in: [types.ts:254](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L254)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [types.ts:254](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **CreateMarket**: `"create:market"`
 
-Defined in: [types.ts:253](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L253)
+Defined in: [types.ts:253](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L253)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [types.ts:253](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **CreateStop**: `"create:stop"`
 
-Defined in: [types.ts:255](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L255)
+Defined in: [types.ts:255](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L255)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [types.ts:255](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **CreateStopLimit**: `"create:stopLimit"`
 
-Defined in: [types.ts:256](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L256)
+Defined in: [types.ts:256](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L256)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [types.ts:256](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **DeleteLimit**: `"delete:limit"`
 
-Defined in: [types.ts:262](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L262)
+Defined in: [types.ts:262](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L262)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [types.ts:262](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **DeleteMarket**: `"delete:market"`
 
-Defined in: [types.ts:261](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L261)
+Defined in: [types.ts:261](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L261)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: [types.ts:261](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **DeleteStop**: `"delete:stop"`
 
-Defined in: [types.ts:263](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L263)
+Defined in: [types.ts:263](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L263)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: [types.ts:263](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **DeleteStopLimit**: `"delete:stopLimit"`
 
-Defined in: [types.ts:264](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L264)
+Defined in: [types.ts:264](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L264)
 
 ***
 
@@ -96,7 +96,7 @@ Defined in: [types.ts:264](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **InstrumentsGetAndSubscribeV2**: `"InstrumentsGetAndSubscribeV2"`
 
-Defined in: [types.ts:251](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L251)
+Defined in: [types.ts:251](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L251)
 
 ***
 
@@ -104,7 +104,7 @@ Defined in: [types.ts:251](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **OrderBookGetAndSubscribe**: `"OrderBookGetAndSubscribe"`
 
-Defined in: [types.ts:240](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L240)
+Defined in: [types.ts:240](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L240)
 
 ***
 
@@ -112,7 +112,7 @@ Defined in: [types.ts:240](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **OrdersGetAndSubscribeV2**: `"OrdersGetAndSubscribeV2"`
 
-Defined in: [types.ts:247](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L247)
+Defined in: [types.ts:247](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L247)
 
 ***
 
@@ -120,7 +120,7 @@ Defined in: [types.ts:247](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **PositionsGetAndSubscribeV2**: `"PositionsGetAndSubscribeV2"`
 
-Defined in: [types.ts:245](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L245)
+Defined in: [types.ts:245](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L245)
 
 ***
 
@@ -128,7 +128,7 @@ Defined in: [types.ts:245](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **QuotesSubscribe**: `"QuotesSubscribe"`
 
-Defined in: [types.ts:243](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L243)
+Defined in: [types.ts:243](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L243)
 
 ***
 
@@ -136,7 +136,7 @@ Defined in: [types.ts:243](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **RisksGetAndSubscribe**: `"RisksGetAndSubscribe"`
 
-Defined in: [types.ts:248](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L248)
+Defined in: [types.ts:248](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L248)
 
 ***
 
@@ -144,7 +144,7 @@ Defined in: [types.ts:248](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **SpectraRisksGetAndSubscribe**: `"SpectraRisksGetAndSubscribe"`
 
-Defined in: [types.ts:249](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L249)
+Defined in: [types.ts:249](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L249)
 
 ***
 
@@ -152,7 +152,7 @@ Defined in: [types.ts:249](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **StopOrdersGetAndSubscribeV2**: `"StopOrdersGetAndSubscribeV2"`
 
-Defined in: [types.ts:246](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L246)
+Defined in: [types.ts:246](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L246)
 
 ***
 
@@ -160,7 +160,7 @@ Defined in: [types.ts:246](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **SUBSCRIPTION\_ACTION\_UNSUBSCRIBE**: `"unsubscribe"`
 
-Defined in: [types.ts:239](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L239)
+Defined in: [types.ts:239](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L239)
 
 ***
 
@@ -168,7 +168,7 @@ Defined in: [types.ts:239](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **SummariesGetAndSubscribeV2**: `"SummariesGetAndSubscribeV2"`
 
-Defined in: [types.ts:244](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L244)
+Defined in: [types.ts:244](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L244)
 
 ***
 
@@ -176,7 +176,7 @@ Defined in: [types.ts:244](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **TradesGetAndSubscribeV2**: `"TradesGetAndSubscribeV2"`
 
-Defined in: [types.ts:250](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L250)
+Defined in: [types.ts:250](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L250)
 
 ***
 
@@ -184,7 +184,7 @@ Defined in: [types.ts:250](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **UpdateLimit**: `"update:limit"`
 
-Defined in: [types.ts:258](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L258)
+Defined in: [types.ts:258](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L258)
 
 ***
 
@@ -192,7 +192,7 @@ Defined in: [types.ts:258](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **UpdateMarket**: `"update:market"`
 
-Defined in: [types.ts:257](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L257)
+Defined in: [types.ts:257](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L257)
 
 ***
 
@@ -200,7 +200,7 @@ Defined in: [types.ts:257](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **UpdateStop**: `"update:stop"`
 
-Defined in: [types.ts:259](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L259)
+Defined in: [types.ts:259](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L259)
 
 ***
 
@@ -208,4 +208,4 @@ Defined in: [types.ts:259](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **UpdateStopLimit**: `"update:stopLimit"`
 
-Defined in: [types.ts:260](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L260)
+Defined in: [types.ts:260](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L260)

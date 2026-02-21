@@ -1,6 +1,6 @@
 # Enumeration: Timeframe
 
-Defined in: [types.ts:113](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L113)
+Defined in: [types.ts:113](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L113)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:113](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Day**: `"D"`
 
-Defined in: [types.ts:121](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L121)
+Defined in: [types.ts:121](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L121)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [types.ts:121](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Hour1**: `3600`
 
-Defined in: [types.ts:119](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L119)
+Defined in: [types.ts:119](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L119)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [types.ts:119](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Hour4**: `14400`
 
-Defined in: [types.ts:120](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L120)
+Defined in: [types.ts:120](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L120)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [types.ts:120](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Min1**: `60`
 
-Defined in: [types.ts:115](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L115)
+Defined in: [types.ts:115](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L115)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [types.ts:115](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Min15**: `900`
 
-Defined in: [types.ts:117](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L117)
+Defined in: [types.ts:117](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L117)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [types.ts:117](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Min30**: `1800`
 
-Defined in: [types.ts:118](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L118)
+Defined in: [types.ts:118](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L118)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [types.ts:118](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Min5**: `300`
 
-Defined in: [types.ts:116](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L116)
+Defined in: [types.ts:116](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L116)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [types.ts:116](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Month**: `"M"`
 
-Defined in: [types.ts:123](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L123)
+Defined in: [types.ts:123](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L123)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [types.ts:123](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Sec15**: `15`
 
-Defined in: [types.ts:114](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L114)
+Defined in: [types.ts:114](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L114)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: [types.ts:114](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Week**: `"W"`
 
-Defined in: [types.ts:122](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L122)
+Defined in: [types.ts:122](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L122)
 
 ***
 
@@ -88,4 +88,4 @@ Defined in: [types.ts:122](https://github.com/maksim-zakharov/alor-api/blob/b71f
 
 > **Year**: `"Y"`
 
-Defined in: [types.ts:124](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L124)
+Defined in: [types.ts:124](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L124)

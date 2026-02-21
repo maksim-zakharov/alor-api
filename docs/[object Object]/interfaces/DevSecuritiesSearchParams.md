@@ -1,6 +1,6 @@
 # Interface: DevSecuritiesSearchParams
 
-Defined in: [models/models.ts:7044](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7044)
+Defined in: [models/models.ts:7044](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7044)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7044](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **cficode**: `string`
 
-Defined in: [models/models.ts:7074](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7074)
+Defined in: [models/models.ts:7074](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7074)
 
 Код финансового инструмента по стандарту ISO 10962
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:7074](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7080](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7080)
+Defined in: [models/models.ts:7080](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7080)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:7080](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7085](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7085)
+Defined in: [models/models.ts:7085](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7085)
 
 Формат возвращаемого сервером JSON
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:7085](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **limit**: `number`
 
-Defined in: [models/models.ts:7055](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7055)
+Defined in: [models/models.ts:7055](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7055)
 
 Ограничение на количество выдаваемых результатов поиска
 
@@ -72,7 +72,7 @@ int32
 
 > `optional` **offset**: `number`
 
-Defined in: [models/models.ts:7061](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7061)
+Defined in: [models/models.ts:7061](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7061)
 
 Смещение начала выборки (для пагинации)
 
@@ -92,7 +92,7 @@ int32
 
 > **query**: `string`
 
-Defined in: [models/models.ts:7049](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7049)
+Defined in: [models/models.ts:7049](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7049)
 
 Тикер (Код финансового инструмента)
 
@@ -108,7 +108,7 @@ Defined in: [models/models.ts:7049](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **sector**: `"FORTS"` \| `"FOND"` \| `"CURR"`
 
-Defined in: [models/models.ts:7069](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L7069)
+Defined in: [models/models.ts:7069](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7069)
 
 Рынок:
   * `FORTS` - Срочный рынок

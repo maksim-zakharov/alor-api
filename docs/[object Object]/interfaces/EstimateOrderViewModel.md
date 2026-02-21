@@ -1,6 +1,6 @@
 # Interface: EstimateOrderViewModel
 
-Defined in: [models/models.ts:5862](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5862)
+Defined in: [models/models.ts:5862](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5862)
 
 Модель заявки для оценки стоимости и количества в лотах
 
@@ -10,7 +10,7 @@ Defined in: [models/models.ts:5862](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **board**: `string` \| `null`
 
-Defined in: [models/models.ts:5880](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5880)
+Defined in: [models/models.ts:5880](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5880)
 
 Режим торгов (борд)
 
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:5880](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **exchange**: `string`
 
-Defined in: [models/models.ts:5868](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5868)
+Defined in: [models/models.ts:5868](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5868)
 
 Биржа
 
@@ -30,7 +30,7 @@ Defined in: [models/models.ts:5868](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **includeLimitOrders**: `boolean`
 
-Defined in: [models/models.ts:5885](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5885)
+Defined in: [models/models.ts:5885](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5885)
 
 Учитывать ли лимитные заявки при расчете
 
@@ -46,7 +46,7 @@ false
 
 > `optional` **lotQuantity**: `number`
 
-Defined in: [models/models.ts:5878](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5878)
+Defined in: [models/models.ts:5878](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5878)
 
 Количество лотов
 
@@ -60,7 +60,7 @@ int64
 
 > `optional` **portfolio**: `string`
 
-Defined in: [models/models.ts:5864](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5864)
+Defined in: [models/models.ts:5864](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5864)
 
 Портфель клиента
 
@@ -70,7 +70,7 @@ Defined in: [models/models.ts:5864](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **price**: `number`
 
-Defined in: [models/models.ts:5873](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5873)
+Defined in: [models/models.ts:5873](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5873)
 
 Цена
 
@@ -84,6 +84,6 @@ decimal
 
 > `optional` **ticker**: `string`
 
-Defined in: [models/models.ts:5866](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5866)
+Defined in: [models/models.ts:5866](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5866)
 
 Инструмент

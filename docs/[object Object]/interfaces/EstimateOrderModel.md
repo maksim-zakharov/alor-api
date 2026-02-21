@@ -1,6 +1,6 @@
 # Interface: EstimateOrderModel
 
-Defined in: [models/models.ts:5818](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5818)
+Defined in: [models/models.ts:5818](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5818)
 
 Модель результата оценки стоимости и количества в лотах
 
@@ -10,7 +10,7 @@ Defined in: [models/models.ts:5818](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **commission**: `number`
 
-Defined in: [models/models.ts:5858](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5858)
+Defined in: [models/models.ts:5858](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5858)
 
 Комиссия
 
@@ -24,7 +24,7 @@ decimal
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:5828](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5828)
+Defined in: [models/models.ts:5828](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5828)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:5828](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **notMarginQuantityToBuy**: `number`
 
-Defined in: [models/models.ts:5848](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5848)
+Defined in: [models/models.ts:5848](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5848)
 
 Количество в лотах к покупке без плеча
 
@@ -50,7 +50,7 @@ decimal
 
 > `optional` **notMarginQuantityToSell**: `number`
 
-Defined in: [models/models.ts:5843](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5843)
+Defined in: [models/models.ts:5843](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5843)
 
 Количество в лотах к продаже без плеча
 
@@ -64,7 +64,7 @@ decimal
 
 > `optional` **orderEvaluation**: `number`
 
-Defined in: [models/models.ts:5853](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5853)
+Defined in: [models/models.ts:5853](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5853)
 
 Стоимость заявки
 
@@ -78,7 +78,7 @@ decimal
 
 > `optional` **portfolio**: `string` \| `null`
 
-Defined in: [models/models.ts:5820](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5820)
+Defined in: [models/models.ts:5820](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5820)
 
 Портфель клиента
 
@@ -88,7 +88,7 @@ Defined in: [models/models.ts:5820](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **quantityToBuy**: `number`
 
-Defined in: [models/models.ts:5838](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5838)
+Defined in: [models/models.ts:5838](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5838)
 
 Количество в лотах к покупке с плечом
 
@@ -102,7 +102,7 @@ decimal
 
 > `optional` **quantityToSell**: `number`
 
-Defined in: [models/models.ts:5833](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5833)
+Defined in: [models/models.ts:5833](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5833)
 
 Количество в лотах к продаже с плечом
 
@@ -116,6 +116,6 @@ decimal
 
 > `optional` **ticker**: `string` \| `null`
 
-Defined in: [models/models.ts:5822](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L5822)
+Defined in: [models/models.ts:5822](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5822)
 
 Инструмент

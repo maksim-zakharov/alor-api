@@ -1,6 +1,6 @@
 # Enumeration: AuthEndpoint
 
-Defined in: [types.ts:71](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L71)
+Defined in: [types.ts:71](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L71)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:71](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **DEV**: `"https://oauthdev.alor.ru"`
 
-Defined in: [types.ts:72](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L72)
+Defined in: [types.ts:72](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L72)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [types.ts:72](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **ITS\_DEV**: `"https://oauthdev.inviabroker.com"`
 
-Defined in: [types.ts:75](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L75)
+Defined in: [types.ts:75](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L75)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [types.ts:75](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **ITS\_PROD**: `"https://oauth.inviabroker.com"`
 
-Defined in: [types.ts:76](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L76)
+Defined in: [types.ts:76](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L76)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [types.ts:76](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **PROD**: `"https://oauth.alor.ru"`
 
-Defined in: [types.ts:73](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L73)
+Defined in: [types.ts:73](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L73)

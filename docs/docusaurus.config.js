@@ -82,6 +82,10 @@ const config = {
                 to: '/docs/intro',
               },
               {
+                label: 'Сервисы',
+                to: '/docs/services',
+              },
+              {
                 label: 'API Reference',
                 to: '/docs/api',
               },

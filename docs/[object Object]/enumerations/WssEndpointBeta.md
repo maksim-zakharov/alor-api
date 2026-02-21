@@ -1,6 +1,6 @@
 # Enumeration: WssEndpointBeta
 
-Defined in: [types.ts:87](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L87)
+Defined in: [types.ts:87](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L87)
 
 ## Enumeration Members
 
@@ -8,7 +8,7 @@ Defined in: [types.ts:87](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **DEV**: `"wss://apidev.alor.ru/cws"`
 
-Defined in: [types.ts:88](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L88)
+Defined in: [types.ts:88](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L88)
 
 ***
 
@@ -16,7 +16,7 @@ Defined in: [types.ts:88](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **ITS\_DEV**: `"wss://apidev.inviabroker.com/cws"`
 
-Defined in: [types.ts:91](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L91)
+Defined in: [types.ts:91](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L91)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [types.ts:91](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **ITS\_PROD**: `"wss://api.inviabroker.com/cws"`
 
-Defined in: [types.ts:92](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L92)
+Defined in: [types.ts:92](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L92)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [types.ts:92](https://github.com/maksim-zakharov/alor-api/blob/b71ff
 
 > **PROD**: `"wss://api.alor.ru/cws"`
 
-Defined in: [types.ts:89](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/types.ts#L89)
+Defined in: [types.ts:89](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/types.ts#L89)

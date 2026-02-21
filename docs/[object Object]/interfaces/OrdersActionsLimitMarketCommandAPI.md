@@ -1,6 +1,6 @@
 # Interface: OrdersActionsLimitMarketCommandAPI
 
-Defined in: [models/models.ts:221](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L221)
+Defined in: [models/models.ts:221](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L221)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:221](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **message**: `string`
 
-Defined in: [models/models.ts:226](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L226)
+Defined in: [models/models.ts:226](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L226)
 
 Вид ответа на успешно выполненный запрос.
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:226](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **orderNumber**: `string`
 
-Defined in: [models/models.ts:231](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L231)
+Defined in: [models/models.ts:231](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L231)
 
 Идентификатор заявки
 
