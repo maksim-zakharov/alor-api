@@ -1,6 +1,6 @@
 # Interface: Orderbook
 
-Defined in: [models/models.ts:2171](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2171)
+Defined in: [models/models.ts:2171](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2171)
 
 Данные о запрашиваемом "биржевом стакане"
 
@@ -10,7 +10,7 @@ Defined in: [models/models.ts:2171](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **asks**: [`OrderbookAsk`](OrderbookAsk.md)[]
 
-Defined in: [models/models.ts:2181](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2181)
+Defined in: [models/models.ts:2181](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2181)
 
 Аски
 
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:2181](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **bids**: [`OrderbookBid`](OrderbookBid.md)[]
 
-Defined in: [models/models.ts:2179](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2179)
+Defined in: [models/models.ts:2179](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2179)
 
 Биды
 
@@ -30,7 +30,7 @@ Defined in: [models/models.ts:2179](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **existing**: `boolean`
 
-Defined in: [models/models.ts:2199](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2199)
+Defined in: [models/models.ts:2199](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2199)
 
 True - для данных из "снепшота", то есть из истории. False - для новых событий
 
@@ -46,7 +46,7 @@ false
 
 > `optional` **ms\_timestamp**: `number`
 
-Defined in: [models/models.ts:2194](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2194)
+Defined in: [models/models.ts:2194](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2194)
 
 Время(UTC) в формате Unix Time Milliseconds
 
@@ -66,7 +66,7 @@ int64
 
 > `optional` **snapshot**: `boolean`
 
-Defined in: [models/models.ts:2177](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2177)
+Defined in: [models/models.ts:2177](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2177)
 
 Deprecated. Устаревшее поле, будет удалено в будущих обновлениях.
 
@@ -84,7 +84,7 @@ true
 
 > `optional` **timestamp**: `number`
 
-Defined in: [models/models.ts:2188](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2188)
+Defined in: [models/models.ts:2188](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2188)
 
 Deprecated. Устаревшее поле, будет удалено в будущих обновлениях. Вместо этого поля используйте поле "ms_timestamp".
 

@@ -1,6 +1,6 @@
 # Interface: BodyrequestCreateOrderGroup
 
-Defined in: [models/models.ts:1180](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1180)
+Defined in: [models/models.ts:1180](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1180)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1180](https://github.com/maksim-zakharov/alor-api/
 
 > **ExecutionPolicy**: [`ExecutionPolicy`](../enumerations/ExecutionPolicy.md)
 
-Defined in: [models/models.ts:1189](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1189)
+Defined in: [models/models.ts:1189](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1189)
 
 Тип группы заявок:
  * OnExecuteOrCancel - Группа отменяется при отмене/выполнении/редактировании любой заявки
@@ -21,6 +21,6 @@ Defined in: [models/models.ts:1189](https://github.com/maksim-zakharov/alor-api/
 
 > **Orders**: [`OrderGroupItem`](OrderGroupItem.md)[]
 
-Defined in: [models/models.ts:1182](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1182)
+Defined in: [models/models.ts:1182](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1182)
 
 Заявки, из которых будет состоять группа

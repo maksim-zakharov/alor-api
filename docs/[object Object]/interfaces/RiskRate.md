@@ -1,6 +1,6 @@
 # Interface: RiskRate
 
-Defined in: [models/models.ts:4798](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4798)
+Defined in: [models/models.ts:4798](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4798)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4798](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **assetType**: `string`
 
-Defined in: [models/models.ts:4828](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4828)
+Defined in: [models/models.ts:4828](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4828)
 
 Тип актива
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:4828](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **createdAt**: `string`
 
-Defined in: [models/models.ts:4892](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4892)
+Defined in: [models/models.ts:4892](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4892)
 
 Время добавления ставки риска
 
@@ -40,7 +40,7 @@ Defined in: [models/models.ts:4892](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **currencyCode**: `string`
 
-Defined in: [models/models.ts:4853](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4853)
+Defined in: [models/models.ts:4853](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4853)
 
 Код валюты расчетов
 
@@ -56,7 +56,7 @@ Defined in: [models/models.ts:4853](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:4815](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4815)
+Defined in: [models/models.ts:4815](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4815)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -68,7 +68,7 @@ Defined in: [models/models.ts:4815](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **id**: `number`
 
-Defined in: [models/models.ts:4804](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4804)
+Defined in: [models/models.ts:4804](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4804)
 
 Id записи
 
@@ -88,7 +88,7 @@ int64
 
 > `optional` **instrument**: `string`
 
-Defined in: [models/models.ts:4809](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4809)
+Defined in: [models/models.ts:4809](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4809)
 
 Инструмент
 
@@ -104,7 +104,7 @@ Defined in: [models/models.ts:4809](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **isDirect**: `boolean`
 
-Defined in: [models/models.ts:4843](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4843)
+Defined in: [models/models.ts:4843](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4843)
 
 Является ли зависимость инструмента к базовому активу прямой или обратной.
 
@@ -120,7 +120,7 @@ false
 
 > `optional` **isin**: `string`
 
-Defined in: [models/models.ts:4848](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4848)
+Defined in: [models/models.ts:4848](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4848)
 
 ISIN инструмента. Если есть.
 
@@ -136,7 +136,7 @@ ISIN инструмента. Если есть.
 
 > `optional` **isMarginal**: `boolean`
 
-Defined in: [models/models.ts:4881](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4881)
+Defined in: [models/models.ts:4881](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4881)
 
 Доступен ли данный инструмент в маржу. Т.е. есть ли он в списке маржинальных инструментов брокера.
 
@@ -152,7 +152,7 @@ true
 
 > `optional` **isShortSellPossible**: `boolean`
 
-Defined in: [models/models.ts:4876](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4876)
+Defined in: [models/models.ts:4876](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4876)
 
 Разрешен ли шорт по бумаге. True если да.
 
@@ -168,7 +168,7 @@ true
 
 > `optional` **rateDown**: `number`
 
-Defined in: [models/models.ts:4865](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4865)
+Defined in: [models/models.ts:4865](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4865)
 
 Ставка риска понижения цены. Применяется для лонгов.
 
@@ -188,7 +188,7 @@ decimal
 
 > `optional` **rateSymmetric**: `number`
 
-Defined in: [models/models.ts:4871](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4871)
+Defined in: [models/models.ts:4871](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4871)
 
 Симметричная ставка риска. Приведена для справки, не используется
 
@@ -208,7 +208,7 @@ decimal
 
 > `optional` **rateUp**: `number`
 
-Defined in: [models/models.ts:4859](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4859)
+Defined in: [models/models.ts:4859](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4859)
 
 Ставка риска повышения цены. Применяется для шортов.
 
@@ -228,7 +228,7 @@ decimal
 
 > `optional` **riskCategoryId**: `number`
 
-Defined in: [models/models.ts:4817](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4817)
+Defined in: [models/models.ts:4817](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4817)
 
 Категория риска.
 
@@ -238,7 +238,7 @@ Defined in: [models/models.ts:4817](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **securityRiskCategoryId**: `number` \| `null`
 
-Defined in: [models/models.ts:4823](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4823)
+Defined in: [models/models.ts:4823](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4823)
 
 Id категории бумаги для категоризации.
 
@@ -258,7 +258,7 @@ decimal
 
 > `optional` **setName**: `string` \| `null`
 
-Defined in: [models/models.ts:4838](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4838)
+Defined in: [models/models.ts:4838](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4838)
 
 Чаще всего будет null. Поле показывает к множеству инструменту принадлежит данный инструмент.
 
@@ -274,7 +274,7 @@ Defined in: [models/models.ts:4838](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **setRate**: `number`
 
-Defined in: [models/models.ts:4887](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4887)
+Defined in: [models/models.ts:4887](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4887)
 
 Ставка риска множества
 
@@ -294,7 +294,7 @@ decimal
 
 > `optional` **underlyingAsset**: `string` \| `null`
 
-Defined in: [models/models.ts:4833](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4833)
+Defined in: [models/models.ts:4833](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4833)
 
 Чаще всего будет null. Поле показывает к какому базовому инструменту принадлежит данный инструмент.
 
@@ -310,7 +310,7 @@ Defined in: [models/models.ts:4833](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **updatedAt**: `string`
 
-Defined in: [models/models.ts:4898](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4898)
+Defined in: [models/models.ts:4898](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4898)
 
 Время последнего обновления ставки риска
 

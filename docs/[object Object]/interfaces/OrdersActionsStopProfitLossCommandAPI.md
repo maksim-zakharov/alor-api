@@ -1,6 +1,6 @@
 # Interface: OrdersActionsStopProfitLossCommandAPI
 
-Defined in: [models/models.ts:251](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L251)
+Defined in: [models/models.ts:251](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L251)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:251](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **message**: `string`
 
-Defined in: [models/models.ts:256](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L256)
+Defined in: [models/models.ts:256](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L256)
 
 Вид ответа на успешно выполненный запрос.
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:256](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **orderNumber**: `number`
 
-Defined in: [models/models.ts:262](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L262)
+Defined in: [models/models.ts:262](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L262)
 
 Идентификатор заявки
 

@@ -1,6 +1,6 @@
 # Interface: WsReqBaseObject
 
-Defined in: [models/models.ts:5596](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5596)
+Defined in: [models/models.ts:5596](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5596)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5596](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **exchange**: [`Exchange`](../enumerations/Exchange.md)
 
-Defined in: [models/models.ts:5602](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5602)
+Defined in: [models/models.ts:5602](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5602)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:5602](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: [`Format`](../enumerations/Format.md)
 
-Defined in: [models/models.ts:5603](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5603)
+Defined in: [models/models.ts:5603](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5603)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [models/models.ts:5603](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **frequency**: `number`
 
-Defined in: [models/models.ts:5609](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5609)
+Defined in: [models/models.ts:5609](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5609)
 
 Максимальная частота отдачи данных сервером в миллисекундах.
 
@@ -48,7 +48,7 @@ int32
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5614](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5614)
+Defined in: [models/models.ts:5614](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5614)
 
 Уникальный идентификатор сообщений создаваемой подписки. Все входящие сообщения, соответствующие этой подписке, будут иметь такое значение поля guid.
 
@@ -64,7 +64,7 @@ Defined in: [models/models.ts:5614](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **token**: `string`
 
-Defined in: [models/models.ts:5619](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5619)
+Defined in: [models/models.ts:5619](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5619)
 
 JWT токен для авторизации
 

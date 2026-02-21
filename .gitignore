@@ -10,3 +10,4 @@ docs/.docusaurus
 docs/.cache
 # TypeDoc output (generated on build)
 docs/docs/api
+docs/[object Object]

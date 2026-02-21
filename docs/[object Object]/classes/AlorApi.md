@@ -1,6 +1,6 @@
 # Class: AlorApi
 
-Defined in: [api.ts:38](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L38)
+Defined in: [api.ts:38](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L38)
 
 ## Constructors
 
@@ -8,7 +8,7 @@ Defined in: [api.ts:38](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **new AlorApi**(`options`): `AlorApi`
 
-Defined in: [api.ts:50](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L50)
+Defined in: [api.ts:50](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L50)
 
 #### Parameters
 
@@ -26,7 +26,7 @@ Defined in: [api.ts:50](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **accessToken**: `string`
 
-Defined in: [api.ts:40](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L40)
+Defined in: [api.ts:40](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L40)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [api.ts:40](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > `readonly` **http**: `Axios`
 
-Defined in: [api.ts:39](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L39)
+Defined in: [api.ts:39](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L39)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [api.ts:39](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > `readonly` **options**: [`AlorOpenApiOptions`](../interfaces/AlorOpenApiOptions.md)
 
-Defined in: [api.ts:42](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L42)
+Defined in: [api.ts:42](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L42)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [api.ts:42](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > `readonly` **refresh**: `any`
 
-Defined in: [api.ts:44](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L44)
+Defined in: [api.ts:44](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L44)
 
 ## Accessors
 
@@ -60,7 +60,7 @@ Defined in: [api.ts:44](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **get** **auth**(): `AuthService`
 
-Defined in: [api.ts:81](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L81)
+Defined in: [api.ts:81](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L81)
 
 ##### Returns
 
@@ -74,7 +74,7 @@ Defined in: [api.ts:81](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **get** **clientInfo**(): `ClientInfoService`
 
-Defined in: [api.ts:97](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L97)
+Defined in: [api.ts:97](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L97)
 
 ##### Returns
 
@@ -88,7 +88,7 @@ Defined in: [api.ts:97](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **get** **instruments**(): `InstrumentsService`
 
-Defined in: [api.ts:101](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L101)
+Defined in: [api.ts:101](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L101)
 
 ##### Returns
 
@@ -102,7 +102,7 @@ Defined in: [api.ts:101](https://github.com/maksim-zakharov/alor-api/blob/2366d4
 
 > **get** **orderGroups**(): `OrderGroupsService`
 
-Defined in: [api.ts:85](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L85)
+Defined in: [api.ts:85](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L85)
 
 ##### Returns
 
@@ -116,7 +116,7 @@ Defined in: [api.ts:85](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **get** **orders**(): `OrdersService`
 
-Defined in: [api.ts:89](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L89)
+Defined in: [api.ts:89](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L89)
 
 ##### Returns
 
@@ -130,7 +130,7 @@ Defined in: [api.ts:89](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **get** **ordersWss**(): `WSSOrdersService`
 
-Defined in: [api.ts:120](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L120)
+Defined in: [api.ts:120](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L120)
 
 ##### Returns
 
@@ -144,7 +144,7 @@ Defined in: [api.ts:120](https://github.com/maksim-zakharov/alor-api/blob/2366d4
 
 > **get** **stoporders**(): `StopOrdersService`
 
-Defined in: [api.ts:93](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L93)
+Defined in: [api.ts:93](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L93)
 
 ##### Returns
 
@@ -158,7 +158,7 @@ Defined in: [api.ts:93](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **get** **subscriptions**(): `SubscriptionsService`
 
-Defined in: [api.ts:105](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L105)
+Defined in: [api.ts:105](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L105)
 
 ##### Returns
 
@@ -170,7 +170,7 @@ Defined in: [api.ts:105](https://github.com/maksim-zakharov/alor-api/blob/2366d4
 
 > **onAuthCallback**(...`args`): `void`
 
-Defined in: [api.ts:79](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L79)
+Defined in: [api.ts:79](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L79)
 
 #### Parameters
 
@@ -188,7 +188,7 @@ Defined in: [api.ts:79](https://github.com/maksim-zakharov/alor-api/blob/2366d4a
 
 > **refreshToken**(): `Promise`\<\{ `AccessToken`: `string`; \}\>
 
-Defined in: [api.ts:142](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L142)
+Defined in: [api.ts:142](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L142)
 
 #### Returns
 
@@ -200,7 +200,7 @@ Defined in: [api.ts:142](https://github.com/maksim-zakharov/alor-api/blob/2366d4
 
 > **setMaxListeners**(`__namedParameters`): `void`
 
-Defined in: [api.ts:109](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/api.ts#L109)
+Defined in: [api.ts:109](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/api.ts#L109)
 
 #### Parameters
 

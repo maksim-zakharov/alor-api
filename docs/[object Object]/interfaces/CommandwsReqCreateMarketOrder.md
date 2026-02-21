@@ -1,6 +1,6 @@
 # Interface: CommandwsReqCreateMarketOrder
 
-Defined in: [models/models.ts:5959](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5959)
+Defined in: [models/models.ts:5959](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5959)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5959](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **board**: `string` \| `null`
 
-Defined in: [models/models.ts:5998](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5998)
+Defined in: [models/models.ts:5998](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5998)
 
 Режим торгов (борд)
 
@@ -18,7 +18,7 @@ Defined in: [models/models.ts:5998](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **checkDuplicates**: `boolean`
 
-Defined in: [models/models.ts:6010](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L6010)
+Defined in: [models/models.ts:6010](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L6010)
 
 Флаг, отвечающий за проверку уникальности команд. По умолчанию включен. При отключении ускоряет прием заявки.
 
@@ -34,7 +34,7 @@ true
 
 > `optional` **comment**: `string`
 
-Defined in: [models/models.ts:5996](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5996)
+Defined in: [models/models.ts:5996](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5996)
 
 Пользовательский комментарий к заявке
 
@@ -50,7 +50,7 @@ Defined in: [models/models.ts:5996](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5966](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5966)
+Defined in: [models/models.ts:5966](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5966)
 
 Клиентский идентификатор команды. В качестве идентификатора требуется уникальная случайная строка. Если уже приходил запрос с таким идентификатором, то команда не будет исполнена повторно.
 
@@ -66,7 +66,7 @@ Defined in: [models/models.ts:5966](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **instrument**: `object`
 
-Defined in: [models/models.ts:5979](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5979)
+Defined in: [models/models.ts:5979](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5979)
 
 #### exchange?
 
@@ -94,7 +94,7 @@ Defined in: [models/models.ts:5979](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **opcode**: `"create:market"`
 
-Defined in: [models/models.ts:5961](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5961)
+Defined in: [models/models.ts:5961](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5961)
 
 Код операции
 
@@ -104,7 +104,7 @@ Defined in: [models/models.ts:5961](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **quantity**: `number`
 
-Defined in: [models/models.ts:5978](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5978)
+Defined in: [models/models.ts:5978](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5978)
 
 Количество (лоты)
 
@@ -124,7 +124,7 @@ int32
 
 > `optional` **side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:5972](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5972)
+Defined in: [models/models.ts:5972](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5972)
 
 Направление сделки:
   * `buy` - Купля
@@ -136,7 +136,7 @@ Defined in: [models/models.ts:5972](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **user**: `object`
 
-Defined in: [models/models.ts:5999](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5999)
+Defined in: [models/models.ts:5999](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5999)
 
 #### portfolio?
 

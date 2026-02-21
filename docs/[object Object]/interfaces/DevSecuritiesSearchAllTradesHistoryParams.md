@@ -1,6 +1,6 @@
 # Interface: DevSecuritiesSearchAllTradesHistoryParams
 
-Defined in: [models/models.ts:7235](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7235)
+Defined in: [models/models.ts:7235](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7235)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:7235](https://github.com/maksim-zakharov/alor-api/
 
 > **exchange**: `"MOEX"` \| `"SPBX"`
 
-Defined in: [models/models.ts:7272](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7272)
+Defined in: [models/models.ts:7272](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7272)
 
 Биржа:
   * `MOEX` - Московская биржа
@@ -20,7 +20,7 @@ Defined in: [models/models.ts:7272](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
 
-Defined in: [models/models.ts:7266](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7266)
+Defined in: [models/models.ts:7266](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7266)
 
 Формат возвращаемого сервером JSON
 
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:7266](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **from**: `number`
 
-Defined in: [models/models.ts:7241](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7241)
+Defined in: [models/models.ts:7241](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7241)
 
 Начало отрезка времени (UTC) для фильтра результатов в формате Unix Time Seconds
 
@@ -56,7 +56,7 @@ int64
 
 > **limit**: `number`
 
-Defined in: [models/models.ts:7255](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7255)
+Defined in: [models/models.ts:7255](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7255)
 
 Ограничение на количество выдаваемых результатов поиска (1-50000)
 
@@ -84,7 +84,7 @@ int32
 
 > `optional` **offset**: `number`
 
-Defined in: [models/models.ts:7261](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7261)
+Defined in: [models/models.ts:7261](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7261)
 
 Смещение начала выборки (для пагинации)
 
@@ -104,7 +104,7 @@ int32
 
 > **symbol**: `string`
 
-Defined in: [models/models.ts:7277](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7277)
+Defined in: [models/models.ts:7277](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7277)
 
 Тикер (Код финансового инструмента)
 
@@ -120,7 +120,7 @@ Defined in: [models/models.ts:7277](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **to**: `number`
 
-Defined in: [models/models.ts:7247](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L7247)
+Defined in: [models/models.ts:7247](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L7247)
 
 Конец отрезка времени (UTC) для фильтра результатов в формате Unix Time Seconds
 

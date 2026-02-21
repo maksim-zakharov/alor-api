@@ -1,6 +1,6 @@
 # Interface: AlltradeHeavy
 
-Defined in: [models/models.ts:4743](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4743)
+Defined in: [models/models.ts:4743](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4743)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:4743](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **existing**: `boolean`
 
-Defined in: [models/models.ts:4795](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4795)
+Defined in: [models/models.ts:4795](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4795)
 
 True - для данных из "снепшота", то есть из истории. False - для новых событий
 
@@ -24,7 +24,7 @@ false
 
 > `optional` **id**: `number`
 
-Defined in: [models/models.ts:4749](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4749)
+Defined in: [models/models.ts:4749](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4749)
 
 Уникальный идентификатор.
 
@@ -44,7 +44,7 @@ int64
 
 > `optional` **oi**: `number`
 
-Defined in: [models/models.ts:4790](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4790)
+Defined in: [models/models.ts:4790](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4790)
 
 Открытый интерес (open interest). Если не поддерживается инстурментом - значение 0.
 
@@ -64,7 +64,7 @@ int32
 
 > `optional` **price**: `number`
 
-Defined in: [models/models.ts:4766](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4766)
+Defined in: [models/models.ts:4766](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4766)
 
 Цена
 
@@ -84,7 +84,7 @@ decimal
 
 > `optional` **qty**: `number`
 
-Defined in: [models/models.ts:4760](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4760)
+Defined in: [models/models.ts:4760](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4760)
 
 Количество
 
@@ -104,7 +104,7 @@ int32
 
 > `optional` **side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:4784](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4784)
+Defined in: [models/models.ts:4784](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4784)
 
 Направление сделки:
   * `buy` - Купля
@@ -116,7 +116,7 @@ Defined in: [models/models.ts:4784](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **symbol**: `string`
 
-Defined in: [models/models.ts:4754](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4754)
+Defined in: [models/models.ts:4754](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4754)
 
 Тикер (Код финансового инструмента). "[N/A]" используется, если symbol не определен.
 
@@ -132,7 +132,7 @@ Defined in: [models/models.ts:4754](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **time**: `string`
 
-Defined in: [models/models.ts:4772](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4772)
+Defined in: [models/models.ts:4772](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4772)
 
 Дата и время (UTC) закрытия заявки
 
@@ -152,7 +152,7 @@ date-time
 
 > `optional` **timestamp**: `number`
 
-Defined in: [models/models.ts:4778](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L4778)
+Defined in: [models/models.ts:4778](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L4778)
 
 Время (UTC) в формате Unix Time Milliseconds
 

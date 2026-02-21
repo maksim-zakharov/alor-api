@@ -1,6 +1,6 @@
 # Interface: BodyrequestOrdersActionsMarket
 
-Defined in: [models/models.ts:996](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L996)
+Defined in: [models/models.ts:996](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L996)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:996](https://github.com/maksim-zakharov/alor-api/b
 
 > `optional` **comment**: `string`
 
-Defined in: [models/models.ts:1026](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1026)
+Defined in: [models/models.ts:1026](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1026)
 
 Пользовательский комментарий к заявке
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:1026](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **Instrument**: `object`
 
-Defined in: [models/models.ts:1009](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1009)
+Defined in: [models/models.ts:1009](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1009)
 
 #### Exchange?
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:1009](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **OrderEndUnixTime**: `number`
 
-Defined in: [models/models.ts:1044](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1044)
+Defined in: [models/models.ts:1044](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1044)
 
 Время (UTC) завершения сделки в формате Unix Time seconds
 
@@ -72,7 +72,7 @@ int64
 
 > `optional` **Quantity**: `number`
 
-Defined in: [models/models.ts:1002](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1002)
+Defined in: [models/models.ts:1002](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1002)
 
 Количество
 
@@ -92,7 +92,7 @@ int32
 
 > `optional` **Side**: [`Side`](../enumerations/Side.md)
 
-Defined in: [models/models.ts:1008](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1008)
+Defined in: [models/models.ts:1008](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1008)
 
 Направление сделки:
   * `buy` - Купля
@@ -104,7 +104,7 @@ Defined in: [models/models.ts:1008](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **User**: `object`
 
-Defined in: [models/models.ts:1027](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1027)
+Defined in: [models/models.ts:1027](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1027)
 
 #### Account?
 

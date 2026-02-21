@@ -1,6 +1,6 @@
 # Interface: OrderbookAskSlim
 
-Defined in: [models/models.ts:2285](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2285)
+Defined in: [models/models.ts:2285](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2285)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:2285](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **p**: `number`
 
-Defined in: [models/models.ts:2291](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2291)
+Defined in: [models/models.ts:2291](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2291)
 
 Цена
 
@@ -28,7 +28,7 @@ decimal
 
 > `optional` **v**: `number`
 
-Defined in: [models/models.ts:2297](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L2297)
+Defined in: [models/models.ts:2297](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L2297)
 
 Объём
 

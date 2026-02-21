@@ -1,6 +1,6 @@
 # Interface: WsReqUnsubscribe
 
-Defined in: [models/models.ts:5802](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5802)
+Defined in: [models/models.ts:5802](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5802)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:5802](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **guid**: `string`
 
-Defined in: [models/models.ts:5814](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5814)
+Defined in: [models/models.ts:5814](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5814)
 
 Уникальный идентификатор подписки, от которой отписываемся.
 
@@ -24,7 +24,7 @@ Defined in: [models/models.ts:5814](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **opcode**: `"unsubscribe"`
 
-Defined in: [models/models.ts:5804](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5804)
+Defined in: [models/models.ts:5804](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5804)
 
 Код операции
 
@@ -34,7 +34,7 @@ Defined in: [models/models.ts:5804](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **token**: `string`
 
-Defined in: [models/models.ts:5809](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L5809)
+Defined in: [models/models.ts:5809](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L5809)
 
 JWT токен для авторизации
 

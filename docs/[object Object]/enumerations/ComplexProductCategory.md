@@ -1,6 +1,6 @@
 # Enumeration: ComplexProductCategory
 
-Defined in: [models/models.ts:161](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L161)
+Defined in: [models/models.ts:161](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L161)
 
 Требуемая категория для осуществления торговли инструментом:
   * `Unknown` - Неизвестная категория
@@ -36,7 +36,7 @@ Defined in: [models/models.ts:161](https://github.com/maksim-zakharov/alor-api/b
 
 > **Unknown**: `"Unknown"`
 
-Defined in: [models/models.ts:162](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L162)
+Defined in: [models/models.ts:162](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L162)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [models/models.ts:162](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value0**: `"0"`
 
-Defined in: [models/models.ts:163](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L163)
+Defined in: [models/models.ts:163](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L163)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [models/models.ts:163](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value1**: `"1"`
 
-Defined in: [models/models.ts:164](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L164)
+Defined in: [models/models.ts:164](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L164)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [models/models.ts:164](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value10**: `"10"`
 
-Defined in: [models/models.ts:173](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L173)
+Defined in: [models/models.ts:173](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L173)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [models/models.ts:173](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value11**: `"11"`
 
-Defined in: [models/models.ts:174](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L174)
+Defined in: [models/models.ts:174](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L174)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [models/models.ts:174](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value12**: `"12"`
 
-Defined in: [models/models.ts:175](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L175)
+Defined in: [models/models.ts:175](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L175)
 
 ***
 
@@ -84,7 +84,7 @@ Defined in: [models/models.ts:175](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value13**: `"13"`
 
-Defined in: [models/models.ts:176](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L176)
+Defined in: [models/models.ts:176](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L176)
 
 ***
 
@@ -92,7 +92,7 @@ Defined in: [models/models.ts:176](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value14**: `"14"`
 
-Defined in: [models/models.ts:177](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L177)
+Defined in: [models/models.ts:177](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L177)
 
 ***
 
@@ -100,7 +100,7 @@ Defined in: [models/models.ts:177](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value15**: `"15"`
 
-Defined in: [models/models.ts:178](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L178)
+Defined in: [models/models.ts:178](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L178)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: [models/models.ts:178](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value16**: `"16"`
 
-Defined in: [models/models.ts:179](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L179)
+Defined in: [models/models.ts:179](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L179)
 
 ***
 
@@ -116,7 +116,7 @@ Defined in: [models/models.ts:179](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value17**: `"17"`
 
-Defined in: [models/models.ts:180](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L180)
+Defined in: [models/models.ts:180](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L180)
 
 ***
 
@@ -124,7 +124,7 @@ Defined in: [models/models.ts:180](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value2**: `"2"`
 
-Defined in: [models/models.ts:165](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L165)
+Defined in: [models/models.ts:165](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L165)
 
 ***
 
@@ -132,7 +132,7 @@ Defined in: [models/models.ts:165](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value3**: `"3"`
 
-Defined in: [models/models.ts:166](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L166)
+Defined in: [models/models.ts:166](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L166)
 
 ***
 
@@ -140,7 +140,7 @@ Defined in: [models/models.ts:166](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value4**: `"4"`
 
-Defined in: [models/models.ts:167](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L167)
+Defined in: [models/models.ts:167](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L167)
 
 ***
 
@@ -148,7 +148,7 @@ Defined in: [models/models.ts:167](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value5**: `"5"`
 
-Defined in: [models/models.ts:168](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L168)
+Defined in: [models/models.ts:168](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L168)
 
 ***
 
@@ -156,7 +156,7 @@ Defined in: [models/models.ts:168](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value6**: `"6"`
 
-Defined in: [models/models.ts:169](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L169)
+Defined in: [models/models.ts:169](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L169)
 
 ***
 
@@ -164,7 +164,7 @@ Defined in: [models/models.ts:169](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value7**: `"7"`
 
-Defined in: [models/models.ts:170](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L170)
+Defined in: [models/models.ts:170](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L170)
 
 ***
 
@@ -172,7 +172,7 @@ Defined in: [models/models.ts:170](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value8**: `"8"`
 
-Defined in: [models/models.ts:171](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L171)
+Defined in: [models/models.ts:171](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L171)
 
 ***
 
@@ -180,4 +180,4 @@ Defined in: [models/models.ts:171](https://github.com/maksim-zakharov/alor-api/b
 
 > **Value9**: `"9"`
 
-Defined in: [models/models.ts:172](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L172)
+Defined in: [models/models.ts:172](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L172)

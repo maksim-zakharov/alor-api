@@ -1,6 +1,6 @@
 # Interface: BodyresponseOrderGroup
 
-Defined in: [models/models.ts:1204](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1204)
+Defined in: [models/models.ts:1204](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1204)
 
 ## Properties
 
@@ -8,7 +8,7 @@ Defined in: [models/models.ts:1204](https://github.com/maksim-zakharov/alor-api/
 
 > `optional` **GroupId**: `string`
 
-Defined in: [models/models.ts:1212](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1212)
+Defined in: [models/models.ts:1212](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1212)
 
 Идентификатор только что созданной группы
 
@@ -28,7 +28,7 @@ uuid
 
 > `optional` **Message**: `string`
 
-Defined in: [models/models.ts:1206](https://github.com/maksim-zakharov/alor-api/blob/2366d4aad57f13e7b71bc0e40ad61c8fec9472fb/src/models/models.ts#L1206)
+Defined in: [models/models.ts:1206](https://github.com/maksim-zakharov/alor-api/blob/3acf35a3fdcf16171aeb7102b1bcc4ea6b4c4ecb/src/models/models.ts#L1206)
 
 #### Example
 
