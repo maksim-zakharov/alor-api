@@ -2,3 +2,11 @@
 /dist
 /.idea
 .env
+
+# Docusaurus
+docs/node_modules
+docs/build
+docs/.docusaurus
+docs/.cache
+# TypeDoc output (generated on build)
+docs/docs/api

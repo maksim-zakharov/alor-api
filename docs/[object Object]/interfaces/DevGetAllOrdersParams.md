@@ -1,0 +1,47 @@
+# Interface: DevGetAllOrdersParams
+
+Defined in: [models/models.ts:6743](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6743)
+
+## Properties
+
+### exchange
+
+> **exchange**: `"MOEX"` \| `"SPBX"`
+
+Defined in: [models/models.ts:6754](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6754)
+
+Биржа:
+  * `MOEX` - Московская биржа
+  * `SPBX` - СПБ Биржа
+
+***
+
+### format?
+
+> `optional` **format**: `"Simple"` \| `"Slim"` \| `"Heavy"`
+
+Defined in: [models/models.ts:6748](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6748)
+
+Формат возвращаемого сервером JSON
+
+#### Example
+
+```ts
+"Simple"
+```
+
+***
+
+### portfolio
+
+> **portfolio**: `string`
+
+Defined in: [models/models.ts:6759](https://github.com/maksim-zakharov/alor-api/blob/b71ff6c0d3b30a7c4c2dab3a3847dc5d83419cf7/src/models/models.ts#L6759)
+
+Идентификатор клиентского портфеля
+
+#### Example
+
+```ts
+"D39004"
+```

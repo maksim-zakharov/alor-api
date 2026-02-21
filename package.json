@@ -13,7 +13,10 @@
     "postversion": "npm publish",
     "prepare": "husky install",
     "pre-commit": "lint-staged --diff=origin/master",
-    "generate-models": "sta -p https://alor.dev/rawdocs2/WarpOpenAPIv2.yml -o ./src/models -n models.ts --no-client -r --extract-request-body --extract-request-params"
+    "generate-models": "sta -p https://alor.dev/rawdocs2/WarpOpenAPIv2.yml -o ./src/models -n models.ts --no-client -r --extract-request-body --extract-request-params",
+    "docs:install": "cd docs && npm ci",
+    "docs:build": "cd docs && npm run build",
+    "docs:start": "cd docs && npm run start"
   },
   "repository": {
     "type": "git",

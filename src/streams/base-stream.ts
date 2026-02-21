@@ -20,7 +20,6 @@ export class BaseStream {
   private maxReconnectInterval = 5000;
 
   protected wss: WebSocket;
-  protected autoReconnectDelay = 0;
   subscriptions = new Set<MarketSubscription<any, any>>();
 
   private readonly refresh: any;
@@ -54,11 +53,6 @@ export class BaseStream {
 
   setMaxListeners(listeners: number) {
     this.wss.setMaxListeners(listeners);
-  }
-
-  protected async waitEvents() {
-    this.connected = true;
-    this.wss.emit("open");
   }
 
   /**
